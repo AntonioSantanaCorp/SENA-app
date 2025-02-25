@@ -11,6 +11,15 @@ export const routes: Routes = [
         path: 'area-admin',
         loadChildren: () => import('./modules/area-admin/area-admin.routes'),
       },
+      {
+        path: 'athlete',
+        loadChildren: () => import('./modules/athletes/athletes.routes'),
+      },
+      {
+        path: 'trainer',
+        loadChildren: () => import('./modules/trainers/trainers.routes'),
+      },
     ],
   },
+  { path: '**', redirectTo: 'auth/login' },
 ];

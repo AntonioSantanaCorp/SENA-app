@@ -1,0 +1,19 @@
+nav a,
+.nav-link.show,
+.toggle-icon {
+  color: white;
+}
+
+.nav-link.active {
+  background-color: var(--bs-primary-bg-subtle);
+  color: var(--bs-primary) !important;
+  border-radius: 5px;
+}
+
+.dropdown-item {
+  color: var(--bs-primary) !important;
+}
+
+.dropdown-item:active {
+  color: white !important;
+}
