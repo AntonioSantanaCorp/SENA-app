@@ -3,7 +3,8 @@ export const AppRoutes = {
   AthleteList: 'athlete/list',
   AthleteEdit: 'athlete/edit',
   AthleteCreate: 'athlete/create',
-  TrainerList: 'trainer/users-list',
-  TrainerDetails: 'trainer/user-details',
+  TrainerList: 'trainer/list',
+  TrainerEdit: 'trainer/edit',
+  TrainerCreate: 'trainer/create',
   AdminArea: 'area-admin',
 } as const;
