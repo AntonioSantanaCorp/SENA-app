@@ -12,12 +12,12 @@ export default [
       {
         path: 'edit',
         loadComponent: () =>
-          import('./pages/athlete-details/athlete-details.component'),
+          import('./pages/athlete-edit/athlete-edit.component'),
       },
       {
         path: 'create',
         loadComponent: () =>
-          import('./pages/athlete-details/athlete-details.component'),
+          import('./pages/athlete-create/athlete-create.component'),
       },
     ],
   },

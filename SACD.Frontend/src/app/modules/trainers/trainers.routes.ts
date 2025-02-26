@@ -12,7 +12,12 @@ export default [
       {
         path: 'create',
         loadComponent: () =>
-          import('./pages/trainer-details/trainer-details.component'),
+          import('./pages/trainer-create/trainer-create.component'),
+      },
+      {
+        path: 'edit',
+        loadComponent: () =>
+          import('./pages/trainer-edit/trainer-edit.component'),
       },
     ],
   },

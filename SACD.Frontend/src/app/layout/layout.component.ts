@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { AppRoutes } from '../core/app-config';
+import { AppRoutes } from '../core/constants/app-routes.constant';
 import { MenuListComponent } from './components/menu-list/menu-list.component';
 import { MenuItemDirective } from './directives/menu-item.directive';
 import { MenuSectionDirective } from './directives/menu-section.directive';

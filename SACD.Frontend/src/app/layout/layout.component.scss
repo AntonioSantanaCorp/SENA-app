@@ -1,7 +1,22 @@
+:host {
+  height: 100vh;
+  display: block;
+}
+
 nav a,
-.nav-link,.nav-link.show,
+.nav-link,
+.nav-link.show,
 .toggle-icon {
   color: white;
+}
+
+main {
+  display: grid;
+  width: calc(100% - 50px);
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 15px 20px;
+  gap: 25px;
 }
 
 .nav-link.active {
