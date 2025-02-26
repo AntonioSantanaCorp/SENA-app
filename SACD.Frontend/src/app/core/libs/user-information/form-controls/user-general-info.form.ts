@@ -11,12 +11,16 @@ export function createUserGeneralInfoForm() {
     fechaNacimiento: ['', Validators.required],
     tipoRH: ['', Validators.required],
     genero: ['', Validators.required],
-    peso: [0],
+    peso: [50],
     altura: [0],
-    correo: ['', Validators.required],
+    correo: ['', [Validators.required, Validators.email]],
     telefono: ['', Validators.required],
     tallaCamisa: ['S'],
-    tallaCalzado: [0],
-    tallaPantalon: [0],
+    tallaCalzado: [38],
+    tallaPantalon: [32],
   });
 }
+
+export type UserGeneralInfoFormModel = ReturnType<
+  typeof createUserGeneralInfoForm
+>;

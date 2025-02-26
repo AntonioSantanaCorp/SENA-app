@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { HeaderTitleComponent } from '../../../../layout/components/header-title/header-title.component';
 import { UserGeneralInfoComponent } from '../../../../core/libs/user-information/components/user-general-info/user-general-info.component';
+import { HeaderTitleComponent } from '../../../../layout/components/header-title/header-title.component';
+import { AtheleFormModel } from '../../models/athele-form.model';
 
 @Component({
   selector: 'app-athlete-create',
@@ -11,4 +12,6 @@ import { UserGeneralInfoComponent } from '../../../../core/libs/user-information
   styleUrl: './athlete-create.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class AthleteCreateComponent {}
+export default class AthleteCreateComponent {
+  protected userForm?: AtheleFormModel;
+}

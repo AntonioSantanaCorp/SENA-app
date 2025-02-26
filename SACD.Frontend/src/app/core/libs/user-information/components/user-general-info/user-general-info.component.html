@@ -46,10 +46,11 @@
       *ngTemplateOutlet="errorMessage; context: { $implicit: 'tipoDocumento' }"
     />
   </section>
+
   <section>
     <label class="form-label" for="fechaNacimiento"> Fecha nacimiento * </label>
     <input
-      placeholder="Ingrese apellidos"
+      placeholder="Ingrese fecha de nacimiento"
       class="form-control"
       type="date"
       id="fechaNacimiento"
@@ -63,11 +64,163 @@
       "
     />
   </section>
+
+  <section>
+    <label class="form-label" for="tipoRH"> Tipo de RH *</label>
+    <select
+      id="tipoRH"
+      class="form-select"
+      appControlForm
+      formControlName="tipoRH"
+    >
+      <option selected disabled value="">Ingrese RH</option>
+      @for (rhType of rhTypes; track rhType) {
+      <option [value]="rhType">{{ rhType }}</option>
+      }
+    </select>
+    <ng-container
+      *ngTemplateOutlet="errorMessage; context: { $implicit: 'tipoRH' }"
+    />
+  </section>
+
+  <section>
+    <label class="form-label" for="genero"> Genero *</label>
+    <select
+      id="genero"
+      class="form-select"
+      appControlForm
+      formControlName="genero"
+    >
+      <option selected disabled value="">Ingrese Genero</option>
+      @for (gender of genders; track gender.value) {
+      <option [value]="gender.value">{{ gender.label }}</option>
+      }
+    </select>
+    <ng-container
+      *ngTemplateOutlet="errorMessage; context: { $implicit: 'genero' }"
+    />
+  </section>
+
+  <section>
+    <label class="form-label" for="peso"> Peso (Kg) </label>
+    <input
+      placeholder="Ingrese peso"
+      class="form-control"
+      type="number"
+      id="peso"
+      name="peso"
+      pattern="^[0-9]*$"
+      appControlForm
+      formControlName="peso"
+    />
+    <ng-container
+      *ngTemplateOutlet="errorMessage; context: { $implicit: 'peso' }"
+    />
+  </section>
+
+  <section>
+    <label class="form-label" for="altura">Altura </label>
+    <input
+      placeholder="Ingrese altura"
+      class="form-control"
+      type="number"
+      id="altura"
+      name="altura"
+      pattern="^[0-9]*$"
+      appControlForm
+      formControlName="altura"
+    />
+    <ng-container
+      *ngTemplateOutlet="errorMessage; context: { $implicit: 'peso' }"
+    />
+  </section>
+
+  <section>
+    <label class="form-label" for="correo"> Correo* </label>
+    <input
+      placeholder="Ingrese correo"
+      class="form-control"
+      type="email"
+      id="correo"
+      name="correo"
+      appControlForm
+      formControlName="correo"
+    />
+    <ng-container
+      *ngTemplateOutlet="errorMessage; context: { $implicit: 'correo' }"
+    />
+  </section>
+
+  <section>
+    <label class="form-label" for="telefono"> Numero telefono* </label>
+    <input
+      placeholder="Ingrese telefono"
+      class="form-control"
+      type="text"
+      id="telefono"
+      appControlForm
+      formControlName="telefono"
+    />
+    <ng-container
+      *ngTemplateOutlet="errorMessage; context: { $implicit: 'telefono' }"
+    />
+  </section>
+
+  <section>
+    <label class="form-label" for="tallaCamisa">Talla camisa</label>
+    <select
+      id="tallaCamisa"
+      class="form-select"
+      appControlForm
+      formControlName="tallaCamisa"
+    >
+      <option selected disabled value="">Seleccione talla</option>
+      @for (shirtSize of shirtsSizes; track shirtSize) {
+      <option [value]="shirtSize">{{ shirtSize }}</option>
+      }
+    </select>
+    <ng-container
+      *ngTemplateOutlet="errorMessage; context: { $implicit: 'tallaCamisa' }"
+    />
+  </section>
+
+  <section>
+    <label class="form-label" for="tallaCalzado"> Talla de calzado </label>
+    <input
+      placeholder="Ingrese talla calzado"
+      class="form-control"
+      type="number"
+      id="tallaCalzado"
+      pattern="^[0-9]*$"
+      appControlForm
+      formControlName="tallaCalzado"
+    />
+  </section>
+
+  <section>
+    <label class="form-label" for="tallaPantalon"> Talla de pantaloneta </label>
+    <input
+      placeholder="Ingrese talla pantaloneta"
+      class="form-control"
+      type="number"
+      id="tallaPantalon"
+      pattern="^[0-9]*$"
+      appControlForm
+      formControlName="tallaPantalon"
+    />
+  </section>
+  <ng-container
+    *ngTemplateOutlet="errorMessage; context: { $implicit: 'tallaPantalon' }"
+  />
 </ng-container>
 
 <ng-template #errorMessage let-control>
-  @if ( form.get(control)?.invalid && (form.get(control)?.touched ||
+  @if (form.get(control)?.invalid && (form.get(control)?.touched ||
   form.get(control)?.dirty)) {
-  <div class="is-invalid invalid-feedback">This field is required</div>
+
+  <div class="is-invalid invalid-feedback">
+    Este campo es requerido o el valor no es valido
+  </div>
+
   }
 </ng-template>
