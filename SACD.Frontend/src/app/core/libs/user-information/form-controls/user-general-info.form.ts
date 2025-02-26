@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
-export function createGeneralInfoForm() {
+export function createUserGeneralInfoForm() {
   const formBuilder = inject(FormBuilder);
 
   return formBuilder.nonNullable.group({

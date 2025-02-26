@@ -1,0 +1,73 @@
+<ng-container [formGroup]="form">
+  <section>
+    <label class="form-label" for="nombres"> Nombres *</label>
+    <input
+      placeholder="Ingrese nombres"
+      class="form-control"
+      type="text"
+      id="nombres"
+      appControlForm
+      formControlName="nombres"
+    />
+    <ng-container
+      *ngTemplateOutlet="errorMessage; context: { $implicit: 'nombres' }"
+    />
+  </section>
+
+  <section>
+    <label class="form-label" for="apellidos"> Apellidos *</label>
+    <input
+      placeholder="Ingrese apellidos"
+      class="form-control"
+      type="text"
+      id="apellidos"
+      appControlForm
+      formControlName="apellidos"
+    />
+    <ng-container
+      *ngTemplateOutlet="errorMessage; context: { $implicit: 'apellidos' }"
+    />
+  </section>
+
+  <section>
+    <label class="form-label" for="tipoDocumento"> Tipo documento *</label>
+    <select
+      id="tipoDocumento"
+      class="form-select"
+      appControlForm
+      formControlName="tipoDocumento"
+    >
+      <option selected disabled value="">Ingrese numero documento</option>
+      @for (document of documentsTypes; track $index) {
+      <option [value]="document.value">{{ document.label }}</option>
+      }
+    </select>
+    <ng-container
+      *ngTemplateOutlet="errorMessage; context: { $implicit: 'tipoDocumento' }"
+    />
+  </section>
+  <section>
+    <label class="form-label" for="fechaNacimiento"> Fecha nacimiento * </label>
+    <input
+      placeholder="Ingrese apellidos"
+      class="form-control"
+      type="date"
+      id="fechaNacimiento"
+      appControlForm
+      formControlName="fechaNacimiento"
+    />
+    <ng-container
+      *ngTemplateOutlet="
+        errorMessage;
+        context: { $implicit: 'fechaNacimiento' }
+      "
+    />
+  </section>
+</ng-container>
+
+<ng-template #errorMessage let-control>
+  @if ( form.get(control)?.invalid && (form.get(control)?.touched ||
+  form.get(control)?.dirty)) {
+  <div class="is-invalid invalid-feedback">This field is required</div>
+  }
+</ng-template>

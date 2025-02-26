@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { HeaderTitleComponent } from '../../../../layout/components/header-title/header-title.component';
+import { UserGeneralInfoComponent } from '../../../../core/libs/user-information/components/user-general-info/user-general-info.component';
 
 @Component({
   selector: 'app-athlete-create',
   standalone: true,
   host: { class: 'page' },
-  imports: [HeaderTitleComponent],
+  imports: [HeaderTitleComponent, UserGeneralInfoComponent],
   templateUrl: './athlete-create.component.html',
   styleUrl: './athlete-create.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
