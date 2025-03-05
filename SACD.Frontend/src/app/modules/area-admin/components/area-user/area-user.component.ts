@@ -1,11 +1,23 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'app-area-user',
   standalone: true,
+  host: { class: 'card col-xl-3 col-md-5 col-sm-12' },
   imports: [],
   templateUrl: './area-user.component.html',
   styleUrl: './area-user.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AreaUserComponent {}
+export class AreaUserComponent {
+  @Input() title: string = '';
+
+  // avisarle al componente padre que se actualizo
+  @Output() onUpdate = new EventEmitter<any>();
+}

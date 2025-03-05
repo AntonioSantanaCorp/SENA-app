@@ -1,0 +1,55 @@
+<div class="card-body">
+    <!-- mostrar los inputs como solo lectura si no se esta editando -->
+  <section class="card-title mb-3">
+    <div class="d-flex gap-1 mb-2 text-primary fw-bold">
+      <span class="material-symbols-outlined"> assignment_ind </span>
+      <span> {{ title }} </span>
+    </div>
+    <div class="divider col"></div>
+  </section>
+  <section>
+    <div class="mb-3">
+      <label class="form-label text-primary d-flex" for="nombres">
+        <span class="material-symbols-outlined">check</span>
+        <span> Asociado encargado </span>
+      </label>
+      <div class="input-group">
+        <input
+          placeholder="Seleccione asociado"
+          class="form-control"
+          type="text"
+          id="nombres"
+        />
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label text-primary d-flex" for="nombres">
+        <span class="material-symbols-outlined">check</span>
+        <span>Fecha inicio cargo </span>
+      </label>
+      <div class="input-group">
+        <input
+          placeholder="Seleccione asociado"
+          class="form-control"
+          type="date"
+          id="nombres"
+        />
+      </div>
+    </div>
+
+    <div>
+      <label class="form-label text-primary d-flex" for="nombres">
+        <span class="material-symbols-outlined">check</span>
+        <span>Descripcion </span>
+      </label>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua
+      </p>
+    </div>
+  </section>
+  <button type="button" class="btn btn-outline-primary me-3">Editar</button>
+  <!-- Mostrar solo este boton si se esta editando -->
+  <button type="button" class="btn btn-outline-primary">Guardar</button>
+</div>
