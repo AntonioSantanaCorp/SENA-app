@@ -16,8 +16,8 @@ export function createUserGeneralInfoForm() {
     correo: ['', [Validators.required, Validators.email]],
     telefono: ['', Validators.required],
     tallaCamisa: ['S'],
-    tallaCalzado: [38],
-    tallaPantalon: [32],
+    tallaCalzado: [38, [Validators.pattern('^[0-9]+$')]],
+    tallaPantalon: [32, [Validators.pattern('^[0-9]+$')]],
   });
 }
 
