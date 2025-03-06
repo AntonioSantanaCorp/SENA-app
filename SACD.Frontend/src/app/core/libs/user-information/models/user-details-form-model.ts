@@ -1,7 +1,9 @@
-import { AddressInfoFormModel } from '../form-controls/address-info.form';
-import { UserGeneralInfoFormModel } from '../form-controls/user-general-info.form';
+import { AddressInfoForm } from '../form-controls/address-info.form';
+import { TutorInfoForm } from '../form-controls/tutor-info.form';
+import { UserGeneralInfoForm } from '../form-controls/user-general-info.form';
 
 export type UserDetailsFormModel = {
-  generalInfo?: UserGeneralInfoFormModel;
-  addressInfo?: AddressInfoFormModel;
+  generalInfo?: UserGeneralInfoForm;
+  addressInfo?: AddressInfoForm;
+  tutorInfo?: TutorInfoForm;
 };

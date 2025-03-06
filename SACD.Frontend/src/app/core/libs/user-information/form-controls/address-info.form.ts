@@ -11,4 +11,4 @@ export function createAddressInfoForm() {
   });
 }
 
-export type AddressInfoFormModel = ReturnType<typeof createAddressInfoForm>;
+export type AddressInfoForm = ReturnType<typeof createAddressInfoForm>;

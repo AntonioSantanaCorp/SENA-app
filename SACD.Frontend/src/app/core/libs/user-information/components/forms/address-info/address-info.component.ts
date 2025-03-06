@@ -6,11 +6,10 @@ import {
 import { ReactiveFormsModule } from '@angular/forms';
 import { ControlInputComponent } from '../../../../control-field/components/control-input/control-input.component';
 import {
-  AddressInfoFormModel,
+  AddressInfoForm,
   createAddressInfoForm,
 } from '../../../form-controls/address-info.form';
-import { UserInfoComponent } from '../../../models/user-info-component.model';
-import { UserGeneralInfoComponent } from '../user-general-info/user-general-info.component';
+import { FormComponent } from '../../../directives/form-component.directive';
 
 @Component({
   selector: 'app-address-info',
@@ -18,14 +17,14 @@ import { UserGeneralInfoComponent } from '../user-general-info/user-general-info
   host: { class: 'form-section' },
   imports: [ReactiveFormsModule, ControlInputComponent],
   providers: [
-    { provide: UserInfoComponent, useExisting: UserGeneralInfoComponent },
+    { provide: FormComponent, useExisting: AddressInfoComponent },
   ],
   templateUrl: './address-info.component.html',
   styleUrl: './address-info.component.scss',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AddressInfoComponent extends UserInfoComponent<AddressInfoFormModel> {
+export class AddressInfoComponent extends FormComponent<AddressInfoForm> {
   public override readonly type = 'addressInfo';
 
   public readonly form = createAddressInfoForm();

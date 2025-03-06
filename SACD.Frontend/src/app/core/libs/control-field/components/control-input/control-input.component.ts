@@ -1,7 +1,6 @@
 import {
   afterNextRender,
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   contentChild,
   DestroyRef,
@@ -36,8 +35,7 @@ export class ControlInputComponent {
   constructor(
     private readonly _renderer: Renderer2,
     private readonly _elemRef: ElementRef,
-    private readonly _destroyRef: DestroyRef,
-    private readonly _cdRef: ChangeDetectorRef
+    private readonly _destroyRef: DestroyRef
   ) {
     afterNextRender(() => {
       this.setLabelConfig();
@@ -47,6 +45,11 @@ export class ControlInputComponent {
         ?.control?.statusChanges.pipe(takeUntilDestroyed(this._destroyRef))
         .subscribe(() => this.setStatusClass());
     });
+  }
+
+  public markAsTouched(): void {
+    this._ngControl()?.control?.markAsTouched();
+    this.setStatusClass();
   }
 
   private setLabelConfig(): void {
@@ -81,7 +84,7 @@ export class ControlInputComponent {
 
   private setStatusClass(): void {
     const control = this._ngControl()?.control;
-    
+
     const isValid = Boolean(
       control?.valid && (control?.touched || control?.dirty)
     );

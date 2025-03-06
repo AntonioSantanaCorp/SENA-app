@@ -8,6 +8,10 @@ export function createUserGeneralInfoForm() {
     nombres: ['', Validators.required],
     apellidos: ['', Validators.required],
     tipoDocumento: ['', Validators.required],
+    numeroDocumento: [
+      '',
+      [Validators.required, Validators.pattern('^[0-9]+$')],
+    ],
     fechaNacimiento: ['', Validators.required],
     tipoRH: ['', Validators.required],
     genero: ['', Validators.required],
@@ -21,6 +25,4 @@ export function createUserGeneralInfoForm() {
   });
 }
 
-export type UserGeneralInfoFormModel = ReturnType<
-  typeof createUserGeneralInfoForm
->;
+export type UserGeneralInfoForm = ReturnType<typeof createUserGeneralInfoForm>;

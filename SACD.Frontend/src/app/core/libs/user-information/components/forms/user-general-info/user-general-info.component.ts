@@ -9,11 +9,11 @@ import { GENDERS } from '../../../../../constants/gender.constant';
 import { RH_TYPES } from '../../../../../constants/rh-type.constant';
 import { SHIRT_SIZES } from '../../../../../constants/shirt-size.constant';
 import { ControlInputComponent } from '../../../../control-field/components/control-input/control-input.component';
+import { FormComponent } from '../../../directives/form-component.directive';
 import {
   createUserGeneralInfoForm,
-  UserGeneralInfoFormModel,
+  UserGeneralInfoForm,
 } from '../../../form-controls/user-general-info.form';
-import { UserInfoComponent } from '../../../models/user-info-component.model';
 
 @Component({
   selector: 'app-user-general-info',
@@ -21,14 +21,14 @@ import { UserInfoComponent } from '../../../models/user-info-component.model';
   host: { class: 'form-section' },
   imports: [ReactiveFormsModule, ControlInputComponent],
   providers: [
-    { provide: UserInfoComponent, useExisting: UserGeneralInfoComponent },
+    { provide: FormComponent, useExisting: UserGeneralInfoComponent },
   ],
   templateUrl: './user-general-info.component.html',
   styleUrl: './user-general-info.component.scss',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UserGeneralInfoComponent extends UserInfoComponent<UserGeneralInfoFormModel> {
+export class UserGeneralInfoComponent extends FormComponent<UserGeneralInfoForm> {
   protected readonly documentsTypes = DOCUMENTS_TYPES;
 
   protected readonly rhTypes = RH_TYPES;

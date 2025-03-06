@@ -27,11 +27,21 @@
     </select>
   </app-control-input>
 
+  <app-control-input attrFor="numeroDocumento">
+    <label>Ingrese numero documento *</label>
+    <input
+      type="number"
+      pattern="^[0-9]*$"
+      placeholder="Ingrese numero documento "
+      formControlName="numeroDocumento"
+    />
+  </app-control-input>
+
   <app-control-input attrFor="fechaNacimiento">
     <label> Fecha nacimiento * </label>
     <input
       placeholder="Ingrese fecha de nacimiento"
-      type="text"
+      type="date"
       formControlName="fechaNacimiento"
     />
   </app-control-input>
