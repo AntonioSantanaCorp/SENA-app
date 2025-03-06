@@ -1,7 +1,10 @@
 import { FormGroup } from '@angular/forms';
+import { UserDetailsFormModel } from './user-details-form-model';
 
 export abstract class UserInfoComponent<T extends FormGroup> {
   public abstract readonly form: T;
+
+  public abstract readonly type: keyof UserDetailsFormModel
 
   public get value(): ReturnType<T['getRawValue']> {
     return this.form.getRawValue();

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { HeaderTitleComponent } from '../../../../layout/components/header-title/header-title.component';
+import { HeaderTitleComponent } from '@core/libs/titles';
 
 @Component({
   selector: 'app-athletes-list',

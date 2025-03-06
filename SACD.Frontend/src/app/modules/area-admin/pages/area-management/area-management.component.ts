@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { HeaderTitleComponent } from '../../../../layout/components/header-title/header-title.component';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { HeaderTitleComponent } from '@core/libs/titles';
 import { AreaUserComponent } from '../../components/area-user/area-user.component';
 
 @Component({

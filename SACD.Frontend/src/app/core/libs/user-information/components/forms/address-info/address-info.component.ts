@@ -4,22 +4,29 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ControlInputComponent } from '../../../control-field/components/control-input/control-input.component';
+import { ControlInputComponent } from '../../../../control-field/components/control-input/control-input.component';
 import {
   AddressInfoFormModel,
   createAddressInfoForm,
-} from '../../form-controls/address-info.form';
-import { UserInfoComponent } from '../../models/user-info-component.model';
+} from '../../../form-controls/address-info.form';
+import { UserInfoComponent } from '../../../models/user-info-component.model';
+import { UserGeneralInfoComponent } from '../user-general-info/user-general-info.component';
 
 @Component({
   selector: 'app-address-info',
   standalone: true,
+  host: { class: 'form-section' },
   imports: [ReactiveFormsModule, ControlInputComponent],
+  providers: [
+    { provide: UserInfoComponent, useExisting: UserGeneralInfoComponent },
+  ],
   templateUrl: './address-info.component.html',
   styleUrl: './address-info.component.scss',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddressInfoComponent extends UserInfoComponent<AddressInfoFormModel> {
+  public override readonly type = 'addressInfo';
+
   public readonly form = createAddressInfoForm();
 }

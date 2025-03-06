@@ -4,22 +4,25 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DOCUMENTS_TYPES } from '../../../../constants/document-type.constant';
-import { GENDERS } from '../../../../constants/gender.constant';
-import { RH_TYPES } from '../../../../constants/rh-type.constant';
-import { SHIRT_SIZES } from '../../../../constants/shirt-size.constant';
-import { ControlInputComponent } from '../../../control-field/components/control-input/control-input.component';
+import { DOCUMENTS_TYPES } from '../../../../../constants/document-type.constant';
+import { GENDERS } from '../../../../../constants/gender.constant';
+import { RH_TYPES } from '../../../../../constants/rh-type.constant';
+import { SHIRT_SIZES } from '../../../../../constants/shirt-size.constant';
+import { ControlInputComponent } from '../../../../control-field/components/control-input/control-input.component';
 import {
   createUserGeneralInfoForm,
   UserGeneralInfoFormModel,
-} from '../../form-controls/user-general-info.form';
-import { UserInfoComponent } from '../../models/user-info-component.model';
+} from '../../../form-controls/user-general-info.form';
+import { UserInfoComponent } from '../../../models/user-info-component.model';
 
 @Component({
   selector: 'app-user-general-info',
   standalone: true,
   host: { class: 'form-section' },
   imports: [ReactiveFormsModule, ControlInputComponent],
+  providers: [
+    { provide: UserInfoComponent, useExisting: UserGeneralInfoComponent },
+  ],
   templateUrl: './user-general-info.component.html',
   styleUrl: './user-general-info.component.scss',
   encapsulation: ViewEncapsulation.None,
@@ -33,6 +36,8 @@ export class UserGeneralInfoComponent extends UserInfoComponent<UserGeneralInfoF
   protected readonly shirtsSizes = SHIRT_SIZES;
 
   protected readonly genders = GENDERS;
+
+  public override readonly type = 'generalInfo';
 
   public override readonly form = createUserGeneralInfoForm();
 }
