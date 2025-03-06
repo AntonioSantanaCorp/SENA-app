@@ -10,7 +10,7 @@ import {
   TutorInfoComponent,
   UserDetailsFormComponent,
   UserGeneralInfoComponent,
-} from '@core/libs/user-information';
+} from '@core/libs/forms-information';
 
 @Component({
   selector: 'app-athlete-create',
