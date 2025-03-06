@@ -18,7 +18,7 @@ export function createUserGeneralInfoForm() {
     peso: [50, [Validators.required, Validators.pattern(/^\d+(\.\d+)?$/)]],
     altura: [1.4, [Validators.required, Validators.pattern(/^\d+(\.\d+)?$/)]],
     correo: ['', [Validators.required, Validators.email]],
-    telefono: ['', Validators.required],
+    telefono: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
     tallaCamisa: ['S'],
     tallaCalzado: [38, [Validators.required, Validators.pattern('^[0-9]+$')]],
     tallaPantalon: [32, [Validators.required, Validators.pattern('^[0-9]+$')]],
