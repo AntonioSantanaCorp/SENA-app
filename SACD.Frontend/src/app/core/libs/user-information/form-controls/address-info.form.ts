@@ -1,5 +1,5 @@
 import { inject } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 
 export function createAddressInfoForm() {
   const formBuilder = inject(FormBuilder);
@@ -11,4 +11,6 @@ export function createAddressInfoForm() {
   });
 }
 
-export type AddressInfoForm = ReturnType<typeof createAddressInfoForm>;
+export type AddressInfoForm = ReturnType<
+  typeof createAddressInfoForm & { [key: string]: AbstractControl }
+>;

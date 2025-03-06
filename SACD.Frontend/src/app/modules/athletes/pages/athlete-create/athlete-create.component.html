@@ -10,12 +10,17 @@
 
 <section>
   <app-header-subtitle> Informacion general </app-header-subtitle>
-  <app-user-general-info></app-user-general-info>
+  <app-user-general-info>
+    <app-control-input attrFor="tests">
+      <label>Direccion residencia *</label>
+      <input placeholder="Ingrese direccion" type="text" [formControl]="test" />
+    </app-control-input>
+  </app-user-general-info>
 </section>
 
 <section>
   <app-header-subtitle> Informacion residencia </app-header-subtitle>
-  <app-address-info></app-address-info>
+  <app-address-info> </app-address-info>
 </section>
 
 <section>
@@ -25,5 +30,5 @@
 
 <footer class="d-flex gap-2 justify-content-end">
   <button class="btn btn-outline-danger">Cancelar</button>
-  <button class="btn btn-primary">Crear deportista</button>
+  <button class="btn btn-primary" (click)="create()">Crear deportista</button>
 </footer>

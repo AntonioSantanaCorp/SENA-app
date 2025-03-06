@@ -1,5 +1,5 @@
 import { inject } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 
 export function createUserGeneralInfoForm() {
   const formBuilder = inject(FormBuilder);
@@ -25,4 +25,8 @@ export function createUserGeneralInfoForm() {
   });
 }
 
-export type UserGeneralInfoForm = ReturnType<typeof createUserGeneralInfoForm>;
+
+//Could be added new controls using the content projection
+export type UserGeneralInfoForm = ReturnType<
+  typeof createUserGeneralInfoForm & { [key: string]: AbstractControl }
+>;

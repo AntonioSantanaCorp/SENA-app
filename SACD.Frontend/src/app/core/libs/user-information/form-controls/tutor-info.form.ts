@@ -1,5 +1,5 @@
 import { inject } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 
 export function createTutorInfoForm() {
   const formBuilder = inject(FormBuilder);
@@ -16,4 +16,6 @@ export function createTutorInfoForm() {
   });
 }
 
-export type TutorInfoForm = ReturnType<typeof createTutorInfoForm>;
+export type TutorInfoForm = ReturnType<
+  typeof createTutorInfoForm & { [key: string]: AbstractControl }
+>;

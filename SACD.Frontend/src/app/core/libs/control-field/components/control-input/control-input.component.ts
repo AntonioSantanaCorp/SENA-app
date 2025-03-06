@@ -20,11 +20,11 @@ import { NgControl } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ControlInputComponent {
-  private readonly _ngControl = contentChild(NgControl);
-
   private _label: HTMLLabelElement | null = null;
 
   private _field: HTMLInputElement | HTMLSelectElement | null = null;
+
+  public readonly ngControl = contentChild(NgControl);
 
   public readonly attrFor = input.required<string>();
 
@@ -41,14 +41,14 @@ export class ControlInputComponent {
       this.setLabelConfig();
       this.setFieldConfig();
 
-      this._ngControl()
+      this.ngControl()
         ?.control?.statusChanges.pipe(takeUntilDestroyed(this._destroyRef))
         .subscribe(() => this.setStatusClass());
     });
   }
 
   public markAsTouched(): void {
-    this._ngControl()?.control?.markAsTouched();
+    this.ngControl()?.control?.markAsTouched();
     this.setStatusClass();
   }
 
@@ -83,7 +83,7 @@ export class ControlInputComponent {
   }
 
   private setStatusClass(): void {
-    const control = this._ngControl()?.control;
+    const control = this.ngControl()?.control;
 
     const isValid = Boolean(
       control?.valid && (control?.touched || control?.dirty)
