@@ -10,3 +10,5 @@ export function createAddressInfoForm() {
     direccion: ['', Validators.required],
   });
 }
+
+export type AddressInfoFormModel = ReturnType<typeof createAddressInfoForm>;

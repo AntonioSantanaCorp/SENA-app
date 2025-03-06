@@ -3,6 +3,11 @@ import {
   Component,
   ViewEncapsulation,
 } from '@angular/core';
+import {
+  AddressInfoFormModel,
+  createAddressInfoForm,
+} from '../../form-controls/address-info.form';
+import { UserInfoComponent } from '../../models/user-info-component.model';
 
 @Component({
   selector: 'app-address-info',
@@ -13,4 +18,6 @@ import {
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AddressInfoComponent {}
+export class AddressInfoComponent extends UserInfoComponent<AddressInfoFormModel> {
+  public readonly form = createAddressInfoForm();
+}

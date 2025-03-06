@@ -1,51 +1,31 @@
 <ng-container [formGroup]="form">
-  <section>
-    <label class="form-label" for="nombres"> Nombres *</label>
+  <app-control-input attrFor="nombres">
+    <label> Nombres *</label>
     <input
       placeholder="Ingrese nombres"
-      class="form-control"
       type="text"
-      id="nombres"
-      appControlForm
       formControlName="nombres"
     />
-    <ng-container
-      *ngTemplateOutlet="errorMessage; context: { $implicit: 'nombres' }"
-    />
-  </section>
+  </app-control-input>
 
-  <section>
-    <label class="form-label" for="apellidos"> Apellidos *</label>
+  <app-control-input attrFor="apellidos">
+    <label>Apellidos *</label>
     <input
       placeholder="Ingrese apellidos"
-      class="form-control"
       type="text"
-      id="apellidos"
-      appControlForm
       formControlName="apellidos"
     />
-    <ng-container
-      *ngTemplateOutlet="errorMessage; context: { $implicit: 'apellidos' }"
-    />
-  </section>
+  </app-control-input>
 
-  <section>
-    <label class="form-label" for="tipoDocumento"> Tipo documento *</label>
-    <select
-      id="tipoDocumento"
-      class="form-select"
-      appControlForm
-      formControlName="tipoDocumento"
-    >
+  <app-control-input attrFor="tipoDocumento">
+    <label> Tipo documento *</label>
+    <select formControlName="tipoDocumento">
       <option selected disabled value="">Ingrese numero documento</option>
       @for (document of documentsTypes; track $index) {
       <option [value]="document.value">{{ document.label }}</option>
       }
     </select>
-    <ng-container
-      *ngTemplateOutlet="errorMessage; context: { $implicit: 'tipoDocumento' }"
-    />
-  </section>
+  </app-control-input>
 
   <section>
     <label class="form-label" for="fechaNacimiento"> Fecha nacimiento * </label>
@@ -109,7 +89,7 @@
       type="number"
       id="peso"
       name="peso"
-      pattern="^[0-9]*$"
+      pattern="^\d+(\.\d+)?$"
       appControlForm
       formControlName="peso"
     />
@@ -119,19 +99,19 @@
   </section>
 
   <section>
-    <label class="form-label" for="altura">Altura </label>
+    <label class="form-label" for="altura">Altura (mts) </label>
     <input
       placeholder="Ingrese altura"
       class="form-control"
       type="number"
       id="altura"
       name="altura"
-      pattern="^[0-9]*$"
+      pattern="^\d+(\.\d+)?$"
       appControlForm
       formControlName="altura"
     />
     <ng-container
-      *ngTemplateOutlet="errorMessage; context: { $implicit: 'peso' }"
+      *ngTemplateOutlet="errorMessage; context: { $implicit: 'altura' }"
     />
   </section>
 
@@ -195,6 +175,9 @@
       appControlForm
       formControlName="tallaCalzado"
     />
+    <ng-container
+      *ngTemplateOutlet="errorMessage; context: { $implicit: 'tallaCalzado' }"
+    />
   </section>
 
   <section>
@@ -208,10 +191,10 @@
       appControlForm
       formControlName="tallaPantalon"
     />
+    <ng-container
+      *ngTemplateOutlet="errorMessage; context: { $implicit: 'tallaPantalon' }"
+    />
   </section>
-  <ng-container
-    *ngTemplateOutlet="errorMessage; context: { $implicit: 'tallaPantalon' }"
-  />
 </ng-container>
 
 <ng-template #errorMessage let-control>
