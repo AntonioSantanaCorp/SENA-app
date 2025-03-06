@@ -1,6 +1,7 @@
 import {
   afterNextRender,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   contentChild,
   DestroyRef,
@@ -35,7 +36,8 @@ export class ControlInputComponent {
   constructor(
     private readonly _renderer: Renderer2,
     private readonly _elemRef: ElementRef,
-    private readonly _destroyRef: DestroyRef
+    private readonly _destroyRef: DestroyRef,
+    private readonly _cdRef: ChangeDetectorRef
   ) {
     afterNextRender(() => {
       this.setLabelConfig();
@@ -59,20 +61,27 @@ export class ControlInputComponent {
   private setFieldConfig(): void {
     this._field = this.nativeElement.querySelector('input,select');
 
-    if (!this._field) throw new Error('FieldO not found');
+    if (!this._field) throw new Error('Field not found');
 
-    this._renderer.addClass(this._field, 'form-control');
+    const controlClass =
+      this._field.nodeName === 'SELECT' ? 'form-select' : 'form-control';
+
+    this._renderer.addClass(this._field, controlClass);
     this._renderer.setAttribute(this._field, 'id', this.attrFor());
 
     //the field is a select control
     const { nodeName } = this._field!;
-    if (nodeName !== 'SELECT') return;
+    if (nodeName === 'SELECT')
+      this._renderer.listen(this._field, 'blur', () => this.setStatusClass());
 
-    this._renderer.listen(this._field, 'blur', () => this.setStatusClass());
+    if (nodeName === 'INPUT') {
+      this._renderer.setAttribute(this._field, 'autocomplete', 'off');
+    }
   }
 
   private setStatusClass(): void {
     const control = this._ngControl()?.control;
+    
     const isValid = Boolean(
       control?.valid && (control?.touched || control?.dirty)
     );
