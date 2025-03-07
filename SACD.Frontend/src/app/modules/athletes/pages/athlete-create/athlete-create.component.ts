@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ControlInputComponent } from '@libs/control-field';
 import {
   AddressInfoComponent,
   TutorInfoComponent,

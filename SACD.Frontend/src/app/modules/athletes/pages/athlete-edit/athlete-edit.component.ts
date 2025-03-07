@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ControlInputComponent } from '@libs/control-field';
 import {
   AddressInfoComponent,
   TutorInfoComponent,
@@ -11,13 +10,13 @@ import { HeaderSubtitleComponent, HeaderTitleComponent } from '@libs/titles';
 @Component({
   selector: 'app-athlete-edit',
   standalone: true,
+  host: { class: 'page' },
   imports: [
     HeaderTitleComponent,
     HeaderSubtitleComponent,
     UserGeneralInfoComponent,
     AddressInfoComponent,
     TutorInfoComponent,
-    ControlInputComponent,
     ReactiveFormsModule,
   ],
   templateUrl: './athlete-edit.component.html',
