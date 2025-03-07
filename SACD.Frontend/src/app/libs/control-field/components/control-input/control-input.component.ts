@@ -37,13 +37,15 @@ export class ControlInputComponent {
     private readonly _elemRef: ElementRef,
     private readonly _destroyRef: DestroyRef
   ) {
-    afterNextRender(() => {
-      this.setLabelConfig();
-      this.setFieldConfig();
+    afterNextRender({
+      read: () => {
+        this.setLabelConfig();
+        this.setFieldConfig();
 
-      this.ngControl()
-        ?.control?.statusChanges.pipe(takeUntilDestroyed(this._destroyRef))
-        .subscribe(() => this.setStatusClass());
+        this.ngControl()
+          ?.control?.statusChanges.pipe(takeUntilDestroyed(this._destroyRef))
+          .subscribe(() => this.setStatusClass());
+      },
     });
   }
 
