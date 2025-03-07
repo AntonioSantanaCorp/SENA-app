@@ -1,7 +1,7 @@
 import { contentChildren, Directive, viewChildren } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { FormGroup } from '@angular/forms';
-import { ControlInputComponent } from '@core/libs/control-field/components/control-input/control-input.component';
+import { ControlInputComponent } from '@libs/control-field/components/control-input/control-input.component';
 import { filter } from 'rxjs';
 import { UserDetailsFormModel } from '../models/user-details-form-model';
 

@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DOCUMENTS_TYPES } from '@core/constants/document-type.constant';
-import { ControlInputComponent } from '@core/libs/control-field/components/control-input/control-input.component';
+import { ControlInputComponent } from '@libs/control-field';
 import { FormComponent } from '../../../directives/form-component.directive';
 import {
   TutorInfoForm,

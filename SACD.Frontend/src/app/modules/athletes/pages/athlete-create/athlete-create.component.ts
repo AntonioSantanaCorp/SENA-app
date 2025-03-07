@@ -1,16 +1,13 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ControlInputComponent } from '@core/libs/control-field/components/control-input/control-input.component';
-import {
-  HeaderSubtitleComponent,
-  HeaderTitleComponent,
-} from '@core/libs/titles';
+import { ControlInputComponent } from '@libs/control-field';
 import {
   AddressInfoComponent,
   TutorInfoComponent,
   UserDetailsFormComponent,
   UserGeneralInfoComponent,
-} from '@core/libs/forms-information';
+} from '@libs/forms-information';
+import { HeaderSubtitleComponent, HeaderTitleComponent } from '@libs/titles';
 
 @Component({
   selector: 'app-athlete-create',
