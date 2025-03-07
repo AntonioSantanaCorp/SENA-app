@@ -19,7 +19,6 @@ import { HeaderSubtitleComponent, HeaderTitleComponent } from '@libs/titles';
     UserGeneralInfoComponent,
     AddressInfoComponent,
     TutorInfoComponent,
-    ControlInputComponent,
     ReactiveFormsModule,
   ],
   templateUrl: './athlete-create.component.html',
