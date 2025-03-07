@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { HeaderTitleComponent } from '@core/libs/titles';
+import { HeaderTitleComponent } from '@libs/titles';
 
 @Component({
   selector: 'app-trainer-create',
