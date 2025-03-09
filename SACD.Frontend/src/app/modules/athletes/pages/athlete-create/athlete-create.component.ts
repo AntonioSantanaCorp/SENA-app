@@ -26,7 +26,7 @@ import { HeaderSubtitleComponent, HeaderTitleComponent } from '@libs/titles';
 })
 export default class AthleteCreateComponent extends UserDetailsFormComponent {
   protected create(): void {
-    this.markAllAsTouched();
+    this.form.markAllAsTouched()
     console.log(this.form.value);
   }
 }

@@ -19,8 +19,4 @@ export abstract class UserDetailsFormComponent {
         components.forEach(({ type, form }) => this.form.setControl(type, form))
       );
   }
-
-  public markAllAsTouched(): void {
-    this._componentsForms().forEach((component) => component.markAsTouched());
-  }
 }

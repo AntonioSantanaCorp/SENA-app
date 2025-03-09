@@ -4,9 +4,11 @@ import {
   Component,
   contentChild,
   DestroyRef,
+  DoCheck,
   ElementRef,
   input,
   Renderer2,
+  viewChild,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NgControl } from '@angular/forms';
@@ -19,7 +21,11 @@ import { NgControl } from '@angular/forms';
   styleUrl: './control-input.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ControlInputComponent {
+export class ControlInputComponent implements DoCheck {
+  private readonly _feedbackNode = viewChild.required('feedbackRef', {
+    read: ElementRef,
+  });
+
   private _label: HTMLLabelElement | null = null;
 
   private _field: HTMLInputElement | HTMLSelectElement | null = null;
@@ -41,6 +47,7 @@ export class ControlInputComponent {
       read: () => {
         this.setLabelConfig();
         this.setFieldConfig();
+        this.setFeedbackLocation();
 
         this.ngControl()
           ?.control?.statusChanges.pipe(takeUntilDestroyed(this._destroyRef))
@@ -49,9 +56,9 @@ export class ControlInputComponent {
     });
   }
 
-  public markAsTouched(): void {
-    this.ngControl()?.control?.markAsTouched();
-    this.setStatusClass();
+  public ngDoCheck(): void {
+    if (this.ngControl()?.touched || this.ngControl()?.dirty)
+      this.setStatusClass();
   }
 
   private setLabelConfig(): void {
@@ -97,5 +104,13 @@ export class ControlInputComponent {
 
     //set current class input
     this._renderer.addClass(this._field, isValid ? 'is-valid' : 'is-invalid');
+  }
+
+  private setFeedbackLocation(): void {
+    const inputGroup = this.nativeElement.querySelector('.input-group');
+
+    if (!inputGroup) return;
+
+    this._renderer.appendChild(inputGroup, this._feedbackNode().nativeElement);
   }
 }
