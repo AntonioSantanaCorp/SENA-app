@@ -16,6 +16,8 @@ import { MenuItemDirective } from './directives/menu-item.directive';
 import { MenuSectionDirective } from './directives/menu-section.directive';
 import { MenuTitleSectionDirective } from './directives/menu-title-section.directive';
 import { RouterEventTypeSubPage } from './models';
+import { MatPaginatorIntl } from '@angular/material/paginator';
+import { MyCustomPaginatorIntl } from '@core/internationalization/paginator-intl.model';
 
 @Component({
   selector: 'app-layout',
@@ -28,6 +30,7 @@ import { RouterEventTypeSubPage } from './models';
     MenuListComponent,
     MenuItemDirective,
   ],
+
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
