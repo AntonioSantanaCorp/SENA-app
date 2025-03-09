@@ -3,6 +3,7 @@ import { Route } from '@angular/router';
 export default [
   {
     path: '',
+    data: { parentUrl: 'trainer' },
     children: [
       {
         path: 'list',

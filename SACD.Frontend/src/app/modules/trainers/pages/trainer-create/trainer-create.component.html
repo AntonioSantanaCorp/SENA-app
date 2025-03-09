@@ -13,7 +13,7 @@
   <app-user-general-info>
     <app-control-input attrFor="contrato">
       <label>Cargar contrato</label>
-      <input type="file" />
+      <input type="file" [formControl]="contract" accept="application/pdf" />
     </app-control-input>
   </app-user-general-info>
 </section>

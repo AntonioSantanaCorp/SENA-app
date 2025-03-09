@@ -1,5 +1,9 @@
-import { Directive } from '@angular/core';
+import { Directive, input, signal } from '@angular/core';
 import { RouterLinkActive } from '@angular/router';
+import {
+  AppBaseRoutesType,
+  AppRoutesType,
+} from '@core/constants/app-routes.constant';
 
 @Directive({
   selector: 'app-menu-section',
@@ -14,8 +18,12 @@ import { RouterLinkActive } from '@angular/router';
   exportAs: 'appMenuSection',
 })
 export class MenuSectionDirective {
+  public readonly baseUrl = input.required<AppBaseRoutesType>();
+
+  public subPageActive = signal(false);
+
   public get isActive() {
-    return this._rla.isActive;
+    return this.subPageActive() || this._rla.isActive;
   }
 
   constructor(private readonly _rla: RouterLinkActive) {

@@ -4,9 +4,11 @@ import { ControlInputComponent } from '@libs/control-field';
 import {
   AddressInfoComponent,
   TutorInfoComponent,
+  UserDetailsFormComponent,
   UserGeneralInfoComponent,
 } from '@libs/forms-information';
 import { HeaderSubtitleComponent, HeaderTitleComponent } from '@libs/titles';
+import { contractControl } from '../../form-controls/trainer-info.form';
 
 @Component({
   selector: 'app-trainer-create',
@@ -25,4 +27,6 @@ import { HeaderSubtitleComponent, HeaderTitleComponent } from '@libs/titles';
   styleUrl: './trainer-create.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class TrainerCreateComponent {}
+export default class TrainerCreateComponent extends UserDetailsFormComponent {
+  protected readonly contract = contractControl();
+}
