@@ -1,3 +1,4 @@
+import { DialogRef } from '@angular/cdk/dialog';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ControlInputComponent } from '@libs/control-field';
 import { HeaderTitleComponent } from '@libs/titles';
@@ -10,4 +11,6 @@ import { HeaderTitleComponent } from '@libs/titles';
   styleUrl: './delete-athlete.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DeleteAthleteComponent {}
+export class DeleteAthleteComponent {
+  constructor(protected readonly dialogRef: DialogRef<DeleteAthleteComponent>) {}
+}

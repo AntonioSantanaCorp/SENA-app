@@ -85,10 +85,7 @@ export class ControlInputComponent implements DoCheck {
     const { nodeName } = this._field!;
     if (nodeName === 'SELECT')
       this._renderer.listen(this._field, 'blur', () => this.setStatusClass());
-
-    if (nodeName === 'INPUT' || nodeName === 'TEXTAREA') {
-      this._renderer.setAttribute(this._field, 'autocomplete', 'off');
-    }
+    else this._renderer.setAttribute(this._field, 'autocomplete', 'off');
   }
 
   private setStatusClass(): void {
