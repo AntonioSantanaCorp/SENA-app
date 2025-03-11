@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import {
   AddressInfoComponent,
   TutorInfoComponent,
@@ -25,9 +25,8 @@ import { HeaderSubtitleComponent, HeaderTitleComponent } from '@libs/titles';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class AthleteCreateComponent extends UserDetailsFormComponent {
-  test = new FormControl('', Validators.required);
   protected create(): void {
-    this.markAllAsTouched();
+    this.form.markAllAsTouched()
     console.log(this.form.value);
   }
 }

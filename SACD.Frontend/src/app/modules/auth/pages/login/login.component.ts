@@ -1,11 +1,19 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ControlInputComponent } from '@libs/control-field';
+import { createAuthForm } from '../../form-controls/auth.form';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule, ControlInputComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class LoginComponent {}
+export default class LoginComponent {
+  protected readonly form = createAuthForm();
+
+  onSubmit() {
+    this.form.markAllAsTouched();
+  }
+}

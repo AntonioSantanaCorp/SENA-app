@@ -1,4 +1,4 @@
-import { contentChildren, Directive, viewChildren } from '@angular/core';
+import { contentChildren, Directive } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { FormGroup } from '@angular/forms';
 import { ControlInputComponent } from '@libs/control-field/components/control-input/control-input.component';
@@ -7,8 +7,6 @@ import { UserDetailsFormModel } from '../models/user-details-form-model';
 
 @Directive({ standalone: true })
 export abstract class FormComponent<T extends FormGroup> {
-  private readonly _controlFields = viewChildren(ControlInputComponent);
-
   private readonly _contentFields = contentChildren(ControlInputComponent);
 
   public abstract readonly form: T;
@@ -47,11 +45,5 @@ export abstract class FormComponent<T extends FormGroup> {
 
   public get invalid() {
     return this.form.invalid;
-  }
-
-  public markAsTouched(): void {
-    [...this._controlFields(), ...this._contentFields()].forEach((control) =>
-      control.markAsTouched()
-    );
   }
 }

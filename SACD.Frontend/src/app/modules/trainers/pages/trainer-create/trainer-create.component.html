@@ -4,6 +4,31 @@
 </app-header-title>
 
 <span>
-  En este formulario podras agregar un nuevo deportista, recuerda que solo se
-  debe crear un deportista, este debe estar a paz y salvo con todos los pagos
+  En este formulario podras <strong> contratar un entrenador</strong>, recuerda
+  subir el contrato firmado por el entrenador
 </span>
+
+<section>
+  <app-header-subtitle> Informacion general </app-header-subtitle>
+  <app-user-general-info>
+    <app-control-input attrFor="contrato">
+      <label>Cargar contrato</label>
+      <input type="file" [formControl]="contract" accept="application/pdf" />
+    </app-control-input>
+  </app-user-general-info>
+</section>
+
+<section>
+  <app-header-subtitle> Informacion residencia </app-header-subtitle>
+  <app-address-info> </app-address-info>
+</section>
+
+<section>
+  <app-header-subtitle>Informacion tutor </app-header-subtitle>
+  <app-tutor-info></app-tutor-info>
+</section>
+
+<footer class="d-flex gap-2 justify-content-end">
+  <button class="btn btn-outline-danger">Cancelar</button>
+  <button class="btn btn-primary" (click)="create()">Contratar entrenador</button>
+</footer>

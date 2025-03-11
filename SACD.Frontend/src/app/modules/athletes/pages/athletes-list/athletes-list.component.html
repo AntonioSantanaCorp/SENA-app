@@ -6,3 +6,43 @@
 <span>
   En este modulo podras editar, inactivar y filtrar a los deportista del club
 </span>
+
+<table class="table table-hover" cdk-table [dataSource]="athletes$">
+  <ng-container cdkColumnDef="nombres">
+    <th cdk-header-cell *cdkHeaderCellDef>Nombres y Apellidos</th>
+    <td cdk-cell *cdkCellDef="let element">{{ element.nombres }}</td>
+  </ng-container>
+  <ng-container cdkColumnDef="tipoDocumento">
+    <th cdk-header-cell *cdkHeaderCellDef>Tipo Documento</th>
+    <td cdk-cell *cdkCellDef="let element">{{ element.tipoDocumento }}</td>
+  </ng-container>
+  <ng-container cdkColumnDef="numeroDocumento">
+    <th cdk-header-cell *cdkHeaderCellDef>Documento</th>
+    <td cdk-cell *cdkCellDef="let element">{{ element.numeroDocumento }}</td>
+  </ng-container>
+  <ng-container cdkColumnDef="estado">
+    <th cdk-header-cell *cdkHeaderCellDef>Estado</th>
+    <td cdk-cell *cdkCellDef="let element">{{ element.estado }}</td>
+  </ng-container>
+  <ng-container cdkColumnDef="categoria">
+    <th cdk-header-cell *cdkHeaderCellDef>Categoria</th>
+    <td cdk-cell *cdkCellDef="let element">{{ element.categoria }}</td>
+  </ng-container>
+  <ng-container cdkColumnDef="opciones">
+    <th cdk-header-cell *cdkHeaderCellDef>Opciones</th>
+    <td cdk-cell *cdkCellDef="let element">
+      <section class="d-flex gap-1">
+        <button
+          class="btn btn-outline-danger"
+          title="Eliminar deportista"
+          appIconButton
+        >
+          delete
+        </button>
+        <button appIconButton title="Editar deportista">edit</button>
+      </section>
+    </td>
+  </ng-container>
+  <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+  <tr cdk-row *cdkRowDef="let row; columns: displayedColumns"></tr>
+</table>
