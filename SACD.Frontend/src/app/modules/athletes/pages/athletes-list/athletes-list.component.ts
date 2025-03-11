@@ -2,7 +2,6 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { HeaderTitleComponent } from '@libs/titles';
 import { of } from 'rxjs';
-import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { DISPLAYED_COLUMNS } from '../../constants/athletes-list.constants';
 
@@ -10,7 +9,7 @@ import { DISPLAYED_COLUMNS } from '../../constants/athletes-list.constants';
   selector: 'app-athletes-list',
   standalone: true,
   host: { class: 'page' },
-  imports: [HeaderTitleComponent, CdkTableModule, MatPaginatorModule],
+  imports: [HeaderTitleComponent, CdkTableModule],
   templateUrl: './athletes-list.component.html',
   styleUrl: './athletes-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
