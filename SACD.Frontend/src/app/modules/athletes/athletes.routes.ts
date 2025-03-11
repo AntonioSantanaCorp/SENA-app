@@ -3,7 +3,6 @@ import { Route } from '@angular/router';
 export default [
   {
     path: '',
-    data: { parentUrl: 'trainer' },
     children: [
       {
         path: 'list',
@@ -11,7 +10,7 @@ export default [
           import('./pages/athletes-list/athletes-list.component'),
       },
       {
-        path: 'edit',
+        path: 'edit/:id',
         loadComponent: () =>
           import('./pages/athlete-edit/athlete-edit.component'),
       },

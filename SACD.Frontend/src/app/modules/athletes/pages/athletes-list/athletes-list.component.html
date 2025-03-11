@@ -12,13 +12,11 @@
     <th cdk-header-cell *cdkHeaderCellDef>Nombres y Apellidos</th>
     <td cdk-cell *cdkCellDef="let element">{{ element.nombres }}</td>
   </ng-container>
-  <ng-container cdkColumnDef="tipoDocumento">
-    <th cdk-header-cell *cdkHeaderCellDef>Tipo Documento</th>
-    <td cdk-cell *cdkCellDef="let element">{{ element.tipoDocumento }}</td>
-  </ng-container>
   <ng-container cdkColumnDef="numeroDocumento">
     <th cdk-header-cell *cdkHeaderCellDef>Documento</th>
-    <td cdk-cell *cdkCellDef="let element">{{ element.numeroDocumento }}</td>
+    <td cdk-cell *cdkCellDef="let element">
+      {{ element.tipoDocumento }} {{ element.numeroDocumento }}
+    </td>
   </ng-container>
   <ng-container cdkColumnDef="estado">
     <th cdk-header-cell *cdkHeaderCellDef>Estado</th>
@@ -36,10 +34,17 @@
           class="btn btn-outline-danger"
           title="Eliminar deportista"
           appIconButton
+          (click)="onDelete()"
         >
           delete
         </button>
-        <button appIconButton title="Editar deportista">edit</button>
+        <a
+          appIconButton
+          title="Editar deportista"
+          [routerLink]="[appRoutes.AthleteEdit, element.id]"
+        >
+          edit
+        </a>
       </section>
     </td>
   </ng-container>

@@ -1,3 +1,7 @@
+@use '@angular/cdk' as cdk;
+
+@include cdk.overlay();
+
 @import "./app/libs/buttons/styles/buttons.scss";
 
 html,
