@@ -51,7 +51,9 @@ export class ControlInputComponent implements DoCheck {
 
         this.ngControl()
           ?.control?.statusChanges.pipe(takeUntilDestroyed(this._destroyRef))
-          .subscribe(() => this.setStatusClass());
+          .subscribe(() => {
+            this.setStatusClass();
+          });
       },
     });
   }
@@ -91,7 +93,16 @@ export class ControlInputComponent implements DoCheck {
   private setStatusClass(): void {
     const control = this.ngControl()?.control;
 
-    if (control === undefined) return;
+    if (
+      control === undefined ||
+      control?.disabled ||
+      control?.validator === null ||
+      control?.validator === undefined
+    ) {
+      this._renderer.removeClass(this._field, 'is-invalid');
+      this._renderer.removeClass(this._field, 'is-valid');
+      return;
+    }
 
     const isValid = Boolean(
       control?.valid && (control?.touched || control?.dirty)
