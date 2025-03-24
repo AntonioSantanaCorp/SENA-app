@@ -6,7 +6,7 @@ export function createTrainerInactivationForm() {
   const formBuilder = inject(FormBuilder);
   const form = formBuilder.nonNullable.group({
     inactivationReason: ['', Validators.required],
-    descripcion: new FormControl({ value: '', disabled: false }),
+    descripcion: new FormControl({ value: '', disabled: true }),
   });
   const descriptionValidator = Validators.required;
 
