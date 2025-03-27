@@ -7,13 +7,12 @@ import { HeaderTitleComponent } from '@libs/titles';
 import { createTrainerInactivationForm } from '../../form-controls/trainer-inactivation.form';
 
 @Component({
-  selector: 'app-delete-trainer',
-  standalone: true,
-  host: { class: 'app-alert-dialog' },
-  imports: [HeaderTitleComponent, ControlInputComponent, ReactiveFormsModule],
-  templateUrl: './delete-trainer.component.html',
-  styleUrl: './delete-trainer.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-delete-trainer',
+    host: { class: 'app-alert-dialog' },
+    imports: [HeaderTitleComponent, ControlInputComponent, ReactiveFormsModule],
+    templateUrl: './delete-trainer.component.html',
+    styleUrl: './delete-trainer.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DeleteTrainerComponent {
   protected readonly inactivationReasons = TRAINER_INACTIVATION_REASONS;

@@ -10,18 +10,17 @@ import { DeleteTrainerComponent } from '../../components/delete-trainer/delete-t
 import { DISPLAYED_COLUMNS } from '../../constant/trainer-list.constant';
 
 @Component({
-  selector: 'app-trainers-list',
-  standalone: true,
-  host: { class: 'page' },
-  imports: [
-    HeaderTitleComponent,
-    RouterLink,
-    CdkTableModule,
-    IconButtonComponent,
-  ],
-  templateUrl: './trainers-list.component.html',
-  styleUrl: './trainers-list.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-trainers-list',
+    host: { class: 'page' },
+    imports: [
+        HeaderTitleComponent,
+        RouterLink,
+        CdkTableModule,
+        IconButtonComponent,
+    ],
+    templateUrl: './trainers-list.component.html',
+    styleUrl: './trainers-list.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class TrainersListComponent {
   protected readonly displayedColumns = DISPLAYED_COLUMNS;

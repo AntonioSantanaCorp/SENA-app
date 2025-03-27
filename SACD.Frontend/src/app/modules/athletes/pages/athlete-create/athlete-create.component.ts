@@ -9,20 +9,19 @@ import {
 import { HeaderSubtitleComponent, HeaderTitleComponent } from '@libs/titles';
 
 @Component({
-  selector: 'app-athlete-create',
-  standalone: true,
-  host: { class: 'page' },
-  imports: [
-    HeaderTitleComponent,
-    HeaderSubtitleComponent,
-    UserGeneralInfoComponent,
-    AddressInfoComponent,
-    TutorInfoComponent,
-    ReactiveFormsModule,
-  ],
-  templateUrl: './athlete-create.component.html',
-  styleUrl: './athlete-create.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-athlete-create',
+    host: { class: 'page' },
+    imports: [
+        HeaderTitleComponent,
+        HeaderSubtitleComponent,
+        UserGeneralInfoComponent,
+        AddressInfoComponent,
+        TutorInfoComponent,
+        ReactiveFormsModule,
+    ],
+    templateUrl: './athlete-create.component.html',
+    styleUrl: './athlete-create.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class AthleteCreateComponent extends UserDetailsFormComponent {
   protected create(): void {

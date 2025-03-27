@@ -14,12 +14,11 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NgControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-control-input',
-  standalone: true,
-  imports: [],
-  templateUrl: './control-input.component.html',
-  styleUrl: './control-input.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-control-input',
+    imports: [],
+    templateUrl: './control-input.component.html',
+    styleUrl: './control-input.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ControlInputComponent implements DoCheck {
   private readonly _feedbackNode = viewChild.required('feedbackRef', {

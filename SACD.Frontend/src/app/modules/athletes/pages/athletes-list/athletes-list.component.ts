@@ -11,18 +11,17 @@ import { DeleteAthleteComponent } from '../../components/delete-athlete/delete-a
 import { DISPLAYED_COLUMNS } from '../../constants/athletes-list.constants';
 
 @Component({
-  selector: 'app-athletes-list',
-  standalone: true,
-  host: { class: 'page' },
-  imports: [
-    HeaderTitleComponent,
-    RouterLink,
-    CdkTableModule,
-    IconButtonComponent,
-  ],
-  templateUrl: './athletes-list.component.html',
-  styleUrl: './athletes-list.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-athletes-list',
+    host: { class: 'page' },
+    imports: [
+        HeaderTitleComponent,
+        RouterLink,
+        CdkTableModule,
+        IconButtonComponent,
+    ],
+    templateUrl: './athletes-list.component.html',
+    styleUrl: './athletes-list.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class AthletesListComponent {
   protected readonly displayedColumns = DISPLAYED_COLUMNS;
