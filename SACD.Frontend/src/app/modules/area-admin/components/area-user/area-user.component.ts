@@ -20,5 +20,5 @@ export class AreaUserComponent {
   @Input() title = '';
 
   // avisarle al componente padre que se actualizo
-  @Output() onUpdate = new EventEmitter<any>();
+  @Output() updated = new EventEmitter<any>();
 }

@@ -2,6 +2,7 @@ const eslint = require('@eslint/js');
 const tseslint = require('typescript-eslint');
 const angular = require('angular-eslint');
 const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
+const { rules } = require('eslint-config-prettier');
 
 module.exports = tseslint.config(
   {
@@ -14,32 +15,33 @@ module.exports = tseslint.config(
       eslintPluginPrettierRecommended,
     ],
     processor: angular.processInlineTemplates,
+
     rules: {
       '@angular-eslint/directive-selector': [
         'error',
         {
-          type: 'attribute',
-          prefix: 'app',
+          type: ['element', 'attribute'],
           style: 'camelCase',
         },
       ],
       '@angular-eslint/component-selector': [
         'error',
         {
-          type: 'element',
-          prefix: 'app',
+          type: ['element', 'attribute'],
           style: 'kebab-case',
         },
       ],
-      '@angular-eslint/template/label-has-associated-control': 'off',
     },
   },
+
   {
     files: ['**/*.html'],
     extends: [
       ...angular.configs.templateRecommended,
       ...angular.configs.templateAccessibility,
     ],
-    rules: {},
+    rules: {
+      "@angular-eslint/template/label-has-associated-control": "off",
+    },
   }
 );
