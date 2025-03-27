@@ -4,6 +4,5 @@ export const AthleteInactivationReason = {
   Otro: 'Otro',
 } as const;
 
-export const ATHLETE_INACTIVATION_REASONS: ReadonlyArray<
-  (typeof AthleteInactivationReason)[keyof typeof AthleteInactivationReason]
-> = Object.values(AthleteInactivationReason);
+export const ATHLETE_INACTIVATION_REASONS: readonly (typeof AthleteInactivationReason)[keyof typeof AthleteInactivationReason][] =
+  Object.values(AthleteInactivationReason);

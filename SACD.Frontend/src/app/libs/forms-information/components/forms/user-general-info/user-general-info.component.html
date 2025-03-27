@@ -22,7 +22,7 @@
     <select formControlName="tipoDocumento">
       <option selected disabled value="">Ingrese numero documento</option>
       @for (document of documentsTypes; track $index) {
-      <option [value]="document.value">{{ document.label }}</option>
+        <option [value]="document.value">{{ document.label }}</option>
       }
     </select>
   </app-control-input>
@@ -51,7 +51,7 @@
     <select formControlName="tipoRH">
       <option selected disabled value="">Ingrese RH</option>
       @for (rhType of rhTypes; track rhType) {
-      <option [value]="rhType">{{ rhType }}</option>
+        <option [value]="rhType">{{ rhType }}</option>
       }
     </select>
   </app-control-input>
@@ -61,7 +61,7 @@
     <select formControlName="genero">
       <option selected disabled value="">Ingrese Genero</option>
       @for (gender of genders; track gender.value) {
-      <option [value]="gender.value">{{ gender.label }}</option>
+        <option [value]="gender.value">{{ gender.label }}</option>
       }
     </select>
   </app-control-input>
@@ -110,7 +110,7 @@
     <select formControlName="tallaCamisa">
       <option selected disabled value="">Seleccione talla</option>
       @for (shirtSize of shirtsSizes; track shirtSize) {
-      <option [value]="shirtSize">{{ shirtSize }}</option>
+        <option [value]="shirtSize">{{ shirtSize }}</option>
       }
     </select>
   </app-control-input>

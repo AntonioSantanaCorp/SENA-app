@@ -31,7 +31,7 @@
     <select formControlName="tipoDocumento">
       <option selected disabled value="">Ingrese numero documento</option>
       @for (document of documentsTypes; track $index) {
-      <option [value]="document.value">{{ document.label }}</option>
+        <option [value]="document.value">{{ document.label }}</option>
       }
     </select>
   </app-control-input>

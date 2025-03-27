@@ -1,4 +1,4 @@
-export type EmergencyContact = {
+export interface EmergencyContact {
   id: number;
   tipoDocumento: string;
   idTrainer?: number;
@@ -6,4 +6,4 @@ export type EmergencyContact = {
   apellidos?: string;
   correo?: string;
   telefono?: string;
-};
+}

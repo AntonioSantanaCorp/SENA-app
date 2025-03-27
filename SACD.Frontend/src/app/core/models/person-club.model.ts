@@ -1,4 +1,4 @@
-export type PersonClub = {
+export interface PersonClub {
   id: number;
   tipoDocumento: number;
   idMunicipio: number;
@@ -16,4 +16,4 @@ export type PersonClub = {
   tallaPantaloneta?: string;
   genero?: string;
   direccion?: string;
-};
+}

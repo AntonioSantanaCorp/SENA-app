@@ -12,5 +12,5 @@ export function createAddressInfoForm() {
 }
 
 export type AddressInfoForm = ReturnType<
-  typeof createAddressInfoForm & { [key: string]: AbstractControl }
+  typeof createAddressInfoForm & Record<string, AbstractControl>
 >;

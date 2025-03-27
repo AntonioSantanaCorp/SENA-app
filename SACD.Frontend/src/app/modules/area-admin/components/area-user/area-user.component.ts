@@ -17,7 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AreaUserComponent {
-  @Input() title: string = '';
+  @Input() title = '';
 
   // avisarle al componente padre que se actualizo
   @Output() onUpdate = new EventEmitter<any>();

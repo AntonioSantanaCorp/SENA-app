@@ -25,8 +25,7 @@ export function createUserGeneralInfoForm() {
   });
 }
 
-
 //Could be added new controls using the content projection
 export type UserGeneralInfoForm = ReturnType<
-  typeof createUserGeneralInfoForm & { [key: string]: AbstractControl }
+  typeof createUserGeneralInfoForm & Record<string, AbstractControl>
 >;

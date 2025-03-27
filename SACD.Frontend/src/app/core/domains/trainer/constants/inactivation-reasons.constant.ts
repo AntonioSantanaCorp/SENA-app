@@ -4,6 +4,5 @@ export const TrainerInactivationReason = {
   Otro: 'Otro',
 } as const;
 
-export const TRAINER_INACTIVATION_REASONS: ReadonlyArray<
-  (typeof TrainerInactivationReason)[keyof typeof TrainerInactivationReason]
-> = Object.values(TrainerInactivationReason);
+export const TRAINER_INACTIVATION_REASONS: readonly (typeof TrainerInactivationReason)[keyof typeof TrainerInactivationReason][] =
+  Object.values(TrainerInactivationReason);
