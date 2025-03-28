@@ -1,5 +1,5 @@
 export type DataTable = {
   isLoading: boolean;
   filters: { query: string };
-  pagination: { page: number; pageSize: number; length: number };
+  pagination: { page: number; pageSize: number };
 };
