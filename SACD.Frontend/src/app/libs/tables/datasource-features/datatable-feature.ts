@@ -25,7 +25,6 @@ export function withDataTableFeature<TEntity extends object>() {
             )
           );
 
-        console.log(filters().query.trim());
         const dataFiltered = filters().query.trim() ? filterData() : entities();
 
         const { page, pageSize } = pagination();
@@ -50,6 +49,11 @@ export function withDataTableFeature<TEntity extends object>() {
       },
       setQuery(query: string): void {
         patchState(store, { filters: { query } });
+      },
+      setPageSize(pageSize: number): void {
+        patchState(store, (state) => ({
+          pagination: { ...state.pagination, pageSize, page: 1 },
+        }));
       },
     }))
   );
