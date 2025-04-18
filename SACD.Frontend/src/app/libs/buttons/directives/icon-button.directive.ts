@@ -8,6 +8,4 @@ import { Component } from '@angular/core';
     <ng-content></ng-content>
   </span>`,
 })
-export class IconButtonComponent {
-  constructor() {}
-}
+export class IconButtonComponent {}

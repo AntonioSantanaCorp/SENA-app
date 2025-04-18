@@ -3,7 +3,6 @@ import { CdkTableModule } from '@angular/cdk/table';
 import {
   ChangeDetectionStrategy,
   Component,
-  effect,
   inject,
   OnInit,
 } from '@angular/core';
@@ -15,6 +14,7 @@ import { HeaderTitleComponent } from '@libs/titles';
 import { AthleteApiService } from '@core/domains/athlete/services/athlete-api.service';
 import { PaginatorComponent } from '@libs/tables/components/paginator/paginator.component';
 import { DataTableApi } from '@libs/tables/models/datatable-api.model';
+import { DeleteAthleteComponent } from '../../components/delete-athlete/delete-athlete.component';
 import { DISPLAYED_COLUMNS } from '../../constants/athletes-list.constants';
 import { AthleteStore } from '../../store/athlete.store';
 
@@ -43,18 +43,13 @@ export default class AthletesListComponent implements OnInit {
 
   protected readonly athleteStore = inject(AthleteStore);
 
-  constructor(private readonly _dialog: Dialog) {
-    effect(() => {
-      console.log(this.athleteStore.pagination());
-    });
-  }
+  constructor(private readonly _dialog: Dialog) {}
 
   public async ngOnInit(): Promise<void> {
     await this.athleteStore.loadData();
   }
 
   public onDelete(): void {
-    this.athleteStore.nextPage();
-    // this._dialog.open(DeleteAthleteComponent);
+    this._dialog.open(DeleteAthleteComponent);
   }
 }

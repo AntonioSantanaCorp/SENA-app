@@ -1,17 +1,12 @@
 import { Injectable } from '@angular/core';
 import { DataTableApi } from '@libs/tables/models/datatable-api.model';
-import { Athlete } from '../models/athlete.model';
-import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+import { Athlete } from '../models/athlete.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AthleteApiService extends DataTableApi<Athlete> {
-  constructor(private readonly _http: HttpClient) {
-    super();
-  }
-
   override getData(): Observable<Athlete[]> {
     return of([
       {

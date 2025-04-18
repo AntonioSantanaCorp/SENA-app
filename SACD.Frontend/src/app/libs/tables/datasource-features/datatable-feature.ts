@@ -43,16 +43,21 @@ export function withDataTableFeature<TEntity extends object>() {
       previousPage(): void {
         patchState(store, ({ pagination }) => {
           const previousPage = pagination.page - 1;
-          const page = previousPage <= 0 ? 1 : previousPage;
+          const page = previousPage < 0 ? 0 : previousPage;
           return { pagination: { ...pagination, page } };
         });
       },
       setQuery(query: string): void {
         patchState(store, { filters: { query } });
       },
+      resetPage(): void {
+        patchState(store, ({ pagination }) => ({
+          pagination: { ...pagination, page: 0 },
+        }));
+      },
       setPageSize(pageSize: number): void {
         patchState(store, (state) => ({
-          pagination: { ...state.pagination, pageSize, page: 1 },
+          pagination: { ...state.pagination, pageSize, page: 0 },
         }));
       },
     }))

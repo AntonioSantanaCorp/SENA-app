@@ -12,14 +12,14 @@ import {
 import { FormComponent } from '../../../directives/form-component.directive';
 
 @Component({
-    selector: 'app-address-info',
-    host: { class: 'form-section' },
-    imports: [ReactiveFormsModule, ControlInputComponent],
-    providers: [{ provide: FormComponent, useExisting: AddressInfoComponent }],
-    templateUrl: './address-info.component.html',
-    styleUrl: './address-info.component.scss',
-    encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-address-info',
+  host: { class: 'form-section' },
+  imports: [ReactiveFormsModule, ControlInputComponent],
+  providers: [{ provide: FormComponent, useExisting: AddressInfoComponent }],
+  templateUrl: './address-info.component.html',
+  styleUrl: './address-info.component.scss',
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddressInfoComponent extends FormComponent<AddressInfoForm> {
   public override readonly type = 'addressInfo';

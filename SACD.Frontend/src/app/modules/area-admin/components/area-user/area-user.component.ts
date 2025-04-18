@@ -8,12 +8,12 @@ import {
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-    selector: 'app-area-user',
-    host: { class: 'card col-xl-3 col-md-5 col-sm-12' },
-    imports: [ReactiveFormsModule],
-    templateUrl: './area-user.component.html',
-    styleUrl: './area-user.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-area-user',
+  host: { class: 'card col-xl-3 col-md-5 col-sm-12' },
+  imports: [ReactiveFormsModule],
+  templateUrl: './area-user.component.html',
+  styleUrl: './area-user.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AreaUserComponent {
   @Input() title = '';

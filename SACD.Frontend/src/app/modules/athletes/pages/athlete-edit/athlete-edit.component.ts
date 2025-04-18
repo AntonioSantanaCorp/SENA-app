@@ -8,19 +8,19 @@ import {
 import { HeaderSubtitleComponent, HeaderTitleComponent } from '@libs/titles';
 
 @Component({
-    selector: 'app-athlete-edit',
-    host: { class: 'page' },
-    imports: [
-        HeaderTitleComponent,
-        HeaderSubtitleComponent,
-        UserGeneralInfoComponent,
-        AddressInfoComponent,
-        TutorInfoComponent,
-        ReactiveFormsModule,
-    ],
-    templateUrl: './athlete-edit.component.html',
-    styleUrl: './athlete-edit.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-athlete-edit',
+  host: { class: 'page' },
+  imports: [
+    HeaderTitleComponent,
+    HeaderSubtitleComponent,
+    UserGeneralInfoComponent,
+    AddressInfoComponent,
+    TutorInfoComponent,
+    ReactiveFormsModule,
+  ],
+  templateUrl: './athlete-edit.component.html',
+  styleUrl: './athlete-edit.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class AthleteEditComponent {
   public readonly id = input.required<string>();

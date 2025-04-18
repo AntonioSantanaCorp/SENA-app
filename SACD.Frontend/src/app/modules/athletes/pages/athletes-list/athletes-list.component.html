@@ -51,7 +51,4 @@
   <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
   <tr cdk-row *cdkRowDef="let row; columns: displayedColumns"></tr>
 </table>
-<app-paginator
-  [lenght]="athleteStore.length()"
-  [pageSize]="athleteStore.pagination().pageSize"
-></app-paginator>
+<app-paginator [dataTable]="athleteStore" />

@@ -3,69 +3,48 @@ import {
   Component,
   computed,
   input,
-  numberAttribute,
-  output,
-  signal,
 } from '@angular/core';
-import { toObservable } from '@angular/core/rxjs-interop';
+import { DataTablePaginator } from '@libs/tables/models/datatable.model';
 
 @Component({
   selector: 'app-paginator',
   standalone: true,
   imports: [],
+  host: { class: 'd-flex gap-3 justify-content-end align-items-center' },
   templateUrl: './paginator.component.html',
   styleUrl: './paginator.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PaginatorComponent {
-  protected readonly page = signal<number>(1);
+  protected readonly length = computed(() => this.dataTable().length());
 
-  protected readonly resume = computed(() => {
-    const pageSize = this.pageSize();
-    const page = this.page();
-    const length = this.lenght();
-    const startIndex = (page - 1) * pageSize + 1;
-    const endIndex = Math.min(page * pageSize, length);
-    return `${startIndex} - ${endIndex} de ${length}`;
-  });
-
-  protected readonly disablePrevBtn = computed(() => {
-    const pageSize = this.pageSize();
-    const minPageOpt = Math.min(...this.pageSizeOptions());
-
-    return pageSize === minPageOpt;
-  });
-
-  protected readonly disableNextBtn = computed(
-    () => this.pageSize() === this.lenght()
+  protected readonly pageSize = computed(
+    () => this.dataTable().pagination().pageSize
   );
 
-  public readonly pageSize = input(0, { transform: numberAttribute });
+  protected readonly disablePrevBtn = computed(() => {
+    const { page } = this.dataTable().pagination();
+    return page === 0;
+  });
 
-  public readonly lenght = input(0, { transform: numberAttribute });
+  protected readonly disableNextBtn = computed(() => {
+    const { page, pageSize } = this.dataTable().pagination();
+    const endIndex = (page + 1) * pageSize;
+    return endIndex >= this.length();
+  });
 
-  public readonly pageSizeOptions = input<number[]>([5, 10, 25, 100]);
+  protected readonly resume = computed(() => {
+    const { page, pageSize } = this.dataTable().pagination();
+    const startIndex = page * pageSize + 1;
+    const endIndex = Math.min(pageSize + 1, this.length());
+    return `${startIndex} - ${endIndex} de ${this.length()}`;
+  });
 
-  public readonly nextPageEvent = output<void>();
+  public readonly dataTable = input.required<DataTablePaginator>();
 
-  public readonly prevPageEvent = output<void>();
+  public readonly pageSizeOptions = input<number[]>([2, 5, 10, 25, 100]);
 
-  constructor() {
-    toObservable(this.pageSize).subscribe(() => {
-      this.page.set(1);
-    });
-  }
-
-  public nextPage(): void {
-    this.nextPageEvent.emit();
-    this.page.update((page) => page + 1);
-  }
-
-  public prevPage(): void {
-    this.prevPageEvent.emit();
-    this.page.update((page) => {
-      const previousPage = page - 1;
-      return previousPage <= 0 ? 1 : previousPage;
-    });
+  protected setPageSize(value: string): void {
+    this.dataTable().setPageSize(Number(value));
   }
 }

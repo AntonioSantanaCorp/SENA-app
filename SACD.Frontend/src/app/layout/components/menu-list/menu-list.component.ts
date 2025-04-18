@@ -7,13 +7,13 @@ import {
 } from '@angular/core';
 
 @Component({
-    selector: 'app-menu-list',
-    imports: [],
-    host: { class: 'dropdown-menu' },
-    templateUrl: './menu-list.component.html',
-    styleUrl: './menu-list.component.scss',
-    encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-menu-list',
+  imports: [],
+  host: { class: 'dropdown-menu' },
+  templateUrl: './menu-list.component.html',
+  styleUrl: './menu-list.component.scss',
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MenuListComponent implements AfterContentInit {
   constructor(private readonly _elementRef: ElementRef) {}

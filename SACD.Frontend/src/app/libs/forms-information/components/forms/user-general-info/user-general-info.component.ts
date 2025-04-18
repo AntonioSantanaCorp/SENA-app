@@ -17,16 +17,16 @@ import {
 } from '../../../form-controls/user-general-info.form';
 
 @Component({
-    selector: 'app-user-general-info',
-    host: { class: 'form-section' },
-    imports: [ReactiveFormsModule, ControlInputComponent],
-    providers: [
-        { provide: FormComponent, useExisting: UserGeneralInfoComponent },
-    ],
-    templateUrl: './user-general-info.component.html',
-    styleUrl: './user-general-info.component.scss',
-    encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-user-general-info',
+  host: { class: 'form-section' },
+  imports: [ReactiveFormsModule, ControlInputComponent],
+  providers: [
+    { provide: FormComponent, useExisting: UserGeneralInfoComponent },
+  ],
+  templateUrl: './user-general-info.component.html',
+  styleUrl: './user-general-info.component.scss',
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserGeneralInfoComponent extends FormComponent<UserGeneralInfoForm> {
   protected readonly documentsTypes = DOCUMENTS_TYPES;

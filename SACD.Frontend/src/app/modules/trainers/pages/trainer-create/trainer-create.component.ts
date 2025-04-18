@@ -11,19 +11,19 @@ import { HeaderSubtitleComponent, HeaderTitleComponent } from '@libs/titles';
 import { contractControl } from '../../form-controls/trainer-info.form';
 
 @Component({
-    host: { class: 'page' },
-    imports: [
-        HeaderTitleComponent,
-        HeaderSubtitleComponent,
-        UserGeneralInfoComponent,
-        AddressInfoComponent,
-        TutorInfoComponent,
-        ReactiveFormsModule,
-        ControlInputComponent,
-    ],
-    templateUrl: './trainer-create.component.html',
-    styleUrl: './trainer-create.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush
+  host: { class: 'page' },
+  imports: [
+    HeaderTitleComponent,
+    HeaderSubtitleComponent,
+    UserGeneralInfoComponent,
+    AddressInfoComponent,
+    TutorInfoComponent,
+    ReactiveFormsModule,
+    ControlInputComponent,
+  ],
+  templateUrl: './trainer-create.component.html',
+  styleUrl: './trainer-create.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class TrainerCreateComponent extends UserDetailsFormComponent {
   protected readonly contract = contractControl();

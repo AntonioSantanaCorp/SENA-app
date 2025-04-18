@@ -3,24 +3,27 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AppRoutes } from '@core/constants/app-routes.constant';
+import { TrainerApiService } from '@core/domains/trainer/services/trainer-api.service';
 import { IconButtonComponent } from '@libs/buttons';
+import { DataTableApi } from '@libs/tables/models/datatable-api.model';
 import { HeaderTitleComponent } from '@libs/titles';
 import { of } from 'rxjs';
 import { DeleteTrainerComponent } from '../../components/delete-trainer/delete-trainer.component';
 import { DISPLAYED_COLUMNS } from '../../constant/trainer-list.constant';
 
 @Component({
-    selector: 'app-trainers-list',
-    host: { class: 'page' },
-    imports: [
-        HeaderTitleComponent,
-        RouterLink,
-        CdkTableModule,
-        IconButtonComponent,
-    ],
-    templateUrl: './trainers-list.component.html',
-    styleUrl: './trainers-list.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-trainers-list',
+  host: { class: 'page' },
+  imports: [
+    HeaderTitleComponent,
+    RouterLink,
+    CdkTableModule,
+    IconButtonComponent,
+  ],
+  providers: [{ provide: DataTableApi, useClass: TrainerApiService }],
+  templateUrl: './trainers-list.component.html',
+  styleUrl: './trainers-list.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class TrainersListComponent {
   protected readonly displayedColumns = DISPLAYED_COLUMNS;
