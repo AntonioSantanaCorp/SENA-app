@@ -11,7 +11,6 @@ import { HeaderSubtitleComponent, HeaderTitleComponent } from '@libs/titles';
 import { contractControl } from '../../form-controls/trainer-info.form';
 
 @Component({
-  standalone: true,
   host: { class: 'page' },
   imports: [
     HeaderTitleComponent,

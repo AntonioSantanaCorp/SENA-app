@@ -5,7 +5,6 @@ import { createAuthForm } from '../../form-controls/auth.form';
 
 @Component({
   selector: 'app-login',
-  standalone: true,
   imports: [ReactiveFormsModule, ControlInputComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',

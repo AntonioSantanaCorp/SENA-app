@@ -10,7 +10,6 @@ import { HeaderSubtitleComponent, HeaderTitleComponent } from '@libs/titles';
 
 @Component({
   selector: 'app-athlete-create',
-  standalone: true,
   host: { class: 'page' },
   imports: [
     HeaderTitleComponent,
@@ -26,7 +25,7 @@ import { HeaderSubtitleComponent, HeaderTitleComponent } from '@libs/titles';
 })
 export default class AthleteCreateComponent extends UserDetailsFormComponent {
   protected create(): void {
-    this.form.markAllAsTouched()
+    this.form.markAllAsTouched();
     console.log(this.form.value);
   }
 }

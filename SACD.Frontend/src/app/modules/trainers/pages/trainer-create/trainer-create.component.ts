@@ -11,7 +11,6 @@ import { HeaderSubtitleComponent, HeaderTitleComponent } from '@libs/titles';
 import { contractControl } from '../../form-controls/trainer-info.form';
 
 @Component({
-  standalone: true,
   host: { class: 'page' },
   imports: [
     HeaderTitleComponent,
@@ -30,7 +29,7 @@ export default class TrainerCreateComponent extends UserDetailsFormComponent {
   protected readonly contract = contractControl();
 
   protected create(): void {
-    this.form.markAllAsTouched()
+    this.form.markAllAsTouched();
     console.log(this.form.value);
   }
 }

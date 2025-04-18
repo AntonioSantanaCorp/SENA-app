@@ -3,7 +3,6 @@ import { BaseTitleComponent } from '../base-title/base-title.component';
 
 @Component({
   selector: 'app-header-subtitle',
-  standalone: true,
   imports: [],
   templateUrl: './header-subtitle.component.html',
   styleUrl: './header-subtitle.component.scss',

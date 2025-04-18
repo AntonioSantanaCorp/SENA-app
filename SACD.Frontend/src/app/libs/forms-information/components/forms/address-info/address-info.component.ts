@@ -13,12 +13,9 @@ import { FormComponent } from '../../../directives/form-component.directive';
 
 @Component({
   selector: 'app-address-info',
-  standalone: true,
   host: { class: 'form-section' },
   imports: [ReactiveFormsModule, ControlInputComponent],
-  providers: [
-    { provide: FormComponent, useExisting: AddressInfoComponent },
-  ],
+  providers: [{ provide: FormComponent, useExisting: AddressInfoComponent }],
   templateUrl: './address-info.component.html',
   styleUrl: './address-info.component.scss',
   encapsulation: ViewEncapsulation.None,

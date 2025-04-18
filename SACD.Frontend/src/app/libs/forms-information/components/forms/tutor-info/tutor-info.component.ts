@@ -14,7 +14,6 @@ import {
 
 @Component({
   selector: 'app-tutor-info',
-  standalone: true,
   host: { class: 'form-section' },
   imports: [ReactiveFormsModule, ControlInputComponent],
   providers: [{ provide: FormComponent, useExisting: TutorInfoComponent }],

@@ -15,7 +15,6 @@ import { NgControl } from '@angular/forms';
 
 @Component({
   selector: 'app-control-input',
-  standalone: true,
   imports: [],
   templateUrl: './control-input.component.html',
   styleUrl: './control-input.component.scss',
@@ -51,7 +50,9 @@ export class ControlInputComponent implements DoCheck {
 
         this.ngControl()
           ?.control?.statusChanges.pipe(takeUntilDestroyed(this._destroyRef))
-          .subscribe(() => this.setStatusClass());
+          .subscribe(() => {
+            this.setStatusClass();
+          });
       },
     });
   }
@@ -71,7 +72,7 @@ export class ControlInputComponent implements DoCheck {
   }
 
   private setFieldConfig(): void {
-    this._field = this.nativeElement.querySelector('input,select');
+    this._field = this.nativeElement.querySelector('input,textarea,select');
 
     if (!this._field) throw new Error('Field not found');
 
@@ -85,14 +86,22 @@ export class ControlInputComponent implements DoCheck {
     const { nodeName } = this._field!;
     if (nodeName === 'SELECT')
       this._renderer.listen(this._field, 'blur', () => this.setStatusClass());
-
-    if (nodeName === 'INPUT') {
-      this._renderer.setAttribute(this._field, 'autocomplete', 'off');
-    }
+    else this._renderer.setAttribute(this._field, 'autocomplete', 'off');
   }
 
   private setStatusClass(): void {
     const control = this.ngControl()?.control;
+
+    if (
+      control === undefined ||
+      control?.disabled ||
+      control?.validator === null ||
+      control?.validator === undefined
+    ) {
+      this._renderer.removeClass(this._field, 'is-invalid');
+      this._renderer.removeClass(this._field, 'is-valid');
+      return;
+    }
 
     const isValid = Boolean(
       control?.valid && (control?.touched || control?.dirty)

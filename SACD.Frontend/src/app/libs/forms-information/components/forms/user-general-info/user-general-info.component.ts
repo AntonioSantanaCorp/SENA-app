@@ -18,7 +18,6 @@ import {
 
 @Component({
   selector: 'app-user-general-info',
-  standalone: true,
   host: { class: 'form-section' },
   imports: [ReactiveFormsModule, ControlInputComponent],
   providers: [

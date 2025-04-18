@@ -17,5 +17,5 @@ export function createTutorInfoForm() {
 }
 
 export type TutorInfoForm = ReturnType<
-  typeof createTutorInfoForm & { [key: string]: AbstractControl }
+  typeof createTutorInfoForm & Record<string, AbstractControl>
 >;

@@ -4,7 +4,6 @@ import { AreaUserComponent } from '../../components/area-user/area-user.componen
 
 @Component({
   selector: 'app-area-management',
-  standalone: true,
   host: { class: 'page' },
   imports: [HeaderTitleComponent, AreaUserComponent],
   templateUrl: './area-management.component.html',

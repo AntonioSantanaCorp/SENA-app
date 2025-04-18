@@ -1,6 +1,9 @@
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  Injector,
+  runInInjectionContext,
   viewChildren,
 } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
@@ -19,7 +22,6 @@ import { RouterEventTypeSubPage } from './models';
 
 @Component({
   selector: 'app-layout',
-  standalone: true,
   imports: [
     RouterOutlet,
     RouterLink,
@@ -28,37 +30,45 @@ import { RouterEventTypeSubPage } from './models';
     MenuListComponent,
     MenuItemDirective,
   ],
-
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LayoutComponent {
+export class LayoutComponent implements AfterViewInit {
   private readonly _menuSections = viewChildren(MenuSectionDirective);
 
   protected readonly appRoutes = AppRoutes;
 
   protected readonly appBaseRoutes = AppBaseRoutes;
 
-  constructor(private readonly _router: Router) {
-    combineLatest([
-      toObservable(this._menuSections).pipe(filter(({ length }) => length > 0)),
-      this._router.events.pipe(
-        filter(({ type }) => RouterEventSubPage.has(type))
-      ),
-    ])
-      .pipe(takeUntilDestroyed())
-      .subscribe(([menuSections, event]) => {
-        const { url } = event as RouterEventTypeSubPage;
-        const [, currentUrlBase] = url.split('/');
+  constructor(
+    private readonly _router: Router,
+    private readonly _injector: Injector
+  ) {}
 
-        if (currentUrlBase === undefined) return;
+  public ngAfterViewInit(): void {
+    runInInjectionContext(this._injector, () => {
+      combineLatest([
+        toObservable(this._menuSections).pipe(
+          filter(({ length }) => length > 0)
+        ),
+        this._router.events.pipe(
+          filter(({ type }) => RouterEventSubPage.has(type))
+        ),
+      ])
+        .pipe(takeUntilDestroyed())
+        .subscribe(([menuSections, event]) => {
+          const { url } = event as RouterEventTypeSubPage;
+          const [, currentUrlBase] = url.split('/');
 
-        menuSections.forEach((menuSection) =>
-          menuSection.subPageActive.set(
-            currentUrlBase === menuSection.baseUrl()
-          )
-        );
-      });
+          if (currentUrlBase === undefined) return;
+
+          menuSections.forEach((menuSection) => {
+            menuSection.subPageActive.set(
+              currentUrlBase === menuSection.baseUrl()
+            );
+          });
+        });
+    });
   }
 }
