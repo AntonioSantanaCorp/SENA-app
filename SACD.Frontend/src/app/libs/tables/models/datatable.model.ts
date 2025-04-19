@@ -11,6 +11,5 @@ export type DataTablePaginator = {
   pagination: Signal<{ page: number; pageSize: number }>;
   nextPage: () => void;
   previousPage: () => void;
-  resetPage: () => void;
   setPageSize: (pageSize: number) => void;
 };
