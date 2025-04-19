@@ -1,6 +1,6 @@
 export const DISPLAYED_COLUMNS = [
   'nombres',
-  'numeroDocumento',
+  'documento',
   'estado',
   'categoria',
   'opciones',

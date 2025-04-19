@@ -7,24 +7,26 @@
   En este modulo podras editar, inactivar y filtrar a los entrenadores del club
 </span>
 
-<table class="table table-hover" cdk-table [dataSource]="trainers$">
+<table class="table table-hover" cdk-table [dataSource]="trainerStore.data()">
   <ng-container cdkColumnDef="nombres">
     <th cdk-header-cell *cdkHeaderCellDef>Nombres y Apellidos</th>
     <td cdk-cell *cdkCellDef="let element">{{ element.nombres }}</td>
   </ng-container>
-  <ng-container cdkColumnDef="numeroDocumento">
+  <ng-container cdkColumnDef="documento">
     <th cdk-header-cell *cdkHeaderCellDef>Documento</th>
     <td cdk-cell *cdkCellDef="let element">
       {{ element.tipoDocumento }} {{ element.numeroDocumento }}
     </td>
   </ng-container>
+  <ng-container cdkColumnDef="fechaContratacion">
+    <th cdk-header-cell *cdkHeaderCellDef>Fecha contratacion</th>
+    <td cdk-cell *cdkCellDef="let element">
+      {{ element.fechaIngreso | date }}
+    </td></ng-container
+  >
   <ng-container cdkColumnDef="estado">
     <th cdk-header-cell *cdkHeaderCellDef>Estado</th>
-    <td cdk-cell *cdkCellDef="let element">{{ element.estado }}</td>
-  </ng-container>
-  <ng-container cdkColumnDef="categoria">
-    <th cdk-header-cell *cdkHeaderCellDef>Categoria</th>
-    <td cdk-cell *cdkCellDef="let element">{{ element.categoria }}</td>
+    <td cdk-cell *cdkCellDef="let element">{{ element.activo }}</td>
   </ng-container>
   <ng-container cdkColumnDef="opciones">
     <th cdk-header-cell *cdkHeaderCellDef>Opciones</th>
@@ -51,3 +53,4 @@
   <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
   <tr cdk-row *cdkRowDef="let row; columns: displayedColumns"></tr>
 </table>
+<app-paginator [dataTable]="trainerStore" />

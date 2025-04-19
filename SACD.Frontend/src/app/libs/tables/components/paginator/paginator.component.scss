@@ -6,12 +6,12 @@
   background-color: transparent;
   border: none;
 
-  &:hover {
+  &:hover:not(:disabled){
     transition: all 0.2s ease-in-out;
     background-color: lightgray;
   }
 }
 
 .page-size {
-  width: 90px
+  width: 90px;
 }
