@@ -66,6 +66,9 @@ export function withDataTableFeature<TEntity extends object>(
       },
       setQuery(query: string): void {
         patchState(store, { filters: { query } });
+        patchState(store, (state) => ({
+          pagination: { ...state.pagination, page: 0 },
+        }));
       },
       setPageSize(pageSize: number): void {
         patchState(store, (state) => ({

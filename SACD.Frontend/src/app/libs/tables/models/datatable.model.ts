@@ -13,3 +13,7 @@ export type DataTablePaginator = {
   previousPage: () => void;
   setPageSize: (pageSize: number) => void;
 };
+
+export type DataTableSearch = {
+  setQuery: (query: string) => void;
+};

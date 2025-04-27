@@ -11,7 +11,7 @@ export class AthleteApiService extends DataTableApi<Athlete> {
     return of([
       {
         id: 1,
-        tipoDocumento: 1,
+        tipoDocumento: 1019125746,
         idMunicipio: 101,
         idUsuario: 1001,
         nombres: 'Juan',

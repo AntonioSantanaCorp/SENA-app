@@ -1,9 +1,10 @@
+@use './app/libs/buttons/styles/buttons.scss';
+@use 'styles/components/dialog';
 @use '@angular/cdk' as cdk;
 
 @include cdk.overlay();
 
-@import './app/libs/buttons/styles/buttons.scss';
-@import 'styles/components/dialog';
+
 
 html,
 body {

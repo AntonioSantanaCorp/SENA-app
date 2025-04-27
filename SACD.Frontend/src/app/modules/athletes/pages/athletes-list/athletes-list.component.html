@@ -7,6 +7,11 @@
   En este modulo podras editar, inactivar y filtrar a los deportista del club
 </span>
 
+<app-search-input
+  [dataTable]="athleteStore"
+  placeholderText="Buscar deportista"
+/>
+
 <table class="table table-hover" cdk-table [dataSource]="athleteStore.data()">
   <ng-container cdkColumnDef="nombres">
     <th cdk-header-cell *cdkHeaderCellDef>Nombres y Apellidos</th>
