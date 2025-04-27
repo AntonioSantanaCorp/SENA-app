@@ -12,6 +12,7 @@ import { AppRoutes } from '@core/constants/app-routes.constant';
 import { TrainerApiService } from '@core/domains/trainer/services/trainer-api.service';
 import { IconButtonComponent } from '@libs/buttons';
 import { PaginatorComponent } from '@libs/tables/components/paginator/paginator.component';
+import { SearchInputComponent } from '@libs/tables/components/search-input/search-input.component';
 import { DataTableApi } from '@libs/tables/models/datatable-api.model';
 import { HeaderTitleComponent } from '@libs/titles';
 import { DeleteTrainerComponent } from '../../components/delete-trainer/delete-trainer.component';
@@ -28,6 +29,7 @@ import { TrainerStore } from '../../store/trainer.store';
     IconButtonComponent,
     PaginatorComponent,
     DatePipe,
+    SearchInputComponent,
   ],
   providers: [
     { provide: DataTableApi, useClass: TrainerApiService },

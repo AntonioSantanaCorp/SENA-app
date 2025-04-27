@@ -6,7 +6,10 @@
 <span>
   En este modulo podras editar, inactivar y filtrar a los entrenadores del club
 </span>
-
+<app-search-input
+  [dataTable]="trainerStore"
+  placeholderText="Buscar entrenador"
+/>
 <table class="table table-hover" cdk-table [dataSource]="trainerStore.data()">
   <ng-container cdkColumnDef="nombres">
     <th cdk-header-cell *cdkHeaderCellDef>Nombres y Apellidos</th>
