@@ -7,7 +7,12 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@core/*": ["apps/web/src/app/core/*"],
+      "@libs/*": ["apps/web/src/app/libs/*"],
+      "@layout/*": ["apps/web/src/app/layout/*"]
+    }
   },
   "files": [],
   "include": [],
