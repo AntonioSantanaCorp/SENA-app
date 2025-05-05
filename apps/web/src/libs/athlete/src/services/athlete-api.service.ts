@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
+import { AthleteResponse } from '@sacd/core/http/responses';
 import { DataTableApi } from '@web/libs/shared/ui/tables';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AthleteApiService extends DataTableApi<{ id: string }> {
-  override getData(): Observable<{ id: string }[]> {
+export class AthleteApiService extends DataTableApi<AthleteResponse> {
+  override getData(): Observable<AthleteResponse[]> {
     return of([]);
   }
 }
