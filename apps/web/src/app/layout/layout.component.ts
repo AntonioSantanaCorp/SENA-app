@@ -9,10 +9,8 @@ import {
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { combineLatest, filter } from 'rxjs';
-import {
-  AppBaseRoutes,
-  AppRoutes,
-} from '../core/constants/app-routes.constant';
+
+import { AppBaseRoutes, AppRoutes } from '../constants';
 import { MenuListComponent } from './components/menu-list/menu-list.component';
 import { RouterEventSubPage } from './constants';
 import { MenuItemDirective } from './directives/menu-item.directive';

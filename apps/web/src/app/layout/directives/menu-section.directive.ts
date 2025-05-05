@@ -1,9 +1,7 @@
 import { Directive, input, signal } from '@angular/core';
 import { RouterLinkActive } from '@angular/router';
-import {
-  AppBaseRoutesType,
-  AppRoutesType,
-} from '@core/constants/app-routes.constant';
+import { AppBaseRoutesType } from '../../constants';
+
 
 @Directive({
   selector: 'app-menu-section',
