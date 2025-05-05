@@ -1,8 +1,8 @@
 export default {
-  displayName: 'sacd',
+  displayName: 'web',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/apps/sacd',
+  coverageDirectory: '../../coverage/apps/web',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
