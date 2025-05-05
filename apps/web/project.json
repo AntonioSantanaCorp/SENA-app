@@ -9,6 +9,7 @@
     "build": {
       "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
+      "dependsOn": ["http:build"],
       "options": {
         "outputPath": "dist/apps/web",
         "index": "apps/web/src/index.html",

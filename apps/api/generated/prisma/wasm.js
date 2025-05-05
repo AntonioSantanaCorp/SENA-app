@@ -125,6 +125,11 @@ exports.Prisma.Tb_cargos_adminScalarFieldEnum = {
   nombre: 'nombre'
 };
 
+exports.Prisma.RelationLoadStrategy = {
+  query: 'query',
+  join: 'join'
+};
+
 exports.Prisma.Tb_categoriasScalarFieldEnum = {
   id: 'id',
   nombre: 'nombre'
@@ -164,6 +169,7 @@ exports.Prisma.Tb_desercion_deportistasScalarFieldEnum = {
 exports.Prisma.Tb_entrenadoresScalarFieldEnum = {
   id: 'id',
   id_persona_club: 'id_persona_club',
+  id_contacto_emergencia: 'id_contacto_emergencia',
   fecha_ingreso: 'fecha_ingreso',
   activo: 'activo',
   contrato: 'contrato'

@@ -2138,7 +2138,7 @@ export namespace Prisma {
   type tb_cargos_adminGetPayload<S extends boolean | null | undefined | tb_cargos_adminDefaultArgs> = $Result.GetResult<Prisma.$tb_cargos_adminPayload, S>
 
   type tb_cargos_adminCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<tb_cargos_adminFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    Omit<tb_cargos_adminFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
       select?: Tb_cargos_adminCountAggregateInputType | true
     }
 
@@ -2522,6 +2522,7 @@ export namespace Prisma {
      * Filter, which tb_cargos_admin to fetch.
      */
     where: tb_cargos_adminWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -2540,6 +2541,7 @@ export namespace Prisma {
      * Filter, which tb_cargos_admin to fetch.
      */
     where: tb_cargos_adminWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -2588,6 +2590,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_cargos_admins.
      */
     distinct?: Tb_cargos_adminScalarFieldEnum | Tb_cargos_adminScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -2636,6 +2639,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_cargos_admins.
      */
     distinct?: Tb_cargos_adminScalarFieldEnum | Tb_cargos_adminScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -2679,6 +2683,7 @@ export namespace Prisma {
      */
     skip?: number
     distinct?: Tb_cargos_adminScalarFieldEnum | Tb_cargos_adminScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -2697,6 +2702,7 @@ export namespace Prisma {
      * The data needed to create a tb_cargos_admin.
      */
     data?: XOR<tb_cargos_adminCreateInput, tb_cargos_adminUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -2730,6 +2736,7 @@ export namespace Prisma {
      * Choose, which tb_cargos_admin to update.
      */
     where: tb_cargos_adminWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -2774,6 +2781,7 @@ export namespace Prisma {
      * In case the tb_cargos_admin was found with the provided `where` argument, update it with this data.
      */
     update: XOR<tb_cargos_adminUpdateInput, tb_cargos_adminUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -2792,6 +2800,7 @@ export namespace Prisma {
      * Filter which tb_cargos_admin to delete.
      */
     where: tb_cargos_adminWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -3021,7 +3030,7 @@ export namespace Prisma {
   type tb_categoriasGetPayload<S extends boolean | null | undefined | tb_categoriasDefaultArgs> = $Result.GetResult<Prisma.$tb_categoriasPayload, S>
 
   type tb_categoriasCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<tb_categoriasFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    Omit<tb_categoriasFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
       select?: Tb_categoriasCountAggregateInputType | true
     }
 
@@ -3405,6 +3414,7 @@ export namespace Prisma {
      * Filter, which tb_categorias to fetch.
      */
     where: tb_categoriasWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -3423,6 +3433,7 @@ export namespace Prisma {
      * Filter, which tb_categorias to fetch.
      */
     where: tb_categoriasWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -3471,6 +3482,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_categorias.
      */
     distinct?: Tb_categoriasScalarFieldEnum | Tb_categoriasScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -3519,6 +3531,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_categorias.
      */
     distinct?: Tb_categoriasScalarFieldEnum | Tb_categoriasScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -3562,6 +3575,7 @@ export namespace Prisma {
      */
     skip?: number
     distinct?: Tb_categoriasScalarFieldEnum | Tb_categoriasScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -3580,6 +3594,7 @@ export namespace Prisma {
      * The data needed to create a tb_categorias.
      */
     data?: XOR<tb_categoriasCreateInput, tb_categoriasUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -3613,6 +3628,7 @@ export namespace Prisma {
      * Choose, which tb_categorias to update.
      */
     where: tb_categoriasWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -3657,6 +3673,7 @@ export namespace Prisma {
      * In case the tb_categorias was found with the provided `where` argument, update it with this data.
      */
     update: XOR<tb_categoriasUpdateInput, tb_categoriasUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -3675,6 +3692,7 @@ export namespace Prisma {
      * Filter which tb_categorias to delete.
      */
     where: tb_categoriasWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -3958,7 +3976,7 @@ export namespace Prisma {
   type tb_contactos_emergenciaGetPayload<S extends boolean | null | undefined | tb_contactos_emergenciaDefaultArgs> = $Result.GetResult<Prisma.$tb_contactos_emergenciaPayload, S>
 
   type tb_contactos_emergenciaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<tb_contactos_emergenciaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    Omit<tb_contactos_emergenciaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
       select?: Tb_contactos_emergenciaCountAggregateInputType | true
     }
 
@@ -4347,6 +4365,7 @@ export namespace Prisma {
      * Filter, which tb_contactos_emergencia to fetch.
      */
     where: tb_contactos_emergenciaWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -4365,6 +4384,7 @@ export namespace Prisma {
      * Filter, which tb_contactos_emergencia to fetch.
      */
     where: tb_contactos_emergenciaWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -4413,6 +4433,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_contactos_emergencias.
      */
     distinct?: Tb_contactos_emergenciaScalarFieldEnum | Tb_contactos_emergenciaScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -4461,6 +4482,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_contactos_emergencias.
      */
     distinct?: Tb_contactos_emergenciaScalarFieldEnum | Tb_contactos_emergenciaScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -4504,6 +4526,7 @@ export namespace Prisma {
      */
     skip?: number
     distinct?: Tb_contactos_emergenciaScalarFieldEnum | Tb_contactos_emergenciaScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -4522,6 +4545,7 @@ export namespace Prisma {
      * The data needed to create a tb_contactos_emergencia.
      */
     data: XOR<tb_contactos_emergenciaCreateInput, tb_contactos_emergenciaUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -4555,6 +4579,7 @@ export namespace Prisma {
      * Choose, which tb_contactos_emergencia to update.
      */
     where: tb_contactos_emergenciaWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -4599,6 +4624,7 @@ export namespace Prisma {
      * In case the tb_contactos_emergencia was found with the provided `where` argument, update it with this data.
      */
     update: XOR<tb_contactos_emergenciaUpdateInput, tb_contactos_emergenciaUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -4617,6 +4643,7 @@ export namespace Prisma {
      * Filter which tb_contactos_emergencia to delete.
      */
     where: tb_contactos_emergenciaWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -4846,7 +4873,7 @@ export namespace Prisma {
   type tb_departamentoGetPayload<S extends boolean | null | undefined | tb_departamentoDefaultArgs> = $Result.GetResult<Prisma.$tb_departamentoPayload, S>
 
   type tb_departamentoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<tb_departamentoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    Omit<tb_departamentoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
       select?: Tb_departamentoCountAggregateInputType | true
     }
 
@@ -5230,6 +5257,7 @@ export namespace Prisma {
      * Filter, which tb_departamento to fetch.
      */
     where: tb_departamentoWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -5248,6 +5276,7 @@ export namespace Prisma {
      * Filter, which tb_departamento to fetch.
      */
     where: tb_departamentoWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -5296,6 +5325,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_departamentos.
      */
     distinct?: Tb_departamentoScalarFieldEnum | Tb_departamentoScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -5344,6 +5374,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_departamentos.
      */
     distinct?: Tb_departamentoScalarFieldEnum | Tb_departamentoScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -5387,6 +5418,7 @@ export namespace Prisma {
      */
     skip?: number
     distinct?: Tb_departamentoScalarFieldEnum | Tb_departamentoScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -5405,6 +5437,7 @@ export namespace Prisma {
      * The data needed to create a tb_departamento.
      */
     data?: XOR<tb_departamentoCreateInput, tb_departamentoUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -5438,6 +5471,7 @@ export namespace Prisma {
      * Choose, which tb_departamento to update.
      */
     where: tb_departamentoWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -5482,6 +5516,7 @@ export namespace Prisma {
      * In case the tb_departamento was found with the provided `where` argument, update it with this data.
      */
     update: XOR<tb_departamentoUpdateInput, tb_departamentoUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -5500,6 +5535,7 @@ export namespace Prisma {
      * Filter which tb_departamento to delete.
      */
     where: tb_departamentoWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -5771,7 +5807,7 @@ export namespace Prisma {
   type tb_deportistasGetPayload<S extends boolean | null | undefined | tb_deportistasDefaultArgs> = $Result.GetResult<Prisma.$tb_deportistasPayload, S>
 
   type tb_deportistasCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<tb_deportistasFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    Omit<tb_deportistasFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
       select?: Tb_deportistasCountAggregateInputType | true
     }
 
@@ -6158,6 +6194,7 @@ export namespace Prisma {
      * Filter, which tb_deportistas to fetch.
      */
     where: tb_deportistasWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -6176,6 +6213,7 @@ export namespace Prisma {
      * Filter, which tb_deportistas to fetch.
      */
     where: tb_deportistasWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -6224,6 +6262,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_deportistas.
      */
     distinct?: Tb_deportistasScalarFieldEnum | Tb_deportistasScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -6272,6 +6311,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_deportistas.
      */
     distinct?: Tb_deportistasScalarFieldEnum | Tb_deportistasScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -6315,6 +6355,7 @@ export namespace Prisma {
      */
     skip?: number
     distinct?: Tb_deportistasScalarFieldEnum | Tb_deportistasScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -6333,6 +6374,7 @@ export namespace Prisma {
      * The data needed to create a tb_deportistas.
      */
     data: XOR<tb_deportistasCreateInput, tb_deportistasUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -6366,6 +6408,7 @@ export namespace Prisma {
      * Choose, which tb_deportistas to update.
      */
     where: tb_deportistasWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -6410,6 +6453,7 @@ export namespace Prisma {
      * In case the tb_deportistas was found with the provided `where` argument, update it with this data.
      */
     update: XOR<tb_deportistasUpdateInput, tb_deportistasUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -6428,6 +6472,7 @@ export namespace Prisma {
      * Filter which tb_deportistas to delete.
      */
     where: tb_deportistasWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -6691,7 +6736,7 @@ export namespace Prisma {
   type tb_desercion_deportistasGetPayload<S extends boolean | null | undefined | tb_desercion_deportistasDefaultArgs> = $Result.GetResult<Prisma.$tb_desercion_deportistasPayload, S>
 
   type tb_desercion_deportistasCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<tb_desercion_deportistasFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    Omit<tb_desercion_deportistasFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
       select?: Tb_desercion_deportistasCountAggregateInputType | true
     }
 
@@ -7078,6 +7123,7 @@ export namespace Prisma {
      * Filter, which tb_desercion_deportistas to fetch.
      */
     where: tb_desercion_deportistasWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -7096,6 +7142,7 @@ export namespace Prisma {
      * Filter, which tb_desercion_deportistas to fetch.
      */
     where: tb_desercion_deportistasWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -7144,6 +7191,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_desercion_deportistas.
      */
     distinct?: Tb_desercion_deportistasScalarFieldEnum | Tb_desercion_deportistasScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -7192,6 +7240,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_desercion_deportistas.
      */
     distinct?: Tb_desercion_deportistasScalarFieldEnum | Tb_desercion_deportistasScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -7235,6 +7284,7 @@ export namespace Prisma {
      */
     skip?: number
     distinct?: Tb_desercion_deportistasScalarFieldEnum | Tb_desercion_deportistasScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -7253,6 +7303,7 @@ export namespace Prisma {
      * The data needed to create a tb_desercion_deportistas.
      */
     data: XOR<tb_desercion_deportistasCreateInput, tb_desercion_deportistasUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -7286,6 +7337,7 @@ export namespace Prisma {
      * Choose, which tb_desercion_deportistas to update.
      */
     where: tb_desercion_deportistasWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -7330,6 +7382,7 @@ export namespace Prisma {
      * In case the tb_desercion_deportistas was found with the provided `where` argument, update it with this data.
      */
     update: XOR<tb_desercion_deportistasUpdateInput, tb_desercion_deportistasUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -7348,6 +7401,7 @@ export namespace Prisma {
      * Filter which tb_desercion_deportistas to delete.
      */
     where: tb_desercion_deportistasWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -7394,16 +7448,19 @@ export namespace Prisma {
   export type Tb_entrenadoresAvgAggregateOutputType = {
     id: number | null
     id_persona_club: number | null
+    id_contacto_emergencia: number | null
   }
 
   export type Tb_entrenadoresSumAggregateOutputType = {
     id: number | null
     id_persona_club: number | null
+    id_contacto_emergencia: number | null
   }
 
   export type Tb_entrenadoresMinAggregateOutputType = {
     id: number | null
     id_persona_club: number | null
+    id_contacto_emergencia: number | null
     fecha_ingreso: Date | null
     activo: boolean | null
     contrato: Uint8Array | null
@@ -7412,6 +7469,7 @@ export namespace Prisma {
   export type Tb_entrenadoresMaxAggregateOutputType = {
     id: number | null
     id_persona_club: number | null
+    id_contacto_emergencia: number | null
     fecha_ingreso: Date | null
     activo: boolean | null
     contrato: Uint8Array | null
@@ -7420,6 +7478,7 @@ export namespace Prisma {
   export type Tb_entrenadoresCountAggregateOutputType = {
     id: number
     id_persona_club: number
+    id_contacto_emergencia: number
     fecha_ingreso: number
     activo: number
     contrato: number
@@ -7430,16 +7489,19 @@ export namespace Prisma {
   export type Tb_entrenadoresAvgAggregateInputType = {
     id?: true
     id_persona_club?: true
+    id_contacto_emergencia?: true
   }
 
   export type Tb_entrenadoresSumAggregateInputType = {
     id?: true
     id_persona_club?: true
+    id_contacto_emergencia?: true
   }
 
   export type Tb_entrenadoresMinAggregateInputType = {
     id?: true
     id_persona_club?: true
+    id_contacto_emergencia?: true
     fecha_ingreso?: true
     activo?: true
     contrato?: true
@@ -7448,6 +7510,7 @@ export namespace Prisma {
   export type Tb_entrenadoresMaxAggregateInputType = {
     id?: true
     id_persona_club?: true
+    id_contacto_emergencia?: true
     fecha_ingreso?: true
     activo?: true
     contrato?: true
@@ -7456,6 +7519,7 @@ export namespace Prisma {
   export type Tb_entrenadoresCountAggregateInputType = {
     id?: true
     id_persona_club?: true
+    id_contacto_emergencia?: true
     fecha_ingreso?: true
     activo?: true
     contrato?: true
@@ -7551,6 +7615,7 @@ export namespace Prisma {
   export type Tb_entrenadoresGroupByOutputType = {
     id: number
     id_persona_club: number
+    id_contacto_emergencia: number | null
     fecha_ingreso: Date | null
     activo: boolean | null
     contrato: Uint8Array | null
@@ -7578,6 +7643,7 @@ export namespace Prisma {
   export type tb_entrenadoresSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     id_persona_club?: boolean
+    id_contacto_emergencia?: boolean
     fecha_ingreso?: boolean
     activo?: boolean
     contrato?: boolean
@@ -7588,12 +7654,13 @@ export namespace Prisma {
   export type tb_entrenadoresSelectScalar = {
     id?: boolean
     id_persona_club?: boolean
+    id_contacto_emergencia?: boolean
     fecha_ingreso?: boolean
     activo?: boolean
     contrato?: boolean
   }
 
-  export type tb_entrenadoresOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "id_persona_club" | "fecha_ingreso" | "activo" | "contrato", ExtArgs["result"]["tb_entrenadores"]>
+  export type tb_entrenadoresOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "id_persona_club" | "id_contacto_emergencia" | "fecha_ingreso" | "activo" | "contrato", ExtArgs["result"]["tb_entrenadores"]>
 
   export type $tb_entrenadoresPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "tb_entrenadores"
@@ -7601,6 +7668,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       id_persona_club: number
+      id_contacto_emergencia: number | null
       fecha_ingreso: Date | null
       activo: boolean | null
       contrato: Uint8Array | null
@@ -7611,7 +7679,7 @@ export namespace Prisma {
   type tb_entrenadoresGetPayload<S extends boolean | null | undefined | tb_entrenadoresDefaultArgs> = $Result.GetResult<Prisma.$tb_entrenadoresPayload, S>
 
   type tb_entrenadoresCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<tb_entrenadoresFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    Omit<tb_entrenadoresFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
       select?: Tb_entrenadoresCountAggregateInputType | true
     }
 
@@ -7975,6 +8043,7 @@ export namespace Prisma {
   interface tb_entrenadoresFieldRefs {
     readonly id: FieldRef<"tb_entrenadores", 'Int'>
     readonly id_persona_club: FieldRef<"tb_entrenadores", 'Int'>
+    readonly id_contacto_emergencia: FieldRef<"tb_entrenadores", 'Int'>
     readonly fecha_ingreso: FieldRef<"tb_entrenadores", 'DateTime'>
     readonly activo: FieldRef<"tb_entrenadores", 'Boolean'>
     readonly contrato: FieldRef<"tb_entrenadores", 'Bytes'>
@@ -7998,6 +8067,7 @@ export namespace Prisma {
      * Filter, which tb_entrenadores to fetch.
      */
     where: tb_entrenadoresWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -8016,6 +8086,7 @@ export namespace Prisma {
      * Filter, which tb_entrenadores to fetch.
      */
     where: tb_entrenadoresWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -8064,6 +8135,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_entrenadores.
      */
     distinct?: Tb_entrenadoresScalarFieldEnum | Tb_entrenadoresScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -8112,6 +8184,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_entrenadores.
      */
     distinct?: Tb_entrenadoresScalarFieldEnum | Tb_entrenadoresScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -8155,6 +8228,7 @@ export namespace Prisma {
      */
     skip?: number
     distinct?: Tb_entrenadoresScalarFieldEnum | Tb_entrenadoresScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -8173,6 +8247,7 @@ export namespace Prisma {
      * The data needed to create a tb_entrenadores.
      */
     data: XOR<tb_entrenadoresCreateInput, tb_entrenadoresUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -8206,6 +8281,7 @@ export namespace Prisma {
      * Choose, which tb_entrenadores to update.
      */
     where: tb_entrenadoresWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -8250,6 +8326,7 @@ export namespace Prisma {
      * In case the tb_entrenadores was found with the provided `where` argument, update it with this data.
      */
     update: XOR<tb_entrenadoresUpdateInput, tb_entrenadoresUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -8268,6 +8345,7 @@ export namespace Prisma {
      * Filter which tb_entrenadores to delete.
      */
     where: tb_entrenadoresWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -8559,7 +8637,7 @@ export namespace Prisma {
   type tb_gestion_adminGetPayload<S extends boolean | null | undefined | tb_gestion_adminDefaultArgs> = $Result.GetResult<Prisma.$tb_gestion_adminPayload, S>
 
   type tb_gestion_adminCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<tb_gestion_adminFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    Omit<tb_gestion_adminFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
       select?: Tb_gestion_adminCountAggregateInputType | true
     }
 
@@ -8948,6 +9026,7 @@ export namespace Prisma {
      * Filter, which tb_gestion_admin to fetch.
      */
     where: tb_gestion_adminWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -8966,6 +9045,7 @@ export namespace Prisma {
      * Filter, which tb_gestion_admin to fetch.
      */
     where: tb_gestion_adminWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -9014,6 +9094,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_gestion_admins.
      */
     distinct?: Tb_gestion_adminScalarFieldEnum | Tb_gestion_adminScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -9062,6 +9143,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_gestion_admins.
      */
     distinct?: Tb_gestion_adminScalarFieldEnum | Tb_gestion_adminScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -9105,6 +9187,7 @@ export namespace Prisma {
      */
     skip?: number
     distinct?: Tb_gestion_adminScalarFieldEnum | Tb_gestion_adminScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -9123,6 +9206,7 @@ export namespace Prisma {
      * The data needed to create a tb_gestion_admin.
      */
     data?: XOR<tb_gestion_adminCreateInput, tb_gestion_adminUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -9156,6 +9240,7 @@ export namespace Prisma {
      * Choose, which tb_gestion_admin to update.
      */
     where: tb_gestion_adminWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -9200,6 +9285,7 @@ export namespace Prisma {
      * In case the tb_gestion_admin was found with the provided `where` argument, update it with this data.
      */
     update: XOR<tb_gestion_adminUpdateInput, tb_gestion_adminUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -9218,6 +9304,7 @@ export namespace Prisma {
      * Filter which tb_gestion_admin to delete.
      */
     where: tb_gestion_adminWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -9471,7 +9558,7 @@ export namespace Prisma {
   type tb_municipioGetPayload<S extends boolean | null | undefined | tb_municipioDefaultArgs> = $Result.GetResult<Prisma.$tb_municipioPayload, S>
 
   type tb_municipioCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<tb_municipioFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    Omit<tb_municipioFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
       select?: Tb_municipioCountAggregateInputType | true
     }
 
@@ -9857,6 +9944,7 @@ export namespace Prisma {
      * Filter, which tb_municipio to fetch.
      */
     where: tb_municipioWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -9875,6 +9963,7 @@ export namespace Prisma {
      * Filter, which tb_municipio to fetch.
      */
     where: tb_municipioWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -9923,6 +10012,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_municipios.
      */
     distinct?: Tb_municipioScalarFieldEnum | Tb_municipioScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -9971,6 +10061,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_municipios.
      */
     distinct?: Tb_municipioScalarFieldEnum | Tb_municipioScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -10014,6 +10105,7 @@ export namespace Prisma {
      */
     skip?: number
     distinct?: Tb_municipioScalarFieldEnum | Tb_municipioScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -10032,6 +10124,7 @@ export namespace Prisma {
      * The data needed to create a tb_municipio.
      */
     data: XOR<tb_municipioCreateInput, tb_municipioUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -10065,6 +10158,7 @@ export namespace Prisma {
      * Choose, which tb_municipio to update.
      */
     where: tb_municipioWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -10109,6 +10203,7 @@ export namespace Prisma {
      * In case the tb_municipio was found with the provided `where` argument, update it with this data.
      */
     update: XOR<tb_municipioUpdateInput, tb_municipioUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -10127,6 +10222,7 @@ export namespace Prisma {
      * Filter which tb_municipio to delete.
      */
     where: tb_municipioWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -10394,7 +10490,7 @@ export namespace Prisma {
   type tb_pagos_deportistasGetPayload<S extends boolean | null | undefined | tb_pagos_deportistasDefaultArgs> = $Result.GetResult<Prisma.$tb_pagos_deportistasPayload, S>
 
   type tb_pagos_deportistasCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<tb_pagos_deportistasFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    Omit<tb_pagos_deportistasFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
       select?: Tb_pagos_deportistasCountAggregateInputType | true
     }
 
@@ -10781,6 +10877,7 @@ export namespace Prisma {
      * Filter, which tb_pagos_deportistas to fetch.
      */
     where: tb_pagos_deportistasWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -10799,6 +10896,7 @@ export namespace Prisma {
      * Filter, which tb_pagos_deportistas to fetch.
      */
     where: tb_pagos_deportistasWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -10847,6 +10945,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_pagos_deportistas.
      */
     distinct?: Tb_pagos_deportistasScalarFieldEnum | Tb_pagos_deportistasScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -10895,6 +10994,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_pagos_deportistas.
      */
     distinct?: Tb_pagos_deportistasScalarFieldEnum | Tb_pagos_deportistasScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -10938,6 +11038,7 @@ export namespace Prisma {
      */
     skip?: number
     distinct?: Tb_pagos_deportistasScalarFieldEnum | Tb_pagos_deportistasScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -10956,6 +11057,7 @@ export namespace Prisma {
      * The data needed to create a tb_pagos_deportistas.
      */
     data: XOR<tb_pagos_deportistasCreateInput, tb_pagos_deportistasUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -10989,6 +11091,7 @@ export namespace Prisma {
      * Choose, which tb_pagos_deportistas to update.
      */
     where: tb_pagos_deportistasWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -11033,6 +11136,7 @@ export namespace Prisma {
      * In case the tb_pagos_deportistas was found with the provided `where` argument, update it with this data.
      */
     update: XOR<tb_pagos_deportistasUpdateInput, tb_pagos_deportistasUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -11051,6 +11155,7 @@ export namespace Prisma {
      * Filter which tb_pagos_deportistas to delete.
      */
     where: tb_pagos_deportistasWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -11450,7 +11555,7 @@ export namespace Prisma {
   type tb_personas_clubGetPayload<S extends boolean | null | undefined | tb_personas_clubDefaultArgs> = $Result.GetResult<Prisma.$tb_personas_clubPayload, S>
 
   type tb_personas_clubCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<tb_personas_clubFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    Omit<tb_personas_clubFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
       select?: Tb_personas_clubCountAggregateInputType | true
     }
 
@@ -11849,6 +11954,7 @@ export namespace Prisma {
      * Filter, which tb_personas_club to fetch.
      */
     where: tb_personas_clubWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -11867,6 +11973,7 @@ export namespace Prisma {
      * Filter, which tb_personas_club to fetch.
      */
     where: tb_personas_clubWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -11915,6 +12022,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_personas_clubs.
      */
     distinct?: Tb_personas_clubScalarFieldEnum | Tb_personas_clubScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -11963,6 +12071,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_personas_clubs.
      */
     distinct?: Tb_personas_clubScalarFieldEnum | Tb_personas_clubScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -12006,6 +12115,7 @@ export namespace Prisma {
      */
     skip?: number
     distinct?: Tb_personas_clubScalarFieldEnum | Tb_personas_clubScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -12024,6 +12134,7 @@ export namespace Prisma {
      * The data needed to create a tb_personas_club.
      */
     data: XOR<tb_personas_clubCreateInput, tb_personas_clubUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -12057,6 +12168,7 @@ export namespace Prisma {
      * Choose, which tb_personas_club to update.
      */
     where: tb_personas_clubWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -12101,6 +12213,7 @@ export namespace Prisma {
      * In case the tb_personas_club was found with the provided `where` argument, update it with this data.
      */
     update: XOR<tb_personas_clubUpdateInput, tb_personas_clubUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -12119,6 +12232,7 @@ export namespace Prisma {
      * Filter which tb_personas_club to delete.
      */
     where: tb_personas_clubWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -12358,7 +12472,7 @@ export namespace Prisma {
   type tb_tipo_documentoGetPayload<S extends boolean | null | undefined | tb_tipo_documentoDefaultArgs> = $Result.GetResult<Prisma.$tb_tipo_documentoPayload, S>
 
   type tb_tipo_documentoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<tb_tipo_documentoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    Omit<tb_tipo_documentoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
       select?: Tb_tipo_documentoCountAggregateInputType | true
     }
 
@@ -12743,6 +12857,7 @@ export namespace Prisma {
      * Filter, which tb_tipo_documento to fetch.
      */
     where: tb_tipo_documentoWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -12761,6 +12876,7 @@ export namespace Prisma {
      * Filter, which tb_tipo_documento to fetch.
      */
     where: tb_tipo_documentoWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -12809,6 +12925,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_tipo_documentos.
      */
     distinct?: Tb_tipo_documentoScalarFieldEnum | Tb_tipo_documentoScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -12857,6 +12974,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_tipo_documentos.
      */
     distinct?: Tb_tipo_documentoScalarFieldEnum | Tb_tipo_documentoScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -12900,6 +13018,7 @@ export namespace Prisma {
      */
     skip?: number
     distinct?: Tb_tipo_documentoScalarFieldEnum | Tb_tipo_documentoScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -12918,6 +13037,7 @@ export namespace Prisma {
      * The data needed to create a tb_tipo_documento.
      */
     data?: XOR<tb_tipo_documentoCreateInput, tb_tipo_documentoUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -12951,6 +13071,7 @@ export namespace Prisma {
      * Choose, which tb_tipo_documento to update.
      */
     where: tb_tipo_documentoWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -12995,6 +13116,7 @@ export namespace Prisma {
      * In case the tb_tipo_documento was found with the provided `where` argument, update it with this data.
      */
     update: XOR<tb_tipo_documentoUpdateInput, tb_tipo_documentoUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -13013,6 +13135,7 @@ export namespace Prisma {
      * Filter which tb_tipo_documento to delete.
      */
     where: tb_tipo_documentoWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -13282,7 +13405,7 @@ export namespace Prisma {
   type tb_tutoresGetPayload<S extends boolean | null | undefined | tb_tutoresDefaultArgs> = $Result.GetResult<Prisma.$tb_tutoresPayload, S>
 
   type tb_tutoresCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<tb_tutoresFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    Omit<tb_tutoresFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
       select?: Tb_tutoresCountAggregateInputType | true
     }
 
@@ -13670,6 +13793,7 @@ export namespace Prisma {
      * Filter, which tb_tutores to fetch.
      */
     where: tb_tutoresWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -13688,6 +13812,7 @@ export namespace Prisma {
      * Filter, which tb_tutores to fetch.
      */
     where: tb_tutoresWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -13736,6 +13861,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_tutores.
      */
     distinct?: Tb_tutoresScalarFieldEnum | Tb_tutoresScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -13784,6 +13910,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_tutores.
      */
     distinct?: Tb_tutoresScalarFieldEnum | Tb_tutoresScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -13827,6 +13954,7 @@ export namespace Prisma {
      */
     skip?: number
     distinct?: Tb_tutoresScalarFieldEnum | Tb_tutoresScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -13845,6 +13973,7 @@ export namespace Prisma {
      * The data needed to create a tb_tutores.
      */
     data: XOR<tb_tutoresCreateInput, tb_tutoresUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -13878,6 +14007,7 @@ export namespace Prisma {
      * Choose, which tb_tutores to update.
      */
     where: tb_tutoresWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -13922,6 +14052,7 @@ export namespace Prisma {
      * In case the tb_tutores was found with the provided `where` argument, update it with this data.
      */
     update: XOR<tb_tutoresUpdateInput, tb_tutoresUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -13940,6 +14071,7 @@ export namespace Prisma {
      * Filter which tb_tutores to delete.
      */
     where: tb_tutoresWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -14203,7 +14335,7 @@ export namespace Prisma {
   type tb_usuariosGetPayload<S extends boolean | null | undefined | tb_usuariosDefaultArgs> = $Result.GetResult<Prisma.$tb_usuariosPayload, S>
 
   type tb_usuariosCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<tb_usuariosFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    Omit<tb_usuariosFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
       select?: Tb_usuariosCountAggregateInputType | true
     }
 
@@ -14590,6 +14722,7 @@ export namespace Prisma {
      * Filter, which tb_usuarios to fetch.
      */
     where: tb_usuariosWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -14608,6 +14741,7 @@ export namespace Prisma {
      * Filter, which tb_usuarios to fetch.
      */
     where: tb_usuariosWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -14656,6 +14790,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_usuarios.
      */
     distinct?: Tb_usuariosScalarFieldEnum | Tb_usuariosScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -14704,6 +14839,7 @@ export namespace Prisma {
      * Filter by unique combinations of tb_usuarios.
      */
     distinct?: Tb_usuariosScalarFieldEnum | Tb_usuariosScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -14747,6 +14883,7 @@ export namespace Prisma {
      */
     skip?: number
     distinct?: Tb_usuariosScalarFieldEnum | Tb_usuariosScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -14765,6 +14902,7 @@ export namespace Prisma {
      * The data needed to create a tb_usuarios.
      */
     data?: XOR<tb_usuariosCreateInput, tb_usuariosUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -14798,6 +14936,7 @@ export namespace Prisma {
      * Choose, which tb_usuarios to update.
      */
     where: tb_usuariosWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -14842,6 +14981,7 @@ export namespace Prisma {
      * In case the tb_usuarios was found with the provided `where` argument, update it with this data.
      */
     update: XOR<tb_usuariosUpdateInput, tb_usuariosUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -14860,6 +15000,7 @@ export namespace Prisma {
      * Filter which tb_usuarios to delete.
      */
     where: tb_usuariosWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
   }
 
   /**
@@ -14911,6 +15052,14 @@ export namespace Prisma {
   };
 
   export type Tb_cargos_adminScalarFieldEnum = (typeof Tb_cargos_adminScalarFieldEnum)[keyof typeof Tb_cargos_adminScalarFieldEnum]
+
+
+  export const RelationLoadStrategy: {
+    query: 'query',
+    join: 'join'
+  };
+
+  export type RelationLoadStrategy = (typeof RelationLoadStrategy)[keyof typeof RelationLoadStrategy]
 
 
   export const Tb_categoriasScalarFieldEnum: {
@@ -14967,6 +15116,7 @@ export namespace Prisma {
   export const Tb_entrenadoresScalarFieldEnum: {
     id: 'id',
     id_persona_club: 'id_persona_club',
+    id_contacto_emergencia: 'id_contacto_emergencia',
     fecha_ingreso: 'fecha_ingreso',
     activo: 'activo',
     contrato: 'contrato'
@@ -15534,6 +15684,7 @@ export namespace Prisma {
     NOT?: tb_entrenadoresWhereInput | tb_entrenadoresWhereInput[]
     id?: IntFilter<"tb_entrenadores"> | number
     id_persona_club?: IntFilter<"tb_entrenadores"> | number
+    id_contacto_emergencia?: IntNullableFilter<"tb_entrenadores"> | number | null
     fecha_ingreso?: DateTimeNullableFilter<"tb_entrenadores"> | Date | string | null
     activo?: BoolNullableFilter<"tb_entrenadores"> | boolean | null
     contrato?: BytesNullableFilter<"tb_entrenadores"> | Uint8Array | null
@@ -15542,6 +15693,7 @@ export namespace Prisma {
   export type tb_entrenadoresOrderByWithRelationInput = {
     id?: SortOrder
     id_persona_club?: SortOrder
+    id_contacto_emergencia?: SortOrderInput | SortOrder
     fecha_ingreso?: SortOrderInput | SortOrder
     activo?: SortOrderInput | SortOrder
     contrato?: SortOrderInput | SortOrder
@@ -15553,6 +15705,7 @@ export namespace Prisma {
     OR?: tb_entrenadoresWhereInput[]
     NOT?: tb_entrenadoresWhereInput | tb_entrenadoresWhereInput[]
     id_persona_club?: IntFilter<"tb_entrenadores"> | number
+    id_contacto_emergencia?: IntNullableFilter<"tb_entrenadores"> | number | null
     fecha_ingreso?: DateTimeNullableFilter<"tb_entrenadores"> | Date | string | null
     activo?: BoolNullableFilter<"tb_entrenadores"> | boolean | null
     contrato?: BytesNullableFilter<"tb_entrenadores"> | Uint8Array | null
@@ -15561,6 +15714,7 @@ export namespace Prisma {
   export type tb_entrenadoresOrderByWithAggregationInput = {
     id?: SortOrder
     id_persona_club?: SortOrder
+    id_contacto_emergencia?: SortOrderInput | SortOrder
     fecha_ingreso?: SortOrderInput | SortOrder
     activo?: SortOrderInput | SortOrder
     contrato?: SortOrderInput | SortOrder
@@ -15577,6 +15731,7 @@ export namespace Prisma {
     NOT?: tb_entrenadoresScalarWhereWithAggregatesInput | tb_entrenadoresScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"tb_entrenadores"> | number
     id_persona_club?: IntWithAggregatesFilter<"tb_entrenadores"> | number
+    id_contacto_emergencia?: IntNullableWithAggregatesFilter<"tb_entrenadores"> | number | null
     fecha_ingreso?: DateTimeNullableWithAggregatesFilter<"tb_entrenadores"> | Date | string | null
     activo?: BoolNullableWithAggregatesFilter<"tb_entrenadores"> | boolean | null
     contrato?: BytesNullableWithAggregatesFilter<"tb_entrenadores"> | Uint8Array | null
@@ -16297,6 +16452,7 @@ export namespace Prisma {
 
   export type tb_entrenadoresCreateInput = {
     id_persona_club: number
+    id_contacto_emergencia?: number | null
     fecha_ingreso?: Date | string | null
     activo?: boolean | null
     contrato?: Uint8Array | null
@@ -16305,6 +16461,7 @@ export namespace Prisma {
   export type tb_entrenadoresUncheckedCreateInput = {
     id?: number
     id_persona_club: number
+    id_contacto_emergencia?: number | null
     fecha_ingreso?: Date | string | null
     activo?: boolean | null
     contrato?: Uint8Array | null
@@ -16312,6 +16469,7 @@ export namespace Prisma {
 
   export type tb_entrenadoresUpdateInput = {
     id_persona_club?: IntFieldUpdateOperationsInput | number
+    id_contacto_emergencia?: NullableIntFieldUpdateOperationsInput | number | null
     fecha_ingreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
@@ -16320,6 +16478,7 @@ export namespace Prisma {
   export type tb_entrenadoresUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     id_persona_club?: IntFieldUpdateOperationsInput | number
+    id_contacto_emergencia?: NullableIntFieldUpdateOperationsInput | number | null
     fecha_ingreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
@@ -16328,6 +16487,7 @@ export namespace Prisma {
   export type tb_entrenadoresCreateManyInput = {
     id?: number
     id_persona_club: number
+    id_contacto_emergencia?: number | null
     fecha_ingreso?: Date | string | null
     activo?: boolean | null
     contrato?: Uint8Array | null
@@ -16335,6 +16495,7 @@ export namespace Prisma {
 
   export type tb_entrenadoresUpdateManyMutationInput = {
     id_persona_club?: IntFieldUpdateOperationsInput | number
+    id_contacto_emergencia?: NullableIntFieldUpdateOperationsInput | number | null
     fecha_ingreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
@@ -16343,6 +16504,7 @@ export namespace Prisma {
   export type tb_entrenadoresUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     id_persona_club?: IntFieldUpdateOperationsInput | number
+    id_contacto_emergencia?: NullableIntFieldUpdateOperationsInput | number | null
     fecha_ingreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
@@ -17187,6 +17349,7 @@ export namespace Prisma {
   export type tb_entrenadoresCountOrderByAggregateInput = {
     id?: SortOrder
     id_persona_club?: SortOrder
+    id_contacto_emergencia?: SortOrder
     fecha_ingreso?: SortOrder
     activo?: SortOrder
     contrato?: SortOrder
@@ -17195,11 +17358,13 @@ export namespace Prisma {
   export type tb_entrenadoresAvgOrderByAggregateInput = {
     id?: SortOrder
     id_persona_club?: SortOrder
+    id_contacto_emergencia?: SortOrder
   }
 
   export type tb_entrenadoresMaxOrderByAggregateInput = {
     id?: SortOrder
     id_persona_club?: SortOrder
+    id_contacto_emergencia?: SortOrder
     fecha_ingreso?: SortOrder
     activo?: SortOrder
     contrato?: SortOrder
@@ -17208,6 +17373,7 @@ export namespace Prisma {
   export type tb_entrenadoresMinOrderByAggregateInput = {
     id?: SortOrder
     id_persona_club?: SortOrder
+    id_contacto_emergencia?: SortOrder
     fecha_ingreso?: SortOrder
     activo?: SortOrder
     contrato?: SortOrder
@@ -17216,6 +17382,7 @@ export namespace Prisma {
   export type tb_entrenadoresSumOrderByAggregateInput = {
     id?: SortOrder
     id_persona_club?: SortOrder
+    id_contacto_emergencia?: SortOrder
   }
 
   export type BytesNullableWithAggregatesFilter<$PrismaModel = never> = {

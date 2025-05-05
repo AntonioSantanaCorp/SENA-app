@@ -1,6 +1,7 @@
 generator client {
-  provider = "prisma-client-js"
-  output   = "../generated/prisma"
+  provider        = "prisma-client-js"
+  output          = "../generated/prisma"
+  previewFeatures = ["relationJoins"]
 }
 
 datasource db {
@@ -26,8 +27,6 @@ model tb_contactos_emergencia {
   apellidos      String? @db.VarChar(5000)
   correo         String? @db.Text
   telefono       String? @db.Text
-
-  @@index([id_entrenador], map: "id_entrenador")
 }
 
 model tb_departamento {
@@ -58,13 +57,15 @@ model tb_desercion_deportistas {
 }
 
 model tb_entrenadores {
-  id              Int       @id @default(autoincrement())
-  id_persona_club Int
-  fecha_ingreso   DateTime? @db.Date
-  activo          Boolean?
-  contrato        Bytes?    @db.Blob
+  id                     Int       @id @default(autoincrement())
+  id_persona_club        Int
+  id_contacto_emergencia Int?
+  fecha_ingreso          DateTime? @db.Date
+  activo                 Boolean?
+  contrato               Bytes?    @db.Blob
 
   @@index([id_persona_club], map: "id_persona_club")
+  @@index([id_contacto_emergencia], map: "id_contacto_emergencia")
 }
 
 model tb_gestion_admin {
