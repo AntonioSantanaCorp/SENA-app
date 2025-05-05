@@ -4,10 +4,10 @@ import {
   computed,
   input,
 } from '@angular/core';
-import { DataTablePaginator } from '@libs/tables/models/datatable.model';
+import { DataTablePaginator } from '../../models/datatable.model';
 
 @Component({
-  selector: 'app-paginator',
+  selector: 'ui-paginator',
   standalone: true,
   imports: [],
   host: { class: 'd-flex gap-3 justify-content-end align-items-center' },

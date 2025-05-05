@@ -11,16 +11,16 @@ export default [
       '@angular-eslint/directive-selector': [
         'error',
         {
-          type: 'attribute',
-          prefix: 'lib',
+          type: ['attribute', 'element'],
+          prefix: 'ui',
           style: 'camelCase',
         },
       ],
       '@angular-eslint/component-selector': [
         'error',
         {
-          type: 'element',
-          prefix: 'lib',
+          type: ['attribute', 'element'],
+          prefix: 'ui',
           style: 'kebab-case',
         },
       ],

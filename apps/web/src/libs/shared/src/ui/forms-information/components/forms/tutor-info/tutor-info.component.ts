@@ -4,8 +4,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DOCUMENTS_TYPES } from '@core/constants/document-type.constant';
-import { ControlInputComponent } from '@libs/control-field';
+import { DOCUMENTS_TYPES } from '@sacd/core/constants';
+import { ControlInputComponent } from '../../../../control-field/components/control-input/control-input.component';
 import { FormComponent } from '../../../directives/form-component.directive';
 import {
   TutorInfoForm,
@@ -13,7 +13,7 @@ import {
 } from '../../../form-controls/tutor-info.form';
 
 @Component({
-  selector: 'app-tutor-info',
+  selector: 'ui-tutor-info',
   host: { class: 'form-section' },
   imports: [ReactiveFormsModule, ControlInputComponent],
   providers: [{ provide: FormComponent, useExisting: TutorInfoComponent }],

@@ -2,9 +2,9 @@
   "name": "web-libs:shared",
   "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/web/src/libs/shared/src",
-  "prefix": "lib",
+  "prefix": "ui",
   "projectType": "library",
-  "tags": [],
+  "tags": ["shared"],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",

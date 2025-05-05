@@ -1,5 +1,5 @@
 <ng-container [formGroup]="form">
-  <app-control-input attrFor="departamento">
+  <ui-control-input attrFor="departamento">
     <label> Departamento residencia *</label>
     <select formControlName="departamento">
       <option selected disabled value="">Seleccione departamento</option>
@@ -7,9 +7,9 @@
             <option [value]="document.value">{{ document.label }}</option>
             } -->
     </select>
-  </app-control-input>
+  </ui-control-input>
 
-  <app-control-input attrFor="ciudad">
+  <ui-control-input attrFor="ciudad">
     <label> Direccion residencia *</label>
     <select formControlName="ciudad">
       <option selected disabled value="">Seleccione cuidad</option>
@@ -17,16 +17,16 @@
               <option [value]="document.value">{{ document.label }}</option>
               } -->
     </select>
-  </app-control-input>
+  </ui-control-input>
 
-  <app-control-input attrFor="direccion">
+  <ui-control-input attrFor="direccion">
     <label>Direccion residencia *</label>
     <input
       placeholder="Ingrese direccion"
       type="text"
       formControlName="direccion"
     />
-  </app-control-input>
+  </ui-control-input>
 
   <ng-content select="app-control-input"></ng-content>
 </ng-container>

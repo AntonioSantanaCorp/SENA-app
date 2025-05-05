@@ -1,23 +1,23 @@
 <ng-container [formGroup]="form">
-  <app-control-input attrFor="nombres">
+  <ui-control-input attrFor="nombres">
     <label> Nombres *</label>
     <input
       placeholder="Ingrese nombres"
       type="text"
       formControlName="nombres"
     />
-  </app-control-input>
+  </ui-control-input>
 
-  <app-control-input attrFor="apellidos">
+  <ui-control-input attrFor="apellidos">
     <label>Apellidos *</label>
     <input
       placeholder="Ingrese apellidos"
       type="text"
       formControlName="apellidos"
     />
-  </app-control-input>
+  </ui-control-input>
 
-  <app-control-input attrFor="tipoDocumento">
+  <ui-control-input attrFor="tipoDocumento">
     <label> Tipo documento *</label>
     <select formControlName="tipoDocumento">
       <option selected disabled value="">Ingrese numero documento</option>
@@ -25,9 +25,9 @@
         <option [value]="document.value">{{ document.label }}</option>
       }
     </select>
-  </app-control-input>
+  </ui-control-input>
 
-  <app-control-input attrFor="numeroDocumento">
+  <ui-control-input attrFor="numeroDocumento">
     <label>Ingrese numero documento *</label>
     <input
       type="number"
@@ -35,18 +35,18 @@
       placeholder="Ingrese numero documento "
       formControlName="numeroDocumento"
     />
-  </app-control-input>
+  </ui-control-input>
 
-  <app-control-input attrFor="fechaNacimiento">
+  <ui-control-input attrFor="fechaNacimiento">
     <label> Fecha nacimiento * </label>
     <input
       placeholder="Ingrese fecha de nacimiento"
       type="date"
       formControlName="fechaNacimiento"
     />
-  </app-control-input>
+  </ui-control-input>
 
-  <app-control-input attrFor="tipoRH">
+  <ui-control-input attrFor="tipoRH">
     <label> Tipo de RH * </label>
     <select formControlName="tipoRH">
       <option selected disabled value="">Ingrese RH</option>
@@ -54,9 +54,9 @@
         <option [value]="rhType">{{ rhType }}</option>
       }
     </select>
-  </app-control-input>
+  </ui-control-input>
 
-  <app-control-input attrFor="genero">
+  <ui-control-input attrFor="genero">
     <label> Genero * </label>
     <select formControlName="genero">
       <option selected disabled value="">Ingrese Genero</option>
@@ -64,9 +64,9 @@
         <option [value]="gender.value">{{ gender.label }}</option>
       }
     </select>
-  </app-control-input>
+  </ui-control-input>
 
-  <app-control-input attrFor="peso">
+  <ui-control-input attrFor="peso">
     <label> Peso (Kg) </label>
     <input
       placeholder="Ingrese peso"
@@ -74,9 +74,9 @@
       pattern="^\d+(\.\d+)?$"
       formControlName="peso"
     />
-  </app-control-input>
+  </ui-control-input>
 
-  <app-control-input attrFor="altura">
+  <ui-control-input attrFor="altura">
     <label> Altura (mts) </label>
     <input
       placeholder="Ingrese altura"
@@ -84,18 +84,18 @@
       pattern="^\d+(\.\d+)?$"
       formControlName="altura"
     />
-  </app-control-input>
+  </ui-control-input>
 
-  <app-control-input attrFor="correo">
+  <ui-control-input attrFor="correo">
     <label> Correo* </label>
     <input
       placeholder="Ingrese correo"
       type="correo"
       formControlName="correo"
     />
-  </app-control-input>
+  </ui-control-input>
 
-  <app-control-input attrFor="telefono">
+  <ui-control-input attrFor="telefono">
     <label>Numero telefono* </label>
     <input
       placeholder="Ingrese telefono"
@@ -103,9 +103,9 @@
       pattern="^[0-9]*$"
       formControlName="telefono"
     />
-  </app-control-input>
+  </ui-control-input>
 
-  <app-control-input attrFor="tallaCamisa">
+  <ui-control-input attrFor="tallaCamisa">
     <label> Talla camisa </label>
     <select formControlName="tallaCamisa">
       <option selected disabled value="">Seleccione talla</option>
@@ -113,9 +113,9 @@
         <option [value]="shirtSize">{{ shirtSize }}</option>
       }
     </select>
-  </app-control-input>
+  </ui-control-input>
 
-  <app-control-input attrFor="tallaCalzado">
+  <ui-control-input attrFor="tallaCalzado">
     <label> Talla de calzado </label>
     <input
       placeholder="Ingrese talla calzado"
@@ -123,9 +123,9 @@
       formControlName="tallaCalzado"
       pattern="^[0-9]*$"
     />
-  </app-control-input>
+  </ui-control-input>
 
-  <app-control-input attrFor="tallaPantalon">
+  <ui-control-input attrFor="tallaPantalon">
     <label> Talla de pantaloneta </label>
     <input
       placeholder="Ingrese talla pantaloneta"
@@ -133,7 +133,7 @@
       formControlName="tallaPantalon"
       pattern="^[0-9]*$"
     />
-  </app-control-input>
+  </ui-control-input>
 
-  <ng-content select="app-control-input"></ng-content>
+  <ng-content select="ui-control-input"></ng-content>
 </ng-container>

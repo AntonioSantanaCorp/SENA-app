@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { DataTableSearch } from '@libs/tables/models/datatable.model';
 import { map } from 'rxjs';
+import { DataTableSearch } from '../../models/datatable.model';
 
 @Component({
-  selector: 'app-search-input',
+  selector: 'ui-search-input',
   imports: [ReactiveFormsModule],
   host: { class: 'w-50 d-flex flex-column' },
   templateUrl: './search-input.component.html',

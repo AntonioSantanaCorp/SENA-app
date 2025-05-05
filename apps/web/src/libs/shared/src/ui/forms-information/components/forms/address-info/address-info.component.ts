@@ -12,7 +12,7 @@ import {
 import { FormComponent } from '../../../directives/form-component.directive';
 
 @Component({
-  selector: 'app-address-info',
+  selector: 'ui-address-info',
   host: { class: 'form-section' },
   imports: [ReactiveFormsModule, ControlInputComponent],
   providers: [{ provide: FormComponent, useExisting: AddressInfoComponent }],

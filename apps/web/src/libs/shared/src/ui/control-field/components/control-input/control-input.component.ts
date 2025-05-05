@@ -14,7 +14,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NgControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-control-input',
+  selector: 'ui-control-input',
   imports: [],
   templateUrl: './control-input.component.html',
   styleUrl: './control-input.component.scss',

@@ -10,7 +10,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NgControl } from '@angular/forms';
 
 @Directive({
-  selector: '[appControlForm]',
+  selector: '[uiControlForm]',
   standalone: true,
 })
 export class ControlFormDirective implements OnInit {

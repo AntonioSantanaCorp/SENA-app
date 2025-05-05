@@ -27,7 +27,11 @@ export default [
     },
   },
   {
-    files: ['**/*.html'],
+    files: ['**/*.html', {
+      rules: {
+        "@angular-eslint/template/label-has-associated-control": "off",
+      }
+    }],
     // Override or add rules here
     rules: {},
   },
