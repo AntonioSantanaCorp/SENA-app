@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { DatabaseModule } from '../core/database/database.module';
+import { DatabaseModule } from '@api/database';
 import { AthleteService } from './services/athlete/athlete.service';
 @Module({
   imports: [DatabaseModule],

@@ -16,9 +16,10 @@
     "baseUrl": ".",
     "paths": {
       "@sacd/core/*": ["core/src/*"],
+      "@api/database": ["apps/api/libs/database/src/index.ts"],
       "@web/libs/athlete/*": ["apps/web/src/libs/athlete/src/*"],
-      "@web/libs/trainer/*": ["apps/web/src/libs/trainer/src/*"],
-      "@web/libs/shared/*": ["apps/web/src/libs/shared/src/*"]
+      "@web/libs/shared/*": ["apps/web/src/libs/shared/src/*"],
+      "@web/libs/trainer/*": ["apps/web/src/libs/trainer/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

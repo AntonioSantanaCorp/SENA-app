@@ -120,7 +120,7 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.Tb_cargos_adminScalarFieldEnum = {
+exports.Prisma.CargosAdminScalarFieldEnum = {
   id: 'id',
   nombre: 'nombre'
 };
@@ -130,117 +130,116 @@ exports.Prisma.RelationLoadStrategy = {
   join: 'join'
 };
 
-exports.Prisma.Tb_categoriasScalarFieldEnum = {
+exports.Prisma.CategoriaScalarFieldEnum = {
   id: 'id',
   nombre: 'nombre'
 };
 
-exports.Prisma.Tb_contactos_emergenciaScalarFieldEnum = {
+exports.Prisma.PersonaClubScalarFieldEnum = {
   id: 'id',
-  tipo_documento: 'tipo_documento',
-  id_entrenador: 'id_entrenador',
+  tipoDocumento: 'tipoDocumento',
+  idMunicipio: 'idMunicipio',
   nombres: 'nombres',
   apellidos: 'apellidos',
-  correo: 'correo',
-  telefono: 'telefono'
-};
-
-exports.Prisma.Tb_departamentoScalarFieldEnum = {
-  id: 'id',
-  nombre: 'nombre'
-};
-
-exports.Prisma.Tb_deportistasScalarFieldEnum = {
-  id: 'id',
-  id_tutor: 'id_tutor',
-  id_persona_club: 'id_persona_club',
-  id_categoria: 'id_categoria',
-  activo: 'activo'
-};
-
-exports.Prisma.Tb_desercion_deportistasScalarFieldEnum = {
-  id: 'id',
-  id_deportista: 'id_deportista',
-  fecha_desercion: 'fecha_desercion',
-  razon: 'razon',
-  descripcion: 'descripcion'
-};
-
-exports.Prisma.Tb_entrenadoresScalarFieldEnum = {
-  id: 'id',
-  id_persona_club: 'id_persona_club',
-  id_contacto_emergencia: 'id_contacto_emergencia',
-  fecha_ingreso: 'fecha_ingreso',
-  activo: 'activo',
-  contrato: 'contrato'
-};
-
-exports.Prisma.Tb_gestion_adminScalarFieldEnum = {
-  id: 'id',
-  id_tutor: 'id_tutor',
-  id_deportista: 'id_deportista',
-  id_cargo: 'id_cargo',
-  fecha_inicio: 'fecha_inicio',
-  fecha_fin: 'fecha_fin',
-  activo: 'activo'
-};
-
-exports.Prisma.Tb_municipioScalarFieldEnum = {
-  id: 'id',
-  id_departamento: 'id_departamento',
-  nombre: 'nombre',
-  estado: 'estado'
-};
-
-exports.Prisma.Tb_pagos_deportistasScalarFieldEnum = {
-  id: 'id',
-  id_deportista: 'id_deportista',
-  fecha_pago: 'fecha_pago',
-  valor: 'valor',
-  tipo_pago: 'tipo_pago'
-};
-
-exports.Prisma.Tb_personas_clubScalarFieldEnum = {
-  id: 'id',
-  tipo_documento: 'tipo_documento',
-  id_municipio: 'id_municipio',
-  id_usuario: 'id_usuario',
-  nombres: 'nombres',
-  apellidos: 'apellidos',
-  fecha_nacimento: 'fecha_nacimento',
-  tipo_rh: 'tipo_rh',
+  fechaNacimento: 'fechaNacimento',
+  tipoRh: 'tipoRh',
   peso: 'peso',
   altura: 'altura',
   correo: 'correo',
-  numero_telefono: 'numero_telefono',
-  talla_camisa: 'talla_camisa',
-  talla_calzado: 'talla_calzado',
-  talla_pantaloneta: 'talla_pantaloneta',
+  numeroTelefono: 'numeroTelefono',
+  tallaCamisa: 'tallaCamisa',
+  tallaCalzado: 'tallaCalzado',
+  tallaPantaloneta: 'tallaPantaloneta',
   genero: 'genero',
   direccion: 'direccion'
 };
 
-exports.Prisma.Tb_tipo_documentoScalarFieldEnum = {
+exports.Prisma.ContactosEmergenciaScalarFieldEnum = {
   id: 'id',
-  tipo_documento: 'tipo_documento',
-  descripcion: 'descripcion'
-};
-
-exports.Prisma.Tb_tutoresScalarFieldEnum = {
-  id: 'id',
-  tipo_documento: 'tipo_documento',
+  tipoDocumento: 'tipoDocumento',
+  idEntrenador: 'idEntrenador',
   nombres: 'nombres',
   apellidos: 'apellidos',
   correo: 'correo',
   telefono: 'telefono'
 };
 
-exports.Prisma.Tb_usuariosScalarFieldEnum = {
+exports.Prisma.EntrenadorScalarFieldEnum = {
+  id: 'id',
+  idPersonaClub: 'idPersonaClub',
+  idContactoEmergencia: 'idContactoEmergencia',
+  fechaIngreso: 'fechaIngreso',
+  activo: 'activo',
+  contrato: 'contrato'
+};
+
+exports.Prisma.TutorScalarFieldEnum = {
+  id: 'id',
+  tipoDocumento: 'tipoDocumento',
+  nombres: 'nombres',
+  apellidos: 'apellidos',
+  correo: 'correo',
+  telefono: 'telefono'
+};
+
+exports.Prisma.DeportistaScalarFieldEnum = {
+  id: 'id',
+  idTutor: 'idTutor',
+  idPersonaClub: 'idPersonaClub',
+  idCategoria: 'idCategoria',
+  activo: 'activo'
+};
+
+exports.Prisma.DepartamentoScalarFieldEnum = {
+  id: 'id',
+  nombre: 'nombre'
+};
+
+exports.Prisma.DesercionDeportistaScalarFieldEnum = {
+  id: 'id',
+  idDeportista: 'idDeportista',
+  fechaDesercion: 'fechaDesercion',
+  razon: 'razon',
+  descripcion: 'descripcion'
+};
+
+exports.Prisma.GestionAdminScalarFieldEnum = {
+  id: 'id',
+  idTutor: 'idTutor',
+  idDeportista: 'idDeportista',
+  idCargo: 'idCargo',
+  fechaInicio: 'fechaInicio',
+  fechaFin: 'fechaFin',
+  activo: 'activo'
+};
+
+exports.Prisma.MunicipioScalarFieldEnum = {
+  id: 'id',
+  idDepartamento: 'idDepartamento',
+  nombre: 'nombre',
+  estado: 'estado'
+};
+
+exports.Prisma.PagoDeportistaScalarFieldEnum = {
+  id: 'id',
+  idDeportista: 'idDeportista',
+  fechaPago: 'fechaPago',
+  valor: 'valor',
+  tipoPago: 'tipoPago'
+};
+
+exports.Prisma.TipoDocumentoScalarFieldEnum = {
+  id: 'id',
+  tipoDocumento: 'tipoDocumento',
+  descripcion: 'descripcion'
+};
+
+exports.Prisma.UsuarioScalarFieldEnum = {
   id: 'id',
   usuario: 'usuario',
   contrasenia: 'contrasenia',
   activo: 'activo',
-  id_usuario: 'id_usuario'
+  idPersona: 'idPersona'
 };
 
 exports.Prisma.SortOrder = {
@@ -253,86 +252,86 @@ exports.Prisma.NullsOrder = {
   last: 'last'
 };
 
-exports.Prisma.tb_cargos_adminOrderByRelevanceFieldEnum = {
+exports.Prisma.CargosAdminOrderByRelevanceFieldEnum = {
   nombre: 'nombre'
 };
 
-exports.Prisma.tb_categoriasOrderByRelevanceFieldEnum = {
+exports.Prisma.CategoriaOrderByRelevanceFieldEnum = {
   nombre: 'nombre'
 };
 
-exports.Prisma.tb_contactos_emergenciaOrderByRelevanceFieldEnum = {
-  tipo_documento: 'tipo_documento',
+exports.Prisma.PersonaClubOrderByRelevanceFieldEnum = {
+  tipoDocumento: 'tipoDocumento',
   nombres: 'nombres',
   apellidos: 'apellidos',
+  tipoRh: 'tipoRh',
   correo: 'correo',
-  telefono: 'telefono'
-};
-
-exports.Prisma.tb_departamentoOrderByRelevanceFieldEnum = {
-  nombre: 'nombre'
-};
-
-exports.Prisma.tb_desercion_deportistasOrderByRelevanceFieldEnum = {
-  razon: 'razon',
-  descripcion: 'descripcion'
-};
-
-exports.Prisma.tb_municipioOrderByRelevanceFieldEnum = {
-  nombre: 'nombre'
-};
-
-exports.Prisma.tb_pagos_deportistasOrderByRelevanceFieldEnum = {
-  tipo_pago: 'tipo_pago'
-};
-
-exports.Prisma.tb_personas_clubOrderByRelevanceFieldEnum = {
-  tipo_documento: 'tipo_documento',
-  nombres: 'nombres',
-  apellidos: 'apellidos',
-  tipo_rh: 'tipo_rh',
-  correo: 'correo',
-  talla_camisa: 'talla_camisa',
-  talla_calzado: 'talla_calzado',
-  talla_pantaloneta: 'talla_pantaloneta',
+  tallaCamisa: 'tallaCamisa',
+  tallaCalzado: 'tallaCalzado',
+  tallaPantaloneta: 'tallaPantaloneta',
   genero: 'genero',
   direccion: 'direccion'
 };
 
-exports.Prisma.tb_tipo_documentoOrderByRelevanceFieldEnum = {
-  tipo_documento: 'tipo_documento',
-  descripcion: 'descripcion'
-};
-
-exports.Prisma.tb_tutoresOrderByRelevanceFieldEnum = {
-  tipo_documento: 'tipo_documento',
+exports.Prisma.ContactosEmergenciaOrderByRelevanceFieldEnum = {
+  tipoDocumento: 'tipoDocumento',
   nombres: 'nombres',
   apellidos: 'apellidos',
   correo: 'correo',
   telefono: 'telefono'
 };
 
-exports.Prisma.tb_usuariosOrderByRelevanceFieldEnum = {
+exports.Prisma.TutorOrderByRelevanceFieldEnum = {
+  tipoDocumento: 'tipoDocumento',
+  nombres: 'nombres',
+  apellidos: 'apellidos',
+  correo: 'correo',
+  telefono: 'telefono'
+};
+
+exports.Prisma.DepartamentoOrderByRelevanceFieldEnum = {
+  nombre: 'nombre'
+};
+
+exports.Prisma.DesercionDeportistaOrderByRelevanceFieldEnum = {
+  razon: 'razon',
+  descripcion: 'descripcion'
+};
+
+exports.Prisma.MunicipioOrderByRelevanceFieldEnum = {
+  nombre: 'nombre'
+};
+
+exports.Prisma.PagoDeportistaOrderByRelevanceFieldEnum = {
+  tipoPago: 'tipoPago'
+};
+
+exports.Prisma.TipoDocumentoOrderByRelevanceFieldEnum = {
+  tipoDocumento: 'tipoDocumento',
+  descripcion: 'descripcion'
+};
+
+exports.Prisma.UsuarioOrderByRelevanceFieldEnum = {
   usuario: 'usuario',
   contrasenia: 'contrasenia'
 };
 
 
 exports.Prisma.ModelName = {
-  tb_cargos_admin: 'tb_cargos_admin',
-  tb_categorias: 'tb_categorias',
-  tb_contactos_emergencia: 'tb_contactos_emergencia',
-  tb_departamento: 'tb_departamento',
-  tb_deportistas: 'tb_deportistas',
-  tb_desercion_deportistas: 'tb_desercion_deportistas',
-  tb_entrenadores: 'tb_entrenadores',
-  tb_gestion_admin: 'tb_gestion_admin',
-  tb_municipio: 'tb_municipio',
-  tb_pagos_deportistas: 'tb_pagos_deportistas',
-  tb_personas_club: 'tb_personas_club',
-  tb_tipo_documento: 'tb_tipo_documento',
-  tb_tutores: 'tb_tutores',
-  tb_usuarios: 'tb_usuarios'
+  CargosAdmin: 'CargosAdmin',
+  Categoria: 'Categoria',
+  PersonaClub: 'PersonaClub',
+  ContactosEmergencia: 'ContactosEmergencia',
+  Entrenador: 'Entrenador',
+  Tutor: 'Tutor',
+  Deportista: 'Deportista',
+  Departamento: 'Departamento',
+  DesercionDeportista: 'DesercionDeportista',
+  GestionAdmin: 'GestionAdmin',
+  Municipio: 'Municipio',
+  PagoDeportista: 'PagoDeportista',
+  TipoDocumento: 'TipoDocumento',
+  Usuario: 'Usuario'
 };
 
 /**
