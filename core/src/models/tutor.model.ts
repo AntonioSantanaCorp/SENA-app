@@ -1,6 +1,6 @@
 export interface Tutor {
   id: number;
-  tipoDocumento?: number;
+  tipoDocumento?: string;
   nombres?: string;
   apellidos?: string;
   correo?: string;

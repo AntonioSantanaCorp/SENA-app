@@ -49,11 +49,6 @@ export type Tutor = $Result.DefaultSelection<Prisma.$TutorPayload>
  */
 export type Deportista = $Result.DefaultSelection<Prisma.$DeportistaPayload>
 /**
- * Model Departamento
- * 
- */
-export type Departamento = $Result.DefaultSelection<Prisma.$DepartamentoPayload>
-/**
  * Model DesercionDeportista
  * 
  */
@@ -64,25 +59,30 @@ export type DesercionDeportista = $Result.DefaultSelection<Prisma.$DesercionDepo
  */
 export type GestionAdmin = $Result.DefaultSelection<Prisma.$GestionAdminPayload>
 /**
- * Model Municipio
- * 
- */
-export type Municipio = $Result.DefaultSelection<Prisma.$MunicipioPayload>
-/**
  * Model PagoDeportista
  * 
  */
 export type PagoDeportista = $Result.DefaultSelection<Prisma.$PagoDeportistaPayload>
 /**
- * Model TipoDocumento
- * 
- */
-export type TipoDocumento = $Result.DefaultSelection<Prisma.$TipoDocumentoPayload>
-/**
  * Model Usuario
  * 
  */
 export type Usuario = $Result.DefaultSelection<Prisma.$UsuarioPayload>
+/**
+ * Model Departamento
+ * 
+ */
+export type Departamento = $Result.DefaultSelection<Prisma.$DepartamentoPayload>
+/**
+ * Model Municipio
+ * 
+ */
+export type Municipio = $Result.DefaultSelection<Prisma.$MunicipioPayload>
+/**
+ * Model TipoDocumento
+ * 
+ */
+export type TipoDocumento = $Result.DefaultSelection<Prisma.$TipoDocumentoPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -280,16 +280,6 @@ export class PrismaClient<
   get deportista(): Prisma.DeportistaDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.departamento`: Exposes CRUD operations for the **Departamento** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Departamentos
-    * const departamentos = await prisma.departamento.findMany()
-    * ```
-    */
-  get departamento(): Prisma.DepartamentoDelegate<ExtArgs, ClientOptions>;
-
-  /**
    * `prisma.desercionDeportista`: Exposes CRUD operations for the **DesercionDeportista** model.
     * Example usage:
     * ```ts
@@ -310,16 +300,6 @@ export class PrismaClient<
   get gestionAdmin(): Prisma.GestionAdminDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.municipio`: Exposes CRUD operations for the **Municipio** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Municipios
-    * const municipios = await prisma.municipio.findMany()
-    * ```
-    */
-  get municipio(): Prisma.MunicipioDelegate<ExtArgs, ClientOptions>;
-
-  /**
    * `prisma.pagoDeportista`: Exposes CRUD operations for the **PagoDeportista** model.
     * Example usage:
     * ```ts
@@ -330,16 +310,6 @@ export class PrismaClient<
   get pagoDeportista(): Prisma.PagoDeportistaDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.tipoDocumento`: Exposes CRUD operations for the **TipoDocumento** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more TipoDocumentos
-    * const tipoDocumentos = await prisma.tipoDocumento.findMany()
-    * ```
-    */
-  get tipoDocumento(): Prisma.TipoDocumentoDelegate<ExtArgs, ClientOptions>;
-
-  /**
    * `prisma.usuario`: Exposes CRUD operations for the **Usuario** model.
     * Example usage:
     * ```ts
@@ -348,6 +318,36 @@ export class PrismaClient<
     * ```
     */
   get usuario(): Prisma.UsuarioDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.departamento`: Exposes CRUD operations for the **Departamento** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Departamentos
+    * const departamentos = await prisma.departamento.findMany()
+    * ```
+    */
+  get departamento(): Prisma.DepartamentoDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.municipio`: Exposes CRUD operations for the **Municipio** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Municipios
+    * const municipios = await prisma.municipio.findMany()
+    * ```
+    */
+  get municipio(): Prisma.MunicipioDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.tipoDocumento`: Exposes CRUD operations for the **TipoDocumento** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TipoDocumentos
+    * const tipoDocumentos = await prisma.tipoDocumento.findMany()
+    * ```
+    */
+  get tipoDocumento(): Prisma.TipoDocumentoDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -795,13 +795,13 @@ export namespace Prisma {
     Entrenador: 'Entrenador',
     Tutor: 'Tutor',
     Deportista: 'Deportista',
-    Departamento: 'Departamento',
     DesercionDeportista: 'DesercionDeportista',
     GestionAdmin: 'GestionAdmin',
-    Municipio: 'Municipio',
     PagoDeportista: 'PagoDeportista',
-    TipoDocumento: 'TipoDocumento',
-    Usuario: 'Usuario'
+    Usuario: 'Usuario',
+    Departamento: 'Departamento',
+    Municipio: 'Municipio',
+    TipoDocumento: 'TipoDocumento'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -820,7 +820,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "cargosAdmin" | "categoria" | "personaClub" | "contactosEmergencia" | "entrenador" | "tutor" | "deportista" | "departamento" | "desercionDeportista" | "gestionAdmin" | "municipio" | "pagoDeportista" | "tipoDocumento" | "usuario"
+      modelProps: "cargosAdmin" | "categoria" | "personaClub" | "contactosEmergencia" | "entrenador" | "tutor" | "deportista" | "desercionDeportista" | "gestionAdmin" | "pagoDeportista" | "usuario" | "departamento" | "municipio" | "tipoDocumento"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1286,72 +1286,6 @@ export namespace Prisma {
           }
         }
       }
-      Departamento: {
-        payload: Prisma.$DepartamentoPayload<ExtArgs>
-        fields: Prisma.DepartamentoFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.DepartamentoFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DepartamentoPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.DepartamentoFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DepartamentoPayload>
-          }
-          findFirst: {
-            args: Prisma.DepartamentoFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DepartamentoPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.DepartamentoFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DepartamentoPayload>
-          }
-          findMany: {
-            args: Prisma.DepartamentoFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DepartamentoPayload>[]
-          }
-          create: {
-            args: Prisma.DepartamentoCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DepartamentoPayload>
-          }
-          createMany: {
-            args: Prisma.DepartamentoCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          delete: {
-            args: Prisma.DepartamentoDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DepartamentoPayload>
-          }
-          update: {
-            args: Prisma.DepartamentoUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DepartamentoPayload>
-          }
-          deleteMany: {
-            args: Prisma.DepartamentoDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.DepartamentoUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          upsert: {
-            args: Prisma.DepartamentoUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DepartamentoPayload>
-          }
-          aggregate: {
-            args: Prisma.DepartamentoAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateDepartamento>
-          }
-          groupBy: {
-            args: Prisma.DepartamentoGroupByArgs<ExtArgs>
-            result: $Utils.Optional<DepartamentoGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.DepartamentoCountArgs<ExtArgs>
-            result: $Utils.Optional<DepartamentoCountAggregateOutputType> | number
-          }
-        }
-      }
       DesercionDeportista: {
         payload: Prisma.$DesercionDeportistaPayload<ExtArgs>
         fields: Prisma.DesercionDeportistaFieldRefs
@@ -1484,72 +1418,6 @@ export namespace Prisma {
           }
         }
       }
-      Municipio: {
-        payload: Prisma.$MunicipioPayload<ExtArgs>
-        fields: Prisma.MunicipioFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.MunicipioFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MunicipioPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.MunicipioFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MunicipioPayload>
-          }
-          findFirst: {
-            args: Prisma.MunicipioFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MunicipioPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.MunicipioFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MunicipioPayload>
-          }
-          findMany: {
-            args: Prisma.MunicipioFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MunicipioPayload>[]
-          }
-          create: {
-            args: Prisma.MunicipioCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MunicipioPayload>
-          }
-          createMany: {
-            args: Prisma.MunicipioCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          delete: {
-            args: Prisma.MunicipioDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MunicipioPayload>
-          }
-          update: {
-            args: Prisma.MunicipioUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MunicipioPayload>
-          }
-          deleteMany: {
-            args: Prisma.MunicipioDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.MunicipioUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          upsert: {
-            args: Prisma.MunicipioUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MunicipioPayload>
-          }
-          aggregate: {
-            args: Prisma.MunicipioAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateMunicipio>
-          }
-          groupBy: {
-            args: Prisma.MunicipioGroupByArgs<ExtArgs>
-            result: $Utils.Optional<MunicipioGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.MunicipioCountArgs<ExtArgs>
-            result: $Utils.Optional<MunicipioCountAggregateOutputType> | number
-          }
-        }
-      }
       PagoDeportista: {
         payload: Prisma.$PagoDeportistaPayload<ExtArgs>
         fields: Prisma.PagoDeportistaFieldRefs
@@ -1616,72 +1484,6 @@ export namespace Prisma {
           }
         }
       }
-      TipoDocumento: {
-        payload: Prisma.$TipoDocumentoPayload<ExtArgs>
-        fields: Prisma.TipoDocumentoFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.TipoDocumentoFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TipoDocumentoPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.TipoDocumentoFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TipoDocumentoPayload>
-          }
-          findFirst: {
-            args: Prisma.TipoDocumentoFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TipoDocumentoPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.TipoDocumentoFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TipoDocumentoPayload>
-          }
-          findMany: {
-            args: Prisma.TipoDocumentoFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TipoDocumentoPayload>[]
-          }
-          create: {
-            args: Prisma.TipoDocumentoCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TipoDocumentoPayload>
-          }
-          createMany: {
-            args: Prisma.TipoDocumentoCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          delete: {
-            args: Prisma.TipoDocumentoDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TipoDocumentoPayload>
-          }
-          update: {
-            args: Prisma.TipoDocumentoUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TipoDocumentoPayload>
-          }
-          deleteMany: {
-            args: Prisma.TipoDocumentoDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.TipoDocumentoUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          upsert: {
-            args: Prisma.TipoDocumentoUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TipoDocumentoPayload>
-          }
-          aggregate: {
-            args: Prisma.TipoDocumentoAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateTipoDocumento>
-          }
-          groupBy: {
-            args: Prisma.TipoDocumentoGroupByArgs<ExtArgs>
-            result: $Utils.Optional<TipoDocumentoGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.TipoDocumentoCountArgs<ExtArgs>
-            result: $Utils.Optional<TipoDocumentoCountAggregateOutputType> | number
-          }
-        }
-      }
       Usuario: {
         payload: Prisma.$UsuarioPayload<ExtArgs>
         fields: Prisma.UsuarioFieldRefs
@@ -1745,6 +1547,204 @@ export namespace Prisma {
           count: {
             args: Prisma.UsuarioCountArgs<ExtArgs>
             result: $Utils.Optional<UsuarioCountAggregateOutputType> | number
+          }
+        }
+      }
+      Departamento: {
+        payload: Prisma.$DepartamentoPayload<ExtArgs>
+        fields: Prisma.DepartamentoFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DepartamentoFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepartamentoPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DepartamentoFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepartamentoPayload>
+          }
+          findFirst: {
+            args: Prisma.DepartamentoFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepartamentoPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DepartamentoFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepartamentoPayload>
+          }
+          findMany: {
+            args: Prisma.DepartamentoFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepartamentoPayload>[]
+          }
+          create: {
+            args: Prisma.DepartamentoCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepartamentoPayload>
+          }
+          createMany: {
+            args: Prisma.DepartamentoCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.DepartamentoDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepartamentoPayload>
+          }
+          update: {
+            args: Prisma.DepartamentoUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepartamentoPayload>
+          }
+          deleteMany: {
+            args: Prisma.DepartamentoDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DepartamentoUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.DepartamentoUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DepartamentoPayload>
+          }
+          aggregate: {
+            args: Prisma.DepartamentoAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDepartamento>
+          }
+          groupBy: {
+            args: Prisma.DepartamentoGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DepartamentoGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DepartamentoCountArgs<ExtArgs>
+            result: $Utils.Optional<DepartamentoCountAggregateOutputType> | number
+          }
+        }
+      }
+      Municipio: {
+        payload: Prisma.$MunicipioPayload<ExtArgs>
+        fields: Prisma.MunicipioFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.MunicipioFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MunicipioPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MunicipioFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MunicipioPayload>
+          }
+          findFirst: {
+            args: Prisma.MunicipioFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MunicipioPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.MunicipioFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MunicipioPayload>
+          }
+          findMany: {
+            args: Prisma.MunicipioFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MunicipioPayload>[]
+          }
+          create: {
+            args: Prisma.MunicipioCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MunicipioPayload>
+          }
+          createMany: {
+            args: Prisma.MunicipioCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.MunicipioDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MunicipioPayload>
+          }
+          update: {
+            args: Prisma.MunicipioUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MunicipioPayload>
+          }
+          deleteMany: {
+            args: Prisma.MunicipioDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.MunicipioUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.MunicipioUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MunicipioPayload>
+          }
+          aggregate: {
+            args: Prisma.MunicipioAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMunicipio>
+          }
+          groupBy: {
+            args: Prisma.MunicipioGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MunicipioGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.MunicipioCountArgs<ExtArgs>
+            result: $Utils.Optional<MunicipioCountAggregateOutputType> | number
+          }
+        }
+      }
+      TipoDocumento: {
+        payload: Prisma.$TipoDocumentoPayload<ExtArgs>
+        fields: Prisma.TipoDocumentoFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TipoDocumentoFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TipoDocumentoPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TipoDocumentoFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TipoDocumentoPayload>
+          }
+          findFirst: {
+            args: Prisma.TipoDocumentoFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TipoDocumentoPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TipoDocumentoFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TipoDocumentoPayload>
+          }
+          findMany: {
+            args: Prisma.TipoDocumentoFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TipoDocumentoPayload>[]
+          }
+          create: {
+            args: Prisma.TipoDocumentoCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TipoDocumentoPayload>
+          }
+          createMany: {
+            args: Prisma.TipoDocumentoCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.TipoDocumentoDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TipoDocumentoPayload>
+          }
+          update: {
+            args: Prisma.TipoDocumentoUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TipoDocumentoPayload>
+          }
+          deleteMany: {
+            args: Prisma.TipoDocumentoDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TipoDocumentoUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.TipoDocumentoUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TipoDocumentoPayload>
+          }
+          aggregate: {
+            args: Prisma.TipoDocumentoAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTipoDocumento>
+          }
+          groupBy: {
+            args: Prisma.TipoDocumentoGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TipoDocumentoGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TipoDocumentoCountArgs<ExtArgs>
+            result: $Utils.Optional<TipoDocumentoCountAggregateOutputType> | number
           }
         }
       }
@@ -1839,13 +1839,13 @@ export namespace Prisma {
     entrenador?: EntrenadorOmit
     tutor?: TutorOmit
     deportista?: DeportistaOmit
-    departamento?: DepartamentoOmit
     desercionDeportista?: DesercionDeportistaOmit
     gestionAdmin?: GestionAdminOmit
-    municipio?: MunicipioOmit
     pagoDeportista?: PagoDeportistaOmit
-    tipoDocumento?: TipoDocumentoOmit
     usuario?: UsuarioOmit
+    departamento?: DepartamentoOmit
+    municipio?: MunicipioOmit
+    tipoDocumento?: TipoDocumentoOmit
   }
 
   /* Types for Logging */
@@ -1936,73 +1936,33 @@ export namespace Prisma {
 
 
   /**
-   * Count Type CargosAdminCountOutputType
+   * Count Type EntrenadorCountOutputType
    */
 
-  export type CargosAdminCountOutputType = {
-    GestionAdmin: number
+  export type EntrenadorCountOutputType = {
+    contactosEmergencia: number
   }
 
-  export type CargosAdminCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    GestionAdmin?: boolean | CargosAdminCountOutputTypeCountGestionAdminArgs
+  export type EntrenadorCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    contactosEmergencia?: boolean | EntrenadorCountOutputTypeCountContactosEmergenciaArgs
   }
 
   // Custom InputTypes
   /**
-   * CargosAdminCountOutputType without action
+   * EntrenadorCountOutputType without action
    */
-  export type CargosAdminCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EntrenadorCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CargosAdminCountOutputType
+     * Select specific fields to fetch from the EntrenadorCountOutputType
      */
-    select?: CargosAdminCountOutputTypeSelect<ExtArgs> | null
+    select?: EntrenadorCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * CargosAdminCountOutputType without action
+   * EntrenadorCountOutputType without action
    */
-  export type CargosAdminCountOutputTypeCountGestionAdminArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: GestionAdminWhereInput
-  }
-
-
-  /**
-   * Count Type TutorCountOutputType
-   */
-
-  export type TutorCountOutputType = {
-    deportista: number
-    GestionAdmin: number
-  }
-
-  export type TutorCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    deportista?: boolean | TutorCountOutputTypeCountDeportistaArgs
-    GestionAdmin?: boolean | TutorCountOutputTypeCountGestionAdminArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * TutorCountOutputType without action
-   */
-  export type TutorCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TutorCountOutputType
-     */
-    select?: TutorCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * TutorCountOutputType without action
-   */
-  export type TutorCountOutputTypeCountDeportistaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: DeportistaWhereInput
-  }
-
-  /**
-   * TutorCountOutputType without action
-   */
-  export type TutorCountOutputTypeCountGestionAdminArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: GestionAdminWhereInput
+  export type EntrenadorCountOutputTypeCountContactosEmergenciaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ContactosEmergenciaWhereInput
   }
 
 
@@ -2011,15 +1971,11 @@ export namespace Prisma {
    */
 
   export type DeportistaCountOutputType = {
-    desercionDeportista: number
-    GestionAdmin: number
-    PagoDeportista: number
+    pagosDeportista: number
   }
 
   export type DeportistaCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    desercionDeportista?: boolean | DeportistaCountOutputTypeCountDesercionDeportistaArgs
-    GestionAdmin?: boolean | DeportistaCountOutputTypeCountGestionAdminArgs
-    PagoDeportista?: boolean | DeportistaCountOutputTypeCountPagoDeportistaArgs
+    pagosDeportista?: boolean | DeportistaCountOutputTypeCountPagosDeportistaArgs
   }
 
   // Custom InputTypes
@@ -2036,53 +1992,39 @@ export namespace Prisma {
   /**
    * DeportistaCountOutputType without action
    */
-  export type DeportistaCountOutputTypeCountDesercionDeportistaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: DesercionDeportistaWhereInput
-  }
-
-  /**
-   * DeportistaCountOutputType without action
-   */
-  export type DeportistaCountOutputTypeCountGestionAdminArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: GestionAdminWhereInput
-  }
-
-  /**
-   * DeportistaCountOutputType without action
-   */
-  export type DeportistaCountOutputTypeCountPagoDeportistaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DeportistaCountOutputTypeCountPagosDeportistaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PagoDeportistaWhereInput
   }
 
 
   /**
-   * Count Type DepartamentoCountOutputType
+   * Count Type MunicipioCountOutputType
    */
 
-  export type DepartamentoCountOutputType = {
-    municipios: number
+  export type MunicipioCountOutputType = {
+    personaClub: number
   }
 
-  export type DepartamentoCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    municipios?: boolean | DepartamentoCountOutputTypeCountMunicipiosArgs
+  export type MunicipioCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    personaClub?: boolean | MunicipioCountOutputTypeCountPersonaClubArgs
   }
 
   // Custom InputTypes
   /**
-   * DepartamentoCountOutputType without action
+   * MunicipioCountOutputType without action
    */
-  export type DepartamentoCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MunicipioCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the DepartamentoCountOutputType
+     * Select specific fields to fetch from the MunicipioCountOutputType
      */
-    select?: DepartamentoCountOutputTypeSelect<ExtArgs> | null
+    select?: MunicipioCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * DepartamentoCountOutputType without action
+   * MunicipioCountOutputType without action
    */
-  export type DepartamentoCountOutputTypeCountMunicipiosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: MunicipioWhereInput
+  export type MunicipioCountOutputTypeCountPersonaClubArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PersonaClubWhereInput
   }
 
 
@@ -2264,8 +2206,6 @@ export namespace Prisma {
   export type CargosAdminSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nombre?: boolean
-    GestionAdmin?: boolean | CargosAdmin$GestionAdminArgs<ExtArgs>
-    _count?: boolean | CargosAdminCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["cargosAdmin"]>
 
 
@@ -2276,16 +2216,10 @@ export namespace Prisma {
   }
 
   export type CargosAdminOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nombre", ExtArgs["result"]["cargosAdmin"]>
-  export type CargosAdminInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    GestionAdmin?: boolean | CargosAdmin$GestionAdminArgs<ExtArgs>
-    _count?: boolean | CargosAdminCountOutputTypeDefaultArgs<ExtArgs>
-  }
 
   export type $CargosAdminPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "CargosAdmin"
-    objects: {
-      GestionAdmin: Prisma.$GestionAdminPayload<ExtArgs>[]
-    }
+    objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
       nombre: string | null
@@ -2629,7 +2563,6 @@ export namespace Prisma {
    */
   export interface Prisma__CargosAdminClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    GestionAdmin<T extends CargosAdmin$GestionAdminArgs<ExtArgs> = {}>(args?: Subset<T, CargosAdmin$GestionAdminArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GestionAdminPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2678,10 +2611,6 @@ export namespace Prisma {
      */
     omit?: CargosAdminOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CargosAdminInclude<ExtArgs> | null
-    /**
      * Filter, which CargosAdmin to fetch.
      */
     where: CargosAdminWhereUniqueInput
@@ -2701,10 +2630,6 @@ export namespace Prisma {
      */
     omit?: CargosAdminOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CargosAdminInclude<ExtArgs> | null
-    /**
      * Filter, which CargosAdmin to fetch.
      */
     where: CargosAdminWhereUniqueInput
@@ -2723,10 +2648,6 @@ export namespace Prisma {
      * Omit specific fields from the CargosAdmin
      */
     omit?: CargosAdminOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CargosAdminInclude<ExtArgs> | null
     /**
      * Filter, which CargosAdmin to fetch.
      */
@@ -2777,10 +2698,6 @@ export namespace Prisma {
      */
     omit?: CargosAdminOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CargosAdminInclude<ExtArgs> | null
-    /**
      * Filter, which CargosAdmin to fetch.
      */
     where?: CargosAdminWhereInput
@@ -2830,10 +2747,6 @@ export namespace Prisma {
      */
     omit?: CargosAdminOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CargosAdminInclude<ExtArgs> | null
-    /**
      * Filter, which CargosAdmins to fetch.
      */
     where?: CargosAdminWhereInput
@@ -2878,10 +2791,6 @@ export namespace Prisma {
      */
     omit?: CargosAdminOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CargosAdminInclude<ExtArgs> | null
-    /**
      * The data needed to create a CargosAdmin.
      */
     data?: XOR<CargosAdminCreateInput, CargosAdminUncheckedCreateInput>
@@ -2911,10 +2820,6 @@ export namespace Prisma {
      * Omit specific fields from the CargosAdmin
      */
     omit?: CargosAdminOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CargosAdminInclude<ExtArgs> | null
     /**
      * The data needed to update a CargosAdmin.
      */
@@ -2957,10 +2862,6 @@ export namespace Prisma {
      */
     omit?: CargosAdminOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CargosAdminInclude<ExtArgs> | null
-    /**
      * The filter to search for the CargosAdmin to update in case it exists.
      */
     where: CargosAdminWhereUniqueInput
@@ -2988,10 +2889,6 @@ export namespace Prisma {
      */
     omit?: CargosAdminOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CargosAdminInclude<ExtArgs> | null
-    /**
      * Filter which CargosAdmin to delete.
      */
     where: CargosAdminWhereUniqueInput
@@ -3013,30 +2910,6 @@ export namespace Prisma {
   }
 
   /**
-   * CargosAdmin.GestionAdmin
-   */
-  export type CargosAdmin$GestionAdminArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the GestionAdmin
-     */
-    select?: GestionAdminSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the GestionAdmin
-     */
-    omit?: GestionAdminOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GestionAdminInclude<ExtArgs> | null
-    where?: GestionAdminWhereInput
-    orderBy?: GestionAdminOrderByWithRelationInput | GestionAdminOrderByWithRelationInput[]
-    cursor?: GestionAdminWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: GestionAdminScalarFieldEnum | GestionAdminScalarFieldEnum[]
-  }
-
-  /**
    * CargosAdmin without action
    */
   export type CargosAdminDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3048,10 +2921,6 @@ export namespace Prisma {
      * Omit specific fields from the CargosAdmin
      */
     omit?: CargosAdminOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CargosAdminInclude<ExtArgs> | null
   }
 
 
@@ -3229,6 +3098,7 @@ export namespace Prisma {
   export type CategoriaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nombre?: boolean
+    Deportista?: boolean | Categoria$DeportistaArgs<ExtArgs>
   }, ExtArgs["result"]["categoria"]>
 
 
@@ -3239,10 +3109,15 @@ export namespace Prisma {
   }
 
   export type CategoriaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nombre", ExtArgs["result"]["categoria"]>
+  export type CategoriaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Deportista?: boolean | Categoria$DeportistaArgs<ExtArgs>
+  }
 
   export type $CategoriaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Categoria"
-    objects: {}
+    objects: {
+      Deportista: Prisma.$DeportistaPayload<ExtArgs> | null
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       nombre: string | null
@@ -3586,6 +3461,7 @@ export namespace Prisma {
    */
   export interface Prisma__CategoriaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    Deportista<T extends Categoria$DeportistaArgs<ExtArgs> = {}>(args?: Subset<T, Categoria$DeportistaArgs<ExtArgs>>): Prisma__DeportistaClient<$Result.GetResult<Prisma.$DeportistaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3634,6 +3510,10 @@ export namespace Prisma {
      */
     omit?: CategoriaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoriaInclude<ExtArgs> | null
+    /**
      * Filter, which Categoria to fetch.
      */
     where: CategoriaWhereUniqueInput
@@ -3653,6 +3533,10 @@ export namespace Prisma {
      */
     omit?: CategoriaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoriaInclude<ExtArgs> | null
+    /**
      * Filter, which Categoria to fetch.
      */
     where: CategoriaWhereUniqueInput
@@ -3671,6 +3555,10 @@ export namespace Prisma {
      * Omit specific fields from the Categoria
      */
     omit?: CategoriaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoriaInclude<ExtArgs> | null
     /**
      * Filter, which Categoria to fetch.
      */
@@ -3721,6 +3609,10 @@ export namespace Prisma {
      */
     omit?: CategoriaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoriaInclude<ExtArgs> | null
+    /**
      * Filter, which Categoria to fetch.
      */
     where?: CategoriaWhereInput
@@ -3770,6 +3662,10 @@ export namespace Prisma {
      */
     omit?: CategoriaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoriaInclude<ExtArgs> | null
+    /**
      * Filter, which Categorias to fetch.
      */
     where?: CategoriaWhereInput
@@ -3814,6 +3710,10 @@ export namespace Prisma {
      */
     omit?: CategoriaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoriaInclude<ExtArgs> | null
+    /**
      * The data needed to create a Categoria.
      */
     data?: XOR<CategoriaCreateInput, CategoriaUncheckedCreateInput>
@@ -3843,6 +3743,10 @@ export namespace Prisma {
      * Omit specific fields from the Categoria
      */
     omit?: CategoriaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoriaInclude<ExtArgs> | null
     /**
      * The data needed to update a Categoria.
      */
@@ -3885,6 +3789,10 @@ export namespace Prisma {
      */
     omit?: CategoriaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoriaInclude<ExtArgs> | null
+    /**
      * The filter to search for the Categoria to update in case it exists.
      */
     where: CategoriaWhereUniqueInput
@@ -3912,6 +3820,10 @@ export namespace Prisma {
      */
     omit?: CategoriaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoriaInclude<ExtArgs> | null
+    /**
      * Filter which Categoria to delete.
      */
     where: CategoriaWhereUniqueInput
@@ -3933,6 +3845,25 @@ export namespace Prisma {
   }
 
   /**
+   * Categoria.Deportista
+   */
+  export type Categoria$DeportistaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Deportista
+     */
+    select?: DeportistaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Deportista
+     */
+    omit?: DeportistaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeportistaInclude<ExtArgs> | null
+    where?: DeportistaWhereInput
+  }
+
+  /**
    * Categoria without action
    */
   export type CategoriaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3944,6 +3875,10 @@ export namespace Prisma {
      * Omit specific fields from the Categoria
      */
     omit?: CategoriaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoriaInclude<ExtArgs> | null
   }
 
 
@@ -4249,6 +4184,7 @@ export namespace Prisma {
     tallaPantaloneta?: boolean
     genero?: boolean
     direccion?: boolean
+    municipio?: boolean | MunicipioDefaultArgs<ExtArgs>
     entrenador?: boolean | PersonaClub$entrenadorArgs<ExtArgs>
     deportista?: boolean | PersonaClub$deportistaArgs<ExtArgs>
     usuario?: boolean | PersonaClub$usuarioArgs<ExtArgs>
@@ -4277,6 +4213,7 @@ export namespace Prisma {
 
   export type PersonaClubOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tipoDocumento" | "idMunicipio" | "nombres" | "apellidos" | "fechaNacimento" | "tipoRh" | "peso" | "altura" | "correo" | "numeroTelefono" | "tallaCamisa" | "tallaCalzado" | "tallaPantaloneta" | "genero" | "direccion", ExtArgs["result"]["personaClub"]>
   export type PersonaClubInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    municipio?: boolean | MunicipioDefaultArgs<ExtArgs>
     entrenador?: boolean | PersonaClub$entrenadorArgs<ExtArgs>
     deportista?: boolean | PersonaClub$deportistaArgs<ExtArgs>
     usuario?: boolean | PersonaClub$usuarioArgs<ExtArgs>
@@ -4285,6 +4222,7 @@ export namespace Prisma {
   export type $PersonaClubPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "PersonaClub"
     objects: {
+      municipio: Prisma.$MunicipioPayload<ExtArgs>
       entrenador: Prisma.$EntrenadorPayload<ExtArgs> | null
       deportista: Prisma.$DeportistaPayload<ExtArgs> | null
       usuario: Prisma.$UsuarioPayload<ExtArgs> | null
@@ -4646,6 +4584,7 @@ export namespace Prisma {
    */
   export interface Prisma__PersonaClubClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    municipio<T extends MunicipioDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MunicipioDefaultArgs<ExtArgs>>): Prisma__MunicipioClient<$Result.GetResult<Prisma.$MunicipioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     entrenador<T extends PersonaClub$entrenadorArgs<ExtArgs> = {}>(args?: Subset<T, PersonaClub$entrenadorArgs<ExtArgs>>): Prisma__EntrenadorClient<$Result.GetResult<Prisma.$EntrenadorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     deportista<T extends PersonaClub$deportistaArgs<ExtArgs> = {}>(args?: Subset<T, PersonaClub$deportistaArgs<ExtArgs>>): Prisma__DeportistaClient<$Result.GetResult<Prisma.$DeportistaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     usuario<T extends PersonaClub$usuarioArgs<ExtArgs> = {}>(args?: Subset<T, PersonaClub$usuarioArgs<ExtArgs>>): Prisma__UsuarioClient<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
@@ -5339,6 +5278,7 @@ export namespace Prisma {
     apellidos?: boolean
     correo?: boolean
     telefono?: boolean
+    entrenador?: boolean | ContactosEmergencia$entrenadorArgs<ExtArgs>
   }, ExtArgs["result"]["contactosEmergencia"]>
 
 
@@ -5354,10 +5294,15 @@ export namespace Prisma {
   }
 
   export type ContactosEmergenciaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tipoDocumento" | "idEntrenador" | "nombres" | "apellidos" | "correo" | "telefono", ExtArgs["result"]["contactosEmergencia"]>
+  export type ContactosEmergenciaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    entrenador?: boolean | ContactosEmergencia$entrenadorArgs<ExtArgs>
+  }
 
   export type $ContactosEmergenciaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "ContactosEmergencia"
-    objects: {}
+    objects: {
+      entrenador: Prisma.$EntrenadorPayload<ExtArgs> | null
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       tipoDocumento: string
@@ -5706,6 +5651,7 @@ export namespace Prisma {
    */
   export interface Prisma__ContactosEmergenciaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    entrenador<T extends ContactosEmergencia$entrenadorArgs<ExtArgs> = {}>(args?: Subset<T, ContactosEmergencia$entrenadorArgs<ExtArgs>>): Prisma__EntrenadorClient<$Result.GetResult<Prisma.$EntrenadorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5759,6 +5705,10 @@ export namespace Prisma {
      */
     omit?: ContactosEmergenciaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ContactosEmergenciaInclude<ExtArgs> | null
+    /**
      * Filter, which ContactosEmergencia to fetch.
      */
     where: ContactosEmergenciaWhereUniqueInput
@@ -5778,6 +5728,10 @@ export namespace Prisma {
      */
     omit?: ContactosEmergenciaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ContactosEmergenciaInclude<ExtArgs> | null
+    /**
      * Filter, which ContactosEmergencia to fetch.
      */
     where: ContactosEmergenciaWhereUniqueInput
@@ -5796,6 +5750,10 @@ export namespace Prisma {
      * Omit specific fields from the ContactosEmergencia
      */
     omit?: ContactosEmergenciaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ContactosEmergenciaInclude<ExtArgs> | null
     /**
      * Filter, which ContactosEmergencia to fetch.
      */
@@ -5846,6 +5804,10 @@ export namespace Prisma {
      */
     omit?: ContactosEmergenciaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ContactosEmergenciaInclude<ExtArgs> | null
+    /**
      * Filter, which ContactosEmergencia to fetch.
      */
     where?: ContactosEmergenciaWhereInput
@@ -5895,6 +5857,10 @@ export namespace Prisma {
      */
     omit?: ContactosEmergenciaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ContactosEmergenciaInclude<ExtArgs> | null
+    /**
      * Filter, which ContactosEmergencias to fetch.
      */
     where?: ContactosEmergenciaWhereInput
@@ -5939,6 +5905,10 @@ export namespace Prisma {
      */
     omit?: ContactosEmergenciaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ContactosEmergenciaInclude<ExtArgs> | null
+    /**
      * The data needed to create a ContactosEmergencia.
      */
     data: XOR<ContactosEmergenciaCreateInput, ContactosEmergenciaUncheckedCreateInput>
@@ -5968,6 +5938,10 @@ export namespace Prisma {
      * Omit specific fields from the ContactosEmergencia
      */
     omit?: ContactosEmergenciaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ContactosEmergenciaInclude<ExtArgs> | null
     /**
      * The data needed to update a ContactosEmergencia.
      */
@@ -6010,6 +5984,10 @@ export namespace Prisma {
      */
     omit?: ContactosEmergenciaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ContactosEmergenciaInclude<ExtArgs> | null
+    /**
      * The filter to search for the ContactosEmergencia to update in case it exists.
      */
     where: ContactosEmergenciaWhereUniqueInput
@@ -6037,6 +6015,10 @@ export namespace Prisma {
      */
     omit?: ContactosEmergenciaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ContactosEmergenciaInclude<ExtArgs> | null
+    /**
      * Filter which ContactosEmergencia to delete.
      */
     where: ContactosEmergenciaWhereUniqueInput
@@ -6058,6 +6040,25 @@ export namespace Prisma {
   }
 
   /**
+   * ContactosEmergencia.entrenador
+   */
+  export type ContactosEmergencia$entrenadorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Entrenador
+     */
+    select?: EntrenadorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Entrenador
+     */
+    omit?: EntrenadorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EntrenadorInclude<ExtArgs> | null
+    where?: EntrenadorWhereInput
+  }
+
+  /**
    * ContactosEmergencia without action
    */
   export type ContactosEmergenciaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6069,6 +6070,10 @@ export namespace Prisma {
      * Omit specific fields from the ContactosEmergencia
      */
     omit?: ContactosEmergenciaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ContactosEmergenciaInclude<ExtArgs> | null
   }
 
 
@@ -6087,19 +6092,16 @@ export namespace Prisma {
   export type EntrenadorAvgAggregateOutputType = {
     id: number | null
     idPersonaClub: number | null
-    idContactoEmergencia: number | null
   }
 
   export type EntrenadorSumAggregateOutputType = {
     id: number | null
     idPersonaClub: number | null
-    idContactoEmergencia: number | null
   }
 
   export type EntrenadorMinAggregateOutputType = {
     id: number | null
     idPersonaClub: number | null
-    idContactoEmergencia: number | null
     fechaIngreso: Date | null
     activo: boolean | null
     contrato: Uint8Array | null
@@ -6108,7 +6110,6 @@ export namespace Prisma {
   export type EntrenadorMaxAggregateOutputType = {
     id: number | null
     idPersonaClub: number | null
-    idContactoEmergencia: number | null
     fechaIngreso: Date | null
     activo: boolean | null
     contrato: Uint8Array | null
@@ -6117,7 +6118,6 @@ export namespace Prisma {
   export type EntrenadorCountAggregateOutputType = {
     id: number
     idPersonaClub: number
-    idContactoEmergencia: number
     fechaIngreso: number
     activo: number
     contrato: number
@@ -6128,19 +6128,16 @@ export namespace Prisma {
   export type EntrenadorAvgAggregateInputType = {
     id?: true
     idPersonaClub?: true
-    idContactoEmergencia?: true
   }
 
   export type EntrenadorSumAggregateInputType = {
     id?: true
     idPersonaClub?: true
-    idContactoEmergencia?: true
   }
 
   export type EntrenadorMinAggregateInputType = {
     id?: true
     idPersonaClub?: true
-    idContactoEmergencia?: true
     fechaIngreso?: true
     activo?: true
     contrato?: true
@@ -6149,7 +6146,6 @@ export namespace Prisma {
   export type EntrenadorMaxAggregateInputType = {
     id?: true
     idPersonaClub?: true
-    idContactoEmergencia?: true
     fechaIngreso?: true
     activo?: true
     contrato?: true
@@ -6158,7 +6154,6 @@ export namespace Prisma {
   export type EntrenadorCountAggregateInputType = {
     id?: true
     idPersonaClub?: true
-    idContactoEmergencia?: true
     fechaIngreso?: true
     activo?: true
     contrato?: true
@@ -6254,7 +6249,6 @@ export namespace Prisma {
   export type EntrenadorGroupByOutputType = {
     id: number
     idPersonaClub: number
-    idContactoEmergencia: number | null
     fechaIngreso: Date | null
     activo: boolean | null
     contrato: Uint8Array | null
@@ -6282,11 +6276,12 @@ export namespace Prisma {
   export type EntrenadorSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     idPersonaClub?: boolean
-    idContactoEmergencia?: boolean
     fechaIngreso?: boolean
     activo?: boolean
     contrato?: boolean
+    contactosEmergencia?: boolean | Entrenador$contactosEmergenciaArgs<ExtArgs>
     personaClub?: boolean | PersonaClubDefaultArgs<ExtArgs>
+    _count?: boolean | EntrenadorCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["entrenador"]>
 
 
@@ -6294,26 +6289,27 @@ export namespace Prisma {
   export type EntrenadorSelectScalar = {
     id?: boolean
     idPersonaClub?: boolean
-    idContactoEmergencia?: boolean
     fechaIngreso?: boolean
     activo?: boolean
     contrato?: boolean
   }
 
-  export type EntrenadorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "idPersonaClub" | "idContactoEmergencia" | "fechaIngreso" | "activo" | "contrato", ExtArgs["result"]["entrenador"]>
+  export type EntrenadorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "idPersonaClub" | "fechaIngreso" | "activo" | "contrato", ExtArgs["result"]["entrenador"]>
   export type EntrenadorInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    contactosEmergencia?: boolean | Entrenador$contactosEmergenciaArgs<ExtArgs>
     personaClub?: boolean | PersonaClubDefaultArgs<ExtArgs>
+    _count?: boolean | EntrenadorCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $EntrenadorPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Entrenador"
     objects: {
+      contactosEmergencia: Prisma.$ContactosEmergenciaPayload<ExtArgs>[]
       personaClub: Prisma.$PersonaClubPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       idPersonaClub: number
-      idContactoEmergencia: number | null
       fechaIngreso: Date | null
       activo: boolean | null
       contrato: Uint8Array | null
@@ -6657,6 +6653,7 @@ export namespace Prisma {
    */
   export interface Prisma__EntrenadorClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    contactosEmergencia<T extends Entrenador$contactosEmergenciaArgs<ExtArgs> = {}>(args?: Subset<T, Entrenador$contactosEmergenciaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ContactosEmergenciaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     personaClub<T extends PersonaClubDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PersonaClubDefaultArgs<ExtArgs>>): Prisma__PersonaClubClient<$Result.GetResult<Prisma.$PersonaClubPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -6689,7 +6686,6 @@ export namespace Prisma {
   interface EntrenadorFieldRefs {
     readonly id: FieldRef<"Entrenador", 'Int'>
     readonly idPersonaClub: FieldRef<"Entrenador", 'Int'>
-    readonly idContactoEmergencia: FieldRef<"Entrenador", 'Int'>
     readonly fechaIngreso: FieldRef<"Entrenador", 'DateTime'>
     readonly activo: FieldRef<"Entrenador", 'Boolean'>
     readonly contrato: FieldRef<"Entrenador", 'Bytes'>
@@ -7045,6 +7041,30 @@ export namespace Prisma {
   }
 
   /**
+   * Entrenador.contactosEmergencia
+   */
+  export type Entrenador$contactosEmergenciaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ContactosEmergencia
+     */
+    select?: ContactosEmergenciaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ContactosEmergencia
+     */
+    omit?: ContactosEmergenciaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ContactosEmergenciaInclude<ExtArgs> | null
+    where?: ContactosEmergenciaWhereInput
+    orderBy?: ContactosEmergenciaOrderByWithRelationInput | ContactosEmergenciaOrderByWithRelationInput[]
+    cursor?: ContactosEmergenciaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ContactosEmergenciaScalarFieldEnum | ContactosEmergenciaScalarFieldEnum[]
+  }
+
+  /**
    * Entrenador without action
    */
   export type EntrenadorDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7270,8 +7290,6 @@ export namespace Prisma {
     correo?: boolean
     telefono?: boolean
     deportista?: boolean | Tutor$deportistaArgs<ExtArgs>
-    GestionAdmin?: boolean | Tutor$GestionAdminArgs<ExtArgs>
-    _count?: boolean | TutorCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tutor"]>
 
 
@@ -7288,15 +7306,12 @@ export namespace Prisma {
   export type TutorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tipoDocumento" | "nombres" | "apellidos" | "correo" | "telefono", ExtArgs["result"]["tutor"]>
   export type TutorInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     deportista?: boolean | Tutor$deportistaArgs<ExtArgs>
-    GestionAdmin?: boolean | Tutor$GestionAdminArgs<ExtArgs>
-    _count?: boolean | TutorCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $TutorPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Tutor"
     objects: {
-      deportista: Prisma.$DeportistaPayload<ExtArgs>[]
-      GestionAdmin: Prisma.$GestionAdminPayload<ExtArgs>[]
+      deportista: Prisma.$DeportistaPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -7645,8 +7660,7 @@ export namespace Prisma {
    */
   export interface Prisma__TutorClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    deportista<T extends Tutor$deportistaArgs<ExtArgs> = {}>(args?: Subset<T, Tutor$deportistaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeportistaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    GestionAdmin<T extends Tutor$GestionAdminArgs<ExtArgs> = {}>(args?: Subset<T, Tutor$GestionAdminArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GestionAdminPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    deportista<T extends Tutor$deportistaArgs<ExtArgs> = {}>(args?: Subset<T, Tutor$deportistaArgs<ExtArgs>>): Prisma__DeportistaClient<$Result.GetResult<Prisma.$DeportistaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8050,35 +8064,6 @@ export namespace Prisma {
      */
     include?: DeportistaInclude<ExtArgs> | null
     where?: DeportistaWhereInput
-    orderBy?: DeportistaOrderByWithRelationInput | DeportistaOrderByWithRelationInput[]
-    cursor?: DeportistaWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: DeportistaScalarFieldEnum | DeportistaScalarFieldEnum[]
-  }
-
-  /**
-   * Tutor.GestionAdmin
-   */
-  export type Tutor$GestionAdminArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the GestionAdmin
-     */
-    select?: GestionAdminSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the GestionAdmin
-     */
-    omit?: GestionAdminOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GestionAdminInclude<ExtArgs> | null
-    where?: GestionAdminWhereInput
-    orderBy?: GestionAdminOrderByWithRelationInput | GestionAdminOrderByWithRelationInput[]
-    cursor?: GestionAdminWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: GestionAdminScalarFieldEnum | GestionAdminScalarFieldEnum[]
   }
 
   /**
@@ -8310,11 +8295,11 @@ export namespace Prisma {
     idPersonaClub?: boolean
     idCategoria?: boolean
     activo?: boolean
-    personaClub?: boolean | PersonaClubDefaultArgs<ExtArgs>
     tutor?: boolean | Deportista$tutorArgs<ExtArgs>
+    personaClub?: boolean | PersonaClubDefaultArgs<ExtArgs>
+    categoria?: boolean | Deportista$categoriaArgs<ExtArgs>
     desercionDeportista?: boolean | Deportista$desercionDeportistaArgs<ExtArgs>
-    GestionAdmin?: boolean | Deportista$GestionAdminArgs<ExtArgs>
-    PagoDeportista?: boolean | Deportista$PagoDeportistaArgs<ExtArgs>
+    pagosDeportista?: boolean | Deportista$pagosDeportistaArgs<ExtArgs>
     _count?: boolean | DeportistaCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["deportista"]>
 
@@ -8330,22 +8315,22 @@ export namespace Prisma {
 
   export type DeportistaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "idTutor" | "idPersonaClub" | "idCategoria" | "activo", ExtArgs["result"]["deportista"]>
   export type DeportistaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    personaClub?: boolean | PersonaClubDefaultArgs<ExtArgs>
     tutor?: boolean | Deportista$tutorArgs<ExtArgs>
+    personaClub?: boolean | PersonaClubDefaultArgs<ExtArgs>
+    categoria?: boolean | Deportista$categoriaArgs<ExtArgs>
     desercionDeportista?: boolean | Deportista$desercionDeportistaArgs<ExtArgs>
-    GestionAdmin?: boolean | Deportista$GestionAdminArgs<ExtArgs>
-    PagoDeportista?: boolean | Deportista$PagoDeportistaArgs<ExtArgs>
+    pagosDeportista?: boolean | Deportista$pagosDeportistaArgs<ExtArgs>
     _count?: boolean | DeportistaCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $DeportistaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Deportista"
     objects: {
-      personaClub: Prisma.$PersonaClubPayload<ExtArgs>
       tutor: Prisma.$TutorPayload<ExtArgs> | null
-      desercionDeportista: Prisma.$DesercionDeportistaPayload<ExtArgs>[]
-      GestionAdmin: Prisma.$GestionAdminPayload<ExtArgs>[]
-      PagoDeportista: Prisma.$PagoDeportistaPayload<ExtArgs>[]
+      personaClub: Prisma.$PersonaClubPayload<ExtArgs>
+      categoria: Prisma.$CategoriaPayload<ExtArgs> | null
+      desercionDeportista: Prisma.$DesercionDeportistaPayload<ExtArgs> | null
+      pagosDeportista: Prisma.$PagoDeportistaPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -8693,11 +8678,11 @@ export namespace Prisma {
    */
   export interface Prisma__DeportistaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    personaClub<T extends PersonaClubDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PersonaClubDefaultArgs<ExtArgs>>): Prisma__PersonaClubClient<$Result.GetResult<Prisma.$PersonaClubPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     tutor<T extends Deportista$tutorArgs<ExtArgs> = {}>(args?: Subset<T, Deportista$tutorArgs<ExtArgs>>): Prisma__TutorClient<$Result.GetResult<Prisma.$TutorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    desercionDeportista<T extends Deportista$desercionDeportistaArgs<ExtArgs> = {}>(args?: Subset<T, Deportista$desercionDeportistaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DesercionDeportistaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    GestionAdmin<T extends Deportista$GestionAdminArgs<ExtArgs> = {}>(args?: Subset<T, Deportista$GestionAdminArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GestionAdminPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    PagoDeportista<T extends Deportista$PagoDeportistaArgs<ExtArgs> = {}>(args?: Subset<T, Deportista$PagoDeportistaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PagoDeportistaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    personaClub<T extends PersonaClubDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PersonaClubDefaultArgs<ExtArgs>>): Prisma__PersonaClubClient<$Result.GetResult<Prisma.$PersonaClubPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    categoria<T extends Deportista$categoriaArgs<ExtArgs> = {}>(args?: Subset<T, Deportista$categoriaArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    desercionDeportista<T extends Deportista$desercionDeportistaArgs<ExtArgs> = {}>(args?: Subset<T, Deportista$desercionDeportistaArgs<ExtArgs>>): Prisma__DesercionDeportistaClient<$Result.GetResult<Prisma.$DesercionDeportistaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    pagosDeportista<T extends Deportista$pagosDeportistaArgs<ExtArgs> = {}>(args?: Subset<T, Deportista$pagosDeportistaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PagoDeportistaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9103,6 +9088,25 @@ export namespace Prisma {
   }
 
   /**
+   * Deportista.categoria
+   */
+  export type Deportista$categoriaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Categoria
+     */
+    select?: CategoriaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Categoria
+     */
+    omit?: CategoriaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoriaInclude<ExtArgs> | null
+    where?: CategoriaWhereInput
+  }
+
+  /**
    * Deportista.desercionDeportista
    */
   export type Deportista$desercionDeportistaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -9119,41 +9123,12 @@ export namespace Prisma {
      */
     include?: DesercionDeportistaInclude<ExtArgs> | null
     where?: DesercionDeportistaWhereInput
-    orderBy?: DesercionDeportistaOrderByWithRelationInput | DesercionDeportistaOrderByWithRelationInput[]
-    cursor?: DesercionDeportistaWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: DesercionDeportistaScalarFieldEnum | DesercionDeportistaScalarFieldEnum[]
   }
 
   /**
-   * Deportista.GestionAdmin
+   * Deportista.pagosDeportista
    */
-  export type Deportista$GestionAdminArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the GestionAdmin
-     */
-    select?: GestionAdminSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the GestionAdmin
-     */
-    omit?: GestionAdminOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GestionAdminInclude<ExtArgs> | null
-    where?: GestionAdminWhereInput
-    orderBy?: GestionAdminOrderByWithRelationInput | GestionAdminOrderByWithRelationInput[]
-    cursor?: GestionAdminWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: GestionAdminScalarFieldEnum | GestionAdminScalarFieldEnum[]
-  }
-
-  /**
-   * Deportista.PagoDeportista
-   */
-  export type Deportista$PagoDeportistaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Deportista$pagosDeportistaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the PagoDeportista
      */
@@ -9190,971 +9165,6 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: DeportistaInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model Departamento
-   */
-
-  export type AggregateDepartamento = {
-    _count: DepartamentoCountAggregateOutputType | null
-    _avg: DepartamentoAvgAggregateOutputType | null
-    _sum: DepartamentoSumAggregateOutputType | null
-    _min: DepartamentoMinAggregateOutputType | null
-    _max: DepartamentoMaxAggregateOutputType | null
-  }
-
-  export type DepartamentoAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type DepartamentoSumAggregateOutputType = {
-    id: number | null
-  }
-
-  export type DepartamentoMinAggregateOutputType = {
-    id: number | null
-    nombre: string | null
-  }
-
-  export type DepartamentoMaxAggregateOutputType = {
-    id: number | null
-    nombre: string | null
-  }
-
-  export type DepartamentoCountAggregateOutputType = {
-    id: number
-    nombre: number
-    _all: number
-  }
-
-
-  export type DepartamentoAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type DepartamentoSumAggregateInputType = {
-    id?: true
-  }
-
-  export type DepartamentoMinAggregateInputType = {
-    id?: true
-    nombre?: true
-  }
-
-  export type DepartamentoMaxAggregateInputType = {
-    id?: true
-    nombre?: true
-  }
-
-  export type DepartamentoCountAggregateInputType = {
-    id?: true
-    nombre?: true
-    _all?: true
-  }
-
-  export type DepartamentoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Departamento to aggregate.
-     */
-    where?: DepartamentoWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Departamentos to fetch.
-     */
-    orderBy?: DepartamentoOrderByWithRelationInput | DepartamentoOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: DepartamentoWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Departamentos from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Departamentos.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Departamentos
-    **/
-    _count?: true | DepartamentoCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: DepartamentoAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: DepartamentoSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: DepartamentoMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: DepartamentoMaxAggregateInputType
-  }
-
-  export type GetDepartamentoAggregateType<T extends DepartamentoAggregateArgs> = {
-        [P in keyof T & keyof AggregateDepartamento]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateDepartamento[P]>
-      : GetScalarType<T[P], AggregateDepartamento[P]>
-  }
-
-
-
-
-  export type DepartamentoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: DepartamentoWhereInput
-    orderBy?: DepartamentoOrderByWithAggregationInput | DepartamentoOrderByWithAggregationInput[]
-    by: DepartamentoScalarFieldEnum[] | DepartamentoScalarFieldEnum
-    having?: DepartamentoScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: DepartamentoCountAggregateInputType | true
-    _avg?: DepartamentoAvgAggregateInputType
-    _sum?: DepartamentoSumAggregateInputType
-    _min?: DepartamentoMinAggregateInputType
-    _max?: DepartamentoMaxAggregateInputType
-  }
-
-  export type DepartamentoGroupByOutputType = {
-    id: number
-    nombre: string | null
-    _count: DepartamentoCountAggregateOutputType | null
-    _avg: DepartamentoAvgAggregateOutputType | null
-    _sum: DepartamentoSumAggregateOutputType | null
-    _min: DepartamentoMinAggregateOutputType | null
-    _max: DepartamentoMaxAggregateOutputType | null
-  }
-
-  type GetDepartamentoGroupByPayload<T extends DepartamentoGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<DepartamentoGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof DepartamentoGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], DepartamentoGroupByOutputType[P]>
-            : GetScalarType<T[P], DepartamentoGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type DepartamentoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    nombre?: boolean
-    municipios?: boolean | Departamento$municipiosArgs<ExtArgs>
-    _count?: boolean | DepartamentoCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["departamento"]>
-
-
-
-  export type DepartamentoSelectScalar = {
-    id?: boolean
-    nombre?: boolean
-  }
-
-  export type DepartamentoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nombre", ExtArgs["result"]["departamento"]>
-  export type DepartamentoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    municipios?: boolean | Departamento$municipiosArgs<ExtArgs>
-    _count?: boolean | DepartamentoCountOutputTypeDefaultArgs<ExtArgs>
-  }
-
-  export type $DepartamentoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Departamento"
-    objects: {
-      municipios: Prisma.$MunicipioPayload<ExtArgs>[]
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      nombre: string | null
-    }, ExtArgs["result"]["departamento"]>
-    composites: {}
-  }
-
-  type DepartamentoGetPayload<S extends boolean | null | undefined | DepartamentoDefaultArgs> = $Result.GetResult<Prisma.$DepartamentoPayload, S>
-
-  type DepartamentoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<DepartamentoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
-      select?: DepartamentoCountAggregateInputType | true
-    }
-
-  export interface DepartamentoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Departamento'], meta: { name: 'Departamento' } }
-    /**
-     * Find zero or one Departamento that matches the filter.
-     * @param {DepartamentoFindUniqueArgs} args - Arguments to find a Departamento
-     * @example
-     * // Get one Departamento
-     * const departamento = await prisma.departamento.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends DepartamentoFindUniqueArgs>(args: SelectSubset<T, DepartamentoFindUniqueArgs<ExtArgs>>): Prisma__DepartamentoClient<$Result.GetResult<Prisma.$DepartamentoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Departamento that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {DepartamentoFindUniqueOrThrowArgs} args - Arguments to find a Departamento
-     * @example
-     * // Get one Departamento
-     * const departamento = await prisma.departamento.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends DepartamentoFindUniqueOrThrowArgs>(args: SelectSubset<T, DepartamentoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DepartamentoClient<$Result.GetResult<Prisma.$DepartamentoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Departamento that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {DepartamentoFindFirstArgs} args - Arguments to find a Departamento
-     * @example
-     * // Get one Departamento
-     * const departamento = await prisma.departamento.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends DepartamentoFindFirstArgs>(args?: SelectSubset<T, DepartamentoFindFirstArgs<ExtArgs>>): Prisma__DepartamentoClient<$Result.GetResult<Prisma.$DepartamentoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Departamento that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {DepartamentoFindFirstOrThrowArgs} args - Arguments to find a Departamento
-     * @example
-     * // Get one Departamento
-     * const departamento = await prisma.departamento.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends DepartamentoFindFirstOrThrowArgs>(args?: SelectSubset<T, DepartamentoFindFirstOrThrowArgs<ExtArgs>>): Prisma__DepartamentoClient<$Result.GetResult<Prisma.$DepartamentoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Departamentos that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {DepartamentoFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Departamentos
-     * const departamentos = await prisma.departamento.findMany()
-     * 
-     * // Get first 10 Departamentos
-     * const departamentos = await prisma.departamento.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const departamentoWithIdOnly = await prisma.departamento.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends DepartamentoFindManyArgs>(args?: SelectSubset<T, DepartamentoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DepartamentoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Departamento.
-     * @param {DepartamentoCreateArgs} args - Arguments to create a Departamento.
-     * @example
-     * // Create one Departamento
-     * const Departamento = await prisma.departamento.create({
-     *   data: {
-     *     // ... data to create a Departamento
-     *   }
-     * })
-     * 
-     */
-    create<T extends DepartamentoCreateArgs>(args: SelectSubset<T, DepartamentoCreateArgs<ExtArgs>>): Prisma__DepartamentoClient<$Result.GetResult<Prisma.$DepartamentoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Departamentos.
-     * @param {DepartamentoCreateManyArgs} args - Arguments to create many Departamentos.
-     * @example
-     * // Create many Departamentos
-     * const departamento = await prisma.departamento.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends DepartamentoCreateManyArgs>(args?: SelectSubset<T, DepartamentoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a Departamento.
-     * @param {DepartamentoDeleteArgs} args - Arguments to delete one Departamento.
-     * @example
-     * // Delete one Departamento
-     * const Departamento = await prisma.departamento.delete({
-     *   where: {
-     *     // ... filter to delete one Departamento
-     *   }
-     * })
-     * 
-     */
-    delete<T extends DepartamentoDeleteArgs>(args: SelectSubset<T, DepartamentoDeleteArgs<ExtArgs>>): Prisma__DepartamentoClient<$Result.GetResult<Prisma.$DepartamentoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Departamento.
-     * @param {DepartamentoUpdateArgs} args - Arguments to update one Departamento.
-     * @example
-     * // Update one Departamento
-     * const departamento = await prisma.departamento.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends DepartamentoUpdateArgs>(args: SelectSubset<T, DepartamentoUpdateArgs<ExtArgs>>): Prisma__DepartamentoClient<$Result.GetResult<Prisma.$DepartamentoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Departamentos.
-     * @param {DepartamentoDeleteManyArgs} args - Arguments to filter Departamentos to delete.
-     * @example
-     * // Delete a few Departamentos
-     * const { count } = await prisma.departamento.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends DepartamentoDeleteManyArgs>(args?: SelectSubset<T, DepartamentoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Departamentos.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {DepartamentoUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Departamentos
-     * const departamento = await prisma.departamento.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends DepartamentoUpdateManyArgs>(args: SelectSubset<T, DepartamentoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one Departamento.
-     * @param {DepartamentoUpsertArgs} args - Arguments to update or create a Departamento.
-     * @example
-     * // Update or create a Departamento
-     * const departamento = await prisma.departamento.upsert({
-     *   create: {
-     *     // ... data to create a Departamento
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Departamento we want to update
-     *   }
-     * })
-     */
-    upsert<T extends DepartamentoUpsertArgs>(args: SelectSubset<T, DepartamentoUpsertArgs<ExtArgs>>): Prisma__DepartamentoClient<$Result.GetResult<Prisma.$DepartamentoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Departamentos.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {DepartamentoCountArgs} args - Arguments to filter Departamentos to count.
-     * @example
-     * // Count the number of Departamentos
-     * const count = await prisma.departamento.count({
-     *   where: {
-     *     // ... the filter for the Departamentos we want to count
-     *   }
-     * })
-    **/
-    count<T extends DepartamentoCountArgs>(
-      args?: Subset<T, DepartamentoCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], DepartamentoCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Departamento.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {DepartamentoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends DepartamentoAggregateArgs>(args: Subset<T, DepartamentoAggregateArgs>): Prisma.PrismaPromise<GetDepartamentoAggregateType<T>>
-
-    /**
-     * Group by Departamento.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {DepartamentoGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends DepartamentoGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: DepartamentoGroupByArgs['orderBy'] }
-        : { orderBy?: DepartamentoGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, DepartamentoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDepartamentoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Departamento model
-   */
-  readonly fields: DepartamentoFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Departamento.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__DepartamentoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    municipios<T extends Departamento$municipiosArgs<ExtArgs> = {}>(args?: Subset<T, Departamento$municipiosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MunicipioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the Departamento model
-   */
-  interface DepartamentoFieldRefs {
-    readonly id: FieldRef<"Departamento", 'Int'>
-    readonly nombre: FieldRef<"Departamento", 'String'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Departamento findUnique
-   */
-  export type DepartamentoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Departamento
-     */
-    select?: DepartamentoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Departamento
-     */
-    omit?: DepartamentoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DepartamentoInclude<ExtArgs> | null
-    /**
-     * Filter, which Departamento to fetch.
-     */
-    where: DepartamentoWhereUniqueInput
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Departamento findUniqueOrThrow
-   */
-  export type DepartamentoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Departamento
-     */
-    select?: DepartamentoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Departamento
-     */
-    omit?: DepartamentoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DepartamentoInclude<ExtArgs> | null
-    /**
-     * Filter, which Departamento to fetch.
-     */
-    where: DepartamentoWhereUniqueInput
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Departamento findFirst
-   */
-  export type DepartamentoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Departamento
-     */
-    select?: DepartamentoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Departamento
-     */
-    omit?: DepartamentoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DepartamentoInclude<ExtArgs> | null
-    /**
-     * Filter, which Departamento to fetch.
-     */
-    where?: DepartamentoWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Departamentos to fetch.
-     */
-    orderBy?: DepartamentoOrderByWithRelationInput | DepartamentoOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Departamentos.
-     */
-    cursor?: DepartamentoWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Departamentos from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Departamentos.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Departamentos.
-     */
-    distinct?: DepartamentoScalarFieldEnum | DepartamentoScalarFieldEnum[]
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Departamento findFirstOrThrow
-   */
-  export type DepartamentoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Departamento
-     */
-    select?: DepartamentoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Departamento
-     */
-    omit?: DepartamentoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DepartamentoInclude<ExtArgs> | null
-    /**
-     * Filter, which Departamento to fetch.
-     */
-    where?: DepartamentoWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Departamentos to fetch.
-     */
-    orderBy?: DepartamentoOrderByWithRelationInput | DepartamentoOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Departamentos.
-     */
-    cursor?: DepartamentoWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Departamentos from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Departamentos.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Departamentos.
-     */
-    distinct?: DepartamentoScalarFieldEnum | DepartamentoScalarFieldEnum[]
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Departamento findMany
-   */
-  export type DepartamentoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Departamento
-     */
-    select?: DepartamentoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Departamento
-     */
-    omit?: DepartamentoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DepartamentoInclude<ExtArgs> | null
-    /**
-     * Filter, which Departamentos to fetch.
-     */
-    where?: DepartamentoWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Departamentos to fetch.
-     */
-    orderBy?: DepartamentoOrderByWithRelationInput | DepartamentoOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Departamentos.
-     */
-    cursor?: DepartamentoWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Departamentos from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Departamentos.
-     */
-    skip?: number
-    distinct?: DepartamentoScalarFieldEnum | DepartamentoScalarFieldEnum[]
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Departamento create
-   */
-  export type DepartamentoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Departamento
-     */
-    select?: DepartamentoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Departamento
-     */
-    omit?: DepartamentoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DepartamentoInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Departamento.
-     */
-    data?: XOR<DepartamentoCreateInput, DepartamentoUncheckedCreateInput>
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Departamento createMany
-   */
-  export type DepartamentoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Departamentos.
-     */
-    data: DepartamentoCreateManyInput | DepartamentoCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Departamento update
-   */
-  export type DepartamentoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Departamento
-     */
-    select?: DepartamentoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Departamento
-     */
-    omit?: DepartamentoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DepartamentoInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Departamento.
-     */
-    data: XOR<DepartamentoUpdateInput, DepartamentoUncheckedUpdateInput>
-    /**
-     * Choose, which Departamento to update.
-     */
-    where: DepartamentoWhereUniqueInput
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Departamento updateMany
-   */
-  export type DepartamentoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Departamentos.
-     */
-    data: XOR<DepartamentoUpdateManyMutationInput, DepartamentoUncheckedUpdateManyInput>
-    /**
-     * Filter which Departamentos to update
-     */
-    where?: DepartamentoWhereInput
-    /**
-     * Limit how many Departamentos to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Departamento upsert
-   */
-  export type DepartamentoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Departamento
-     */
-    select?: DepartamentoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Departamento
-     */
-    omit?: DepartamentoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DepartamentoInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Departamento to update in case it exists.
-     */
-    where: DepartamentoWhereUniqueInput
-    /**
-     * In case the Departamento found by the `where` argument doesn't exist, create a new Departamento with this data.
-     */
-    create: XOR<DepartamentoCreateInput, DepartamentoUncheckedCreateInput>
-    /**
-     * In case the Departamento was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<DepartamentoUpdateInput, DepartamentoUncheckedUpdateInput>
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Departamento delete
-   */
-  export type DepartamentoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Departamento
-     */
-    select?: DepartamentoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Departamento
-     */
-    omit?: DepartamentoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DepartamentoInclude<ExtArgs> | null
-    /**
-     * Filter which Departamento to delete.
-     */
-    where: DepartamentoWhereUniqueInput
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Departamento deleteMany
-   */
-  export type DepartamentoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Departamentos to delete
-     */
-    where?: DepartamentoWhereInput
-    /**
-     * Limit how many Departamentos to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Departamento.municipios
-   */
-  export type Departamento$municipiosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Municipio
-     */
-    select?: MunicipioSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Municipio
-     */
-    omit?: MunicipioOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MunicipioInclude<ExtArgs> | null
-    where?: MunicipioWhereInput
-    orderBy?: MunicipioOrderByWithRelationInput | MunicipioOrderByWithRelationInput[]
-    cursor?: MunicipioWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: MunicipioScalarFieldEnum | MunicipioScalarFieldEnum[]
-  }
-
-  /**
-   * Departamento without action
-   */
-  export type DepartamentoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Departamento
-     */
-    select?: DepartamentoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Departamento
-     */
-    omit?: DepartamentoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DepartamentoInclude<ExtArgs> | null
   }
 
 
@@ -11360,9 +10370,6 @@ export namespace Prisma {
     fechaInicio?: boolean
     fechaFin?: boolean
     activo?: boolean
-    tutor?: boolean | GestionAdmin$tutorArgs<ExtArgs>
-    deportista?: boolean | GestionAdmin$deportistaArgs<ExtArgs>
-    cargo?: boolean | GestionAdmin$cargoArgs<ExtArgs>
   }, ExtArgs["result"]["gestionAdmin"]>
 
 
@@ -11378,19 +10385,10 @@ export namespace Prisma {
   }
 
   export type GestionAdminOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "idTutor" | "idDeportista" | "idCargo" | "fechaInicio" | "fechaFin" | "activo", ExtArgs["result"]["gestionAdmin"]>
-  export type GestionAdminInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    tutor?: boolean | GestionAdmin$tutorArgs<ExtArgs>
-    deportista?: boolean | GestionAdmin$deportistaArgs<ExtArgs>
-    cargo?: boolean | GestionAdmin$cargoArgs<ExtArgs>
-  }
 
   export type $GestionAdminPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "GestionAdmin"
-    objects: {
-      tutor: Prisma.$TutorPayload<ExtArgs> | null
-      deportista: Prisma.$DeportistaPayload<ExtArgs> | null
-      cargo: Prisma.$CargosAdminPayload<ExtArgs> | null
-    }
+    objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
       idTutor: number | null
@@ -11739,9 +10737,6 @@ export namespace Prisma {
    */
   export interface Prisma__GestionAdminClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    tutor<T extends GestionAdmin$tutorArgs<ExtArgs> = {}>(args?: Subset<T, GestionAdmin$tutorArgs<ExtArgs>>): Prisma__TutorClient<$Result.GetResult<Prisma.$TutorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    deportista<T extends GestionAdmin$deportistaArgs<ExtArgs> = {}>(args?: Subset<T, GestionAdmin$deportistaArgs<ExtArgs>>): Prisma__DeportistaClient<$Result.GetResult<Prisma.$DeportistaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    cargo<T extends GestionAdmin$cargoArgs<ExtArgs> = {}>(args?: Subset<T, GestionAdmin$cargoArgs<ExtArgs>>): Prisma__CargosAdminClient<$Result.GetResult<Prisma.$CargosAdminPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -11795,10 +10790,6 @@ export namespace Prisma {
      */
     omit?: GestionAdminOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GestionAdminInclude<ExtArgs> | null
-    /**
      * Filter, which GestionAdmin to fetch.
      */
     where: GestionAdminWhereUniqueInput
@@ -11818,10 +10809,6 @@ export namespace Prisma {
      */
     omit?: GestionAdminOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GestionAdminInclude<ExtArgs> | null
-    /**
      * Filter, which GestionAdmin to fetch.
      */
     where: GestionAdminWhereUniqueInput
@@ -11840,10 +10827,6 @@ export namespace Prisma {
      * Omit specific fields from the GestionAdmin
      */
     omit?: GestionAdminOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GestionAdminInclude<ExtArgs> | null
     /**
      * Filter, which GestionAdmin to fetch.
      */
@@ -11894,10 +10877,6 @@ export namespace Prisma {
      */
     omit?: GestionAdminOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GestionAdminInclude<ExtArgs> | null
-    /**
      * Filter, which GestionAdmin to fetch.
      */
     where?: GestionAdminWhereInput
@@ -11947,10 +10926,6 @@ export namespace Prisma {
      */
     omit?: GestionAdminOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GestionAdminInclude<ExtArgs> | null
-    /**
      * Filter, which GestionAdmins to fetch.
      */
     where?: GestionAdminWhereInput
@@ -11995,10 +10970,6 @@ export namespace Prisma {
      */
     omit?: GestionAdminOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GestionAdminInclude<ExtArgs> | null
-    /**
      * The data needed to create a GestionAdmin.
      */
     data?: XOR<GestionAdminCreateInput, GestionAdminUncheckedCreateInput>
@@ -12028,10 +10999,6 @@ export namespace Prisma {
      * Omit specific fields from the GestionAdmin
      */
     omit?: GestionAdminOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GestionAdminInclude<ExtArgs> | null
     /**
      * The data needed to update a GestionAdmin.
      */
@@ -12074,10 +11041,6 @@ export namespace Prisma {
      */
     omit?: GestionAdminOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GestionAdminInclude<ExtArgs> | null
-    /**
      * The filter to search for the GestionAdmin to update in case it exists.
      */
     where: GestionAdminWhereUniqueInput
@@ -12105,10 +11068,6 @@ export namespace Prisma {
      */
     omit?: GestionAdminOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GestionAdminInclude<ExtArgs> | null
-    /**
      * Filter which GestionAdmin to delete.
      */
     where: GestionAdminWhereUniqueInput
@@ -12130,63 +11089,6 @@ export namespace Prisma {
   }
 
   /**
-   * GestionAdmin.tutor
-   */
-  export type GestionAdmin$tutorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Tutor
-     */
-    select?: TutorSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Tutor
-     */
-    omit?: TutorOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TutorInclude<ExtArgs> | null
-    where?: TutorWhereInput
-  }
-
-  /**
-   * GestionAdmin.deportista
-   */
-  export type GestionAdmin$deportistaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Deportista
-     */
-    select?: DeportistaSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Deportista
-     */
-    omit?: DeportistaOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DeportistaInclude<ExtArgs> | null
-    where?: DeportistaWhereInput
-  }
-
-  /**
-   * GestionAdmin.cargo
-   */
-  export type GestionAdmin$cargoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the CargosAdmin
-     */
-    select?: CargosAdminSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the CargosAdmin
-     */
-    omit?: CargosAdminOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CargosAdminInclude<ExtArgs> | null
-    where?: CargosAdminWhereInput
-  }
-
-  /**
    * GestionAdmin without action
    */
   export type GestionAdminDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -12198,975 +11100,6 @@ export namespace Prisma {
      * Omit specific fields from the GestionAdmin
      */
     omit?: GestionAdminOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: GestionAdminInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model Municipio
-   */
-
-  export type AggregateMunicipio = {
-    _count: MunicipioCountAggregateOutputType | null
-    _avg: MunicipioAvgAggregateOutputType | null
-    _sum: MunicipioSumAggregateOutputType | null
-    _min: MunicipioMinAggregateOutputType | null
-    _max: MunicipioMaxAggregateOutputType | null
-  }
-
-  export type MunicipioAvgAggregateOutputType = {
-    id: number | null
-    idDepartamento: number | null
-  }
-
-  export type MunicipioSumAggregateOutputType = {
-    id: number | null
-    idDepartamento: number | null
-  }
-
-  export type MunicipioMinAggregateOutputType = {
-    id: number | null
-    idDepartamento: number | null
-    nombre: string | null
-    estado: boolean | null
-  }
-
-  export type MunicipioMaxAggregateOutputType = {
-    id: number | null
-    idDepartamento: number | null
-    nombre: string | null
-    estado: boolean | null
-  }
-
-  export type MunicipioCountAggregateOutputType = {
-    id: number
-    idDepartamento: number
-    nombre: number
-    estado: number
-    _all: number
-  }
-
-
-  export type MunicipioAvgAggregateInputType = {
-    id?: true
-    idDepartamento?: true
-  }
-
-  export type MunicipioSumAggregateInputType = {
-    id?: true
-    idDepartamento?: true
-  }
-
-  export type MunicipioMinAggregateInputType = {
-    id?: true
-    idDepartamento?: true
-    nombre?: true
-    estado?: true
-  }
-
-  export type MunicipioMaxAggregateInputType = {
-    id?: true
-    idDepartamento?: true
-    nombre?: true
-    estado?: true
-  }
-
-  export type MunicipioCountAggregateInputType = {
-    id?: true
-    idDepartamento?: true
-    nombre?: true
-    estado?: true
-    _all?: true
-  }
-
-  export type MunicipioAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Municipio to aggregate.
-     */
-    where?: MunicipioWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Municipios to fetch.
-     */
-    orderBy?: MunicipioOrderByWithRelationInput | MunicipioOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: MunicipioWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Municipios from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Municipios.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Municipios
-    **/
-    _count?: true | MunicipioCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: MunicipioAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: MunicipioSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: MunicipioMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: MunicipioMaxAggregateInputType
-  }
-
-  export type GetMunicipioAggregateType<T extends MunicipioAggregateArgs> = {
-        [P in keyof T & keyof AggregateMunicipio]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateMunicipio[P]>
-      : GetScalarType<T[P], AggregateMunicipio[P]>
-  }
-
-
-
-
-  export type MunicipioGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: MunicipioWhereInput
-    orderBy?: MunicipioOrderByWithAggregationInput | MunicipioOrderByWithAggregationInput[]
-    by: MunicipioScalarFieldEnum[] | MunicipioScalarFieldEnum
-    having?: MunicipioScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: MunicipioCountAggregateInputType | true
-    _avg?: MunicipioAvgAggregateInputType
-    _sum?: MunicipioSumAggregateInputType
-    _min?: MunicipioMinAggregateInputType
-    _max?: MunicipioMaxAggregateInputType
-  }
-
-  export type MunicipioGroupByOutputType = {
-    id: number
-    idDepartamento: number
-    nombre: string | null
-    estado: boolean | null
-    _count: MunicipioCountAggregateOutputType | null
-    _avg: MunicipioAvgAggregateOutputType | null
-    _sum: MunicipioSumAggregateOutputType | null
-    _min: MunicipioMinAggregateOutputType | null
-    _max: MunicipioMaxAggregateOutputType | null
-  }
-
-  type GetMunicipioGroupByPayload<T extends MunicipioGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<MunicipioGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof MunicipioGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], MunicipioGroupByOutputType[P]>
-            : GetScalarType<T[P], MunicipioGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type MunicipioSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    idDepartamento?: boolean
-    nombre?: boolean
-    estado?: boolean
-    departamento?: boolean | DepartamentoDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["municipio"]>
-
-
-
-  export type MunicipioSelectScalar = {
-    id?: boolean
-    idDepartamento?: boolean
-    nombre?: boolean
-    estado?: boolean
-  }
-
-  export type MunicipioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "idDepartamento" | "nombre" | "estado", ExtArgs["result"]["municipio"]>
-  export type MunicipioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    departamento?: boolean | DepartamentoDefaultArgs<ExtArgs>
-  }
-
-  export type $MunicipioPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Municipio"
-    objects: {
-      departamento: Prisma.$DepartamentoPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      idDepartamento: number
-      nombre: string | null
-      estado: boolean | null
-    }, ExtArgs["result"]["municipio"]>
-    composites: {}
-  }
-
-  type MunicipioGetPayload<S extends boolean | null | undefined | MunicipioDefaultArgs> = $Result.GetResult<Prisma.$MunicipioPayload, S>
-
-  type MunicipioCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<MunicipioFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
-      select?: MunicipioCountAggregateInputType | true
-    }
-
-  export interface MunicipioDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Municipio'], meta: { name: 'Municipio' } }
-    /**
-     * Find zero or one Municipio that matches the filter.
-     * @param {MunicipioFindUniqueArgs} args - Arguments to find a Municipio
-     * @example
-     * // Get one Municipio
-     * const municipio = await prisma.municipio.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends MunicipioFindUniqueArgs>(args: SelectSubset<T, MunicipioFindUniqueArgs<ExtArgs>>): Prisma__MunicipioClient<$Result.GetResult<Prisma.$MunicipioPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Municipio that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {MunicipioFindUniqueOrThrowArgs} args - Arguments to find a Municipio
-     * @example
-     * // Get one Municipio
-     * const municipio = await prisma.municipio.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends MunicipioFindUniqueOrThrowArgs>(args: SelectSubset<T, MunicipioFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MunicipioClient<$Result.GetResult<Prisma.$MunicipioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Municipio that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MunicipioFindFirstArgs} args - Arguments to find a Municipio
-     * @example
-     * // Get one Municipio
-     * const municipio = await prisma.municipio.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends MunicipioFindFirstArgs>(args?: SelectSubset<T, MunicipioFindFirstArgs<ExtArgs>>): Prisma__MunicipioClient<$Result.GetResult<Prisma.$MunicipioPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Municipio that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MunicipioFindFirstOrThrowArgs} args - Arguments to find a Municipio
-     * @example
-     * // Get one Municipio
-     * const municipio = await prisma.municipio.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends MunicipioFindFirstOrThrowArgs>(args?: SelectSubset<T, MunicipioFindFirstOrThrowArgs<ExtArgs>>): Prisma__MunicipioClient<$Result.GetResult<Prisma.$MunicipioPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Municipios that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MunicipioFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Municipios
-     * const municipios = await prisma.municipio.findMany()
-     * 
-     * // Get first 10 Municipios
-     * const municipios = await prisma.municipio.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const municipioWithIdOnly = await prisma.municipio.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends MunicipioFindManyArgs>(args?: SelectSubset<T, MunicipioFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MunicipioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Municipio.
-     * @param {MunicipioCreateArgs} args - Arguments to create a Municipio.
-     * @example
-     * // Create one Municipio
-     * const Municipio = await prisma.municipio.create({
-     *   data: {
-     *     // ... data to create a Municipio
-     *   }
-     * })
-     * 
-     */
-    create<T extends MunicipioCreateArgs>(args: SelectSubset<T, MunicipioCreateArgs<ExtArgs>>): Prisma__MunicipioClient<$Result.GetResult<Prisma.$MunicipioPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Municipios.
-     * @param {MunicipioCreateManyArgs} args - Arguments to create many Municipios.
-     * @example
-     * // Create many Municipios
-     * const municipio = await prisma.municipio.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends MunicipioCreateManyArgs>(args?: SelectSubset<T, MunicipioCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a Municipio.
-     * @param {MunicipioDeleteArgs} args - Arguments to delete one Municipio.
-     * @example
-     * // Delete one Municipio
-     * const Municipio = await prisma.municipio.delete({
-     *   where: {
-     *     // ... filter to delete one Municipio
-     *   }
-     * })
-     * 
-     */
-    delete<T extends MunicipioDeleteArgs>(args: SelectSubset<T, MunicipioDeleteArgs<ExtArgs>>): Prisma__MunicipioClient<$Result.GetResult<Prisma.$MunicipioPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Municipio.
-     * @param {MunicipioUpdateArgs} args - Arguments to update one Municipio.
-     * @example
-     * // Update one Municipio
-     * const municipio = await prisma.municipio.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends MunicipioUpdateArgs>(args: SelectSubset<T, MunicipioUpdateArgs<ExtArgs>>): Prisma__MunicipioClient<$Result.GetResult<Prisma.$MunicipioPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Municipios.
-     * @param {MunicipioDeleteManyArgs} args - Arguments to filter Municipios to delete.
-     * @example
-     * // Delete a few Municipios
-     * const { count } = await prisma.municipio.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends MunicipioDeleteManyArgs>(args?: SelectSubset<T, MunicipioDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Municipios.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MunicipioUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Municipios
-     * const municipio = await prisma.municipio.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends MunicipioUpdateManyArgs>(args: SelectSubset<T, MunicipioUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one Municipio.
-     * @param {MunicipioUpsertArgs} args - Arguments to update or create a Municipio.
-     * @example
-     * // Update or create a Municipio
-     * const municipio = await prisma.municipio.upsert({
-     *   create: {
-     *     // ... data to create a Municipio
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Municipio we want to update
-     *   }
-     * })
-     */
-    upsert<T extends MunicipioUpsertArgs>(args: SelectSubset<T, MunicipioUpsertArgs<ExtArgs>>): Prisma__MunicipioClient<$Result.GetResult<Prisma.$MunicipioPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Municipios.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MunicipioCountArgs} args - Arguments to filter Municipios to count.
-     * @example
-     * // Count the number of Municipios
-     * const count = await prisma.municipio.count({
-     *   where: {
-     *     // ... the filter for the Municipios we want to count
-     *   }
-     * })
-    **/
-    count<T extends MunicipioCountArgs>(
-      args?: Subset<T, MunicipioCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], MunicipioCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Municipio.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MunicipioAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends MunicipioAggregateArgs>(args: Subset<T, MunicipioAggregateArgs>): Prisma.PrismaPromise<GetMunicipioAggregateType<T>>
-
-    /**
-     * Group by Municipio.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MunicipioGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends MunicipioGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: MunicipioGroupByArgs['orderBy'] }
-        : { orderBy?: MunicipioGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, MunicipioGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMunicipioGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Municipio model
-   */
-  readonly fields: MunicipioFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Municipio.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__MunicipioClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    departamento<T extends DepartamentoDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DepartamentoDefaultArgs<ExtArgs>>): Prisma__DepartamentoClient<$Result.GetResult<Prisma.$DepartamentoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the Municipio model
-   */
-  interface MunicipioFieldRefs {
-    readonly id: FieldRef<"Municipio", 'Int'>
-    readonly idDepartamento: FieldRef<"Municipio", 'Int'>
-    readonly nombre: FieldRef<"Municipio", 'String'>
-    readonly estado: FieldRef<"Municipio", 'Boolean'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Municipio findUnique
-   */
-  export type MunicipioFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Municipio
-     */
-    select?: MunicipioSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Municipio
-     */
-    omit?: MunicipioOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MunicipioInclude<ExtArgs> | null
-    /**
-     * Filter, which Municipio to fetch.
-     */
-    where: MunicipioWhereUniqueInput
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Municipio findUniqueOrThrow
-   */
-  export type MunicipioFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Municipio
-     */
-    select?: MunicipioSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Municipio
-     */
-    omit?: MunicipioOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MunicipioInclude<ExtArgs> | null
-    /**
-     * Filter, which Municipio to fetch.
-     */
-    where: MunicipioWhereUniqueInput
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Municipio findFirst
-   */
-  export type MunicipioFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Municipio
-     */
-    select?: MunicipioSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Municipio
-     */
-    omit?: MunicipioOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MunicipioInclude<ExtArgs> | null
-    /**
-     * Filter, which Municipio to fetch.
-     */
-    where?: MunicipioWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Municipios to fetch.
-     */
-    orderBy?: MunicipioOrderByWithRelationInput | MunicipioOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Municipios.
-     */
-    cursor?: MunicipioWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Municipios from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Municipios.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Municipios.
-     */
-    distinct?: MunicipioScalarFieldEnum | MunicipioScalarFieldEnum[]
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Municipio findFirstOrThrow
-   */
-  export type MunicipioFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Municipio
-     */
-    select?: MunicipioSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Municipio
-     */
-    omit?: MunicipioOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MunicipioInclude<ExtArgs> | null
-    /**
-     * Filter, which Municipio to fetch.
-     */
-    where?: MunicipioWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Municipios to fetch.
-     */
-    orderBy?: MunicipioOrderByWithRelationInput | MunicipioOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Municipios.
-     */
-    cursor?: MunicipioWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Municipios from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Municipios.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Municipios.
-     */
-    distinct?: MunicipioScalarFieldEnum | MunicipioScalarFieldEnum[]
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Municipio findMany
-   */
-  export type MunicipioFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Municipio
-     */
-    select?: MunicipioSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Municipio
-     */
-    omit?: MunicipioOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MunicipioInclude<ExtArgs> | null
-    /**
-     * Filter, which Municipios to fetch.
-     */
-    where?: MunicipioWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Municipios to fetch.
-     */
-    orderBy?: MunicipioOrderByWithRelationInput | MunicipioOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Municipios.
-     */
-    cursor?: MunicipioWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Municipios from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Municipios.
-     */
-    skip?: number
-    distinct?: MunicipioScalarFieldEnum | MunicipioScalarFieldEnum[]
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Municipio create
-   */
-  export type MunicipioCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Municipio
-     */
-    select?: MunicipioSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Municipio
-     */
-    omit?: MunicipioOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MunicipioInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Municipio.
-     */
-    data: XOR<MunicipioCreateInput, MunicipioUncheckedCreateInput>
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Municipio createMany
-   */
-  export type MunicipioCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Municipios.
-     */
-    data: MunicipioCreateManyInput | MunicipioCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Municipio update
-   */
-  export type MunicipioUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Municipio
-     */
-    select?: MunicipioSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Municipio
-     */
-    omit?: MunicipioOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MunicipioInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Municipio.
-     */
-    data: XOR<MunicipioUpdateInput, MunicipioUncheckedUpdateInput>
-    /**
-     * Choose, which Municipio to update.
-     */
-    where: MunicipioWhereUniqueInput
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Municipio updateMany
-   */
-  export type MunicipioUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Municipios.
-     */
-    data: XOR<MunicipioUpdateManyMutationInput, MunicipioUncheckedUpdateManyInput>
-    /**
-     * Filter which Municipios to update
-     */
-    where?: MunicipioWhereInput
-    /**
-     * Limit how many Municipios to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Municipio upsert
-   */
-  export type MunicipioUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Municipio
-     */
-    select?: MunicipioSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Municipio
-     */
-    omit?: MunicipioOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MunicipioInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Municipio to update in case it exists.
-     */
-    where: MunicipioWhereUniqueInput
-    /**
-     * In case the Municipio found by the `where` argument doesn't exist, create a new Municipio with this data.
-     */
-    create: XOR<MunicipioCreateInput, MunicipioUncheckedCreateInput>
-    /**
-     * In case the Municipio was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<MunicipioUpdateInput, MunicipioUncheckedUpdateInput>
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Municipio delete
-   */
-  export type MunicipioDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Municipio
-     */
-    select?: MunicipioSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Municipio
-     */
-    omit?: MunicipioOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MunicipioInclude<ExtArgs> | null
-    /**
-     * Filter which Municipio to delete.
-     */
-    where: MunicipioWhereUniqueInput
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Municipio deleteMany
-   */
-  export type MunicipioDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Municipios to delete
-     */
-    where?: MunicipioWhereInput
-    /**
-     * Limit how many Municipios to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Municipio without action
-   */
-  export type MunicipioDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Municipio
-     */
-    select?: MunicipioSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Municipio
-     */
-    omit?: MunicipioOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MunicipioInclude<ExtArgs> | null
   }
 
 
@@ -13376,7 +11309,7 @@ export namespace Prisma {
     fechaPago?: boolean
     valor?: boolean
     tipoPago?: boolean
-    deportista?: boolean | DeportistaDefaultArgs<ExtArgs>
+    deportista?: boolean | PagoDeportista$deportistaArgs<ExtArgs>
   }, ExtArgs["result"]["pagoDeportista"]>
 
 
@@ -13391,13 +11324,13 @@ export namespace Prisma {
 
   export type PagoDeportistaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "idDeportista" | "fechaPago" | "valor" | "tipoPago", ExtArgs["result"]["pagoDeportista"]>
   export type PagoDeportistaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    deportista?: boolean | DeportistaDefaultArgs<ExtArgs>
+    deportista?: boolean | PagoDeportista$deportistaArgs<ExtArgs>
   }
 
   export type $PagoDeportistaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "PagoDeportista"
     objects: {
-      deportista: Prisma.$DeportistaPayload<ExtArgs>
+      deportista: Prisma.$DeportistaPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -13745,7 +11678,7 @@ export namespace Prisma {
    */
   export interface Prisma__PagoDeportistaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    deportista<T extends DeportistaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DeportistaDefaultArgs<ExtArgs>>): Prisma__DeportistaClient<$Result.GetResult<Prisma.$DeportistaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    deportista<T extends PagoDeportista$deportistaArgs<ExtArgs> = {}>(args?: Subset<T, PagoDeportista$deportistaArgs<ExtArgs>>): Prisma__DeportistaClient<$Result.GetResult<Prisma.$DeportistaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -14132,6 +12065,25 @@ export namespace Prisma {
   }
 
   /**
+   * PagoDeportista.deportista
+   */
+  export type PagoDeportista$deportistaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Deportista
+     */
+    select?: DeportistaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Deportista
+     */
+    omit?: DeportistaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeportistaInclude<ExtArgs> | null
+    where?: DeportistaWhereInput
+  }
+
+  /**
    * PagoDeportista without action
    */
   export type PagoDeportistaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -14147,909 +12099,6 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: PagoDeportistaInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model TipoDocumento
-   */
-
-  export type AggregateTipoDocumento = {
-    _count: TipoDocumentoCountAggregateOutputType | null
-    _avg: TipoDocumentoAvgAggregateOutputType | null
-    _sum: TipoDocumentoSumAggregateOutputType | null
-    _min: TipoDocumentoMinAggregateOutputType | null
-    _max: TipoDocumentoMaxAggregateOutputType | null
-  }
-
-  export type TipoDocumentoAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type TipoDocumentoSumAggregateOutputType = {
-    id: number | null
-  }
-
-  export type TipoDocumentoMinAggregateOutputType = {
-    id: number | null
-    tipoDocumento: string | null
-    descripcion: string | null
-  }
-
-  export type TipoDocumentoMaxAggregateOutputType = {
-    id: number | null
-    tipoDocumento: string | null
-    descripcion: string | null
-  }
-
-  export type TipoDocumentoCountAggregateOutputType = {
-    id: number
-    tipoDocumento: number
-    descripcion: number
-    _all: number
-  }
-
-
-  export type TipoDocumentoAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type TipoDocumentoSumAggregateInputType = {
-    id?: true
-  }
-
-  export type TipoDocumentoMinAggregateInputType = {
-    id?: true
-    tipoDocumento?: true
-    descripcion?: true
-  }
-
-  export type TipoDocumentoMaxAggregateInputType = {
-    id?: true
-    tipoDocumento?: true
-    descripcion?: true
-  }
-
-  export type TipoDocumentoCountAggregateInputType = {
-    id?: true
-    tipoDocumento?: true
-    descripcion?: true
-    _all?: true
-  }
-
-  export type TipoDocumentoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which TipoDocumento to aggregate.
-     */
-    where?: TipoDocumentoWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of TipoDocumentos to fetch.
-     */
-    orderBy?: TipoDocumentoOrderByWithRelationInput | TipoDocumentoOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: TipoDocumentoWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` TipoDocumentos from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` TipoDocumentos.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned TipoDocumentos
-    **/
-    _count?: true | TipoDocumentoCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: TipoDocumentoAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: TipoDocumentoSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: TipoDocumentoMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: TipoDocumentoMaxAggregateInputType
-  }
-
-  export type GetTipoDocumentoAggregateType<T extends TipoDocumentoAggregateArgs> = {
-        [P in keyof T & keyof AggregateTipoDocumento]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateTipoDocumento[P]>
-      : GetScalarType<T[P], AggregateTipoDocumento[P]>
-  }
-
-
-
-
-  export type TipoDocumentoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: TipoDocumentoWhereInput
-    orderBy?: TipoDocumentoOrderByWithAggregationInput | TipoDocumentoOrderByWithAggregationInput[]
-    by: TipoDocumentoScalarFieldEnum[] | TipoDocumentoScalarFieldEnum
-    having?: TipoDocumentoScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: TipoDocumentoCountAggregateInputType | true
-    _avg?: TipoDocumentoAvgAggregateInputType
-    _sum?: TipoDocumentoSumAggregateInputType
-    _min?: TipoDocumentoMinAggregateInputType
-    _max?: TipoDocumentoMaxAggregateInputType
-  }
-
-  export type TipoDocumentoGroupByOutputType = {
-    id: number
-    tipoDocumento: string | null
-    descripcion: string | null
-    _count: TipoDocumentoCountAggregateOutputType | null
-    _avg: TipoDocumentoAvgAggregateOutputType | null
-    _sum: TipoDocumentoSumAggregateOutputType | null
-    _min: TipoDocumentoMinAggregateOutputType | null
-    _max: TipoDocumentoMaxAggregateOutputType | null
-  }
-
-  type GetTipoDocumentoGroupByPayload<T extends TipoDocumentoGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<TipoDocumentoGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof TipoDocumentoGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], TipoDocumentoGroupByOutputType[P]>
-            : GetScalarType<T[P], TipoDocumentoGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type TipoDocumentoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    tipoDocumento?: boolean
-    descripcion?: boolean
-  }, ExtArgs["result"]["tipoDocumento"]>
-
-
-
-  export type TipoDocumentoSelectScalar = {
-    id?: boolean
-    tipoDocumento?: boolean
-    descripcion?: boolean
-  }
-
-  export type TipoDocumentoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tipoDocumento" | "descripcion", ExtArgs["result"]["tipoDocumento"]>
-
-  export type $TipoDocumentoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "TipoDocumento"
-    objects: {}
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      tipoDocumento: string | null
-      descripcion: string | null
-    }, ExtArgs["result"]["tipoDocumento"]>
-    composites: {}
-  }
-
-  type TipoDocumentoGetPayload<S extends boolean | null | undefined | TipoDocumentoDefaultArgs> = $Result.GetResult<Prisma.$TipoDocumentoPayload, S>
-
-  type TipoDocumentoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<TipoDocumentoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
-      select?: TipoDocumentoCountAggregateInputType | true
-    }
-
-  export interface TipoDocumentoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TipoDocumento'], meta: { name: 'TipoDocumento' } }
-    /**
-     * Find zero or one TipoDocumento that matches the filter.
-     * @param {TipoDocumentoFindUniqueArgs} args - Arguments to find a TipoDocumento
-     * @example
-     * // Get one TipoDocumento
-     * const tipoDocumento = await prisma.tipoDocumento.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends TipoDocumentoFindUniqueArgs>(args: SelectSubset<T, TipoDocumentoFindUniqueArgs<ExtArgs>>): Prisma__TipoDocumentoClient<$Result.GetResult<Prisma.$TipoDocumentoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one TipoDocumento that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {TipoDocumentoFindUniqueOrThrowArgs} args - Arguments to find a TipoDocumento
-     * @example
-     * // Get one TipoDocumento
-     * const tipoDocumento = await prisma.tipoDocumento.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends TipoDocumentoFindUniqueOrThrowArgs>(args: SelectSubset<T, TipoDocumentoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TipoDocumentoClient<$Result.GetResult<Prisma.$TipoDocumentoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first TipoDocumento that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TipoDocumentoFindFirstArgs} args - Arguments to find a TipoDocumento
-     * @example
-     * // Get one TipoDocumento
-     * const tipoDocumento = await prisma.tipoDocumento.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends TipoDocumentoFindFirstArgs>(args?: SelectSubset<T, TipoDocumentoFindFirstArgs<ExtArgs>>): Prisma__TipoDocumentoClient<$Result.GetResult<Prisma.$TipoDocumentoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first TipoDocumento that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TipoDocumentoFindFirstOrThrowArgs} args - Arguments to find a TipoDocumento
-     * @example
-     * // Get one TipoDocumento
-     * const tipoDocumento = await prisma.tipoDocumento.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends TipoDocumentoFindFirstOrThrowArgs>(args?: SelectSubset<T, TipoDocumentoFindFirstOrThrowArgs<ExtArgs>>): Prisma__TipoDocumentoClient<$Result.GetResult<Prisma.$TipoDocumentoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more TipoDocumentos that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TipoDocumentoFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all TipoDocumentos
-     * const tipoDocumentos = await prisma.tipoDocumento.findMany()
-     * 
-     * // Get first 10 TipoDocumentos
-     * const tipoDocumentos = await prisma.tipoDocumento.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const tipoDocumentoWithIdOnly = await prisma.tipoDocumento.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends TipoDocumentoFindManyArgs>(args?: SelectSubset<T, TipoDocumentoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TipoDocumentoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a TipoDocumento.
-     * @param {TipoDocumentoCreateArgs} args - Arguments to create a TipoDocumento.
-     * @example
-     * // Create one TipoDocumento
-     * const TipoDocumento = await prisma.tipoDocumento.create({
-     *   data: {
-     *     // ... data to create a TipoDocumento
-     *   }
-     * })
-     * 
-     */
-    create<T extends TipoDocumentoCreateArgs>(args: SelectSubset<T, TipoDocumentoCreateArgs<ExtArgs>>): Prisma__TipoDocumentoClient<$Result.GetResult<Prisma.$TipoDocumentoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many TipoDocumentos.
-     * @param {TipoDocumentoCreateManyArgs} args - Arguments to create many TipoDocumentos.
-     * @example
-     * // Create many TipoDocumentos
-     * const tipoDocumento = await prisma.tipoDocumento.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends TipoDocumentoCreateManyArgs>(args?: SelectSubset<T, TipoDocumentoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a TipoDocumento.
-     * @param {TipoDocumentoDeleteArgs} args - Arguments to delete one TipoDocumento.
-     * @example
-     * // Delete one TipoDocumento
-     * const TipoDocumento = await prisma.tipoDocumento.delete({
-     *   where: {
-     *     // ... filter to delete one TipoDocumento
-     *   }
-     * })
-     * 
-     */
-    delete<T extends TipoDocumentoDeleteArgs>(args: SelectSubset<T, TipoDocumentoDeleteArgs<ExtArgs>>): Prisma__TipoDocumentoClient<$Result.GetResult<Prisma.$TipoDocumentoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one TipoDocumento.
-     * @param {TipoDocumentoUpdateArgs} args - Arguments to update one TipoDocumento.
-     * @example
-     * // Update one TipoDocumento
-     * const tipoDocumento = await prisma.tipoDocumento.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends TipoDocumentoUpdateArgs>(args: SelectSubset<T, TipoDocumentoUpdateArgs<ExtArgs>>): Prisma__TipoDocumentoClient<$Result.GetResult<Prisma.$TipoDocumentoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more TipoDocumentos.
-     * @param {TipoDocumentoDeleteManyArgs} args - Arguments to filter TipoDocumentos to delete.
-     * @example
-     * // Delete a few TipoDocumentos
-     * const { count } = await prisma.tipoDocumento.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends TipoDocumentoDeleteManyArgs>(args?: SelectSubset<T, TipoDocumentoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more TipoDocumentos.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TipoDocumentoUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many TipoDocumentos
-     * const tipoDocumento = await prisma.tipoDocumento.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends TipoDocumentoUpdateManyArgs>(args: SelectSubset<T, TipoDocumentoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one TipoDocumento.
-     * @param {TipoDocumentoUpsertArgs} args - Arguments to update or create a TipoDocumento.
-     * @example
-     * // Update or create a TipoDocumento
-     * const tipoDocumento = await prisma.tipoDocumento.upsert({
-     *   create: {
-     *     // ... data to create a TipoDocumento
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the TipoDocumento we want to update
-     *   }
-     * })
-     */
-    upsert<T extends TipoDocumentoUpsertArgs>(args: SelectSubset<T, TipoDocumentoUpsertArgs<ExtArgs>>): Prisma__TipoDocumentoClient<$Result.GetResult<Prisma.$TipoDocumentoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of TipoDocumentos.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TipoDocumentoCountArgs} args - Arguments to filter TipoDocumentos to count.
-     * @example
-     * // Count the number of TipoDocumentos
-     * const count = await prisma.tipoDocumento.count({
-     *   where: {
-     *     // ... the filter for the TipoDocumentos we want to count
-     *   }
-     * })
-    **/
-    count<T extends TipoDocumentoCountArgs>(
-      args?: Subset<T, TipoDocumentoCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], TipoDocumentoCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a TipoDocumento.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TipoDocumentoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends TipoDocumentoAggregateArgs>(args: Subset<T, TipoDocumentoAggregateArgs>): Prisma.PrismaPromise<GetTipoDocumentoAggregateType<T>>
-
-    /**
-     * Group by TipoDocumento.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TipoDocumentoGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends TipoDocumentoGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: TipoDocumentoGroupByArgs['orderBy'] }
-        : { orderBy?: TipoDocumentoGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, TipoDocumentoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTipoDocumentoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the TipoDocumento model
-   */
-  readonly fields: TipoDocumentoFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for TipoDocumento.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__TipoDocumentoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the TipoDocumento model
-   */
-  interface TipoDocumentoFieldRefs {
-    readonly id: FieldRef<"TipoDocumento", 'Int'>
-    readonly tipoDocumento: FieldRef<"TipoDocumento", 'String'>
-    readonly descripcion: FieldRef<"TipoDocumento", 'String'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * TipoDocumento findUnique
-   */
-  export type TipoDocumentoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TipoDocumento
-     */
-    select?: TipoDocumentoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the TipoDocumento
-     */
-    omit?: TipoDocumentoOmit<ExtArgs> | null
-    /**
-     * Filter, which TipoDocumento to fetch.
-     */
-    where: TipoDocumentoWhereUniqueInput
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * TipoDocumento findUniqueOrThrow
-   */
-  export type TipoDocumentoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TipoDocumento
-     */
-    select?: TipoDocumentoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the TipoDocumento
-     */
-    omit?: TipoDocumentoOmit<ExtArgs> | null
-    /**
-     * Filter, which TipoDocumento to fetch.
-     */
-    where: TipoDocumentoWhereUniqueInput
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * TipoDocumento findFirst
-   */
-  export type TipoDocumentoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TipoDocumento
-     */
-    select?: TipoDocumentoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the TipoDocumento
-     */
-    omit?: TipoDocumentoOmit<ExtArgs> | null
-    /**
-     * Filter, which TipoDocumento to fetch.
-     */
-    where?: TipoDocumentoWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of TipoDocumentos to fetch.
-     */
-    orderBy?: TipoDocumentoOrderByWithRelationInput | TipoDocumentoOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for TipoDocumentos.
-     */
-    cursor?: TipoDocumentoWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` TipoDocumentos from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` TipoDocumentos.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of TipoDocumentos.
-     */
-    distinct?: TipoDocumentoScalarFieldEnum | TipoDocumentoScalarFieldEnum[]
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * TipoDocumento findFirstOrThrow
-   */
-  export type TipoDocumentoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TipoDocumento
-     */
-    select?: TipoDocumentoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the TipoDocumento
-     */
-    omit?: TipoDocumentoOmit<ExtArgs> | null
-    /**
-     * Filter, which TipoDocumento to fetch.
-     */
-    where?: TipoDocumentoWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of TipoDocumentos to fetch.
-     */
-    orderBy?: TipoDocumentoOrderByWithRelationInput | TipoDocumentoOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for TipoDocumentos.
-     */
-    cursor?: TipoDocumentoWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` TipoDocumentos from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` TipoDocumentos.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of TipoDocumentos.
-     */
-    distinct?: TipoDocumentoScalarFieldEnum | TipoDocumentoScalarFieldEnum[]
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * TipoDocumento findMany
-   */
-  export type TipoDocumentoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TipoDocumento
-     */
-    select?: TipoDocumentoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the TipoDocumento
-     */
-    omit?: TipoDocumentoOmit<ExtArgs> | null
-    /**
-     * Filter, which TipoDocumentos to fetch.
-     */
-    where?: TipoDocumentoWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of TipoDocumentos to fetch.
-     */
-    orderBy?: TipoDocumentoOrderByWithRelationInput | TipoDocumentoOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing TipoDocumentos.
-     */
-    cursor?: TipoDocumentoWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` TipoDocumentos from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` TipoDocumentos.
-     */
-    skip?: number
-    distinct?: TipoDocumentoScalarFieldEnum | TipoDocumentoScalarFieldEnum[]
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * TipoDocumento create
-   */
-  export type TipoDocumentoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TipoDocumento
-     */
-    select?: TipoDocumentoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the TipoDocumento
-     */
-    omit?: TipoDocumentoOmit<ExtArgs> | null
-    /**
-     * The data needed to create a TipoDocumento.
-     */
-    data?: XOR<TipoDocumentoCreateInput, TipoDocumentoUncheckedCreateInput>
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * TipoDocumento createMany
-   */
-  export type TipoDocumentoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many TipoDocumentos.
-     */
-    data: TipoDocumentoCreateManyInput | TipoDocumentoCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * TipoDocumento update
-   */
-  export type TipoDocumentoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TipoDocumento
-     */
-    select?: TipoDocumentoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the TipoDocumento
-     */
-    omit?: TipoDocumentoOmit<ExtArgs> | null
-    /**
-     * The data needed to update a TipoDocumento.
-     */
-    data: XOR<TipoDocumentoUpdateInput, TipoDocumentoUncheckedUpdateInput>
-    /**
-     * Choose, which TipoDocumento to update.
-     */
-    where: TipoDocumentoWhereUniqueInput
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * TipoDocumento updateMany
-   */
-  export type TipoDocumentoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update TipoDocumentos.
-     */
-    data: XOR<TipoDocumentoUpdateManyMutationInput, TipoDocumentoUncheckedUpdateManyInput>
-    /**
-     * Filter which TipoDocumentos to update
-     */
-    where?: TipoDocumentoWhereInput
-    /**
-     * Limit how many TipoDocumentos to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * TipoDocumento upsert
-   */
-  export type TipoDocumentoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TipoDocumento
-     */
-    select?: TipoDocumentoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the TipoDocumento
-     */
-    omit?: TipoDocumentoOmit<ExtArgs> | null
-    /**
-     * The filter to search for the TipoDocumento to update in case it exists.
-     */
-    where: TipoDocumentoWhereUniqueInput
-    /**
-     * In case the TipoDocumento found by the `where` argument doesn't exist, create a new TipoDocumento with this data.
-     */
-    create: XOR<TipoDocumentoCreateInput, TipoDocumentoUncheckedCreateInput>
-    /**
-     * In case the TipoDocumento was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<TipoDocumentoUpdateInput, TipoDocumentoUncheckedUpdateInput>
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * TipoDocumento delete
-   */
-  export type TipoDocumentoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TipoDocumento
-     */
-    select?: TipoDocumentoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the TipoDocumento
-     */
-    omit?: TipoDocumentoOmit<ExtArgs> | null
-    /**
-     * Filter which TipoDocumento to delete.
-     */
-    where: TipoDocumentoWhereUniqueInput
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * TipoDocumento deleteMany
-   */
-  export type TipoDocumentoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which TipoDocumentos to delete
-     */
-    where?: TipoDocumentoWhereInput
-    /**
-     * Limit how many TipoDocumentos to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * TipoDocumento without action
-   */
-  export type TipoDocumentoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TipoDocumento
-     */
-    select?: TipoDocumentoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the TipoDocumento
-     */
-    omit?: TipoDocumentoOmit<ExtArgs> | null
   }
 
 
@@ -16049,6 +13098,2862 @@ export namespace Prisma {
 
 
   /**
+   * Model Departamento
+   */
+
+  export type AggregateDepartamento = {
+    _count: DepartamentoCountAggregateOutputType | null
+    _avg: DepartamentoAvgAggregateOutputType | null
+    _sum: DepartamentoSumAggregateOutputType | null
+    _min: DepartamentoMinAggregateOutputType | null
+    _max: DepartamentoMaxAggregateOutputType | null
+  }
+
+  export type DepartamentoAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type DepartamentoSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type DepartamentoMinAggregateOutputType = {
+    id: number | null
+    nombre: string | null
+  }
+
+  export type DepartamentoMaxAggregateOutputType = {
+    id: number | null
+    nombre: string | null
+  }
+
+  export type DepartamentoCountAggregateOutputType = {
+    id: number
+    nombre: number
+    _all: number
+  }
+
+
+  export type DepartamentoAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type DepartamentoSumAggregateInputType = {
+    id?: true
+  }
+
+  export type DepartamentoMinAggregateInputType = {
+    id?: true
+    nombre?: true
+  }
+
+  export type DepartamentoMaxAggregateInputType = {
+    id?: true
+    nombre?: true
+  }
+
+  export type DepartamentoCountAggregateInputType = {
+    id?: true
+    nombre?: true
+    _all?: true
+  }
+
+  export type DepartamentoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Departamento to aggregate.
+     */
+    where?: DepartamentoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Departamentos to fetch.
+     */
+    orderBy?: DepartamentoOrderByWithRelationInput | DepartamentoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DepartamentoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Departamentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Departamentos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Departamentos
+    **/
+    _count?: true | DepartamentoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DepartamentoAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DepartamentoSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DepartamentoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DepartamentoMaxAggregateInputType
+  }
+
+  export type GetDepartamentoAggregateType<T extends DepartamentoAggregateArgs> = {
+        [P in keyof T & keyof AggregateDepartamento]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDepartamento[P]>
+      : GetScalarType<T[P], AggregateDepartamento[P]>
+  }
+
+
+
+
+  export type DepartamentoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DepartamentoWhereInput
+    orderBy?: DepartamentoOrderByWithAggregationInput | DepartamentoOrderByWithAggregationInput[]
+    by: DepartamentoScalarFieldEnum[] | DepartamentoScalarFieldEnum
+    having?: DepartamentoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DepartamentoCountAggregateInputType | true
+    _avg?: DepartamentoAvgAggregateInputType
+    _sum?: DepartamentoSumAggregateInputType
+    _min?: DepartamentoMinAggregateInputType
+    _max?: DepartamentoMaxAggregateInputType
+  }
+
+  export type DepartamentoGroupByOutputType = {
+    id: number
+    nombre: string | null
+    _count: DepartamentoCountAggregateOutputType | null
+    _avg: DepartamentoAvgAggregateOutputType | null
+    _sum: DepartamentoSumAggregateOutputType | null
+    _min: DepartamentoMinAggregateOutputType | null
+    _max: DepartamentoMaxAggregateOutputType | null
+  }
+
+  type GetDepartamentoGroupByPayload<T extends DepartamentoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DepartamentoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DepartamentoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DepartamentoGroupByOutputType[P]>
+            : GetScalarType<T[P], DepartamentoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DepartamentoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nombre?: boolean
+    municipio?: boolean | Departamento$municipioArgs<ExtArgs>
+  }, ExtArgs["result"]["departamento"]>
+
+
+
+  export type DepartamentoSelectScalar = {
+    id?: boolean
+    nombre?: boolean
+  }
+
+  export type DepartamentoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nombre", ExtArgs["result"]["departamento"]>
+  export type DepartamentoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    municipio?: boolean | Departamento$municipioArgs<ExtArgs>
+  }
+
+  export type $DepartamentoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Departamento"
+    objects: {
+      municipio: Prisma.$MunicipioPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      nombre: string | null
+    }, ExtArgs["result"]["departamento"]>
+    composites: {}
+  }
+
+  type DepartamentoGetPayload<S extends boolean | null | undefined | DepartamentoDefaultArgs> = $Result.GetResult<Prisma.$DepartamentoPayload, S>
+
+  type DepartamentoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DepartamentoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: DepartamentoCountAggregateInputType | true
+    }
+
+  export interface DepartamentoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Departamento'], meta: { name: 'Departamento' } }
+    /**
+     * Find zero or one Departamento that matches the filter.
+     * @param {DepartamentoFindUniqueArgs} args - Arguments to find a Departamento
+     * @example
+     * // Get one Departamento
+     * const departamento = await prisma.departamento.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DepartamentoFindUniqueArgs>(args: SelectSubset<T, DepartamentoFindUniqueArgs<ExtArgs>>): Prisma__DepartamentoClient<$Result.GetResult<Prisma.$DepartamentoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Departamento that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DepartamentoFindUniqueOrThrowArgs} args - Arguments to find a Departamento
+     * @example
+     * // Get one Departamento
+     * const departamento = await prisma.departamento.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DepartamentoFindUniqueOrThrowArgs>(args: SelectSubset<T, DepartamentoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DepartamentoClient<$Result.GetResult<Prisma.$DepartamentoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Departamento that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DepartamentoFindFirstArgs} args - Arguments to find a Departamento
+     * @example
+     * // Get one Departamento
+     * const departamento = await prisma.departamento.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DepartamentoFindFirstArgs>(args?: SelectSubset<T, DepartamentoFindFirstArgs<ExtArgs>>): Prisma__DepartamentoClient<$Result.GetResult<Prisma.$DepartamentoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Departamento that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DepartamentoFindFirstOrThrowArgs} args - Arguments to find a Departamento
+     * @example
+     * // Get one Departamento
+     * const departamento = await prisma.departamento.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DepartamentoFindFirstOrThrowArgs>(args?: SelectSubset<T, DepartamentoFindFirstOrThrowArgs<ExtArgs>>): Prisma__DepartamentoClient<$Result.GetResult<Prisma.$DepartamentoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Departamentos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DepartamentoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Departamentos
+     * const departamentos = await prisma.departamento.findMany()
+     * 
+     * // Get first 10 Departamentos
+     * const departamentos = await prisma.departamento.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const departamentoWithIdOnly = await prisma.departamento.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DepartamentoFindManyArgs>(args?: SelectSubset<T, DepartamentoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DepartamentoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Departamento.
+     * @param {DepartamentoCreateArgs} args - Arguments to create a Departamento.
+     * @example
+     * // Create one Departamento
+     * const Departamento = await prisma.departamento.create({
+     *   data: {
+     *     // ... data to create a Departamento
+     *   }
+     * })
+     * 
+     */
+    create<T extends DepartamentoCreateArgs>(args: SelectSubset<T, DepartamentoCreateArgs<ExtArgs>>): Prisma__DepartamentoClient<$Result.GetResult<Prisma.$DepartamentoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Departamentos.
+     * @param {DepartamentoCreateManyArgs} args - Arguments to create many Departamentos.
+     * @example
+     * // Create many Departamentos
+     * const departamento = await prisma.departamento.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DepartamentoCreateManyArgs>(args?: SelectSubset<T, DepartamentoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Departamento.
+     * @param {DepartamentoDeleteArgs} args - Arguments to delete one Departamento.
+     * @example
+     * // Delete one Departamento
+     * const Departamento = await prisma.departamento.delete({
+     *   where: {
+     *     // ... filter to delete one Departamento
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DepartamentoDeleteArgs>(args: SelectSubset<T, DepartamentoDeleteArgs<ExtArgs>>): Prisma__DepartamentoClient<$Result.GetResult<Prisma.$DepartamentoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Departamento.
+     * @param {DepartamentoUpdateArgs} args - Arguments to update one Departamento.
+     * @example
+     * // Update one Departamento
+     * const departamento = await prisma.departamento.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DepartamentoUpdateArgs>(args: SelectSubset<T, DepartamentoUpdateArgs<ExtArgs>>): Prisma__DepartamentoClient<$Result.GetResult<Prisma.$DepartamentoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Departamentos.
+     * @param {DepartamentoDeleteManyArgs} args - Arguments to filter Departamentos to delete.
+     * @example
+     * // Delete a few Departamentos
+     * const { count } = await prisma.departamento.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DepartamentoDeleteManyArgs>(args?: SelectSubset<T, DepartamentoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Departamentos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DepartamentoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Departamentos
+     * const departamento = await prisma.departamento.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DepartamentoUpdateManyArgs>(args: SelectSubset<T, DepartamentoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Departamento.
+     * @param {DepartamentoUpsertArgs} args - Arguments to update or create a Departamento.
+     * @example
+     * // Update or create a Departamento
+     * const departamento = await prisma.departamento.upsert({
+     *   create: {
+     *     // ... data to create a Departamento
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Departamento we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DepartamentoUpsertArgs>(args: SelectSubset<T, DepartamentoUpsertArgs<ExtArgs>>): Prisma__DepartamentoClient<$Result.GetResult<Prisma.$DepartamentoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Departamentos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DepartamentoCountArgs} args - Arguments to filter Departamentos to count.
+     * @example
+     * // Count the number of Departamentos
+     * const count = await prisma.departamento.count({
+     *   where: {
+     *     // ... the filter for the Departamentos we want to count
+     *   }
+     * })
+    **/
+    count<T extends DepartamentoCountArgs>(
+      args?: Subset<T, DepartamentoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DepartamentoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Departamento.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DepartamentoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DepartamentoAggregateArgs>(args: Subset<T, DepartamentoAggregateArgs>): Prisma.PrismaPromise<GetDepartamentoAggregateType<T>>
+
+    /**
+     * Group by Departamento.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DepartamentoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DepartamentoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DepartamentoGroupByArgs['orderBy'] }
+        : { orderBy?: DepartamentoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DepartamentoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDepartamentoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Departamento model
+   */
+  readonly fields: DepartamentoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Departamento.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DepartamentoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    municipio<T extends Departamento$municipioArgs<ExtArgs> = {}>(args?: Subset<T, Departamento$municipioArgs<ExtArgs>>): Prisma__MunicipioClient<$Result.GetResult<Prisma.$MunicipioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Departamento model
+   */
+  interface DepartamentoFieldRefs {
+    readonly id: FieldRef<"Departamento", 'Int'>
+    readonly nombre: FieldRef<"Departamento", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Departamento findUnique
+   */
+  export type DepartamentoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Departamento
+     */
+    select?: DepartamentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Departamento
+     */
+    omit?: DepartamentoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepartamentoInclude<ExtArgs> | null
+    /**
+     * Filter, which Departamento to fetch.
+     */
+    where: DepartamentoWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * Departamento findUniqueOrThrow
+   */
+  export type DepartamentoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Departamento
+     */
+    select?: DepartamentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Departamento
+     */
+    omit?: DepartamentoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepartamentoInclude<ExtArgs> | null
+    /**
+     * Filter, which Departamento to fetch.
+     */
+    where: DepartamentoWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * Departamento findFirst
+   */
+  export type DepartamentoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Departamento
+     */
+    select?: DepartamentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Departamento
+     */
+    omit?: DepartamentoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepartamentoInclude<ExtArgs> | null
+    /**
+     * Filter, which Departamento to fetch.
+     */
+    where?: DepartamentoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Departamentos to fetch.
+     */
+    orderBy?: DepartamentoOrderByWithRelationInput | DepartamentoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Departamentos.
+     */
+    cursor?: DepartamentoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Departamentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Departamentos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Departamentos.
+     */
+    distinct?: DepartamentoScalarFieldEnum | DepartamentoScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * Departamento findFirstOrThrow
+   */
+  export type DepartamentoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Departamento
+     */
+    select?: DepartamentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Departamento
+     */
+    omit?: DepartamentoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepartamentoInclude<ExtArgs> | null
+    /**
+     * Filter, which Departamento to fetch.
+     */
+    where?: DepartamentoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Departamentos to fetch.
+     */
+    orderBy?: DepartamentoOrderByWithRelationInput | DepartamentoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Departamentos.
+     */
+    cursor?: DepartamentoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Departamentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Departamentos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Departamentos.
+     */
+    distinct?: DepartamentoScalarFieldEnum | DepartamentoScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * Departamento findMany
+   */
+  export type DepartamentoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Departamento
+     */
+    select?: DepartamentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Departamento
+     */
+    omit?: DepartamentoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepartamentoInclude<ExtArgs> | null
+    /**
+     * Filter, which Departamentos to fetch.
+     */
+    where?: DepartamentoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Departamentos to fetch.
+     */
+    orderBy?: DepartamentoOrderByWithRelationInput | DepartamentoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Departamentos.
+     */
+    cursor?: DepartamentoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Departamentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Departamentos.
+     */
+    skip?: number
+    distinct?: DepartamentoScalarFieldEnum | DepartamentoScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * Departamento create
+   */
+  export type DepartamentoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Departamento
+     */
+    select?: DepartamentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Departamento
+     */
+    omit?: DepartamentoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepartamentoInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Departamento.
+     */
+    data?: XOR<DepartamentoCreateInput, DepartamentoUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * Departamento createMany
+   */
+  export type DepartamentoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Departamentos.
+     */
+    data: DepartamentoCreateManyInput | DepartamentoCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Departamento update
+   */
+  export type DepartamentoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Departamento
+     */
+    select?: DepartamentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Departamento
+     */
+    omit?: DepartamentoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepartamentoInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Departamento.
+     */
+    data: XOR<DepartamentoUpdateInput, DepartamentoUncheckedUpdateInput>
+    /**
+     * Choose, which Departamento to update.
+     */
+    where: DepartamentoWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * Departamento updateMany
+   */
+  export type DepartamentoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Departamentos.
+     */
+    data: XOR<DepartamentoUpdateManyMutationInput, DepartamentoUncheckedUpdateManyInput>
+    /**
+     * Filter which Departamentos to update
+     */
+    where?: DepartamentoWhereInput
+    /**
+     * Limit how many Departamentos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Departamento upsert
+   */
+  export type DepartamentoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Departamento
+     */
+    select?: DepartamentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Departamento
+     */
+    omit?: DepartamentoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepartamentoInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Departamento to update in case it exists.
+     */
+    where: DepartamentoWhereUniqueInput
+    /**
+     * In case the Departamento found by the `where` argument doesn't exist, create a new Departamento with this data.
+     */
+    create: XOR<DepartamentoCreateInput, DepartamentoUncheckedCreateInput>
+    /**
+     * In case the Departamento was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DepartamentoUpdateInput, DepartamentoUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * Departamento delete
+   */
+  export type DepartamentoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Departamento
+     */
+    select?: DepartamentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Departamento
+     */
+    omit?: DepartamentoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepartamentoInclude<ExtArgs> | null
+    /**
+     * Filter which Departamento to delete.
+     */
+    where: DepartamentoWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * Departamento deleteMany
+   */
+  export type DepartamentoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Departamentos to delete
+     */
+    where?: DepartamentoWhereInput
+    /**
+     * Limit how many Departamentos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Departamento.municipio
+   */
+  export type Departamento$municipioArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Municipio
+     */
+    select?: MunicipioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Municipio
+     */
+    omit?: MunicipioOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MunicipioInclude<ExtArgs> | null
+    where?: MunicipioWhereInput
+  }
+
+  /**
+   * Departamento without action
+   */
+  export type DepartamentoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Departamento
+     */
+    select?: DepartamentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Departamento
+     */
+    omit?: DepartamentoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DepartamentoInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Municipio
+   */
+
+  export type AggregateMunicipio = {
+    _count: MunicipioCountAggregateOutputType | null
+    _avg: MunicipioAvgAggregateOutputType | null
+    _sum: MunicipioSumAggregateOutputType | null
+    _min: MunicipioMinAggregateOutputType | null
+    _max: MunicipioMaxAggregateOutputType | null
+  }
+
+  export type MunicipioAvgAggregateOutputType = {
+    id: number | null
+    idDepartamento: number | null
+  }
+
+  export type MunicipioSumAggregateOutputType = {
+    id: number | null
+    idDepartamento: number | null
+  }
+
+  export type MunicipioMinAggregateOutputType = {
+    id: number | null
+    idDepartamento: number | null
+    nombre: string | null
+    estado: boolean | null
+  }
+
+  export type MunicipioMaxAggregateOutputType = {
+    id: number | null
+    idDepartamento: number | null
+    nombre: string | null
+    estado: boolean | null
+  }
+
+  export type MunicipioCountAggregateOutputType = {
+    id: number
+    idDepartamento: number
+    nombre: number
+    estado: number
+    _all: number
+  }
+
+
+  export type MunicipioAvgAggregateInputType = {
+    id?: true
+    idDepartamento?: true
+  }
+
+  export type MunicipioSumAggregateInputType = {
+    id?: true
+    idDepartamento?: true
+  }
+
+  export type MunicipioMinAggregateInputType = {
+    id?: true
+    idDepartamento?: true
+    nombre?: true
+    estado?: true
+  }
+
+  export type MunicipioMaxAggregateInputType = {
+    id?: true
+    idDepartamento?: true
+    nombre?: true
+    estado?: true
+  }
+
+  export type MunicipioCountAggregateInputType = {
+    id?: true
+    idDepartamento?: true
+    nombre?: true
+    estado?: true
+    _all?: true
+  }
+
+  export type MunicipioAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Municipio to aggregate.
+     */
+    where?: MunicipioWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Municipios to fetch.
+     */
+    orderBy?: MunicipioOrderByWithRelationInput | MunicipioOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MunicipioWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Municipios from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Municipios.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Municipios
+    **/
+    _count?: true | MunicipioCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: MunicipioAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: MunicipioSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MunicipioMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MunicipioMaxAggregateInputType
+  }
+
+  export type GetMunicipioAggregateType<T extends MunicipioAggregateArgs> = {
+        [P in keyof T & keyof AggregateMunicipio]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMunicipio[P]>
+      : GetScalarType<T[P], AggregateMunicipio[P]>
+  }
+
+
+
+
+  export type MunicipioGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MunicipioWhereInput
+    orderBy?: MunicipioOrderByWithAggregationInput | MunicipioOrderByWithAggregationInput[]
+    by: MunicipioScalarFieldEnum[] | MunicipioScalarFieldEnum
+    having?: MunicipioScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MunicipioCountAggregateInputType | true
+    _avg?: MunicipioAvgAggregateInputType
+    _sum?: MunicipioSumAggregateInputType
+    _min?: MunicipioMinAggregateInputType
+    _max?: MunicipioMaxAggregateInputType
+  }
+
+  export type MunicipioGroupByOutputType = {
+    id: number
+    idDepartamento: number
+    nombre: string | null
+    estado: boolean | null
+    _count: MunicipioCountAggregateOutputType | null
+    _avg: MunicipioAvgAggregateOutputType | null
+    _sum: MunicipioSumAggregateOutputType | null
+    _min: MunicipioMinAggregateOutputType | null
+    _max: MunicipioMaxAggregateOutputType | null
+  }
+
+  type GetMunicipioGroupByPayload<T extends MunicipioGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MunicipioGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MunicipioGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MunicipioGroupByOutputType[P]>
+            : GetScalarType<T[P], MunicipioGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MunicipioSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    idDepartamento?: boolean
+    nombre?: boolean
+    estado?: boolean
+    personaClub?: boolean | Municipio$personaClubArgs<ExtArgs>
+    departamento?: boolean | DepartamentoDefaultArgs<ExtArgs>
+    _count?: boolean | MunicipioCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["municipio"]>
+
+
+
+  export type MunicipioSelectScalar = {
+    id?: boolean
+    idDepartamento?: boolean
+    nombre?: boolean
+    estado?: boolean
+  }
+
+  export type MunicipioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "idDepartamento" | "nombre" | "estado", ExtArgs["result"]["municipio"]>
+  export type MunicipioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    personaClub?: boolean | Municipio$personaClubArgs<ExtArgs>
+    departamento?: boolean | DepartamentoDefaultArgs<ExtArgs>
+    _count?: boolean | MunicipioCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $MunicipioPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Municipio"
+    objects: {
+      personaClub: Prisma.$PersonaClubPayload<ExtArgs>[]
+      departamento: Prisma.$DepartamentoPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      idDepartamento: number
+      nombre: string | null
+      estado: boolean | null
+    }, ExtArgs["result"]["municipio"]>
+    composites: {}
+  }
+
+  type MunicipioGetPayload<S extends boolean | null | undefined | MunicipioDefaultArgs> = $Result.GetResult<Prisma.$MunicipioPayload, S>
+
+  type MunicipioCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MunicipioFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: MunicipioCountAggregateInputType | true
+    }
+
+  export interface MunicipioDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Municipio'], meta: { name: 'Municipio' } }
+    /**
+     * Find zero or one Municipio that matches the filter.
+     * @param {MunicipioFindUniqueArgs} args - Arguments to find a Municipio
+     * @example
+     * // Get one Municipio
+     * const municipio = await prisma.municipio.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MunicipioFindUniqueArgs>(args: SelectSubset<T, MunicipioFindUniqueArgs<ExtArgs>>): Prisma__MunicipioClient<$Result.GetResult<Prisma.$MunicipioPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Municipio that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MunicipioFindUniqueOrThrowArgs} args - Arguments to find a Municipio
+     * @example
+     * // Get one Municipio
+     * const municipio = await prisma.municipio.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MunicipioFindUniqueOrThrowArgs>(args: SelectSubset<T, MunicipioFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MunicipioClient<$Result.GetResult<Prisma.$MunicipioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Municipio that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MunicipioFindFirstArgs} args - Arguments to find a Municipio
+     * @example
+     * // Get one Municipio
+     * const municipio = await prisma.municipio.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MunicipioFindFirstArgs>(args?: SelectSubset<T, MunicipioFindFirstArgs<ExtArgs>>): Prisma__MunicipioClient<$Result.GetResult<Prisma.$MunicipioPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Municipio that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MunicipioFindFirstOrThrowArgs} args - Arguments to find a Municipio
+     * @example
+     * // Get one Municipio
+     * const municipio = await prisma.municipio.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MunicipioFindFirstOrThrowArgs>(args?: SelectSubset<T, MunicipioFindFirstOrThrowArgs<ExtArgs>>): Prisma__MunicipioClient<$Result.GetResult<Prisma.$MunicipioPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Municipios that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MunicipioFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Municipios
+     * const municipios = await prisma.municipio.findMany()
+     * 
+     * // Get first 10 Municipios
+     * const municipios = await prisma.municipio.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const municipioWithIdOnly = await prisma.municipio.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends MunicipioFindManyArgs>(args?: SelectSubset<T, MunicipioFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MunicipioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Municipio.
+     * @param {MunicipioCreateArgs} args - Arguments to create a Municipio.
+     * @example
+     * // Create one Municipio
+     * const Municipio = await prisma.municipio.create({
+     *   data: {
+     *     // ... data to create a Municipio
+     *   }
+     * })
+     * 
+     */
+    create<T extends MunicipioCreateArgs>(args: SelectSubset<T, MunicipioCreateArgs<ExtArgs>>): Prisma__MunicipioClient<$Result.GetResult<Prisma.$MunicipioPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Municipios.
+     * @param {MunicipioCreateManyArgs} args - Arguments to create many Municipios.
+     * @example
+     * // Create many Municipios
+     * const municipio = await prisma.municipio.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MunicipioCreateManyArgs>(args?: SelectSubset<T, MunicipioCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Municipio.
+     * @param {MunicipioDeleteArgs} args - Arguments to delete one Municipio.
+     * @example
+     * // Delete one Municipio
+     * const Municipio = await prisma.municipio.delete({
+     *   where: {
+     *     // ... filter to delete one Municipio
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MunicipioDeleteArgs>(args: SelectSubset<T, MunicipioDeleteArgs<ExtArgs>>): Prisma__MunicipioClient<$Result.GetResult<Prisma.$MunicipioPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Municipio.
+     * @param {MunicipioUpdateArgs} args - Arguments to update one Municipio.
+     * @example
+     * // Update one Municipio
+     * const municipio = await prisma.municipio.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MunicipioUpdateArgs>(args: SelectSubset<T, MunicipioUpdateArgs<ExtArgs>>): Prisma__MunicipioClient<$Result.GetResult<Prisma.$MunicipioPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Municipios.
+     * @param {MunicipioDeleteManyArgs} args - Arguments to filter Municipios to delete.
+     * @example
+     * // Delete a few Municipios
+     * const { count } = await prisma.municipio.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MunicipioDeleteManyArgs>(args?: SelectSubset<T, MunicipioDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Municipios.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MunicipioUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Municipios
+     * const municipio = await prisma.municipio.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MunicipioUpdateManyArgs>(args: SelectSubset<T, MunicipioUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Municipio.
+     * @param {MunicipioUpsertArgs} args - Arguments to update or create a Municipio.
+     * @example
+     * // Update or create a Municipio
+     * const municipio = await prisma.municipio.upsert({
+     *   create: {
+     *     // ... data to create a Municipio
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Municipio we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MunicipioUpsertArgs>(args: SelectSubset<T, MunicipioUpsertArgs<ExtArgs>>): Prisma__MunicipioClient<$Result.GetResult<Prisma.$MunicipioPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Municipios.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MunicipioCountArgs} args - Arguments to filter Municipios to count.
+     * @example
+     * // Count the number of Municipios
+     * const count = await prisma.municipio.count({
+     *   where: {
+     *     // ... the filter for the Municipios we want to count
+     *   }
+     * })
+    **/
+    count<T extends MunicipioCountArgs>(
+      args?: Subset<T, MunicipioCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MunicipioCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Municipio.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MunicipioAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MunicipioAggregateArgs>(args: Subset<T, MunicipioAggregateArgs>): Prisma.PrismaPromise<GetMunicipioAggregateType<T>>
+
+    /**
+     * Group by Municipio.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MunicipioGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MunicipioGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MunicipioGroupByArgs['orderBy'] }
+        : { orderBy?: MunicipioGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MunicipioGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMunicipioGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Municipio model
+   */
+  readonly fields: MunicipioFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Municipio.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MunicipioClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    personaClub<T extends Municipio$personaClubArgs<ExtArgs> = {}>(args?: Subset<T, Municipio$personaClubArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersonaClubPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    departamento<T extends DepartamentoDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DepartamentoDefaultArgs<ExtArgs>>): Prisma__DepartamentoClient<$Result.GetResult<Prisma.$DepartamentoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Municipio model
+   */
+  interface MunicipioFieldRefs {
+    readonly id: FieldRef<"Municipio", 'Int'>
+    readonly idDepartamento: FieldRef<"Municipio", 'Int'>
+    readonly nombre: FieldRef<"Municipio", 'String'>
+    readonly estado: FieldRef<"Municipio", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Municipio findUnique
+   */
+  export type MunicipioFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Municipio
+     */
+    select?: MunicipioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Municipio
+     */
+    omit?: MunicipioOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MunicipioInclude<ExtArgs> | null
+    /**
+     * Filter, which Municipio to fetch.
+     */
+    where: MunicipioWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * Municipio findUniqueOrThrow
+   */
+  export type MunicipioFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Municipio
+     */
+    select?: MunicipioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Municipio
+     */
+    omit?: MunicipioOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MunicipioInclude<ExtArgs> | null
+    /**
+     * Filter, which Municipio to fetch.
+     */
+    where: MunicipioWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * Municipio findFirst
+   */
+  export type MunicipioFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Municipio
+     */
+    select?: MunicipioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Municipio
+     */
+    omit?: MunicipioOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MunicipioInclude<ExtArgs> | null
+    /**
+     * Filter, which Municipio to fetch.
+     */
+    where?: MunicipioWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Municipios to fetch.
+     */
+    orderBy?: MunicipioOrderByWithRelationInput | MunicipioOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Municipios.
+     */
+    cursor?: MunicipioWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Municipios from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Municipios.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Municipios.
+     */
+    distinct?: MunicipioScalarFieldEnum | MunicipioScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * Municipio findFirstOrThrow
+   */
+  export type MunicipioFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Municipio
+     */
+    select?: MunicipioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Municipio
+     */
+    omit?: MunicipioOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MunicipioInclude<ExtArgs> | null
+    /**
+     * Filter, which Municipio to fetch.
+     */
+    where?: MunicipioWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Municipios to fetch.
+     */
+    orderBy?: MunicipioOrderByWithRelationInput | MunicipioOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Municipios.
+     */
+    cursor?: MunicipioWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Municipios from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Municipios.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Municipios.
+     */
+    distinct?: MunicipioScalarFieldEnum | MunicipioScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * Municipio findMany
+   */
+  export type MunicipioFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Municipio
+     */
+    select?: MunicipioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Municipio
+     */
+    omit?: MunicipioOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MunicipioInclude<ExtArgs> | null
+    /**
+     * Filter, which Municipios to fetch.
+     */
+    where?: MunicipioWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Municipios to fetch.
+     */
+    orderBy?: MunicipioOrderByWithRelationInput | MunicipioOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Municipios.
+     */
+    cursor?: MunicipioWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Municipios from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Municipios.
+     */
+    skip?: number
+    distinct?: MunicipioScalarFieldEnum | MunicipioScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * Municipio create
+   */
+  export type MunicipioCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Municipio
+     */
+    select?: MunicipioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Municipio
+     */
+    omit?: MunicipioOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MunicipioInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Municipio.
+     */
+    data: XOR<MunicipioCreateInput, MunicipioUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * Municipio createMany
+   */
+  export type MunicipioCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Municipios.
+     */
+    data: MunicipioCreateManyInput | MunicipioCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Municipio update
+   */
+  export type MunicipioUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Municipio
+     */
+    select?: MunicipioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Municipio
+     */
+    omit?: MunicipioOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MunicipioInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Municipio.
+     */
+    data: XOR<MunicipioUpdateInput, MunicipioUncheckedUpdateInput>
+    /**
+     * Choose, which Municipio to update.
+     */
+    where: MunicipioWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * Municipio updateMany
+   */
+  export type MunicipioUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Municipios.
+     */
+    data: XOR<MunicipioUpdateManyMutationInput, MunicipioUncheckedUpdateManyInput>
+    /**
+     * Filter which Municipios to update
+     */
+    where?: MunicipioWhereInput
+    /**
+     * Limit how many Municipios to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Municipio upsert
+   */
+  export type MunicipioUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Municipio
+     */
+    select?: MunicipioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Municipio
+     */
+    omit?: MunicipioOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MunicipioInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Municipio to update in case it exists.
+     */
+    where: MunicipioWhereUniqueInput
+    /**
+     * In case the Municipio found by the `where` argument doesn't exist, create a new Municipio with this data.
+     */
+    create: XOR<MunicipioCreateInput, MunicipioUncheckedCreateInput>
+    /**
+     * In case the Municipio was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MunicipioUpdateInput, MunicipioUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * Municipio delete
+   */
+  export type MunicipioDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Municipio
+     */
+    select?: MunicipioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Municipio
+     */
+    omit?: MunicipioOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MunicipioInclude<ExtArgs> | null
+    /**
+     * Filter which Municipio to delete.
+     */
+    where: MunicipioWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * Municipio deleteMany
+   */
+  export type MunicipioDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Municipios to delete
+     */
+    where?: MunicipioWhereInput
+    /**
+     * Limit how many Municipios to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Municipio.personaClub
+   */
+  export type Municipio$personaClubArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersonaClub
+     */
+    select?: PersonaClubSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersonaClub
+     */
+    omit?: PersonaClubOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersonaClubInclude<ExtArgs> | null
+    where?: PersonaClubWhereInput
+    orderBy?: PersonaClubOrderByWithRelationInput | PersonaClubOrderByWithRelationInput[]
+    cursor?: PersonaClubWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PersonaClubScalarFieldEnum | PersonaClubScalarFieldEnum[]
+  }
+
+  /**
+   * Municipio without action
+   */
+  export type MunicipioDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Municipio
+     */
+    select?: MunicipioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Municipio
+     */
+    omit?: MunicipioOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MunicipioInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model TipoDocumento
+   */
+
+  export type AggregateTipoDocumento = {
+    _count: TipoDocumentoCountAggregateOutputType | null
+    _avg: TipoDocumentoAvgAggregateOutputType | null
+    _sum: TipoDocumentoSumAggregateOutputType | null
+    _min: TipoDocumentoMinAggregateOutputType | null
+    _max: TipoDocumentoMaxAggregateOutputType | null
+  }
+
+  export type TipoDocumentoAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type TipoDocumentoSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type TipoDocumentoMinAggregateOutputType = {
+    id: number | null
+    tipoDocumento: string | null
+    descripcion: string | null
+  }
+
+  export type TipoDocumentoMaxAggregateOutputType = {
+    id: number | null
+    tipoDocumento: string | null
+    descripcion: string | null
+  }
+
+  export type TipoDocumentoCountAggregateOutputType = {
+    id: number
+    tipoDocumento: number
+    descripcion: number
+    _all: number
+  }
+
+
+  export type TipoDocumentoAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type TipoDocumentoSumAggregateInputType = {
+    id?: true
+  }
+
+  export type TipoDocumentoMinAggregateInputType = {
+    id?: true
+    tipoDocumento?: true
+    descripcion?: true
+  }
+
+  export type TipoDocumentoMaxAggregateInputType = {
+    id?: true
+    tipoDocumento?: true
+    descripcion?: true
+  }
+
+  export type TipoDocumentoCountAggregateInputType = {
+    id?: true
+    tipoDocumento?: true
+    descripcion?: true
+    _all?: true
+  }
+
+  export type TipoDocumentoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TipoDocumento to aggregate.
+     */
+    where?: TipoDocumentoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TipoDocumentos to fetch.
+     */
+    orderBy?: TipoDocumentoOrderByWithRelationInput | TipoDocumentoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TipoDocumentoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TipoDocumentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TipoDocumentos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned TipoDocumentos
+    **/
+    _count?: true | TipoDocumentoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TipoDocumentoAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TipoDocumentoSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TipoDocumentoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TipoDocumentoMaxAggregateInputType
+  }
+
+  export type GetTipoDocumentoAggregateType<T extends TipoDocumentoAggregateArgs> = {
+        [P in keyof T & keyof AggregateTipoDocumento]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTipoDocumento[P]>
+      : GetScalarType<T[P], AggregateTipoDocumento[P]>
+  }
+
+
+
+
+  export type TipoDocumentoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TipoDocumentoWhereInput
+    orderBy?: TipoDocumentoOrderByWithAggregationInput | TipoDocumentoOrderByWithAggregationInput[]
+    by: TipoDocumentoScalarFieldEnum[] | TipoDocumentoScalarFieldEnum
+    having?: TipoDocumentoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TipoDocumentoCountAggregateInputType | true
+    _avg?: TipoDocumentoAvgAggregateInputType
+    _sum?: TipoDocumentoSumAggregateInputType
+    _min?: TipoDocumentoMinAggregateInputType
+    _max?: TipoDocumentoMaxAggregateInputType
+  }
+
+  export type TipoDocumentoGroupByOutputType = {
+    id: number
+    tipoDocumento: string | null
+    descripcion: string | null
+    _count: TipoDocumentoCountAggregateOutputType | null
+    _avg: TipoDocumentoAvgAggregateOutputType | null
+    _sum: TipoDocumentoSumAggregateOutputType | null
+    _min: TipoDocumentoMinAggregateOutputType | null
+    _max: TipoDocumentoMaxAggregateOutputType | null
+  }
+
+  type GetTipoDocumentoGroupByPayload<T extends TipoDocumentoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TipoDocumentoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TipoDocumentoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TipoDocumentoGroupByOutputType[P]>
+            : GetScalarType<T[P], TipoDocumentoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TipoDocumentoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tipoDocumento?: boolean
+    descripcion?: boolean
+  }, ExtArgs["result"]["tipoDocumento"]>
+
+
+
+  export type TipoDocumentoSelectScalar = {
+    id?: boolean
+    tipoDocumento?: boolean
+    descripcion?: boolean
+  }
+
+  export type TipoDocumentoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tipoDocumento" | "descripcion", ExtArgs["result"]["tipoDocumento"]>
+
+  export type $TipoDocumentoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "TipoDocumento"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      tipoDocumento: string | null
+      descripcion: string | null
+    }, ExtArgs["result"]["tipoDocumento"]>
+    composites: {}
+  }
+
+  type TipoDocumentoGetPayload<S extends boolean | null | undefined | TipoDocumentoDefaultArgs> = $Result.GetResult<Prisma.$TipoDocumentoPayload, S>
+
+  type TipoDocumentoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TipoDocumentoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: TipoDocumentoCountAggregateInputType | true
+    }
+
+  export interface TipoDocumentoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TipoDocumento'], meta: { name: 'TipoDocumento' } }
+    /**
+     * Find zero or one TipoDocumento that matches the filter.
+     * @param {TipoDocumentoFindUniqueArgs} args - Arguments to find a TipoDocumento
+     * @example
+     * // Get one TipoDocumento
+     * const tipoDocumento = await prisma.tipoDocumento.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TipoDocumentoFindUniqueArgs>(args: SelectSubset<T, TipoDocumentoFindUniqueArgs<ExtArgs>>): Prisma__TipoDocumentoClient<$Result.GetResult<Prisma.$TipoDocumentoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one TipoDocumento that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TipoDocumentoFindUniqueOrThrowArgs} args - Arguments to find a TipoDocumento
+     * @example
+     * // Get one TipoDocumento
+     * const tipoDocumento = await prisma.tipoDocumento.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TipoDocumentoFindUniqueOrThrowArgs>(args: SelectSubset<T, TipoDocumentoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TipoDocumentoClient<$Result.GetResult<Prisma.$TipoDocumentoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TipoDocumento that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TipoDocumentoFindFirstArgs} args - Arguments to find a TipoDocumento
+     * @example
+     * // Get one TipoDocumento
+     * const tipoDocumento = await prisma.tipoDocumento.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TipoDocumentoFindFirstArgs>(args?: SelectSubset<T, TipoDocumentoFindFirstArgs<ExtArgs>>): Prisma__TipoDocumentoClient<$Result.GetResult<Prisma.$TipoDocumentoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TipoDocumento that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TipoDocumentoFindFirstOrThrowArgs} args - Arguments to find a TipoDocumento
+     * @example
+     * // Get one TipoDocumento
+     * const tipoDocumento = await prisma.tipoDocumento.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TipoDocumentoFindFirstOrThrowArgs>(args?: SelectSubset<T, TipoDocumentoFindFirstOrThrowArgs<ExtArgs>>): Prisma__TipoDocumentoClient<$Result.GetResult<Prisma.$TipoDocumentoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more TipoDocumentos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TipoDocumentoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all TipoDocumentos
+     * const tipoDocumentos = await prisma.tipoDocumento.findMany()
+     * 
+     * // Get first 10 TipoDocumentos
+     * const tipoDocumentos = await prisma.tipoDocumento.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const tipoDocumentoWithIdOnly = await prisma.tipoDocumento.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TipoDocumentoFindManyArgs>(args?: SelectSubset<T, TipoDocumentoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TipoDocumentoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a TipoDocumento.
+     * @param {TipoDocumentoCreateArgs} args - Arguments to create a TipoDocumento.
+     * @example
+     * // Create one TipoDocumento
+     * const TipoDocumento = await prisma.tipoDocumento.create({
+     *   data: {
+     *     // ... data to create a TipoDocumento
+     *   }
+     * })
+     * 
+     */
+    create<T extends TipoDocumentoCreateArgs>(args: SelectSubset<T, TipoDocumentoCreateArgs<ExtArgs>>): Prisma__TipoDocumentoClient<$Result.GetResult<Prisma.$TipoDocumentoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many TipoDocumentos.
+     * @param {TipoDocumentoCreateManyArgs} args - Arguments to create many TipoDocumentos.
+     * @example
+     * // Create many TipoDocumentos
+     * const tipoDocumento = await prisma.tipoDocumento.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TipoDocumentoCreateManyArgs>(args?: SelectSubset<T, TipoDocumentoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a TipoDocumento.
+     * @param {TipoDocumentoDeleteArgs} args - Arguments to delete one TipoDocumento.
+     * @example
+     * // Delete one TipoDocumento
+     * const TipoDocumento = await prisma.tipoDocumento.delete({
+     *   where: {
+     *     // ... filter to delete one TipoDocumento
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TipoDocumentoDeleteArgs>(args: SelectSubset<T, TipoDocumentoDeleteArgs<ExtArgs>>): Prisma__TipoDocumentoClient<$Result.GetResult<Prisma.$TipoDocumentoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one TipoDocumento.
+     * @param {TipoDocumentoUpdateArgs} args - Arguments to update one TipoDocumento.
+     * @example
+     * // Update one TipoDocumento
+     * const tipoDocumento = await prisma.tipoDocumento.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TipoDocumentoUpdateArgs>(args: SelectSubset<T, TipoDocumentoUpdateArgs<ExtArgs>>): Prisma__TipoDocumentoClient<$Result.GetResult<Prisma.$TipoDocumentoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more TipoDocumentos.
+     * @param {TipoDocumentoDeleteManyArgs} args - Arguments to filter TipoDocumentos to delete.
+     * @example
+     * // Delete a few TipoDocumentos
+     * const { count } = await prisma.tipoDocumento.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TipoDocumentoDeleteManyArgs>(args?: SelectSubset<T, TipoDocumentoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TipoDocumentos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TipoDocumentoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many TipoDocumentos
+     * const tipoDocumento = await prisma.tipoDocumento.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TipoDocumentoUpdateManyArgs>(args: SelectSubset<T, TipoDocumentoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one TipoDocumento.
+     * @param {TipoDocumentoUpsertArgs} args - Arguments to update or create a TipoDocumento.
+     * @example
+     * // Update or create a TipoDocumento
+     * const tipoDocumento = await prisma.tipoDocumento.upsert({
+     *   create: {
+     *     // ... data to create a TipoDocumento
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the TipoDocumento we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TipoDocumentoUpsertArgs>(args: SelectSubset<T, TipoDocumentoUpsertArgs<ExtArgs>>): Prisma__TipoDocumentoClient<$Result.GetResult<Prisma.$TipoDocumentoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of TipoDocumentos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TipoDocumentoCountArgs} args - Arguments to filter TipoDocumentos to count.
+     * @example
+     * // Count the number of TipoDocumentos
+     * const count = await prisma.tipoDocumento.count({
+     *   where: {
+     *     // ... the filter for the TipoDocumentos we want to count
+     *   }
+     * })
+    **/
+    count<T extends TipoDocumentoCountArgs>(
+      args?: Subset<T, TipoDocumentoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TipoDocumentoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a TipoDocumento.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TipoDocumentoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TipoDocumentoAggregateArgs>(args: Subset<T, TipoDocumentoAggregateArgs>): Prisma.PrismaPromise<GetTipoDocumentoAggregateType<T>>
+
+    /**
+     * Group by TipoDocumento.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TipoDocumentoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TipoDocumentoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TipoDocumentoGroupByArgs['orderBy'] }
+        : { orderBy?: TipoDocumentoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TipoDocumentoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTipoDocumentoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the TipoDocumento model
+   */
+  readonly fields: TipoDocumentoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for TipoDocumento.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TipoDocumentoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the TipoDocumento model
+   */
+  interface TipoDocumentoFieldRefs {
+    readonly id: FieldRef<"TipoDocumento", 'Int'>
+    readonly tipoDocumento: FieldRef<"TipoDocumento", 'String'>
+    readonly descripcion: FieldRef<"TipoDocumento", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * TipoDocumento findUnique
+   */
+  export type TipoDocumentoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TipoDocumento
+     */
+    select?: TipoDocumentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TipoDocumento
+     */
+    omit?: TipoDocumentoOmit<ExtArgs> | null
+    /**
+     * Filter, which TipoDocumento to fetch.
+     */
+    where: TipoDocumentoWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * TipoDocumento findUniqueOrThrow
+   */
+  export type TipoDocumentoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TipoDocumento
+     */
+    select?: TipoDocumentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TipoDocumento
+     */
+    omit?: TipoDocumentoOmit<ExtArgs> | null
+    /**
+     * Filter, which TipoDocumento to fetch.
+     */
+    where: TipoDocumentoWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * TipoDocumento findFirst
+   */
+  export type TipoDocumentoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TipoDocumento
+     */
+    select?: TipoDocumentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TipoDocumento
+     */
+    omit?: TipoDocumentoOmit<ExtArgs> | null
+    /**
+     * Filter, which TipoDocumento to fetch.
+     */
+    where?: TipoDocumentoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TipoDocumentos to fetch.
+     */
+    orderBy?: TipoDocumentoOrderByWithRelationInput | TipoDocumentoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TipoDocumentos.
+     */
+    cursor?: TipoDocumentoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TipoDocumentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TipoDocumentos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TipoDocumentos.
+     */
+    distinct?: TipoDocumentoScalarFieldEnum | TipoDocumentoScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * TipoDocumento findFirstOrThrow
+   */
+  export type TipoDocumentoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TipoDocumento
+     */
+    select?: TipoDocumentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TipoDocumento
+     */
+    omit?: TipoDocumentoOmit<ExtArgs> | null
+    /**
+     * Filter, which TipoDocumento to fetch.
+     */
+    where?: TipoDocumentoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TipoDocumentos to fetch.
+     */
+    orderBy?: TipoDocumentoOrderByWithRelationInput | TipoDocumentoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TipoDocumentos.
+     */
+    cursor?: TipoDocumentoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TipoDocumentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TipoDocumentos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TipoDocumentos.
+     */
+    distinct?: TipoDocumentoScalarFieldEnum | TipoDocumentoScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * TipoDocumento findMany
+   */
+  export type TipoDocumentoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TipoDocumento
+     */
+    select?: TipoDocumentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TipoDocumento
+     */
+    omit?: TipoDocumentoOmit<ExtArgs> | null
+    /**
+     * Filter, which TipoDocumentos to fetch.
+     */
+    where?: TipoDocumentoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TipoDocumentos to fetch.
+     */
+    orderBy?: TipoDocumentoOrderByWithRelationInput | TipoDocumentoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing TipoDocumentos.
+     */
+    cursor?: TipoDocumentoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TipoDocumentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TipoDocumentos.
+     */
+    skip?: number
+    distinct?: TipoDocumentoScalarFieldEnum | TipoDocumentoScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * TipoDocumento create
+   */
+  export type TipoDocumentoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TipoDocumento
+     */
+    select?: TipoDocumentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TipoDocumento
+     */
+    omit?: TipoDocumentoOmit<ExtArgs> | null
+    /**
+     * The data needed to create a TipoDocumento.
+     */
+    data?: XOR<TipoDocumentoCreateInput, TipoDocumentoUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * TipoDocumento createMany
+   */
+  export type TipoDocumentoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many TipoDocumentos.
+     */
+    data: TipoDocumentoCreateManyInput | TipoDocumentoCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * TipoDocumento update
+   */
+  export type TipoDocumentoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TipoDocumento
+     */
+    select?: TipoDocumentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TipoDocumento
+     */
+    omit?: TipoDocumentoOmit<ExtArgs> | null
+    /**
+     * The data needed to update a TipoDocumento.
+     */
+    data: XOR<TipoDocumentoUpdateInput, TipoDocumentoUncheckedUpdateInput>
+    /**
+     * Choose, which TipoDocumento to update.
+     */
+    where: TipoDocumentoWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * TipoDocumento updateMany
+   */
+  export type TipoDocumentoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update TipoDocumentos.
+     */
+    data: XOR<TipoDocumentoUpdateManyMutationInput, TipoDocumentoUncheckedUpdateManyInput>
+    /**
+     * Filter which TipoDocumentos to update
+     */
+    where?: TipoDocumentoWhereInput
+    /**
+     * Limit how many TipoDocumentos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * TipoDocumento upsert
+   */
+  export type TipoDocumentoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TipoDocumento
+     */
+    select?: TipoDocumentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TipoDocumento
+     */
+    omit?: TipoDocumentoOmit<ExtArgs> | null
+    /**
+     * The filter to search for the TipoDocumento to update in case it exists.
+     */
+    where: TipoDocumentoWhereUniqueInput
+    /**
+     * In case the TipoDocumento found by the `where` argument doesn't exist, create a new TipoDocumento with this data.
+     */
+    create: XOR<TipoDocumentoCreateInput, TipoDocumentoUncheckedCreateInput>
+    /**
+     * In case the TipoDocumento was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TipoDocumentoUpdateInput, TipoDocumentoUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * TipoDocumento delete
+   */
+  export type TipoDocumentoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TipoDocumento
+     */
+    select?: TipoDocumentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TipoDocumento
+     */
+    omit?: TipoDocumentoOmit<ExtArgs> | null
+    /**
+     * Filter which TipoDocumento to delete.
+     */
+    where: TipoDocumentoWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * TipoDocumento deleteMany
+   */
+  export type TipoDocumentoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TipoDocumentos to delete
+     */
+    where?: TipoDocumentoWhereInput
+    /**
+     * Limit how many TipoDocumentos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * TipoDocumento without action
+   */
+  export type TipoDocumentoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TipoDocumento
+     */
+    select?: TipoDocumentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TipoDocumento
+     */
+    omit?: TipoDocumentoOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -16124,7 +16029,6 @@ export namespace Prisma {
   export const EntrenadorScalarFieldEnum: {
     id: 'id',
     idPersonaClub: 'idPersonaClub',
-    idContactoEmergencia: 'idContactoEmergencia',
     fechaIngreso: 'fechaIngreso',
     activo: 'activo',
     contrato: 'contrato'
@@ -16156,14 +16060,6 @@ export namespace Prisma {
   export type DeportistaScalarFieldEnum = (typeof DeportistaScalarFieldEnum)[keyof typeof DeportistaScalarFieldEnum]
 
 
-  export const DepartamentoScalarFieldEnum: {
-    id: 'id',
-    nombre: 'nombre'
-  };
-
-  export type DepartamentoScalarFieldEnum = (typeof DepartamentoScalarFieldEnum)[keyof typeof DepartamentoScalarFieldEnum]
-
-
   export const DesercionDeportistaScalarFieldEnum: {
     id: 'id',
     idDeportista: 'idDeportista',
@@ -16188,16 +16084,6 @@ export namespace Prisma {
   export type GestionAdminScalarFieldEnum = (typeof GestionAdminScalarFieldEnum)[keyof typeof GestionAdminScalarFieldEnum]
 
 
-  export const MunicipioScalarFieldEnum: {
-    id: 'id',
-    idDepartamento: 'idDepartamento',
-    nombre: 'nombre',
-    estado: 'estado'
-  };
-
-  export type MunicipioScalarFieldEnum = (typeof MunicipioScalarFieldEnum)[keyof typeof MunicipioScalarFieldEnum]
-
-
   export const PagoDeportistaScalarFieldEnum: {
     id: 'id',
     idDeportista: 'idDeportista',
@@ -16209,15 +16095,6 @@ export namespace Prisma {
   export type PagoDeportistaScalarFieldEnum = (typeof PagoDeportistaScalarFieldEnum)[keyof typeof PagoDeportistaScalarFieldEnum]
 
 
-  export const TipoDocumentoScalarFieldEnum: {
-    id: 'id',
-    tipoDocumento: 'tipoDocumento',
-    descripcion: 'descripcion'
-  };
-
-  export type TipoDocumentoScalarFieldEnum = (typeof TipoDocumentoScalarFieldEnum)[keyof typeof TipoDocumentoScalarFieldEnum]
-
-
   export const UsuarioScalarFieldEnum: {
     id: 'id',
     usuario: 'usuario',
@@ -16227,6 +16104,33 @@ export namespace Prisma {
   };
 
   export type UsuarioScalarFieldEnum = (typeof UsuarioScalarFieldEnum)[keyof typeof UsuarioScalarFieldEnum]
+
+
+  export const DepartamentoScalarFieldEnum: {
+    id: 'id',
+    nombre: 'nombre'
+  };
+
+  export type DepartamentoScalarFieldEnum = (typeof DepartamentoScalarFieldEnum)[keyof typeof DepartamentoScalarFieldEnum]
+
+
+  export const MunicipioScalarFieldEnum: {
+    id: 'id',
+    idDepartamento: 'idDepartamento',
+    nombre: 'nombre',
+    estado: 'estado'
+  };
+
+  export type MunicipioScalarFieldEnum = (typeof MunicipioScalarFieldEnum)[keyof typeof MunicipioScalarFieldEnum]
+
+
+  export const TipoDocumentoScalarFieldEnum: {
+    id: 'id',
+    tipoDocumento: 'tipoDocumento',
+    descripcion: 'descripcion'
+  };
+
+  export type TipoDocumentoScalarFieldEnum = (typeof TipoDocumentoScalarFieldEnum)[keyof typeof TipoDocumentoScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -16297,26 +16201,12 @@ export namespace Prisma {
   export type TutorOrderByRelevanceFieldEnum = (typeof TutorOrderByRelevanceFieldEnum)[keyof typeof TutorOrderByRelevanceFieldEnum]
 
 
-  export const DepartamentoOrderByRelevanceFieldEnum: {
-    nombre: 'nombre'
-  };
-
-  export type DepartamentoOrderByRelevanceFieldEnum = (typeof DepartamentoOrderByRelevanceFieldEnum)[keyof typeof DepartamentoOrderByRelevanceFieldEnum]
-
-
   export const DesercionDeportistaOrderByRelevanceFieldEnum: {
     razon: 'razon',
     descripcion: 'descripcion'
   };
 
   export type DesercionDeportistaOrderByRelevanceFieldEnum = (typeof DesercionDeportistaOrderByRelevanceFieldEnum)[keyof typeof DesercionDeportistaOrderByRelevanceFieldEnum]
-
-
-  export const MunicipioOrderByRelevanceFieldEnum: {
-    nombre: 'nombre'
-  };
-
-  export type MunicipioOrderByRelevanceFieldEnum = (typeof MunicipioOrderByRelevanceFieldEnum)[keyof typeof MunicipioOrderByRelevanceFieldEnum]
 
 
   export const PagoDeportistaOrderByRelevanceFieldEnum: {
@@ -16326,20 +16216,34 @@ export namespace Prisma {
   export type PagoDeportistaOrderByRelevanceFieldEnum = (typeof PagoDeportistaOrderByRelevanceFieldEnum)[keyof typeof PagoDeportistaOrderByRelevanceFieldEnum]
 
 
-  export const TipoDocumentoOrderByRelevanceFieldEnum: {
-    tipoDocumento: 'tipoDocumento',
-    descripcion: 'descripcion'
-  };
-
-  export type TipoDocumentoOrderByRelevanceFieldEnum = (typeof TipoDocumentoOrderByRelevanceFieldEnum)[keyof typeof TipoDocumentoOrderByRelevanceFieldEnum]
-
-
   export const UsuarioOrderByRelevanceFieldEnum: {
     usuario: 'usuario',
     contrasenia: 'contrasenia'
   };
 
   export type UsuarioOrderByRelevanceFieldEnum = (typeof UsuarioOrderByRelevanceFieldEnum)[keyof typeof UsuarioOrderByRelevanceFieldEnum]
+
+
+  export const DepartamentoOrderByRelevanceFieldEnum: {
+    nombre: 'nombre'
+  };
+
+  export type DepartamentoOrderByRelevanceFieldEnum = (typeof DepartamentoOrderByRelevanceFieldEnum)[keyof typeof DepartamentoOrderByRelevanceFieldEnum]
+
+
+  export const MunicipioOrderByRelevanceFieldEnum: {
+    nombre: 'nombre'
+  };
+
+  export type MunicipioOrderByRelevanceFieldEnum = (typeof MunicipioOrderByRelevanceFieldEnum)[keyof typeof MunicipioOrderByRelevanceFieldEnum]
+
+
+  export const TipoDocumentoOrderByRelevanceFieldEnum: {
+    tipoDocumento: 'tipoDocumento',
+    descripcion: 'descripcion'
+  };
+
+  export type TipoDocumentoOrderByRelevanceFieldEnum = (typeof TipoDocumentoOrderByRelevanceFieldEnum)[keyof typeof TipoDocumentoOrderByRelevanceFieldEnum]
 
 
   /**
@@ -16405,13 +16309,11 @@ export namespace Prisma {
     NOT?: CargosAdminWhereInput | CargosAdminWhereInput[]
     id?: IntFilter<"CargosAdmin"> | number
     nombre?: StringNullableFilter<"CargosAdmin"> | string | null
-    GestionAdmin?: GestionAdminListRelationFilter
   }
 
   export type CargosAdminOrderByWithRelationInput = {
     id?: SortOrder
     nombre?: SortOrderInput | SortOrder
-    GestionAdmin?: GestionAdminOrderByRelationAggregateInput
     _relevance?: CargosAdminOrderByRelevanceInput
   }
 
@@ -16421,7 +16323,6 @@ export namespace Prisma {
     OR?: CargosAdminWhereInput[]
     NOT?: CargosAdminWhereInput | CargosAdminWhereInput[]
     nombre?: StringNullableFilter<"CargosAdmin"> | string | null
-    GestionAdmin?: GestionAdminListRelationFilter
   }, "id">
 
   export type CargosAdminOrderByWithAggregationInput = {
@@ -16448,11 +16349,13 @@ export namespace Prisma {
     NOT?: CategoriaWhereInput | CategoriaWhereInput[]
     id?: IntFilter<"Categoria"> | number
     nombre?: StringNullableFilter<"Categoria"> | string | null
+    Deportista?: XOR<DeportistaNullableScalarRelationFilter, DeportistaWhereInput> | null
   }
 
   export type CategoriaOrderByWithRelationInput = {
     id?: SortOrder
     nombre?: SortOrderInput | SortOrder
+    Deportista?: DeportistaOrderByWithRelationInput
     _relevance?: CategoriaOrderByRelevanceInput
   }
 
@@ -16462,6 +16365,7 @@ export namespace Prisma {
     OR?: CategoriaWhereInput[]
     NOT?: CategoriaWhereInput | CategoriaWhereInput[]
     nombre?: StringNullableFilter<"Categoria"> | string | null
+    Deportista?: XOR<DeportistaNullableScalarRelationFilter, DeportistaWhereInput> | null
   }, "id">
 
   export type CategoriaOrderByWithAggregationInput = {
@@ -16502,6 +16406,7 @@ export namespace Prisma {
     tallaPantaloneta?: StringNullableFilter<"PersonaClub"> | string | null
     genero?: StringNullableFilter<"PersonaClub"> | string | null
     direccion?: StringNullableFilter<"PersonaClub"> | string | null
+    municipio?: XOR<MunicipioScalarRelationFilter, MunicipioWhereInput>
     entrenador?: XOR<EntrenadorNullableScalarRelationFilter, EntrenadorWhereInput> | null
     deportista?: XOR<DeportistaNullableScalarRelationFilter, DeportistaWhereInput> | null
     usuario?: XOR<UsuarioNullableScalarRelationFilter, UsuarioWhereInput> | null
@@ -16524,6 +16429,7 @@ export namespace Prisma {
     tallaPantaloneta?: SortOrderInput | SortOrder
     genero?: SortOrderInput | SortOrder
     direccion?: SortOrderInput | SortOrder
+    municipio?: MunicipioOrderByWithRelationInput
     entrenador?: EntrenadorOrderByWithRelationInput
     deportista?: DeportistaOrderByWithRelationInput
     usuario?: UsuarioOrderByWithRelationInput
@@ -16532,11 +16438,11 @@ export namespace Prisma {
 
   export type PersonaClubWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    idMunicipio?: number
     AND?: PersonaClubWhereInput | PersonaClubWhereInput[]
     OR?: PersonaClubWhereInput[]
     NOT?: PersonaClubWhereInput | PersonaClubWhereInput[]
     tipoDocumento?: StringFilter<"PersonaClub"> | string
-    idMunicipio?: IntFilter<"PersonaClub"> | number
     nombres?: StringFilter<"PersonaClub"> | string
     apellidos?: StringFilter<"PersonaClub"> | string
     fechaNacimento?: DateTimeNullableFilter<"PersonaClub"> | Date | string | null
@@ -16550,10 +16456,11 @@ export namespace Prisma {
     tallaPantaloneta?: StringNullableFilter<"PersonaClub"> | string | null
     genero?: StringNullableFilter<"PersonaClub"> | string | null
     direccion?: StringNullableFilter<"PersonaClub"> | string | null
+    municipio?: XOR<MunicipioScalarRelationFilter, MunicipioWhereInput>
     entrenador?: XOR<EntrenadorNullableScalarRelationFilter, EntrenadorWhereInput> | null
     deportista?: XOR<DeportistaNullableScalarRelationFilter, DeportistaWhereInput> | null
     usuario?: XOR<UsuarioNullableScalarRelationFilter, UsuarioWhereInput> | null
-  }, "id">
+  }, "id" | "idMunicipio">
 
   export type PersonaClubOrderByWithAggregationInput = {
     id?: SortOrder
@@ -16612,6 +16519,7 @@ export namespace Prisma {
     apellidos?: StringNullableFilter<"ContactosEmergencia"> | string | null
     correo?: StringNullableFilter<"ContactosEmergencia"> | string | null
     telefono?: StringNullableFilter<"ContactosEmergencia"> | string | null
+    entrenador?: XOR<EntrenadorNullableScalarRelationFilter, EntrenadorWhereInput> | null
   }
 
   export type ContactosEmergenciaOrderByWithRelationInput = {
@@ -16622,6 +16530,7 @@ export namespace Prisma {
     apellidos?: SortOrderInput | SortOrder
     correo?: SortOrderInput | SortOrder
     telefono?: SortOrderInput | SortOrder
+    entrenador?: EntrenadorOrderByWithRelationInput
     _relevance?: ContactosEmergenciaOrderByRelevanceInput
   }
 
@@ -16636,6 +16545,7 @@ export namespace Prisma {
     apellidos?: StringNullableFilter<"ContactosEmergencia"> | string | null
     correo?: StringNullableFilter<"ContactosEmergencia"> | string | null
     telefono?: StringNullableFilter<"ContactosEmergencia"> | string | null
+    entrenador?: XOR<EntrenadorNullableScalarRelationFilter, EntrenadorWhereInput> | null
   }, "id">
 
   export type ContactosEmergenciaOrderByWithAggregationInput = {
@@ -16672,20 +16582,20 @@ export namespace Prisma {
     NOT?: EntrenadorWhereInput | EntrenadorWhereInput[]
     id?: IntFilter<"Entrenador"> | number
     idPersonaClub?: IntFilter<"Entrenador"> | number
-    idContactoEmergencia?: IntNullableFilter<"Entrenador"> | number | null
     fechaIngreso?: DateTimeNullableFilter<"Entrenador"> | Date | string | null
     activo?: BoolNullableFilter<"Entrenador"> | boolean | null
     contrato?: BytesNullableFilter<"Entrenador"> | Uint8Array | null
+    contactosEmergencia?: ContactosEmergenciaListRelationFilter
     personaClub?: XOR<PersonaClubScalarRelationFilter, PersonaClubWhereInput>
   }
 
   export type EntrenadorOrderByWithRelationInput = {
     id?: SortOrder
     idPersonaClub?: SortOrder
-    idContactoEmergencia?: SortOrderInput | SortOrder
     fechaIngreso?: SortOrderInput | SortOrder
     activo?: SortOrderInput | SortOrder
     contrato?: SortOrderInput | SortOrder
+    contactosEmergencia?: ContactosEmergenciaOrderByRelationAggregateInput
     personaClub?: PersonaClubOrderByWithRelationInput
   }
 
@@ -16695,17 +16605,16 @@ export namespace Prisma {
     AND?: EntrenadorWhereInput | EntrenadorWhereInput[]
     OR?: EntrenadorWhereInput[]
     NOT?: EntrenadorWhereInput | EntrenadorWhereInput[]
-    idContactoEmergencia?: IntNullableFilter<"Entrenador"> | number | null
     fechaIngreso?: DateTimeNullableFilter<"Entrenador"> | Date | string | null
     activo?: BoolNullableFilter<"Entrenador"> | boolean | null
     contrato?: BytesNullableFilter<"Entrenador"> | Uint8Array | null
+    contactosEmergencia?: ContactosEmergenciaListRelationFilter
     personaClub?: XOR<PersonaClubScalarRelationFilter, PersonaClubWhereInput>
   }, "id" | "idPersonaClub">
 
   export type EntrenadorOrderByWithAggregationInput = {
     id?: SortOrder
     idPersonaClub?: SortOrder
-    idContactoEmergencia?: SortOrderInput | SortOrder
     fechaIngreso?: SortOrderInput | SortOrder
     activo?: SortOrderInput | SortOrder
     contrato?: SortOrderInput | SortOrder
@@ -16722,7 +16631,6 @@ export namespace Prisma {
     NOT?: EntrenadorScalarWhereWithAggregatesInput | EntrenadorScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Entrenador"> | number
     idPersonaClub?: IntWithAggregatesFilter<"Entrenador"> | number
-    idContactoEmergencia?: IntNullableWithAggregatesFilter<"Entrenador"> | number | null
     fechaIngreso?: DateTimeNullableWithAggregatesFilter<"Entrenador"> | Date | string | null
     activo?: BoolNullableWithAggregatesFilter<"Entrenador"> | boolean | null
     contrato?: BytesNullableWithAggregatesFilter<"Entrenador"> | Uint8Array | null
@@ -16738,8 +16646,7 @@ export namespace Prisma {
     apellidos?: StringNullableFilter<"Tutor"> | string | null
     correo?: StringNullableFilter<"Tutor"> | string | null
     telefono?: StringNullableFilter<"Tutor"> | string | null
-    deportista?: DeportistaListRelationFilter
-    GestionAdmin?: GestionAdminListRelationFilter
+    deportista?: XOR<DeportistaNullableScalarRelationFilter, DeportistaWhereInput> | null
   }
 
   export type TutorOrderByWithRelationInput = {
@@ -16749,8 +16656,7 @@ export namespace Prisma {
     apellidos?: SortOrderInput | SortOrder
     correo?: SortOrderInput | SortOrder
     telefono?: SortOrderInput | SortOrder
-    deportista?: DeportistaOrderByRelationAggregateInput
-    GestionAdmin?: GestionAdminOrderByRelationAggregateInput
+    deportista?: DeportistaOrderByWithRelationInput
     _relevance?: TutorOrderByRelevanceInput
   }
 
@@ -16764,8 +16670,7 @@ export namespace Prisma {
     apellidos?: StringNullableFilter<"Tutor"> | string | null
     correo?: StringNullableFilter<"Tutor"> | string | null
     telefono?: StringNullableFilter<"Tutor"> | string | null
-    deportista?: DeportistaListRelationFilter
-    GestionAdmin?: GestionAdminListRelationFilter
+    deportista?: XOR<DeportistaNullableScalarRelationFilter, DeportistaWhereInput> | null
   }, "id">
 
   export type TutorOrderByWithAggregationInput = {
@@ -16803,11 +16708,11 @@ export namespace Prisma {
     idPersonaClub?: IntFilter<"Deportista"> | number
     idCategoria?: IntNullableFilter<"Deportista"> | number | null
     activo?: BoolNullableFilter<"Deportista"> | boolean | null
-    personaClub?: XOR<PersonaClubScalarRelationFilter, PersonaClubWhereInput>
     tutor?: XOR<TutorNullableScalarRelationFilter, TutorWhereInput> | null
-    desercionDeportista?: DesercionDeportistaListRelationFilter
-    GestionAdmin?: GestionAdminListRelationFilter
-    PagoDeportista?: PagoDeportistaListRelationFilter
+    personaClub?: XOR<PersonaClubScalarRelationFilter, PersonaClubWhereInput>
+    categoria?: XOR<CategoriaNullableScalarRelationFilter, CategoriaWhereInput> | null
+    desercionDeportista?: XOR<DesercionDeportistaNullableScalarRelationFilter, DesercionDeportistaWhereInput> | null
+    pagosDeportista?: PagoDeportistaListRelationFilter
   }
 
   export type DeportistaOrderByWithRelationInput = {
@@ -16816,28 +16721,28 @@ export namespace Prisma {
     idPersonaClub?: SortOrder
     idCategoria?: SortOrderInput | SortOrder
     activo?: SortOrderInput | SortOrder
-    personaClub?: PersonaClubOrderByWithRelationInput
     tutor?: TutorOrderByWithRelationInput
-    desercionDeportista?: DesercionDeportistaOrderByRelationAggregateInput
-    GestionAdmin?: GestionAdminOrderByRelationAggregateInput
-    PagoDeportista?: PagoDeportistaOrderByRelationAggregateInput
+    personaClub?: PersonaClubOrderByWithRelationInput
+    categoria?: CategoriaOrderByWithRelationInput
+    desercionDeportista?: DesercionDeportistaOrderByWithRelationInput
+    pagosDeportista?: PagoDeportistaOrderByRelationAggregateInput
   }
 
   export type DeportistaWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    idTutor?: number
     idPersonaClub?: number
+    idCategoria?: number
     AND?: DeportistaWhereInput | DeportistaWhereInput[]
     OR?: DeportistaWhereInput[]
     NOT?: DeportistaWhereInput | DeportistaWhereInput[]
-    idTutor?: IntNullableFilter<"Deportista"> | number | null
-    idCategoria?: IntNullableFilter<"Deportista"> | number | null
     activo?: BoolNullableFilter<"Deportista"> | boolean | null
-    personaClub?: XOR<PersonaClubScalarRelationFilter, PersonaClubWhereInput>
     tutor?: XOR<TutorNullableScalarRelationFilter, TutorWhereInput> | null
-    desercionDeportista?: DesercionDeportistaListRelationFilter
-    GestionAdmin?: GestionAdminListRelationFilter
-    PagoDeportista?: PagoDeportistaListRelationFilter
-  }, "id" | "idPersonaClub">
+    personaClub?: XOR<PersonaClubScalarRelationFilter, PersonaClubWhereInput>
+    categoria?: XOR<CategoriaNullableScalarRelationFilter, CategoriaWhereInput> | null
+    desercionDeportista?: XOR<DesercionDeportistaNullableScalarRelationFilter, DesercionDeportistaWhereInput> | null
+    pagosDeportista?: PagoDeportistaListRelationFilter
+  }, "id" | "idTutor" | "idPersonaClub" | "idCategoria">
 
   export type DeportistaOrderByWithAggregationInput = {
     id?: SortOrder
@@ -16861,49 +16766,6 @@ export namespace Prisma {
     idPersonaClub?: IntWithAggregatesFilter<"Deportista"> | number
     idCategoria?: IntNullableWithAggregatesFilter<"Deportista"> | number | null
     activo?: BoolNullableWithAggregatesFilter<"Deportista"> | boolean | null
-  }
-
-  export type DepartamentoWhereInput = {
-    AND?: DepartamentoWhereInput | DepartamentoWhereInput[]
-    OR?: DepartamentoWhereInput[]
-    NOT?: DepartamentoWhereInput | DepartamentoWhereInput[]
-    id?: IntFilter<"Departamento"> | number
-    nombre?: StringNullableFilter<"Departamento"> | string | null
-    municipios?: MunicipioListRelationFilter
-  }
-
-  export type DepartamentoOrderByWithRelationInput = {
-    id?: SortOrder
-    nombre?: SortOrderInput | SortOrder
-    municipios?: MunicipioOrderByRelationAggregateInput
-    _relevance?: DepartamentoOrderByRelevanceInput
-  }
-
-  export type DepartamentoWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    AND?: DepartamentoWhereInput | DepartamentoWhereInput[]
-    OR?: DepartamentoWhereInput[]
-    NOT?: DepartamentoWhereInput | DepartamentoWhereInput[]
-    nombre?: StringNullableFilter<"Departamento"> | string | null
-    municipios?: MunicipioListRelationFilter
-  }, "id">
-
-  export type DepartamentoOrderByWithAggregationInput = {
-    id?: SortOrder
-    nombre?: SortOrderInput | SortOrder
-    _count?: DepartamentoCountOrderByAggregateInput
-    _avg?: DepartamentoAvgOrderByAggregateInput
-    _max?: DepartamentoMaxOrderByAggregateInput
-    _min?: DepartamentoMinOrderByAggregateInput
-    _sum?: DepartamentoSumOrderByAggregateInput
-  }
-
-  export type DepartamentoScalarWhereWithAggregatesInput = {
-    AND?: DepartamentoScalarWhereWithAggregatesInput | DepartamentoScalarWhereWithAggregatesInput[]
-    OR?: DepartamentoScalarWhereWithAggregatesInput[]
-    NOT?: DepartamentoScalarWhereWithAggregatesInput | DepartamentoScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Departamento"> | number
-    nombre?: StringNullableWithAggregatesFilter<"Departamento"> | string | null
   }
 
   export type DesercionDeportistaWhereInput = {
@@ -16930,15 +16792,15 @@ export namespace Prisma {
 
   export type DesercionDeportistaWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    idDeportista?: number
     AND?: DesercionDeportistaWhereInput | DesercionDeportistaWhereInput[]
     OR?: DesercionDeportistaWhereInput[]
     NOT?: DesercionDeportistaWhereInput | DesercionDeportistaWhereInput[]
-    idDeportista?: IntFilter<"DesercionDeportista"> | number
     fechaDesercion?: DateTimeNullableFilter<"DesercionDeportista"> | Date | string | null
     razon?: StringNullableFilter<"DesercionDeportista"> | string | null
     descripcion?: StringNullableFilter<"DesercionDeportista"> | string | null
     deportista?: XOR<DeportistaScalarRelationFilter, DeportistaWhereInput>
-  }, "id">
+  }, "id" | "idDeportista">
 
   export type DesercionDeportistaOrderByWithAggregationInput = {
     id?: SortOrder
@@ -16975,9 +16837,6 @@ export namespace Prisma {
     fechaInicio?: DateTimeNullableFilter<"GestionAdmin"> | Date | string | null
     fechaFin?: DateTimeNullableFilter<"GestionAdmin"> | Date | string | null
     activo?: BoolNullableFilter<"GestionAdmin"> | boolean | null
-    tutor?: XOR<TutorNullableScalarRelationFilter, TutorWhereInput> | null
-    deportista?: XOR<DeportistaNullableScalarRelationFilter, DeportistaWhereInput> | null
-    cargo?: XOR<CargosAdminNullableScalarRelationFilter, CargosAdminWhereInput> | null
   }
 
   export type GestionAdminOrderByWithRelationInput = {
@@ -16988,9 +16847,6 @@ export namespace Prisma {
     fechaInicio?: SortOrderInput | SortOrder
     fechaFin?: SortOrderInput | SortOrder
     activo?: SortOrderInput | SortOrder
-    tutor?: TutorOrderByWithRelationInput
-    deportista?: DeportistaOrderByWithRelationInput
-    cargo?: CargosAdminOrderByWithRelationInput
   }
 
   export type GestionAdminWhereUniqueInput = Prisma.AtLeast<{
@@ -17004,9 +16860,6 @@ export namespace Prisma {
     fechaInicio?: DateTimeNullableFilter<"GestionAdmin"> | Date | string | null
     fechaFin?: DateTimeNullableFilter<"GestionAdmin"> | Date | string | null
     activo?: BoolNullableFilter<"GestionAdmin"> | boolean | null
-    tutor?: XOR<TutorNullableScalarRelationFilter, TutorWhereInput> | null
-    deportista?: XOR<DeportistaNullableScalarRelationFilter, DeportistaWhereInput> | null
-    cargo?: XOR<CargosAdminNullableScalarRelationFilter, CargosAdminWhereInput> | null
   }, "id">
 
   export type GestionAdminOrderByWithAggregationInput = {
@@ -17037,59 +16890,6 @@ export namespace Prisma {
     activo?: BoolNullableWithAggregatesFilter<"GestionAdmin"> | boolean | null
   }
 
-  export type MunicipioWhereInput = {
-    AND?: MunicipioWhereInput | MunicipioWhereInput[]
-    OR?: MunicipioWhereInput[]
-    NOT?: MunicipioWhereInput | MunicipioWhereInput[]
-    id?: IntFilter<"Municipio"> | number
-    idDepartamento?: IntFilter<"Municipio"> | number
-    nombre?: StringNullableFilter<"Municipio"> | string | null
-    estado?: BoolNullableFilter<"Municipio"> | boolean | null
-    departamento?: XOR<DepartamentoScalarRelationFilter, DepartamentoWhereInput>
-  }
-
-  export type MunicipioOrderByWithRelationInput = {
-    id?: SortOrder
-    idDepartamento?: SortOrder
-    nombre?: SortOrderInput | SortOrder
-    estado?: SortOrderInput | SortOrder
-    departamento?: DepartamentoOrderByWithRelationInput
-    _relevance?: MunicipioOrderByRelevanceInput
-  }
-
-  export type MunicipioWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    AND?: MunicipioWhereInput | MunicipioWhereInput[]
-    OR?: MunicipioWhereInput[]
-    NOT?: MunicipioWhereInput | MunicipioWhereInput[]
-    idDepartamento?: IntFilter<"Municipio"> | number
-    nombre?: StringNullableFilter<"Municipio"> | string | null
-    estado?: BoolNullableFilter<"Municipio"> | boolean | null
-    departamento?: XOR<DepartamentoScalarRelationFilter, DepartamentoWhereInput>
-  }, "id">
-
-  export type MunicipioOrderByWithAggregationInput = {
-    id?: SortOrder
-    idDepartamento?: SortOrder
-    nombre?: SortOrderInput | SortOrder
-    estado?: SortOrderInput | SortOrder
-    _count?: MunicipioCountOrderByAggregateInput
-    _avg?: MunicipioAvgOrderByAggregateInput
-    _max?: MunicipioMaxOrderByAggregateInput
-    _min?: MunicipioMinOrderByAggregateInput
-    _sum?: MunicipioSumOrderByAggregateInput
-  }
-
-  export type MunicipioScalarWhereWithAggregatesInput = {
-    AND?: MunicipioScalarWhereWithAggregatesInput | MunicipioScalarWhereWithAggregatesInput[]
-    OR?: MunicipioScalarWhereWithAggregatesInput[]
-    NOT?: MunicipioScalarWhereWithAggregatesInput | MunicipioScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Municipio"> | number
-    idDepartamento?: IntWithAggregatesFilter<"Municipio"> | number
-    nombre?: StringNullableWithAggregatesFilter<"Municipio"> | string | null
-    estado?: BoolNullableWithAggregatesFilter<"Municipio"> | boolean | null
-  }
-
   export type PagoDeportistaWhereInput = {
     AND?: PagoDeportistaWhereInput | PagoDeportistaWhereInput[]
     OR?: PagoDeportistaWhereInput[]
@@ -17099,7 +16899,7 @@ export namespace Prisma {
     fechaPago?: DateTimeNullableFilter<"PagoDeportista"> | Date | string | null
     valor?: DecimalNullableFilter<"PagoDeportista"> | Decimal | DecimalJsLike | number | string | null
     tipoPago?: StringNullableFilter<"PagoDeportista"> | string | null
-    deportista?: XOR<DeportistaScalarRelationFilter, DeportistaWhereInput>
+    deportista?: XOR<DeportistaNullableScalarRelationFilter, DeportistaWhereInput> | null
   }
 
   export type PagoDeportistaOrderByWithRelationInput = {
@@ -17121,7 +16921,7 @@ export namespace Prisma {
     fechaPago?: DateTimeNullableFilter<"PagoDeportista"> | Date | string | null
     valor?: DecimalNullableFilter<"PagoDeportista"> | Decimal | DecimalJsLike | number | string | null
     tipoPago?: StringNullableFilter<"PagoDeportista"> | string | null
-    deportista?: XOR<DeportistaScalarRelationFilter, DeportistaWhereInput>
+    deportista?: XOR<DeportistaNullableScalarRelationFilter, DeportistaWhereInput> | null
   }, "id">
 
   export type PagoDeportistaOrderByWithAggregationInput = {
@@ -17146,51 +16946,6 @@ export namespace Prisma {
     fechaPago?: DateTimeNullableWithAggregatesFilter<"PagoDeportista"> | Date | string | null
     valor?: DecimalNullableWithAggregatesFilter<"PagoDeportista"> | Decimal | DecimalJsLike | number | string | null
     tipoPago?: StringNullableWithAggregatesFilter<"PagoDeportista"> | string | null
-  }
-
-  export type TipoDocumentoWhereInput = {
-    AND?: TipoDocumentoWhereInput | TipoDocumentoWhereInput[]
-    OR?: TipoDocumentoWhereInput[]
-    NOT?: TipoDocumentoWhereInput | TipoDocumentoWhereInput[]
-    id?: IntFilter<"TipoDocumento"> | number
-    tipoDocumento?: StringNullableFilter<"TipoDocumento"> | string | null
-    descripcion?: StringNullableFilter<"TipoDocumento"> | string | null
-  }
-
-  export type TipoDocumentoOrderByWithRelationInput = {
-    id?: SortOrder
-    tipoDocumento?: SortOrderInput | SortOrder
-    descripcion?: SortOrderInput | SortOrder
-    _relevance?: TipoDocumentoOrderByRelevanceInput
-  }
-
-  export type TipoDocumentoWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    AND?: TipoDocumentoWhereInput | TipoDocumentoWhereInput[]
-    OR?: TipoDocumentoWhereInput[]
-    NOT?: TipoDocumentoWhereInput | TipoDocumentoWhereInput[]
-    tipoDocumento?: StringNullableFilter<"TipoDocumento"> | string | null
-    descripcion?: StringNullableFilter<"TipoDocumento"> | string | null
-  }, "id">
-
-  export type TipoDocumentoOrderByWithAggregationInput = {
-    id?: SortOrder
-    tipoDocumento?: SortOrderInput | SortOrder
-    descripcion?: SortOrderInput | SortOrder
-    _count?: TipoDocumentoCountOrderByAggregateInput
-    _avg?: TipoDocumentoAvgOrderByAggregateInput
-    _max?: TipoDocumentoMaxOrderByAggregateInput
-    _min?: TipoDocumentoMinOrderByAggregateInput
-    _sum?: TipoDocumentoSumOrderByAggregateInput
-  }
-
-  export type TipoDocumentoScalarWhereWithAggregatesInput = {
-    AND?: TipoDocumentoScalarWhereWithAggregatesInput | TipoDocumentoScalarWhereWithAggregatesInput[]
-    OR?: TipoDocumentoScalarWhereWithAggregatesInput[]
-    NOT?: TipoDocumentoScalarWhereWithAggregatesInput | TipoDocumentoScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"TipoDocumento"> | number
-    tipoDocumento?: StringNullableWithAggregatesFilter<"TipoDocumento"> | string | null
-    descripcion?: StringNullableWithAggregatesFilter<"TipoDocumento"> | string | null
   }
 
   export type UsuarioWhereInput = {
@@ -17251,26 +17006,166 @@ export namespace Prisma {
     idPersona?: IntNullableWithAggregatesFilter<"Usuario"> | number | null
   }
 
+  export type DepartamentoWhereInput = {
+    AND?: DepartamentoWhereInput | DepartamentoWhereInput[]
+    OR?: DepartamentoWhereInput[]
+    NOT?: DepartamentoWhereInput | DepartamentoWhereInput[]
+    id?: IntFilter<"Departamento"> | number
+    nombre?: StringNullableFilter<"Departamento"> | string | null
+    municipio?: XOR<MunicipioNullableScalarRelationFilter, MunicipioWhereInput> | null
+  }
+
+  export type DepartamentoOrderByWithRelationInput = {
+    id?: SortOrder
+    nombre?: SortOrderInput | SortOrder
+    municipio?: MunicipioOrderByWithRelationInput
+    _relevance?: DepartamentoOrderByRelevanceInput
+  }
+
+  export type DepartamentoWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: DepartamentoWhereInput | DepartamentoWhereInput[]
+    OR?: DepartamentoWhereInput[]
+    NOT?: DepartamentoWhereInput | DepartamentoWhereInput[]
+    nombre?: StringNullableFilter<"Departamento"> | string | null
+    municipio?: XOR<MunicipioNullableScalarRelationFilter, MunicipioWhereInput> | null
+  }, "id">
+
+  export type DepartamentoOrderByWithAggregationInput = {
+    id?: SortOrder
+    nombre?: SortOrderInput | SortOrder
+    _count?: DepartamentoCountOrderByAggregateInput
+    _avg?: DepartamentoAvgOrderByAggregateInput
+    _max?: DepartamentoMaxOrderByAggregateInput
+    _min?: DepartamentoMinOrderByAggregateInput
+    _sum?: DepartamentoSumOrderByAggregateInput
+  }
+
+  export type DepartamentoScalarWhereWithAggregatesInput = {
+    AND?: DepartamentoScalarWhereWithAggregatesInput | DepartamentoScalarWhereWithAggregatesInput[]
+    OR?: DepartamentoScalarWhereWithAggregatesInput[]
+    NOT?: DepartamentoScalarWhereWithAggregatesInput | DepartamentoScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Departamento"> | number
+    nombre?: StringNullableWithAggregatesFilter<"Departamento"> | string | null
+  }
+
+  export type MunicipioWhereInput = {
+    AND?: MunicipioWhereInput | MunicipioWhereInput[]
+    OR?: MunicipioWhereInput[]
+    NOT?: MunicipioWhereInput | MunicipioWhereInput[]
+    id?: IntFilter<"Municipio"> | number
+    idDepartamento?: IntFilter<"Municipio"> | number
+    nombre?: StringNullableFilter<"Municipio"> | string | null
+    estado?: BoolNullableFilter<"Municipio"> | boolean | null
+    personaClub?: PersonaClubListRelationFilter
+    departamento?: XOR<DepartamentoScalarRelationFilter, DepartamentoWhereInput>
+  }
+
+  export type MunicipioOrderByWithRelationInput = {
+    id?: SortOrder
+    idDepartamento?: SortOrder
+    nombre?: SortOrderInput | SortOrder
+    estado?: SortOrderInput | SortOrder
+    personaClub?: PersonaClubOrderByRelationAggregateInput
+    departamento?: DepartamentoOrderByWithRelationInput
+    _relevance?: MunicipioOrderByRelevanceInput
+  }
+
+  export type MunicipioWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    idDepartamento?: number
+    AND?: MunicipioWhereInput | MunicipioWhereInput[]
+    OR?: MunicipioWhereInput[]
+    NOT?: MunicipioWhereInput | MunicipioWhereInput[]
+    nombre?: StringNullableFilter<"Municipio"> | string | null
+    estado?: BoolNullableFilter<"Municipio"> | boolean | null
+    personaClub?: PersonaClubListRelationFilter
+    departamento?: XOR<DepartamentoScalarRelationFilter, DepartamentoWhereInput>
+  }, "id" | "idDepartamento">
+
+  export type MunicipioOrderByWithAggregationInput = {
+    id?: SortOrder
+    idDepartamento?: SortOrder
+    nombre?: SortOrderInput | SortOrder
+    estado?: SortOrderInput | SortOrder
+    _count?: MunicipioCountOrderByAggregateInput
+    _avg?: MunicipioAvgOrderByAggregateInput
+    _max?: MunicipioMaxOrderByAggregateInput
+    _min?: MunicipioMinOrderByAggregateInput
+    _sum?: MunicipioSumOrderByAggregateInput
+  }
+
+  export type MunicipioScalarWhereWithAggregatesInput = {
+    AND?: MunicipioScalarWhereWithAggregatesInput | MunicipioScalarWhereWithAggregatesInput[]
+    OR?: MunicipioScalarWhereWithAggregatesInput[]
+    NOT?: MunicipioScalarWhereWithAggregatesInput | MunicipioScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Municipio"> | number
+    idDepartamento?: IntWithAggregatesFilter<"Municipio"> | number
+    nombre?: StringNullableWithAggregatesFilter<"Municipio"> | string | null
+    estado?: BoolNullableWithAggregatesFilter<"Municipio"> | boolean | null
+  }
+
+  export type TipoDocumentoWhereInput = {
+    AND?: TipoDocumentoWhereInput | TipoDocumentoWhereInput[]
+    OR?: TipoDocumentoWhereInput[]
+    NOT?: TipoDocumentoWhereInput | TipoDocumentoWhereInput[]
+    id?: IntFilter<"TipoDocumento"> | number
+    tipoDocumento?: StringNullableFilter<"TipoDocumento"> | string | null
+    descripcion?: StringNullableFilter<"TipoDocumento"> | string | null
+  }
+
+  export type TipoDocumentoOrderByWithRelationInput = {
+    id?: SortOrder
+    tipoDocumento?: SortOrderInput | SortOrder
+    descripcion?: SortOrderInput | SortOrder
+    _relevance?: TipoDocumentoOrderByRelevanceInput
+  }
+
+  export type TipoDocumentoWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: TipoDocumentoWhereInput | TipoDocumentoWhereInput[]
+    OR?: TipoDocumentoWhereInput[]
+    NOT?: TipoDocumentoWhereInput | TipoDocumentoWhereInput[]
+    tipoDocumento?: StringNullableFilter<"TipoDocumento"> | string | null
+    descripcion?: StringNullableFilter<"TipoDocumento"> | string | null
+  }, "id">
+
+  export type TipoDocumentoOrderByWithAggregationInput = {
+    id?: SortOrder
+    tipoDocumento?: SortOrderInput | SortOrder
+    descripcion?: SortOrderInput | SortOrder
+    _count?: TipoDocumentoCountOrderByAggregateInput
+    _avg?: TipoDocumentoAvgOrderByAggregateInput
+    _max?: TipoDocumentoMaxOrderByAggregateInput
+    _min?: TipoDocumentoMinOrderByAggregateInput
+    _sum?: TipoDocumentoSumOrderByAggregateInput
+  }
+
+  export type TipoDocumentoScalarWhereWithAggregatesInput = {
+    AND?: TipoDocumentoScalarWhereWithAggregatesInput | TipoDocumentoScalarWhereWithAggregatesInput[]
+    OR?: TipoDocumentoScalarWhereWithAggregatesInput[]
+    NOT?: TipoDocumentoScalarWhereWithAggregatesInput | TipoDocumentoScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"TipoDocumento"> | number
+    tipoDocumento?: StringNullableWithAggregatesFilter<"TipoDocumento"> | string | null
+    descripcion?: StringNullableWithAggregatesFilter<"TipoDocumento"> | string | null
+  }
+
   export type CargosAdminCreateInput = {
     nombre?: string | null
-    GestionAdmin?: GestionAdminCreateNestedManyWithoutCargoInput
   }
 
   export type CargosAdminUncheckedCreateInput = {
     id?: number
     nombre?: string | null
-    GestionAdmin?: GestionAdminUncheckedCreateNestedManyWithoutCargoInput
   }
 
   export type CargosAdminUpdateInput = {
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    GestionAdmin?: GestionAdminUpdateManyWithoutCargoNestedInput
   }
 
   export type CargosAdminUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    GestionAdmin?: GestionAdminUncheckedUpdateManyWithoutCargoNestedInput
   }
 
   export type CargosAdminCreateManyInput = {
@@ -17289,20 +17184,24 @@ export namespace Prisma {
 
   export type CategoriaCreateInput = {
     nombre?: string | null
+    Deportista?: DeportistaCreateNestedOneWithoutCategoriaInput
   }
 
   export type CategoriaUncheckedCreateInput = {
     id?: number
     nombre?: string | null
+    Deportista?: DeportistaUncheckedCreateNestedOneWithoutCategoriaInput
   }
 
   export type CategoriaUpdateInput = {
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    Deportista?: DeportistaUpdateOneWithoutCategoriaNestedInput
   }
 
   export type CategoriaUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    Deportista?: DeportistaUncheckedUpdateOneWithoutCategoriaNestedInput
   }
 
   export type CategoriaCreateManyInput = {
@@ -17321,7 +17220,6 @@ export namespace Prisma {
 
   export type PersonaClubCreateInput = {
     tipoDocumento: string
-    idMunicipio: number
     nombres: string
     apellidos: string
     fechaNacimento?: Date | string | null
@@ -17335,6 +17233,7 @@ export namespace Prisma {
     tallaPantaloneta?: string | null
     genero?: string | null
     direccion?: string | null
+    municipio: MunicipioCreateNestedOneWithoutPersonaClubInput
     entrenador?: EntrenadorCreateNestedOneWithoutPersonaClubInput
     deportista?: DeportistaCreateNestedOneWithoutPersonaClubInput
     usuario?: UsuarioCreateNestedOneWithoutPersonaInput
@@ -17364,7 +17263,6 @@ export namespace Prisma {
 
   export type PersonaClubUpdateInput = {
     tipoDocumento?: StringFieldUpdateOperationsInput | string
-    idMunicipio?: IntFieldUpdateOperationsInput | number
     nombres?: StringFieldUpdateOperationsInput | string
     apellidos?: StringFieldUpdateOperationsInput | string
     fechaNacimento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -17378,6 +17276,7 @@ export namespace Prisma {
     tallaPantaloneta?: NullableStringFieldUpdateOperationsInput | string | null
     genero?: NullableStringFieldUpdateOperationsInput | string | null
     direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    municipio?: MunicipioUpdateOneRequiredWithoutPersonaClubNestedInput
     entrenador?: EntrenadorUpdateOneWithoutPersonaClubNestedInput
     deportista?: DeportistaUpdateOneWithoutPersonaClubNestedInput
     usuario?: UsuarioUpdateOneWithoutPersonaNestedInput
@@ -17426,7 +17325,6 @@ export namespace Prisma {
 
   export type PersonaClubUpdateManyMutationInput = {
     tipoDocumento?: StringFieldUpdateOperationsInput | string
-    idMunicipio?: IntFieldUpdateOperationsInput | number
     nombres?: StringFieldUpdateOperationsInput | string
     apellidos?: StringFieldUpdateOperationsInput | string
     fechaNacimento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -17463,11 +17361,11 @@ export namespace Prisma {
 
   export type ContactosEmergenciaCreateInput = {
     tipoDocumento: string
-    idEntrenador?: number | null
     nombres?: string | null
     apellidos?: string | null
     correo?: string | null
     telefono?: string | null
+    entrenador?: EntrenadorCreateNestedOneWithoutContactosEmergenciaInput
   }
 
   export type ContactosEmergenciaUncheckedCreateInput = {
@@ -17482,11 +17380,11 @@ export namespace Prisma {
 
   export type ContactosEmergenciaUpdateInput = {
     tipoDocumento?: StringFieldUpdateOperationsInput | string
-    idEntrenador?: NullableIntFieldUpdateOperationsInput | number | null
     nombres?: NullableStringFieldUpdateOperationsInput | string | null
     apellidos?: NullableStringFieldUpdateOperationsInput | string | null
     correo?: NullableStringFieldUpdateOperationsInput | string | null
     telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    entrenador?: EntrenadorUpdateOneWithoutContactosEmergenciaNestedInput
   }
 
   export type ContactosEmergenciaUncheckedUpdateInput = {
@@ -17511,7 +17409,6 @@ export namespace Prisma {
 
   export type ContactosEmergenciaUpdateManyMutationInput = {
     tipoDocumento?: StringFieldUpdateOperationsInput | string
-    idEntrenador?: NullableIntFieldUpdateOperationsInput | number | null
     nombres?: NullableStringFieldUpdateOperationsInput | string | null
     apellidos?: NullableStringFieldUpdateOperationsInput | string | null
     correo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17529,50 +17426,48 @@ export namespace Prisma {
   }
 
   export type EntrenadorCreateInput = {
-    idContactoEmergencia?: number | null
     fechaIngreso?: Date | string | null
     activo?: boolean | null
     contrato?: Uint8Array | null
+    contactosEmergencia?: ContactosEmergenciaCreateNestedManyWithoutEntrenadorInput
     personaClub: PersonaClubCreateNestedOneWithoutEntrenadorInput
   }
 
   export type EntrenadorUncheckedCreateInput = {
     id?: number
     idPersonaClub: number
-    idContactoEmergencia?: number | null
     fechaIngreso?: Date | string | null
     activo?: boolean | null
     contrato?: Uint8Array | null
+    contactosEmergencia?: ContactosEmergenciaUncheckedCreateNestedManyWithoutEntrenadorInput
   }
 
   export type EntrenadorUpdateInput = {
-    idContactoEmergencia?: NullableIntFieldUpdateOperationsInput | number | null
     fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    contactosEmergencia?: ContactosEmergenciaUpdateManyWithoutEntrenadorNestedInput
     personaClub?: PersonaClubUpdateOneRequiredWithoutEntrenadorNestedInput
   }
 
   export type EntrenadorUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     idPersonaClub?: IntFieldUpdateOperationsInput | number
-    idContactoEmergencia?: NullableIntFieldUpdateOperationsInput | number | null
     fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    contactosEmergencia?: ContactosEmergenciaUncheckedUpdateManyWithoutEntrenadorNestedInput
   }
 
   export type EntrenadorCreateManyInput = {
     id?: number
     idPersonaClub: number
-    idContactoEmergencia?: number | null
     fechaIngreso?: Date | string | null
     activo?: boolean | null
     contrato?: Uint8Array | null
   }
 
   export type EntrenadorUpdateManyMutationInput = {
-    idContactoEmergencia?: NullableIntFieldUpdateOperationsInput | number | null
     fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
@@ -17581,7 +17476,6 @@ export namespace Prisma {
   export type EntrenadorUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     idPersonaClub?: IntFieldUpdateOperationsInput | number
-    idContactoEmergencia?: NullableIntFieldUpdateOperationsInput | number | null
     fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
@@ -17593,8 +17487,7 @@ export namespace Prisma {
     apellidos?: string | null
     correo?: string | null
     telefono?: string | null
-    deportista?: DeportistaCreateNestedManyWithoutTutorInput
-    GestionAdmin?: GestionAdminCreateNestedManyWithoutTutorInput
+    deportista?: DeportistaCreateNestedOneWithoutTutorInput
   }
 
   export type TutorUncheckedCreateInput = {
@@ -17604,8 +17497,7 @@ export namespace Prisma {
     apellidos?: string | null
     correo?: string | null
     telefono?: string | null
-    deportista?: DeportistaUncheckedCreateNestedManyWithoutTutorInput
-    GestionAdmin?: GestionAdminUncheckedCreateNestedManyWithoutTutorInput
+    deportista?: DeportistaUncheckedCreateNestedOneWithoutTutorInput
   }
 
   export type TutorUpdateInput = {
@@ -17614,8 +17506,7 @@ export namespace Prisma {
     apellidos?: NullableStringFieldUpdateOperationsInput | string | null
     correo?: NullableStringFieldUpdateOperationsInput | string | null
     telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    deportista?: DeportistaUpdateManyWithoutTutorNestedInput
-    GestionAdmin?: GestionAdminUpdateManyWithoutTutorNestedInput
+    deportista?: DeportistaUpdateOneWithoutTutorNestedInput
   }
 
   export type TutorUncheckedUpdateInput = {
@@ -17625,8 +17516,7 @@ export namespace Prisma {
     apellidos?: NullableStringFieldUpdateOperationsInput | string | null
     correo?: NullableStringFieldUpdateOperationsInput | string | null
     telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    deportista?: DeportistaUncheckedUpdateManyWithoutTutorNestedInput
-    GestionAdmin?: GestionAdminUncheckedUpdateManyWithoutTutorNestedInput
+    deportista?: DeportistaUncheckedUpdateOneWithoutTutorNestedInput
   }
 
   export type TutorCreateManyInput = {
@@ -17656,13 +17546,12 @@ export namespace Prisma {
   }
 
   export type DeportistaCreateInput = {
-    idCategoria?: number | null
     activo?: boolean | null
-    personaClub: PersonaClubCreateNestedOneWithoutDeportistaInput
     tutor?: TutorCreateNestedOneWithoutDeportistaInput
-    desercionDeportista?: DesercionDeportistaCreateNestedManyWithoutDeportistaInput
-    GestionAdmin?: GestionAdminCreateNestedManyWithoutDeportistaInput
-    PagoDeportista?: PagoDeportistaCreateNestedManyWithoutDeportistaInput
+    personaClub: PersonaClubCreateNestedOneWithoutDeportistaInput
+    categoria?: CategoriaCreateNestedOneWithoutDeportistaInput
+    desercionDeportista?: DesercionDeportistaCreateNestedOneWithoutDeportistaInput
+    pagosDeportista?: PagoDeportistaCreateNestedManyWithoutDeportistaInput
   }
 
   export type DeportistaUncheckedCreateInput = {
@@ -17671,19 +17560,17 @@ export namespace Prisma {
     idPersonaClub: number
     idCategoria?: number | null
     activo?: boolean | null
-    desercionDeportista?: DesercionDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
-    GestionAdmin?: GestionAdminUncheckedCreateNestedManyWithoutDeportistaInput
-    PagoDeportista?: PagoDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
+    desercionDeportista?: DesercionDeportistaUncheckedCreateNestedOneWithoutDeportistaInput
+    pagosDeportista?: PagoDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
   }
 
   export type DeportistaUpdateInput = {
-    idCategoria?: NullableIntFieldUpdateOperationsInput | number | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    personaClub?: PersonaClubUpdateOneRequiredWithoutDeportistaNestedInput
     tutor?: TutorUpdateOneWithoutDeportistaNestedInput
-    desercionDeportista?: DesercionDeportistaUpdateManyWithoutDeportistaNestedInput
-    GestionAdmin?: GestionAdminUpdateManyWithoutDeportistaNestedInput
-    PagoDeportista?: PagoDeportistaUpdateManyWithoutDeportistaNestedInput
+    personaClub?: PersonaClubUpdateOneRequiredWithoutDeportistaNestedInput
+    categoria?: CategoriaUpdateOneWithoutDeportistaNestedInput
+    desercionDeportista?: DesercionDeportistaUpdateOneWithoutDeportistaNestedInput
+    pagosDeportista?: PagoDeportistaUpdateManyWithoutDeportistaNestedInput
   }
 
   export type DeportistaUncheckedUpdateInput = {
@@ -17692,9 +17579,8 @@ export namespace Prisma {
     idPersonaClub?: IntFieldUpdateOperationsInput | number
     idCategoria?: NullableIntFieldUpdateOperationsInput | number | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    desercionDeportista?: DesercionDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
-    GestionAdmin?: GestionAdminUncheckedUpdateManyWithoutDeportistaNestedInput
-    PagoDeportista?: PagoDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
+    desercionDeportista?: DesercionDeportistaUncheckedUpdateOneWithoutDeportistaNestedInput
+    pagosDeportista?: PagoDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
   }
 
   export type DeportistaCreateManyInput = {
@@ -17706,7 +17592,6 @@ export namespace Prisma {
   }
 
   export type DeportistaUpdateManyMutationInput = {
-    idCategoria?: NullableIntFieldUpdateOperationsInput | number | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
@@ -17716,42 +17601,6 @@ export namespace Prisma {
     idPersonaClub?: IntFieldUpdateOperationsInput | number
     idCategoria?: NullableIntFieldUpdateOperationsInput | number | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-  }
-
-  export type DepartamentoCreateInput = {
-    nombre?: string | null
-    municipios?: MunicipioCreateNestedManyWithoutDepartamentoInput
-  }
-
-  export type DepartamentoUncheckedCreateInput = {
-    id?: number
-    nombre?: string | null
-    municipios?: MunicipioUncheckedCreateNestedManyWithoutDepartamentoInput
-  }
-
-  export type DepartamentoUpdateInput = {
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    municipios?: MunicipioUpdateManyWithoutDepartamentoNestedInput
-  }
-
-  export type DepartamentoUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    municipios?: MunicipioUncheckedUpdateManyWithoutDepartamentoNestedInput
-  }
-
-  export type DepartamentoCreateManyInput = {
-    id?: number
-    nombre?: string | null
-  }
-
-  export type DepartamentoUpdateManyMutationInput = {
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type DepartamentoUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type DesercionDeportistaCreateInput = {
@@ -17807,12 +17656,12 @@ export namespace Prisma {
   }
 
   export type GestionAdminCreateInput = {
+    idTutor?: number | null
+    idDeportista?: number | null
+    idCargo?: number | null
     fechaInicio?: Date | string | null
     fechaFin?: Date | string | null
     activo?: boolean | null
-    tutor?: TutorCreateNestedOneWithoutGestionAdminInput
-    deportista?: DeportistaCreateNestedOneWithoutGestionAdminInput
-    cargo?: CargosAdminCreateNestedOneWithoutGestionAdminInput
   }
 
   export type GestionAdminUncheckedCreateInput = {
@@ -17826,12 +17675,12 @@ export namespace Prisma {
   }
 
   export type GestionAdminUpdateInput = {
+    idTutor?: NullableIntFieldUpdateOperationsInput | number | null
+    idDeportista?: NullableIntFieldUpdateOperationsInput | number | null
+    idCargo?: NullableIntFieldUpdateOperationsInput | number | null
     fechaInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     fechaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    tutor?: TutorUpdateOneWithoutGestionAdminNestedInput
-    deportista?: DeportistaUpdateOneWithoutGestionAdminNestedInput
-    cargo?: CargosAdminUpdateOneWithoutGestionAdminNestedInput
   }
 
   export type GestionAdminUncheckedUpdateInput = {
@@ -17855,6 +17704,9 @@ export namespace Prisma {
   }
 
   export type GestionAdminUpdateManyMutationInput = {
+    idTutor?: NullableIntFieldUpdateOperationsInput | number | null
+    idDeportista?: NullableIntFieldUpdateOperationsInput | number | null
+    idCargo?: NullableIntFieldUpdateOperationsInput | number | null
     fechaInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     fechaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -17870,56 +17722,11 @@ export namespace Prisma {
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
-  export type MunicipioCreateInput = {
-    nombre?: string | null
-    estado?: boolean | null
-    departamento: DepartamentoCreateNestedOneWithoutMunicipiosInput
-  }
-
-  export type MunicipioUncheckedCreateInput = {
-    id?: number
-    idDepartamento: number
-    nombre?: string | null
-    estado?: boolean | null
-  }
-
-  export type MunicipioUpdateInput = {
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    estado?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    departamento?: DepartamentoUpdateOneRequiredWithoutMunicipiosNestedInput
-  }
-
-  export type MunicipioUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    idDepartamento?: IntFieldUpdateOperationsInput | number
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    estado?: NullableBoolFieldUpdateOperationsInput | boolean | null
-  }
-
-  export type MunicipioCreateManyInput = {
-    id?: number
-    idDepartamento: number
-    nombre?: string | null
-    estado?: boolean | null
-  }
-
-  export type MunicipioUpdateManyMutationInput = {
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    estado?: NullableBoolFieldUpdateOperationsInput | boolean | null
-  }
-
-  export type MunicipioUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    idDepartamento?: IntFieldUpdateOperationsInput | number
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    estado?: NullableBoolFieldUpdateOperationsInput | boolean | null
-  }
-
   export type PagoDeportistaCreateInput = {
     fechaPago?: Date | string | null
     valor?: Decimal | DecimalJsLike | number | string | null
     tipoPago?: string | null
-    deportista: DeportistaCreateNestedOneWithoutPagoDeportistaInput
+    deportista?: DeportistaCreateNestedOneWithoutPagosDeportistaInput
   }
 
   export type PagoDeportistaUncheckedCreateInput = {
@@ -17934,7 +17741,7 @@ export namespace Prisma {
     fechaPago?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     valor?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     tipoPago?: NullableStringFieldUpdateOperationsInput | string | null
-    deportista?: DeportistaUpdateOneRequiredWithoutPagoDeportistaNestedInput
+    deportista?: DeportistaUpdateOneWithoutPagosDeportistaNestedInput
   }
 
   export type PagoDeportistaUncheckedUpdateInput = {
@@ -17965,45 +17772,6 @@ export namespace Prisma {
     fechaPago?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     valor?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     tipoPago?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type TipoDocumentoCreateInput = {
-    tipoDocumento?: string | null
-    descripcion?: string | null
-  }
-
-  export type TipoDocumentoUncheckedCreateInput = {
-    id?: number
-    tipoDocumento?: string | null
-    descripcion?: string | null
-  }
-
-  export type TipoDocumentoUpdateInput = {
-    tipoDocumento?: NullableStringFieldUpdateOperationsInput | string | null
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type TipoDocumentoUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    tipoDocumento?: NullableStringFieldUpdateOperationsInput | string | null
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type TipoDocumentoCreateManyInput = {
-    id?: number
-    tipoDocumento?: string | null
-    descripcion?: string | null
-  }
-
-  export type TipoDocumentoUpdateManyMutationInput = {
-    tipoDocumento?: NullableStringFieldUpdateOperationsInput | string | null
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type TipoDocumentoUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    tipoDocumento?: NullableStringFieldUpdateOperationsInput | string | null
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UsuarioCreateInput = {
@@ -18058,6 +17826,130 @@ export namespace Prisma {
     idPersona?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
+  export type DepartamentoCreateInput = {
+    nombre?: string | null
+    municipio?: MunicipioCreateNestedOneWithoutDepartamentoInput
+  }
+
+  export type DepartamentoUncheckedCreateInput = {
+    id?: number
+    nombre?: string | null
+    municipio?: MunicipioUncheckedCreateNestedOneWithoutDepartamentoInput
+  }
+
+  export type DepartamentoUpdateInput = {
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    municipio?: MunicipioUpdateOneWithoutDepartamentoNestedInput
+  }
+
+  export type DepartamentoUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    municipio?: MunicipioUncheckedUpdateOneWithoutDepartamentoNestedInput
+  }
+
+  export type DepartamentoCreateManyInput = {
+    id?: number
+    nombre?: string | null
+  }
+
+  export type DepartamentoUpdateManyMutationInput = {
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type DepartamentoUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type MunicipioCreateInput = {
+    nombre?: string | null
+    estado?: boolean | null
+    personaClub?: PersonaClubCreateNestedManyWithoutMunicipioInput
+    departamento: DepartamentoCreateNestedOneWithoutMunicipioInput
+  }
+
+  export type MunicipioUncheckedCreateInput = {
+    id?: number
+    idDepartamento: number
+    nombre?: string | null
+    estado?: boolean | null
+    personaClub?: PersonaClubUncheckedCreateNestedManyWithoutMunicipioInput
+  }
+
+  export type MunicipioUpdateInput = {
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    personaClub?: PersonaClubUpdateManyWithoutMunicipioNestedInput
+    departamento?: DepartamentoUpdateOneRequiredWithoutMunicipioNestedInput
+  }
+
+  export type MunicipioUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    idDepartamento?: IntFieldUpdateOperationsInput | number
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    personaClub?: PersonaClubUncheckedUpdateManyWithoutMunicipioNestedInput
+  }
+
+  export type MunicipioCreateManyInput = {
+    id?: number
+    idDepartamento: number
+    nombre?: string | null
+    estado?: boolean | null
+  }
+
+  export type MunicipioUpdateManyMutationInput = {
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type MunicipioUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    idDepartamento?: IntFieldUpdateOperationsInput | number
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type TipoDocumentoCreateInput = {
+    tipoDocumento?: string | null
+    descripcion?: string | null
+  }
+
+  export type TipoDocumentoUncheckedCreateInput = {
+    id?: number
+    tipoDocumento?: string | null
+    descripcion?: string | null
+  }
+
+  export type TipoDocumentoUpdateInput = {
+    tipoDocumento?: NullableStringFieldUpdateOperationsInput | string | null
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TipoDocumentoUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tipoDocumento?: NullableStringFieldUpdateOperationsInput | string | null
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TipoDocumentoCreateManyInput = {
+    id?: number
+    tipoDocumento?: string | null
+    descripcion?: string | null
+  }
+
+  export type TipoDocumentoUpdateManyMutationInput = {
+    tipoDocumento?: NullableStringFieldUpdateOperationsInput | string | null
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TipoDocumentoUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tipoDocumento?: NullableStringFieldUpdateOperationsInput | string | null
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -18084,19 +17976,9 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type GestionAdminListRelationFilter = {
-    every?: GestionAdminWhereInput
-    some?: GestionAdminWhereInput
-    none?: GestionAdminWhereInput
-  }
-
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
-  }
-
-  export type GestionAdminOrderByRelationAggregateInput = {
-    _count?: SortOrder
   }
 
   export type CargosAdminOrderByRelevanceInput = {
@@ -18160,6 +18042,11 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type DeportistaNullableScalarRelationFilter = {
+    is?: DeportistaWhereInput | null
+    isNot?: DeportistaWhereInput | null
   }
 
   export type CategoriaOrderByRelevanceInput = {
@@ -18239,14 +18126,14 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type MunicipioScalarRelationFilter = {
+    is?: MunicipioWhereInput
+    isNot?: MunicipioWhereInput
+  }
+
   export type EntrenadorNullableScalarRelationFilter = {
     is?: EntrenadorWhereInput | null
     isNot?: EntrenadorWhereInput | null
-  }
-
-  export type DeportistaNullableScalarRelationFilter = {
-    is?: DeportistaWhereInput | null
-    isNot?: DeportistaWhereInput | null
   }
 
   export type UsuarioNullableScalarRelationFilter = {
@@ -18455,15 +18342,24 @@ export namespace Prisma {
     not?: NestedBytesNullableFilter<$PrismaModel> | Uint8Array | null
   }
 
+  export type ContactosEmergenciaListRelationFilter = {
+    every?: ContactosEmergenciaWhereInput
+    some?: ContactosEmergenciaWhereInput
+    none?: ContactosEmergenciaWhereInput
+  }
+
   export type PersonaClubScalarRelationFilter = {
     is?: PersonaClubWhereInput
     isNot?: PersonaClubWhereInput
   }
 
+  export type ContactosEmergenciaOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type EntrenadorCountOrderByAggregateInput = {
     id?: SortOrder
     idPersonaClub?: SortOrder
-    idContactoEmergencia?: SortOrder
     fechaIngreso?: SortOrder
     activo?: SortOrder
     contrato?: SortOrder
@@ -18472,13 +18368,11 @@ export namespace Prisma {
   export type EntrenadorAvgOrderByAggregateInput = {
     id?: SortOrder
     idPersonaClub?: SortOrder
-    idContactoEmergencia?: SortOrder
   }
 
   export type EntrenadorMaxOrderByAggregateInput = {
     id?: SortOrder
     idPersonaClub?: SortOrder
-    idContactoEmergencia?: SortOrder
     fechaIngreso?: SortOrder
     activo?: SortOrder
     contrato?: SortOrder
@@ -18487,7 +18381,6 @@ export namespace Prisma {
   export type EntrenadorMinOrderByAggregateInput = {
     id?: SortOrder
     idPersonaClub?: SortOrder
-    idContactoEmergencia?: SortOrder
     fechaIngreso?: SortOrder
     activo?: SortOrder
     contrato?: SortOrder
@@ -18496,7 +18389,6 @@ export namespace Prisma {
   export type EntrenadorSumOrderByAggregateInput = {
     id?: SortOrder
     idPersonaClub?: SortOrder
-    idContactoEmergencia?: SortOrder
   }
 
   export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -18515,16 +18407,6 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedBytesNullableFilter<$PrismaModel>
     _max?: NestedBytesNullableFilter<$PrismaModel>
-  }
-
-  export type DeportistaListRelationFilter = {
-    every?: DeportistaWhereInput
-    some?: DeportistaWhereInput
-    none?: DeportistaWhereInput
-  }
-
-  export type DeportistaOrderByRelationAggregateInput = {
-    _count?: SortOrder
   }
 
   export type TutorOrderByRelevanceInput = {
@@ -18573,20 +18455,20 @@ export namespace Prisma {
     isNot?: TutorWhereInput | null
   }
 
-  export type DesercionDeportistaListRelationFilter = {
-    every?: DesercionDeportistaWhereInput
-    some?: DesercionDeportistaWhereInput
-    none?: DesercionDeportistaWhereInput
+  export type CategoriaNullableScalarRelationFilter = {
+    is?: CategoriaWhereInput | null
+    isNot?: CategoriaWhereInput | null
+  }
+
+  export type DesercionDeportistaNullableScalarRelationFilter = {
+    is?: DesercionDeportistaWhereInput | null
+    isNot?: DesercionDeportistaWhereInput | null
   }
 
   export type PagoDeportistaListRelationFilter = {
     every?: PagoDeportistaWhereInput
     some?: PagoDeportistaWhereInput
     none?: PagoDeportistaWhereInput
-  }
-
-  export type DesercionDeportistaOrderByRelationAggregateInput = {
-    _count?: SortOrder
   }
 
   export type PagoDeportistaOrderByRelationAggregateInput = {
@@ -18629,45 +18511,6 @@ export namespace Prisma {
     idTutor?: SortOrder
     idPersonaClub?: SortOrder
     idCategoria?: SortOrder
-  }
-
-  export type MunicipioListRelationFilter = {
-    every?: MunicipioWhereInput
-    some?: MunicipioWhereInput
-    none?: MunicipioWhereInput
-  }
-
-  export type MunicipioOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type DepartamentoOrderByRelevanceInput = {
-    fields: DepartamentoOrderByRelevanceFieldEnum | DepartamentoOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
-  export type DepartamentoCountOrderByAggregateInput = {
-    id?: SortOrder
-    nombre?: SortOrder
-  }
-
-  export type DepartamentoAvgOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type DepartamentoMaxOrderByAggregateInput = {
-    id?: SortOrder
-    nombre?: SortOrder
-  }
-
-  export type DepartamentoMinOrderByAggregateInput = {
-    id?: SortOrder
-    nombre?: SortOrder
-  }
-
-  export type DepartamentoSumOrderByAggregateInput = {
-    id?: SortOrder
   }
 
   export type DeportistaScalarRelationFilter = {
@@ -18715,11 +18558,6 @@ export namespace Prisma {
     idDeportista?: SortOrder
   }
 
-  export type CargosAdminNullableScalarRelationFilter = {
-    is?: CargosAdminWhereInput | null
-    isNot?: CargosAdminWhereInput | null
-  }
-
   export type GestionAdminCountOrderByAggregateInput = {
     id?: SortOrder
     idTutor?: SortOrder
@@ -18762,48 +18600,6 @@ export namespace Prisma {
     idTutor?: SortOrder
     idDeportista?: SortOrder
     idCargo?: SortOrder
-  }
-
-  export type DepartamentoScalarRelationFilter = {
-    is?: DepartamentoWhereInput
-    isNot?: DepartamentoWhereInput
-  }
-
-  export type MunicipioOrderByRelevanceInput = {
-    fields: MunicipioOrderByRelevanceFieldEnum | MunicipioOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
-  export type MunicipioCountOrderByAggregateInput = {
-    id?: SortOrder
-    idDepartamento?: SortOrder
-    nombre?: SortOrder
-    estado?: SortOrder
-  }
-
-  export type MunicipioAvgOrderByAggregateInput = {
-    id?: SortOrder
-    idDepartamento?: SortOrder
-  }
-
-  export type MunicipioMaxOrderByAggregateInput = {
-    id?: SortOrder
-    idDepartamento?: SortOrder
-    nombre?: SortOrder
-    estado?: SortOrder
-  }
-
-  export type MunicipioMinOrderByAggregateInput = {
-    id?: SortOrder
-    idDepartamento?: SortOrder
-    nombre?: SortOrder
-    estado?: SortOrder
-  }
-
-  export type MunicipioSumOrderByAggregateInput = {
-    id?: SortOrder
-    idDepartamento?: SortOrder
   }
 
   export type DecimalNullableFilter<$PrismaModel = never> = {
@@ -18875,38 +18671,6 @@ export namespace Prisma {
     _max?: NestedDecimalNullableFilter<$PrismaModel>
   }
 
-  export type TipoDocumentoOrderByRelevanceInput = {
-    fields: TipoDocumentoOrderByRelevanceFieldEnum | TipoDocumentoOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
-  export type TipoDocumentoCountOrderByAggregateInput = {
-    id?: SortOrder
-    tipoDocumento?: SortOrder
-    descripcion?: SortOrder
-  }
-
-  export type TipoDocumentoAvgOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type TipoDocumentoMaxOrderByAggregateInput = {
-    id?: SortOrder
-    tipoDocumento?: SortOrder
-    descripcion?: SortOrder
-  }
-
-  export type TipoDocumentoMinOrderByAggregateInput = {
-    id?: SortOrder
-    tipoDocumento?: SortOrder
-    descripcion?: SortOrder
-  }
-
-  export type TipoDocumentoSumOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
   export type PersonaClubNullableScalarRelationFilter = {
     is?: PersonaClubWhereInput | null
     isNot?: PersonaClubWhereInput | null
@@ -18952,36 +18716,126 @@ export namespace Prisma {
     idPersona?: SortOrder
   }
 
-  export type GestionAdminCreateNestedManyWithoutCargoInput = {
-    create?: XOR<GestionAdminCreateWithoutCargoInput, GestionAdminUncheckedCreateWithoutCargoInput> | GestionAdminCreateWithoutCargoInput[] | GestionAdminUncheckedCreateWithoutCargoInput[]
-    connectOrCreate?: GestionAdminCreateOrConnectWithoutCargoInput | GestionAdminCreateOrConnectWithoutCargoInput[]
-    createMany?: GestionAdminCreateManyCargoInputEnvelope
-    connect?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
+  export type MunicipioNullableScalarRelationFilter = {
+    is?: MunicipioWhereInput | null
+    isNot?: MunicipioWhereInput | null
   }
 
-  export type GestionAdminUncheckedCreateNestedManyWithoutCargoInput = {
-    create?: XOR<GestionAdminCreateWithoutCargoInput, GestionAdminUncheckedCreateWithoutCargoInput> | GestionAdminCreateWithoutCargoInput[] | GestionAdminUncheckedCreateWithoutCargoInput[]
-    connectOrCreate?: GestionAdminCreateOrConnectWithoutCargoInput | GestionAdminCreateOrConnectWithoutCargoInput[]
-    createMany?: GestionAdminCreateManyCargoInputEnvelope
-    connect?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
+  export type DepartamentoOrderByRelevanceInput = {
+    fields: DepartamentoOrderByRelevanceFieldEnum | DepartamentoOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type DepartamentoCountOrderByAggregateInput = {
+    id?: SortOrder
+    nombre?: SortOrder
+  }
+
+  export type DepartamentoAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type DepartamentoMaxOrderByAggregateInput = {
+    id?: SortOrder
+    nombre?: SortOrder
+  }
+
+  export type DepartamentoMinOrderByAggregateInput = {
+    id?: SortOrder
+    nombre?: SortOrder
+  }
+
+  export type DepartamentoSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type PersonaClubListRelationFilter = {
+    every?: PersonaClubWhereInput
+    some?: PersonaClubWhereInput
+    none?: PersonaClubWhereInput
+  }
+
+  export type DepartamentoScalarRelationFilter = {
+    is?: DepartamentoWhereInput
+    isNot?: DepartamentoWhereInput
+  }
+
+  export type PersonaClubOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type MunicipioOrderByRelevanceInput = {
+    fields: MunicipioOrderByRelevanceFieldEnum | MunicipioOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type MunicipioCountOrderByAggregateInput = {
+    id?: SortOrder
+    idDepartamento?: SortOrder
+    nombre?: SortOrder
+    estado?: SortOrder
+  }
+
+  export type MunicipioAvgOrderByAggregateInput = {
+    id?: SortOrder
+    idDepartamento?: SortOrder
+  }
+
+  export type MunicipioMaxOrderByAggregateInput = {
+    id?: SortOrder
+    idDepartamento?: SortOrder
+    nombre?: SortOrder
+    estado?: SortOrder
+  }
+
+  export type MunicipioMinOrderByAggregateInput = {
+    id?: SortOrder
+    idDepartamento?: SortOrder
+    nombre?: SortOrder
+    estado?: SortOrder
+  }
+
+  export type MunicipioSumOrderByAggregateInput = {
+    id?: SortOrder
+    idDepartamento?: SortOrder
+  }
+
+  export type TipoDocumentoOrderByRelevanceInput = {
+    fields: TipoDocumentoOrderByRelevanceFieldEnum | TipoDocumentoOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type TipoDocumentoCountOrderByAggregateInput = {
+    id?: SortOrder
+    tipoDocumento?: SortOrder
+    descripcion?: SortOrder
+  }
+
+  export type TipoDocumentoAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type TipoDocumentoMaxOrderByAggregateInput = {
+    id?: SortOrder
+    tipoDocumento?: SortOrder
+    descripcion?: SortOrder
+  }
+
+  export type TipoDocumentoMinOrderByAggregateInput = {
+    id?: SortOrder
+    tipoDocumento?: SortOrder
+    descripcion?: SortOrder
+  }
+
+  export type TipoDocumentoSumOrderByAggregateInput = {
+    id?: SortOrder
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
-  }
-
-  export type GestionAdminUpdateManyWithoutCargoNestedInput = {
-    create?: XOR<GestionAdminCreateWithoutCargoInput, GestionAdminUncheckedCreateWithoutCargoInput> | GestionAdminCreateWithoutCargoInput[] | GestionAdminUncheckedCreateWithoutCargoInput[]
-    connectOrCreate?: GestionAdminCreateOrConnectWithoutCargoInput | GestionAdminCreateOrConnectWithoutCargoInput[]
-    upsert?: GestionAdminUpsertWithWhereUniqueWithoutCargoInput | GestionAdminUpsertWithWhereUniqueWithoutCargoInput[]
-    createMany?: GestionAdminCreateManyCargoInputEnvelope
-    set?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    disconnect?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    delete?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    connect?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    update?: GestionAdminUpdateWithWhereUniqueWithoutCargoInput | GestionAdminUpdateWithWhereUniqueWithoutCargoInput[]
-    updateMany?: GestionAdminUpdateManyWithWhereWithoutCargoInput | GestionAdminUpdateManyWithWhereWithoutCargoInput[]
-    deleteMany?: GestionAdminScalarWhereInput | GestionAdminScalarWhereInput[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -18992,18 +18846,42 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type GestionAdminUncheckedUpdateManyWithoutCargoNestedInput = {
-    create?: XOR<GestionAdminCreateWithoutCargoInput, GestionAdminUncheckedCreateWithoutCargoInput> | GestionAdminCreateWithoutCargoInput[] | GestionAdminUncheckedCreateWithoutCargoInput[]
-    connectOrCreate?: GestionAdminCreateOrConnectWithoutCargoInput | GestionAdminCreateOrConnectWithoutCargoInput[]
-    upsert?: GestionAdminUpsertWithWhereUniqueWithoutCargoInput | GestionAdminUpsertWithWhereUniqueWithoutCargoInput[]
-    createMany?: GestionAdminCreateManyCargoInputEnvelope
-    set?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    disconnect?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    delete?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    connect?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    update?: GestionAdminUpdateWithWhereUniqueWithoutCargoInput | GestionAdminUpdateWithWhereUniqueWithoutCargoInput[]
-    updateMany?: GestionAdminUpdateManyWithWhereWithoutCargoInput | GestionAdminUpdateManyWithWhereWithoutCargoInput[]
-    deleteMany?: GestionAdminScalarWhereInput | GestionAdminScalarWhereInput[]
+  export type DeportistaCreateNestedOneWithoutCategoriaInput = {
+    create?: XOR<DeportistaCreateWithoutCategoriaInput, DeportistaUncheckedCreateWithoutCategoriaInput>
+    connectOrCreate?: DeportistaCreateOrConnectWithoutCategoriaInput
+    connect?: DeportistaWhereUniqueInput
+  }
+
+  export type DeportistaUncheckedCreateNestedOneWithoutCategoriaInput = {
+    create?: XOR<DeportistaCreateWithoutCategoriaInput, DeportistaUncheckedCreateWithoutCategoriaInput>
+    connectOrCreate?: DeportistaCreateOrConnectWithoutCategoriaInput
+    connect?: DeportistaWhereUniqueInput
+  }
+
+  export type DeportistaUpdateOneWithoutCategoriaNestedInput = {
+    create?: XOR<DeportistaCreateWithoutCategoriaInput, DeportistaUncheckedCreateWithoutCategoriaInput>
+    connectOrCreate?: DeportistaCreateOrConnectWithoutCategoriaInput
+    upsert?: DeportistaUpsertWithoutCategoriaInput
+    disconnect?: DeportistaWhereInput | boolean
+    delete?: DeportistaWhereInput | boolean
+    connect?: DeportistaWhereUniqueInput
+    update?: XOR<XOR<DeportistaUpdateToOneWithWhereWithoutCategoriaInput, DeportistaUpdateWithoutCategoriaInput>, DeportistaUncheckedUpdateWithoutCategoriaInput>
+  }
+
+  export type DeportistaUncheckedUpdateOneWithoutCategoriaNestedInput = {
+    create?: XOR<DeportistaCreateWithoutCategoriaInput, DeportistaUncheckedCreateWithoutCategoriaInput>
+    connectOrCreate?: DeportistaCreateOrConnectWithoutCategoriaInput
+    upsert?: DeportistaUpsertWithoutCategoriaInput
+    disconnect?: DeportistaWhereInput | boolean
+    delete?: DeportistaWhereInput | boolean
+    connect?: DeportistaWhereUniqueInput
+    update?: XOR<XOR<DeportistaUpdateToOneWithWhereWithoutCategoriaInput, DeportistaUpdateWithoutCategoriaInput>, DeportistaUncheckedUpdateWithoutCategoriaInput>
+  }
+
+  export type MunicipioCreateNestedOneWithoutPersonaClubInput = {
+    create?: XOR<MunicipioCreateWithoutPersonaClubInput, MunicipioUncheckedCreateWithoutPersonaClubInput>
+    connectOrCreate?: MunicipioCreateOrConnectWithoutPersonaClubInput
+    connect?: MunicipioWhereUniqueInput
   }
 
   export type EntrenadorCreateNestedOneWithoutPersonaClubInput = {
@@ -19066,6 +18944,14 @@ export namespace Prisma {
     divide?: number
   }
 
+  export type MunicipioUpdateOneRequiredWithoutPersonaClubNestedInput = {
+    create?: XOR<MunicipioCreateWithoutPersonaClubInput, MunicipioUncheckedCreateWithoutPersonaClubInput>
+    connectOrCreate?: MunicipioCreateOrConnectWithoutPersonaClubInput
+    upsert?: MunicipioUpsertWithoutPersonaClubInput
+    connect?: MunicipioWhereUniqueInput
+    update?: XOR<XOR<MunicipioUpdateToOneWithWhereWithoutPersonaClubInput, MunicipioUpdateWithoutPersonaClubInput>, MunicipioUncheckedUpdateWithoutPersonaClubInput>
+  }
+
   export type EntrenadorUpdateOneWithoutPersonaClubNestedInput = {
     create?: XOR<EntrenadorCreateWithoutPersonaClubInput, EntrenadorUncheckedCreateWithoutPersonaClubInput>
     connectOrCreate?: EntrenadorCreateOrConnectWithoutPersonaClubInput
@@ -19126,10 +19012,40 @@ export namespace Prisma {
     update?: XOR<XOR<UsuarioUpdateToOneWithWhereWithoutPersonaInput, UsuarioUpdateWithoutPersonaInput>, UsuarioUncheckedUpdateWithoutPersonaInput>
   }
 
+  export type EntrenadorCreateNestedOneWithoutContactosEmergenciaInput = {
+    create?: XOR<EntrenadorCreateWithoutContactosEmergenciaInput, EntrenadorUncheckedCreateWithoutContactosEmergenciaInput>
+    connectOrCreate?: EntrenadorCreateOrConnectWithoutContactosEmergenciaInput
+    connect?: EntrenadorWhereUniqueInput
+  }
+
+  export type EntrenadorUpdateOneWithoutContactosEmergenciaNestedInput = {
+    create?: XOR<EntrenadorCreateWithoutContactosEmergenciaInput, EntrenadorUncheckedCreateWithoutContactosEmergenciaInput>
+    connectOrCreate?: EntrenadorCreateOrConnectWithoutContactosEmergenciaInput
+    upsert?: EntrenadorUpsertWithoutContactosEmergenciaInput
+    disconnect?: EntrenadorWhereInput | boolean
+    delete?: EntrenadorWhereInput | boolean
+    connect?: EntrenadorWhereUniqueInput
+    update?: XOR<XOR<EntrenadorUpdateToOneWithWhereWithoutContactosEmergenciaInput, EntrenadorUpdateWithoutContactosEmergenciaInput>, EntrenadorUncheckedUpdateWithoutContactosEmergenciaInput>
+  }
+
+  export type ContactosEmergenciaCreateNestedManyWithoutEntrenadorInput = {
+    create?: XOR<ContactosEmergenciaCreateWithoutEntrenadorInput, ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput> | ContactosEmergenciaCreateWithoutEntrenadorInput[] | ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput[]
+    connectOrCreate?: ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput | ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput[]
+    createMany?: ContactosEmergenciaCreateManyEntrenadorInputEnvelope
+    connect?: ContactosEmergenciaWhereUniqueInput | ContactosEmergenciaWhereUniqueInput[]
+  }
+
   export type PersonaClubCreateNestedOneWithoutEntrenadorInput = {
     create?: XOR<PersonaClubCreateWithoutEntrenadorInput, PersonaClubUncheckedCreateWithoutEntrenadorInput>
     connectOrCreate?: PersonaClubCreateOrConnectWithoutEntrenadorInput
     connect?: PersonaClubWhereUniqueInput
+  }
+
+  export type ContactosEmergenciaUncheckedCreateNestedManyWithoutEntrenadorInput = {
+    create?: XOR<ContactosEmergenciaCreateWithoutEntrenadorInput, ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput> | ContactosEmergenciaCreateWithoutEntrenadorInput[] | ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput[]
+    connectOrCreate?: ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput | ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput[]
+    createMany?: ContactosEmergenciaCreateManyEntrenadorInputEnvelope
+    connect?: ContactosEmergenciaWhereUniqueInput | ContactosEmergenciaWhereUniqueInput[]
   }
 
   export type NullableBoolFieldUpdateOperationsInput = {
@@ -19140,6 +19056,20 @@ export namespace Prisma {
     set?: Uint8Array | null
   }
 
+  export type ContactosEmergenciaUpdateManyWithoutEntrenadorNestedInput = {
+    create?: XOR<ContactosEmergenciaCreateWithoutEntrenadorInput, ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput> | ContactosEmergenciaCreateWithoutEntrenadorInput[] | ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput[]
+    connectOrCreate?: ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput | ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput[]
+    upsert?: ContactosEmergenciaUpsertWithWhereUniqueWithoutEntrenadorInput | ContactosEmergenciaUpsertWithWhereUniqueWithoutEntrenadorInput[]
+    createMany?: ContactosEmergenciaCreateManyEntrenadorInputEnvelope
+    set?: ContactosEmergenciaWhereUniqueInput | ContactosEmergenciaWhereUniqueInput[]
+    disconnect?: ContactosEmergenciaWhereUniqueInput | ContactosEmergenciaWhereUniqueInput[]
+    delete?: ContactosEmergenciaWhereUniqueInput | ContactosEmergenciaWhereUniqueInput[]
+    connect?: ContactosEmergenciaWhereUniqueInput | ContactosEmergenciaWhereUniqueInput[]
+    update?: ContactosEmergenciaUpdateWithWhereUniqueWithoutEntrenadorInput | ContactosEmergenciaUpdateWithWhereUniqueWithoutEntrenadorInput[]
+    updateMany?: ContactosEmergenciaUpdateManyWithWhereWithoutEntrenadorInput | ContactosEmergenciaUpdateManyWithWhereWithoutEntrenadorInput[]
+    deleteMany?: ContactosEmergenciaScalarWhereInput | ContactosEmergenciaScalarWhereInput[]
+  }
+
   export type PersonaClubUpdateOneRequiredWithoutEntrenadorNestedInput = {
     create?: XOR<PersonaClubCreateWithoutEntrenadorInput, PersonaClubUncheckedCreateWithoutEntrenadorInput>
     connectOrCreate?: PersonaClubCreateOrConnectWithoutEntrenadorInput
@@ -19148,94 +19078,50 @@ export namespace Prisma {
     update?: XOR<XOR<PersonaClubUpdateToOneWithWhereWithoutEntrenadorInput, PersonaClubUpdateWithoutEntrenadorInput>, PersonaClubUncheckedUpdateWithoutEntrenadorInput>
   }
 
-  export type DeportistaCreateNestedManyWithoutTutorInput = {
-    create?: XOR<DeportistaCreateWithoutTutorInput, DeportistaUncheckedCreateWithoutTutorInput> | DeportistaCreateWithoutTutorInput[] | DeportistaUncheckedCreateWithoutTutorInput[]
-    connectOrCreate?: DeportistaCreateOrConnectWithoutTutorInput | DeportistaCreateOrConnectWithoutTutorInput[]
-    createMany?: DeportistaCreateManyTutorInputEnvelope
-    connect?: DeportistaWhereUniqueInput | DeportistaWhereUniqueInput[]
+  export type ContactosEmergenciaUncheckedUpdateManyWithoutEntrenadorNestedInput = {
+    create?: XOR<ContactosEmergenciaCreateWithoutEntrenadorInput, ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput> | ContactosEmergenciaCreateWithoutEntrenadorInput[] | ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput[]
+    connectOrCreate?: ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput | ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput[]
+    upsert?: ContactosEmergenciaUpsertWithWhereUniqueWithoutEntrenadorInput | ContactosEmergenciaUpsertWithWhereUniqueWithoutEntrenadorInput[]
+    createMany?: ContactosEmergenciaCreateManyEntrenadorInputEnvelope
+    set?: ContactosEmergenciaWhereUniqueInput | ContactosEmergenciaWhereUniqueInput[]
+    disconnect?: ContactosEmergenciaWhereUniqueInput | ContactosEmergenciaWhereUniqueInput[]
+    delete?: ContactosEmergenciaWhereUniqueInput | ContactosEmergenciaWhereUniqueInput[]
+    connect?: ContactosEmergenciaWhereUniqueInput | ContactosEmergenciaWhereUniqueInput[]
+    update?: ContactosEmergenciaUpdateWithWhereUniqueWithoutEntrenadorInput | ContactosEmergenciaUpdateWithWhereUniqueWithoutEntrenadorInput[]
+    updateMany?: ContactosEmergenciaUpdateManyWithWhereWithoutEntrenadorInput | ContactosEmergenciaUpdateManyWithWhereWithoutEntrenadorInput[]
+    deleteMany?: ContactosEmergenciaScalarWhereInput | ContactosEmergenciaScalarWhereInput[]
   }
 
-  export type GestionAdminCreateNestedManyWithoutTutorInput = {
-    create?: XOR<GestionAdminCreateWithoutTutorInput, GestionAdminUncheckedCreateWithoutTutorInput> | GestionAdminCreateWithoutTutorInput[] | GestionAdminUncheckedCreateWithoutTutorInput[]
-    connectOrCreate?: GestionAdminCreateOrConnectWithoutTutorInput | GestionAdminCreateOrConnectWithoutTutorInput[]
-    createMany?: GestionAdminCreateManyTutorInputEnvelope
-    connect?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
+  export type DeportistaCreateNestedOneWithoutTutorInput = {
+    create?: XOR<DeportistaCreateWithoutTutorInput, DeportistaUncheckedCreateWithoutTutorInput>
+    connectOrCreate?: DeportistaCreateOrConnectWithoutTutorInput
+    connect?: DeportistaWhereUniqueInput
   }
 
-  export type DeportistaUncheckedCreateNestedManyWithoutTutorInput = {
-    create?: XOR<DeportistaCreateWithoutTutorInput, DeportistaUncheckedCreateWithoutTutorInput> | DeportistaCreateWithoutTutorInput[] | DeportistaUncheckedCreateWithoutTutorInput[]
-    connectOrCreate?: DeportistaCreateOrConnectWithoutTutorInput | DeportistaCreateOrConnectWithoutTutorInput[]
-    createMany?: DeportistaCreateManyTutorInputEnvelope
-    connect?: DeportistaWhereUniqueInput | DeportistaWhereUniqueInput[]
+  export type DeportistaUncheckedCreateNestedOneWithoutTutorInput = {
+    create?: XOR<DeportistaCreateWithoutTutorInput, DeportistaUncheckedCreateWithoutTutorInput>
+    connectOrCreate?: DeportistaCreateOrConnectWithoutTutorInput
+    connect?: DeportistaWhereUniqueInput
   }
 
-  export type GestionAdminUncheckedCreateNestedManyWithoutTutorInput = {
-    create?: XOR<GestionAdminCreateWithoutTutorInput, GestionAdminUncheckedCreateWithoutTutorInput> | GestionAdminCreateWithoutTutorInput[] | GestionAdminUncheckedCreateWithoutTutorInput[]
-    connectOrCreate?: GestionAdminCreateOrConnectWithoutTutorInput | GestionAdminCreateOrConnectWithoutTutorInput[]
-    createMany?: GestionAdminCreateManyTutorInputEnvelope
-    connect?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
+  export type DeportistaUpdateOneWithoutTutorNestedInput = {
+    create?: XOR<DeportistaCreateWithoutTutorInput, DeportistaUncheckedCreateWithoutTutorInput>
+    connectOrCreate?: DeportistaCreateOrConnectWithoutTutorInput
+    upsert?: DeportistaUpsertWithoutTutorInput
+    disconnect?: DeportistaWhereInput | boolean
+    delete?: DeportistaWhereInput | boolean
+    connect?: DeportistaWhereUniqueInput
+    update?: XOR<XOR<DeportistaUpdateToOneWithWhereWithoutTutorInput, DeportistaUpdateWithoutTutorInput>, DeportistaUncheckedUpdateWithoutTutorInput>
   }
 
-  export type DeportistaUpdateManyWithoutTutorNestedInput = {
-    create?: XOR<DeportistaCreateWithoutTutorInput, DeportistaUncheckedCreateWithoutTutorInput> | DeportistaCreateWithoutTutorInput[] | DeportistaUncheckedCreateWithoutTutorInput[]
-    connectOrCreate?: DeportistaCreateOrConnectWithoutTutorInput | DeportistaCreateOrConnectWithoutTutorInput[]
-    upsert?: DeportistaUpsertWithWhereUniqueWithoutTutorInput | DeportistaUpsertWithWhereUniqueWithoutTutorInput[]
-    createMany?: DeportistaCreateManyTutorInputEnvelope
-    set?: DeportistaWhereUniqueInput | DeportistaWhereUniqueInput[]
-    disconnect?: DeportistaWhereUniqueInput | DeportistaWhereUniqueInput[]
-    delete?: DeportistaWhereUniqueInput | DeportistaWhereUniqueInput[]
-    connect?: DeportistaWhereUniqueInput | DeportistaWhereUniqueInput[]
-    update?: DeportistaUpdateWithWhereUniqueWithoutTutorInput | DeportistaUpdateWithWhereUniqueWithoutTutorInput[]
-    updateMany?: DeportistaUpdateManyWithWhereWithoutTutorInput | DeportistaUpdateManyWithWhereWithoutTutorInput[]
-    deleteMany?: DeportistaScalarWhereInput | DeportistaScalarWhereInput[]
-  }
-
-  export type GestionAdminUpdateManyWithoutTutorNestedInput = {
-    create?: XOR<GestionAdminCreateWithoutTutorInput, GestionAdminUncheckedCreateWithoutTutorInput> | GestionAdminCreateWithoutTutorInput[] | GestionAdminUncheckedCreateWithoutTutorInput[]
-    connectOrCreate?: GestionAdminCreateOrConnectWithoutTutorInput | GestionAdminCreateOrConnectWithoutTutorInput[]
-    upsert?: GestionAdminUpsertWithWhereUniqueWithoutTutorInput | GestionAdminUpsertWithWhereUniqueWithoutTutorInput[]
-    createMany?: GestionAdminCreateManyTutorInputEnvelope
-    set?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    disconnect?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    delete?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    connect?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    update?: GestionAdminUpdateWithWhereUniqueWithoutTutorInput | GestionAdminUpdateWithWhereUniqueWithoutTutorInput[]
-    updateMany?: GestionAdminUpdateManyWithWhereWithoutTutorInput | GestionAdminUpdateManyWithWhereWithoutTutorInput[]
-    deleteMany?: GestionAdminScalarWhereInput | GestionAdminScalarWhereInput[]
-  }
-
-  export type DeportistaUncheckedUpdateManyWithoutTutorNestedInput = {
-    create?: XOR<DeportistaCreateWithoutTutorInput, DeportistaUncheckedCreateWithoutTutorInput> | DeportistaCreateWithoutTutorInput[] | DeportistaUncheckedCreateWithoutTutorInput[]
-    connectOrCreate?: DeportistaCreateOrConnectWithoutTutorInput | DeportistaCreateOrConnectWithoutTutorInput[]
-    upsert?: DeportistaUpsertWithWhereUniqueWithoutTutorInput | DeportistaUpsertWithWhereUniqueWithoutTutorInput[]
-    createMany?: DeportistaCreateManyTutorInputEnvelope
-    set?: DeportistaWhereUniqueInput | DeportistaWhereUniqueInput[]
-    disconnect?: DeportistaWhereUniqueInput | DeportistaWhereUniqueInput[]
-    delete?: DeportistaWhereUniqueInput | DeportistaWhereUniqueInput[]
-    connect?: DeportistaWhereUniqueInput | DeportistaWhereUniqueInput[]
-    update?: DeportistaUpdateWithWhereUniqueWithoutTutorInput | DeportistaUpdateWithWhereUniqueWithoutTutorInput[]
-    updateMany?: DeportistaUpdateManyWithWhereWithoutTutorInput | DeportistaUpdateManyWithWhereWithoutTutorInput[]
-    deleteMany?: DeportistaScalarWhereInput | DeportistaScalarWhereInput[]
-  }
-
-  export type GestionAdminUncheckedUpdateManyWithoutTutorNestedInput = {
-    create?: XOR<GestionAdminCreateWithoutTutorInput, GestionAdminUncheckedCreateWithoutTutorInput> | GestionAdminCreateWithoutTutorInput[] | GestionAdminUncheckedCreateWithoutTutorInput[]
-    connectOrCreate?: GestionAdminCreateOrConnectWithoutTutorInput | GestionAdminCreateOrConnectWithoutTutorInput[]
-    upsert?: GestionAdminUpsertWithWhereUniqueWithoutTutorInput | GestionAdminUpsertWithWhereUniqueWithoutTutorInput[]
-    createMany?: GestionAdminCreateManyTutorInputEnvelope
-    set?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    disconnect?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    delete?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    connect?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    update?: GestionAdminUpdateWithWhereUniqueWithoutTutorInput | GestionAdminUpdateWithWhereUniqueWithoutTutorInput[]
-    updateMany?: GestionAdminUpdateManyWithWhereWithoutTutorInput | GestionAdminUpdateManyWithWhereWithoutTutorInput[]
-    deleteMany?: GestionAdminScalarWhereInput | GestionAdminScalarWhereInput[]
-  }
-
-  export type PersonaClubCreateNestedOneWithoutDeportistaInput = {
-    create?: XOR<PersonaClubCreateWithoutDeportistaInput, PersonaClubUncheckedCreateWithoutDeportistaInput>
-    connectOrCreate?: PersonaClubCreateOrConnectWithoutDeportistaInput
-    connect?: PersonaClubWhereUniqueInput
+  export type DeportistaUncheckedUpdateOneWithoutTutorNestedInput = {
+    create?: XOR<DeportistaCreateWithoutTutorInput, DeportistaUncheckedCreateWithoutTutorInput>
+    connectOrCreate?: DeportistaCreateOrConnectWithoutTutorInput
+    upsert?: DeportistaUpsertWithoutTutorInput
+    disconnect?: DeportistaWhereInput | boolean
+    delete?: DeportistaWhereInput | boolean
+    connect?: DeportistaWhereUniqueInput
+    update?: XOR<XOR<DeportistaUpdateToOneWithWhereWithoutTutorInput, DeportistaUpdateWithoutTutorInput>, DeportistaUncheckedUpdateWithoutTutorInput>
   }
 
   export type TutorCreateNestedOneWithoutDeportistaInput = {
@@ -19244,18 +19130,22 @@ export namespace Prisma {
     connect?: TutorWhereUniqueInput
   }
 
-  export type DesercionDeportistaCreateNestedManyWithoutDeportistaInput = {
-    create?: XOR<DesercionDeportistaCreateWithoutDeportistaInput, DesercionDeportistaUncheckedCreateWithoutDeportistaInput> | DesercionDeportistaCreateWithoutDeportistaInput[] | DesercionDeportistaUncheckedCreateWithoutDeportistaInput[]
-    connectOrCreate?: DesercionDeportistaCreateOrConnectWithoutDeportistaInput | DesercionDeportistaCreateOrConnectWithoutDeportistaInput[]
-    createMany?: DesercionDeportistaCreateManyDeportistaInputEnvelope
-    connect?: DesercionDeportistaWhereUniqueInput | DesercionDeportistaWhereUniqueInput[]
+  export type PersonaClubCreateNestedOneWithoutDeportistaInput = {
+    create?: XOR<PersonaClubCreateWithoutDeportistaInput, PersonaClubUncheckedCreateWithoutDeportistaInput>
+    connectOrCreate?: PersonaClubCreateOrConnectWithoutDeportistaInput
+    connect?: PersonaClubWhereUniqueInput
   }
 
-  export type GestionAdminCreateNestedManyWithoutDeportistaInput = {
-    create?: XOR<GestionAdminCreateWithoutDeportistaInput, GestionAdminUncheckedCreateWithoutDeportistaInput> | GestionAdminCreateWithoutDeportistaInput[] | GestionAdminUncheckedCreateWithoutDeportistaInput[]
-    connectOrCreate?: GestionAdminCreateOrConnectWithoutDeportistaInput | GestionAdminCreateOrConnectWithoutDeportistaInput[]
-    createMany?: GestionAdminCreateManyDeportistaInputEnvelope
-    connect?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
+  export type CategoriaCreateNestedOneWithoutDeportistaInput = {
+    create?: XOR<CategoriaCreateWithoutDeportistaInput, CategoriaUncheckedCreateWithoutDeportistaInput>
+    connectOrCreate?: CategoriaCreateOrConnectWithoutDeportistaInput
+    connect?: CategoriaWhereUniqueInput
+  }
+
+  export type DesercionDeportistaCreateNestedOneWithoutDeportistaInput = {
+    create?: XOR<DesercionDeportistaCreateWithoutDeportistaInput, DesercionDeportistaUncheckedCreateWithoutDeportistaInput>
+    connectOrCreate?: DesercionDeportistaCreateOrConnectWithoutDeportistaInput
+    connect?: DesercionDeportistaWhereUniqueInput
   }
 
   export type PagoDeportistaCreateNestedManyWithoutDeportistaInput = {
@@ -19265,18 +19155,10 @@ export namespace Prisma {
     connect?: PagoDeportistaWhereUniqueInput | PagoDeportistaWhereUniqueInput[]
   }
 
-  export type DesercionDeportistaUncheckedCreateNestedManyWithoutDeportistaInput = {
-    create?: XOR<DesercionDeportistaCreateWithoutDeportistaInput, DesercionDeportistaUncheckedCreateWithoutDeportistaInput> | DesercionDeportistaCreateWithoutDeportistaInput[] | DesercionDeportistaUncheckedCreateWithoutDeportistaInput[]
-    connectOrCreate?: DesercionDeportistaCreateOrConnectWithoutDeportistaInput | DesercionDeportistaCreateOrConnectWithoutDeportistaInput[]
-    createMany?: DesercionDeportistaCreateManyDeportistaInputEnvelope
-    connect?: DesercionDeportistaWhereUniqueInput | DesercionDeportistaWhereUniqueInput[]
-  }
-
-  export type GestionAdminUncheckedCreateNestedManyWithoutDeportistaInput = {
-    create?: XOR<GestionAdminCreateWithoutDeportistaInput, GestionAdminUncheckedCreateWithoutDeportistaInput> | GestionAdminCreateWithoutDeportistaInput[] | GestionAdminUncheckedCreateWithoutDeportistaInput[]
-    connectOrCreate?: GestionAdminCreateOrConnectWithoutDeportistaInput | GestionAdminCreateOrConnectWithoutDeportistaInput[]
-    createMany?: GestionAdminCreateManyDeportistaInputEnvelope
-    connect?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
+  export type DesercionDeportistaUncheckedCreateNestedOneWithoutDeportistaInput = {
+    create?: XOR<DesercionDeportistaCreateWithoutDeportistaInput, DesercionDeportistaUncheckedCreateWithoutDeportistaInput>
+    connectOrCreate?: DesercionDeportistaCreateOrConnectWithoutDeportistaInput
+    connect?: DesercionDeportistaWhereUniqueInput
   }
 
   export type PagoDeportistaUncheckedCreateNestedManyWithoutDeportistaInput = {
@@ -19284,14 +19166,6 @@ export namespace Prisma {
     connectOrCreate?: PagoDeportistaCreateOrConnectWithoutDeportistaInput | PagoDeportistaCreateOrConnectWithoutDeportistaInput[]
     createMany?: PagoDeportistaCreateManyDeportistaInputEnvelope
     connect?: PagoDeportistaWhereUniqueInput | PagoDeportistaWhereUniqueInput[]
-  }
-
-  export type PersonaClubUpdateOneRequiredWithoutDeportistaNestedInput = {
-    create?: XOR<PersonaClubCreateWithoutDeportistaInput, PersonaClubUncheckedCreateWithoutDeportistaInput>
-    connectOrCreate?: PersonaClubCreateOrConnectWithoutDeportistaInput
-    upsert?: PersonaClubUpsertWithoutDeportistaInput
-    connect?: PersonaClubWhereUniqueInput
-    update?: XOR<XOR<PersonaClubUpdateToOneWithWhereWithoutDeportistaInput, PersonaClubUpdateWithoutDeportistaInput>, PersonaClubUncheckedUpdateWithoutDeportistaInput>
   }
 
   export type TutorUpdateOneWithoutDeportistaNestedInput = {
@@ -19304,32 +19178,32 @@ export namespace Prisma {
     update?: XOR<XOR<TutorUpdateToOneWithWhereWithoutDeportistaInput, TutorUpdateWithoutDeportistaInput>, TutorUncheckedUpdateWithoutDeportistaInput>
   }
 
-  export type DesercionDeportistaUpdateManyWithoutDeportistaNestedInput = {
-    create?: XOR<DesercionDeportistaCreateWithoutDeportistaInput, DesercionDeportistaUncheckedCreateWithoutDeportistaInput> | DesercionDeportistaCreateWithoutDeportistaInput[] | DesercionDeportistaUncheckedCreateWithoutDeportistaInput[]
-    connectOrCreate?: DesercionDeportistaCreateOrConnectWithoutDeportistaInput | DesercionDeportistaCreateOrConnectWithoutDeportistaInput[]
-    upsert?: DesercionDeportistaUpsertWithWhereUniqueWithoutDeportistaInput | DesercionDeportistaUpsertWithWhereUniqueWithoutDeportistaInput[]
-    createMany?: DesercionDeportistaCreateManyDeportistaInputEnvelope
-    set?: DesercionDeportistaWhereUniqueInput | DesercionDeportistaWhereUniqueInput[]
-    disconnect?: DesercionDeportistaWhereUniqueInput | DesercionDeportistaWhereUniqueInput[]
-    delete?: DesercionDeportistaWhereUniqueInput | DesercionDeportistaWhereUniqueInput[]
-    connect?: DesercionDeportistaWhereUniqueInput | DesercionDeportistaWhereUniqueInput[]
-    update?: DesercionDeportistaUpdateWithWhereUniqueWithoutDeportistaInput | DesercionDeportistaUpdateWithWhereUniqueWithoutDeportistaInput[]
-    updateMany?: DesercionDeportistaUpdateManyWithWhereWithoutDeportistaInput | DesercionDeportistaUpdateManyWithWhereWithoutDeportistaInput[]
-    deleteMany?: DesercionDeportistaScalarWhereInput | DesercionDeportistaScalarWhereInput[]
+  export type PersonaClubUpdateOneRequiredWithoutDeportistaNestedInput = {
+    create?: XOR<PersonaClubCreateWithoutDeportistaInput, PersonaClubUncheckedCreateWithoutDeportistaInput>
+    connectOrCreate?: PersonaClubCreateOrConnectWithoutDeportistaInput
+    upsert?: PersonaClubUpsertWithoutDeportistaInput
+    connect?: PersonaClubWhereUniqueInput
+    update?: XOR<XOR<PersonaClubUpdateToOneWithWhereWithoutDeportistaInput, PersonaClubUpdateWithoutDeportistaInput>, PersonaClubUncheckedUpdateWithoutDeportistaInput>
   }
 
-  export type GestionAdminUpdateManyWithoutDeportistaNestedInput = {
-    create?: XOR<GestionAdminCreateWithoutDeportistaInput, GestionAdminUncheckedCreateWithoutDeportistaInput> | GestionAdminCreateWithoutDeportistaInput[] | GestionAdminUncheckedCreateWithoutDeportistaInput[]
-    connectOrCreate?: GestionAdminCreateOrConnectWithoutDeportistaInput | GestionAdminCreateOrConnectWithoutDeportistaInput[]
-    upsert?: GestionAdminUpsertWithWhereUniqueWithoutDeportistaInput | GestionAdminUpsertWithWhereUniqueWithoutDeportistaInput[]
-    createMany?: GestionAdminCreateManyDeportistaInputEnvelope
-    set?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    disconnect?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    delete?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    connect?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    update?: GestionAdminUpdateWithWhereUniqueWithoutDeportistaInput | GestionAdminUpdateWithWhereUniqueWithoutDeportistaInput[]
-    updateMany?: GestionAdminUpdateManyWithWhereWithoutDeportistaInput | GestionAdminUpdateManyWithWhereWithoutDeportistaInput[]
-    deleteMany?: GestionAdminScalarWhereInput | GestionAdminScalarWhereInput[]
+  export type CategoriaUpdateOneWithoutDeportistaNestedInput = {
+    create?: XOR<CategoriaCreateWithoutDeportistaInput, CategoriaUncheckedCreateWithoutDeportistaInput>
+    connectOrCreate?: CategoriaCreateOrConnectWithoutDeportistaInput
+    upsert?: CategoriaUpsertWithoutDeportistaInput
+    disconnect?: CategoriaWhereInput | boolean
+    delete?: CategoriaWhereInput | boolean
+    connect?: CategoriaWhereUniqueInput
+    update?: XOR<XOR<CategoriaUpdateToOneWithWhereWithoutDeportistaInput, CategoriaUpdateWithoutDeportistaInput>, CategoriaUncheckedUpdateWithoutDeportistaInput>
+  }
+
+  export type DesercionDeportistaUpdateOneWithoutDeportistaNestedInput = {
+    create?: XOR<DesercionDeportistaCreateWithoutDeportistaInput, DesercionDeportistaUncheckedCreateWithoutDeportistaInput>
+    connectOrCreate?: DesercionDeportistaCreateOrConnectWithoutDeportistaInput
+    upsert?: DesercionDeportistaUpsertWithoutDeportistaInput
+    disconnect?: DesercionDeportistaWhereInput | boolean
+    delete?: DesercionDeportistaWhereInput | boolean
+    connect?: DesercionDeportistaWhereUniqueInput
+    update?: XOR<XOR<DesercionDeportistaUpdateToOneWithWhereWithoutDeportistaInput, DesercionDeportistaUpdateWithoutDeportistaInput>, DesercionDeportistaUncheckedUpdateWithoutDeportistaInput>
   }
 
   export type PagoDeportistaUpdateManyWithoutDeportistaNestedInput = {
@@ -19346,32 +19220,14 @@ export namespace Prisma {
     deleteMany?: PagoDeportistaScalarWhereInput | PagoDeportistaScalarWhereInput[]
   }
 
-  export type DesercionDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput = {
-    create?: XOR<DesercionDeportistaCreateWithoutDeportistaInput, DesercionDeportistaUncheckedCreateWithoutDeportistaInput> | DesercionDeportistaCreateWithoutDeportistaInput[] | DesercionDeportistaUncheckedCreateWithoutDeportistaInput[]
-    connectOrCreate?: DesercionDeportistaCreateOrConnectWithoutDeportistaInput | DesercionDeportistaCreateOrConnectWithoutDeportistaInput[]
-    upsert?: DesercionDeportistaUpsertWithWhereUniqueWithoutDeportistaInput | DesercionDeportistaUpsertWithWhereUniqueWithoutDeportistaInput[]
-    createMany?: DesercionDeportistaCreateManyDeportistaInputEnvelope
-    set?: DesercionDeportistaWhereUniqueInput | DesercionDeportistaWhereUniqueInput[]
-    disconnect?: DesercionDeportistaWhereUniqueInput | DesercionDeportistaWhereUniqueInput[]
-    delete?: DesercionDeportistaWhereUniqueInput | DesercionDeportistaWhereUniqueInput[]
-    connect?: DesercionDeportistaWhereUniqueInput | DesercionDeportistaWhereUniqueInput[]
-    update?: DesercionDeportistaUpdateWithWhereUniqueWithoutDeportistaInput | DesercionDeportistaUpdateWithWhereUniqueWithoutDeportistaInput[]
-    updateMany?: DesercionDeportistaUpdateManyWithWhereWithoutDeportistaInput | DesercionDeportistaUpdateManyWithWhereWithoutDeportistaInput[]
-    deleteMany?: DesercionDeportistaScalarWhereInput | DesercionDeportistaScalarWhereInput[]
-  }
-
-  export type GestionAdminUncheckedUpdateManyWithoutDeportistaNestedInput = {
-    create?: XOR<GestionAdminCreateWithoutDeportistaInput, GestionAdminUncheckedCreateWithoutDeportistaInput> | GestionAdminCreateWithoutDeportistaInput[] | GestionAdminUncheckedCreateWithoutDeportistaInput[]
-    connectOrCreate?: GestionAdminCreateOrConnectWithoutDeportistaInput | GestionAdminCreateOrConnectWithoutDeportistaInput[]
-    upsert?: GestionAdminUpsertWithWhereUniqueWithoutDeportistaInput | GestionAdminUpsertWithWhereUniqueWithoutDeportistaInput[]
-    createMany?: GestionAdminCreateManyDeportistaInputEnvelope
-    set?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    disconnect?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    delete?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    connect?: GestionAdminWhereUniqueInput | GestionAdminWhereUniqueInput[]
-    update?: GestionAdminUpdateWithWhereUniqueWithoutDeportistaInput | GestionAdminUpdateWithWhereUniqueWithoutDeportistaInput[]
-    updateMany?: GestionAdminUpdateManyWithWhereWithoutDeportistaInput | GestionAdminUpdateManyWithWhereWithoutDeportistaInput[]
-    deleteMany?: GestionAdminScalarWhereInput | GestionAdminScalarWhereInput[]
+  export type DesercionDeportistaUncheckedUpdateOneWithoutDeportistaNestedInput = {
+    create?: XOR<DesercionDeportistaCreateWithoutDeportistaInput, DesercionDeportistaUncheckedCreateWithoutDeportistaInput>
+    connectOrCreate?: DesercionDeportistaCreateOrConnectWithoutDeportistaInput
+    upsert?: DesercionDeportistaUpsertWithoutDeportistaInput
+    disconnect?: DesercionDeportistaWhereInput | boolean
+    delete?: DesercionDeportistaWhereInput | boolean
+    connect?: DesercionDeportistaWhereUniqueInput
+    update?: XOR<XOR<DesercionDeportistaUpdateToOneWithWhereWithoutDeportistaInput, DesercionDeportistaUpdateWithoutDeportistaInput>, DesercionDeportistaUncheckedUpdateWithoutDeportistaInput>
   }
 
   export type PagoDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput = {
@@ -19388,48 +19244,6 @@ export namespace Prisma {
     deleteMany?: PagoDeportistaScalarWhereInput | PagoDeportistaScalarWhereInput[]
   }
 
-  export type MunicipioCreateNestedManyWithoutDepartamentoInput = {
-    create?: XOR<MunicipioCreateWithoutDepartamentoInput, MunicipioUncheckedCreateWithoutDepartamentoInput> | MunicipioCreateWithoutDepartamentoInput[] | MunicipioUncheckedCreateWithoutDepartamentoInput[]
-    connectOrCreate?: MunicipioCreateOrConnectWithoutDepartamentoInput | MunicipioCreateOrConnectWithoutDepartamentoInput[]
-    createMany?: MunicipioCreateManyDepartamentoInputEnvelope
-    connect?: MunicipioWhereUniqueInput | MunicipioWhereUniqueInput[]
-  }
-
-  export type MunicipioUncheckedCreateNestedManyWithoutDepartamentoInput = {
-    create?: XOR<MunicipioCreateWithoutDepartamentoInput, MunicipioUncheckedCreateWithoutDepartamentoInput> | MunicipioCreateWithoutDepartamentoInput[] | MunicipioUncheckedCreateWithoutDepartamentoInput[]
-    connectOrCreate?: MunicipioCreateOrConnectWithoutDepartamentoInput | MunicipioCreateOrConnectWithoutDepartamentoInput[]
-    createMany?: MunicipioCreateManyDepartamentoInputEnvelope
-    connect?: MunicipioWhereUniqueInput | MunicipioWhereUniqueInput[]
-  }
-
-  export type MunicipioUpdateManyWithoutDepartamentoNestedInput = {
-    create?: XOR<MunicipioCreateWithoutDepartamentoInput, MunicipioUncheckedCreateWithoutDepartamentoInput> | MunicipioCreateWithoutDepartamentoInput[] | MunicipioUncheckedCreateWithoutDepartamentoInput[]
-    connectOrCreate?: MunicipioCreateOrConnectWithoutDepartamentoInput | MunicipioCreateOrConnectWithoutDepartamentoInput[]
-    upsert?: MunicipioUpsertWithWhereUniqueWithoutDepartamentoInput | MunicipioUpsertWithWhereUniqueWithoutDepartamentoInput[]
-    createMany?: MunicipioCreateManyDepartamentoInputEnvelope
-    set?: MunicipioWhereUniqueInput | MunicipioWhereUniqueInput[]
-    disconnect?: MunicipioWhereUniqueInput | MunicipioWhereUniqueInput[]
-    delete?: MunicipioWhereUniqueInput | MunicipioWhereUniqueInput[]
-    connect?: MunicipioWhereUniqueInput | MunicipioWhereUniqueInput[]
-    update?: MunicipioUpdateWithWhereUniqueWithoutDepartamentoInput | MunicipioUpdateWithWhereUniqueWithoutDepartamentoInput[]
-    updateMany?: MunicipioUpdateManyWithWhereWithoutDepartamentoInput | MunicipioUpdateManyWithWhereWithoutDepartamentoInput[]
-    deleteMany?: MunicipioScalarWhereInput | MunicipioScalarWhereInput[]
-  }
-
-  export type MunicipioUncheckedUpdateManyWithoutDepartamentoNestedInput = {
-    create?: XOR<MunicipioCreateWithoutDepartamentoInput, MunicipioUncheckedCreateWithoutDepartamentoInput> | MunicipioCreateWithoutDepartamentoInput[] | MunicipioUncheckedCreateWithoutDepartamentoInput[]
-    connectOrCreate?: MunicipioCreateOrConnectWithoutDepartamentoInput | MunicipioCreateOrConnectWithoutDepartamentoInput[]
-    upsert?: MunicipioUpsertWithWhereUniqueWithoutDepartamentoInput | MunicipioUpsertWithWhereUniqueWithoutDepartamentoInput[]
-    createMany?: MunicipioCreateManyDepartamentoInputEnvelope
-    set?: MunicipioWhereUniqueInput | MunicipioWhereUniqueInput[]
-    disconnect?: MunicipioWhereUniqueInput | MunicipioWhereUniqueInput[]
-    delete?: MunicipioWhereUniqueInput | MunicipioWhereUniqueInput[]
-    connect?: MunicipioWhereUniqueInput | MunicipioWhereUniqueInput[]
-    update?: MunicipioUpdateWithWhereUniqueWithoutDepartamentoInput | MunicipioUpdateWithWhereUniqueWithoutDepartamentoInput[]
-    updateMany?: MunicipioUpdateManyWithWhereWithoutDepartamentoInput | MunicipioUpdateManyWithWhereWithoutDepartamentoInput[]
-    deleteMany?: MunicipioScalarWhereInput | MunicipioScalarWhereInput[]
-  }
-
   export type DeportistaCreateNestedOneWithoutDesercionDeportistaInput = {
     create?: XOR<DeportistaCreateWithoutDesercionDeportistaInput, DeportistaUncheckedCreateWithoutDesercionDeportistaInput>
     connectOrCreate?: DeportistaCreateOrConnectWithoutDesercionDeportistaInput
@@ -19444,71 +19258,9 @@ export namespace Prisma {
     update?: XOR<XOR<DeportistaUpdateToOneWithWhereWithoutDesercionDeportistaInput, DeportistaUpdateWithoutDesercionDeportistaInput>, DeportistaUncheckedUpdateWithoutDesercionDeportistaInput>
   }
 
-  export type TutorCreateNestedOneWithoutGestionAdminInput = {
-    create?: XOR<TutorCreateWithoutGestionAdminInput, TutorUncheckedCreateWithoutGestionAdminInput>
-    connectOrCreate?: TutorCreateOrConnectWithoutGestionAdminInput
-    connect?: TutorWhereUniqueInput
-  }
-
-  export type DeportistaCreateNestedOneWithoutGestionAdminInput = {
-    create?: XOR<DeportistaCreateWithoutGestionAdminInput, DeportistaUncheckedCreateWithoutGestionAdminInput>
-    connectOrCreate?: DeportistaCreateOrConnectWithoutGestionAdminInput
-    connect?: DeportistaWhereUniqueInput
-  }
-
-  export type CargosAdminCreateNestedOneWithoutGestionAdminInput = {
-    create?: XOR<CargosAdminCreateWithoutGestionAdminInput, CargosAdminUncheckedCreateWithoutGestionAdminInput>
-    connectOrCreate?: CargosAdminCreateOrConnectWithoutGestionAdminInput
-    connect?: CargosAdminWhereUniqueInput
-  }
-
-  export type TutorUpdateOneWithoutGestionAdminNestedInput = {
-    create?: XOR<TutorCreateWithoutGestionAdminInput, TutorUncheckedCreateWithoutGestionAdminInput>
-    connectOrCreate?: TutorCreateOrConnectWithoutGestionAdminInput
-    upsert?: TutorUpsertWithoutGestionAdminInput
-    disconnect?: TutorWhereInput | boolean
-    delete?: TutorWhereInput | boolean
-    connect?: TutorWhereUniqueInput
-    update?: XOR<XOR<TutorUpdateToOneWithWhereWithoutGestionAdminInput, TutorUpdateWithoutGestionAdminInput>, TutorUncheckedUpdateWithoutGestionAdminInput>
-  }
-
-  export type DeportistaUpdateOneWithoutGestionAdminNestedInput = {
-    create?: XOR<DeportistaCreateWithoutGestionAdminInput, DeportistaUncheckedCreateWithoutGestionAdminInput>
-    connectOrCreate?: DeportistaCreateOrConnectWithoutGestionAdminInput
-    upsert?: DeportistaUpsertWithoutGestionAdminInput
-    disconnect?: DeportistaWhereInput | boolean
-    delete?: DeportistaWhereInput | boolean
-    connect?: DeportistaWhereUniqueInput
-    update?: XOR<XOR<DeportistaUpdateToOneWithWhereWithoutGestionAdminInput, DeportistaUpdateWithoutGestionAdminInput>, DeportistaUncheckedUpdateWithoutGestionAdminInput>
-  }
-
-  export type CargosAdminUpdateOneWithoutGestionAdminNestedInput = {
-    create?: XOR<CargosAdminCreateWithoutGestionAdminInput, CargosAdminUncheckedCreateWithoutGestionAdminInput>
-    connectOrCreate?: CargosAdminCreateOrConnectWithoutGestionAdminInput
-    upsert?: CargosAdminUpsertWithoutGestionAdminInput
-    disconnect?: CargosAdminWhereInput | boolean
-    delete?: CargosAdminWhereInput | boolean
-    connect?: CargosAdminWhereUniqueInput
-    update?: XOR<XOR<CargosAdminUpdateToOneWithWhereWithoutGestionAdminInput, CargosAdminUpdateWithoutGestionAdminInput>, CargosAdminUncheckedUpdateWithoutGestionAdminInput>
-  }
-
-  export type DepartamentoCreateNestedOneWithoutMunicipiosInput = {
-    create?: XOR<DepartamentoCreateWithoutMunicipiosInput, DepartamentoUncheckedCreateWithoutMunicipiosInput>
-    connectOrCreate?: DepartamentoCreateOrConnectWithoutMunicipiosInput
-    connect?: DepartamentoWhereUniqueInput
-  }
-
-  export type DepartamentoUpdateOneRequiredWithoutMunicipiosNestedInput = {
-    create?: XOR<DepartamentoCreateWithoutMunicipiosInput, DepartamentoUncheckedCreateWithoutMunicipiosInput>
-    connectOrCreate?: DepartamentoCreateOrConnectWithoutMunicipiosInput
-    upsert?: DepartamentoUpsertWithoutMunicipiosInput
-    connect?: DepartamentoWhereUniqueInput
-    update?: XOR<XOR<DepartamentoUpdateToOneWithWhereWithoutMunicipiosInput, DepartamentoUpdateWithoutMunicipiosInput>, DepartamentoUncheckedUpdateWithoutMunicipiosInput>
-  }
-
-  export type DeportistaCreateNestedOneWithoutPagoDeportistaInput = {
-    create?: XOR<DeportistaCreateWithoutPagoDeportistaInput, DeportistaUncheckedCreateWithoutPagoDeportistaInput>
-    connectOrCreate?: DeportistaCreateOrConnectWithoutPagoDeportistaInput
+  export type DeportistaCreateNestedOneWithoutPagosDeportistaInput = {
+    create?: XOR<DeportistaCreateWithoutPagosDeportistaInput, DeportistaUncheckedCreateWithoutPagosDeportistaInput>
+    connectOrCreate?: DeportistaCreateOrConnectWithoutPagosDeportistaInput
     connect?: DeportistaWhereUniqueInput
   }
 
@@ -19520,12 +19272,14 @@ export namespace Prisma {
     divide?: Decimal | DecimalJsLike | number | string
   }
 
-  export type DeportistaUpdateOneRequiredWithoutPagoDeportistaNestedInput = {
-    create?: XOR<DeportistaCreateWithoutPagoDeportistaInput, DeportistaUncheckedCreateWithoutPagoDeportistaInput>
-    connectOrCreate?: DeportistaCreateOrConnectWithoutPagoDeportistaInput
-    upsert?: DeportistaUpsertWithoutPagoDeportistaInput
+  export type DeportistaUpdateOneWithoutPagosDeportistaNestedInput = {
+    create?: XOR<DeportistaCreateWithoutPagosDeportistaInput, DeportistaUncheckedCreateWithoutPagosDeportistaInput>
+    connectOrCreate?: DeportistaCreateOrConnectWithoutPagosDeportistaInput
+    upsert?: DeportistaUpsertWithoutPagosDeportistaInput
+    disconnect?: DeportistaWhereInput | boolean
+    delete?: DeportistaWhereInput | boolean
     connect?: DeportistaWhereUniqueInput
-    update?: XOR<XOR<DeportistaUpdateToOneWithWhereWithoutPagoDeportistaInput, DeportistaUpdateWithoutPagoDeportistaInput>, DeportistaUncheckedUpdateWithoutPagoDeportistaInput>
+    update?: XOR<XOR<DeportistaUpdateToOneWithWhereWithoutPagosDeportistaInput, DeportistaUpdateWithoutPagosDeportistaInput>, DeportistaUncheckedUpdateWithoutPagosDeportistaInput>
   }
 
   export type PersonaClubCreateNestedOneWithoutUsuarioInput = {
@@ -19542,6 +19296,94 @@ export namespace Prisma {
     delete?: PersonaClubWhereInput | boolean
     connect?: PersonaClubWhereUniqueInput
     update?: XOR<XOR<PersonaClubUpdateToOneWithWhereWithoutUsuarioInput, PersonaClubUpdateWithoutUsuarioInput>, PersonaClubUncheckedUpdateWithoutUsuarioInput>
+  }
+
+  export type MunicipioCreateNestedOneWithoutDepartamentoInput = {
+    create?: XOR<MunicipioCreateWithoutDepartamentoInput, MunicipioUncheckedCreateWithoutDepartamentoInput>
+    connectOrCreate?: MunicipioCreateOrConnectWithoutDepartamentoInput
+    connect?: MunicipioWhereUniqueInput
+  }
+
+  export type MunicipioUncheckedCreateNestedOneWithoutDepartamentoInput = {
+    create?: XOR<MunicipioCreateWithoutDepartamentoInput, MunicipioUncheckedCreateWithoutDepartamentoInput>
+    connectOrCreate?: MunicipioCreateOrConnectWithoutDepartamentoInput
+    connect?: MunicipioWhereUniqueInput
+  }
+
+  export type MunicipioUpdateOneWithoutDepartamentoNestedInput = {
+    create?: XOR<MunicipioCreateWithoutDepartamentoInput, MunicipioUncheckedCreateWithoutDepartamentoInput>
+    connectOrCreate?: MunicipioCreateOrConnectWithoutDepartamentoInput
+    upsert?: MunicipioUpsertWithoutDepartamentoInput
+    disconnect?: MunicipioWhereInput | boolean
+    delete?: MunicipioWhereInput | boolean
+    connect?: MunicipioWhereUniqueInput
+    update?: XOR<XOR<MunicipioUpdateToOneWithWhereWithoutDepartamentoInput, MunicipioUpdateWithoutDepartamentoInput>, MunicipioUncheckedUpdateWithoutDepartamentoInput>
+  }
+
+  export type MunicipioUncheckedUpdateOneWithoutDepartamentoNestedInput = {
+    create?: XOR<MunicipioCreateWithoutDepartamentoInput, MunicipioUncheckedCreateWithoutDepartamentoInput>
+    connectOrCreate?: MunicipioCreateOrConnectWithoutDepartamentoInput
+    upsert?: MunicipioUpsertWithoutDepartamentoInput
+    disconnect?: MunicipioWhereInput | boolean
+    delete?: MunicipioWhereInput | boolean
+    connect?: MunicipioWhereUniqueInput
+    update?: XOR<XOR<MunicipioUpdateToOneWithWhereWithoutDepartamentoInput, MunicipioUpdateWithoutDepartamentoInput>, MunicipioUncheckedUpdateWithoutDepartamentoInput>
+  }
+
+  export type PersonaClubCreateNestedManyWithoutMunicipioInput = {
+    create?: XOR<PersonaClubCreateWithoutMunicipioInput, PersonaClubUncheckedCreateWithoutMunicipioInput> | PersonaClubCreateWithoutMunicipioInput[] | PersonaClubUncheckedCreateWithoutMunicipioInput[]
+    connectOrCreate?: PersonaClubCreateOrConnectWithoutMunicipioInput | PersonaClubCreateOrConnectWithoutMunicipioInput[]
+    createMany?: PersonaClubCreateManyMunicipioInputEnvelope
+    connect?: PersonaClubWhereUniqueInput | PersonaClubWhereUniqueInput[]
+  }
+
+  export type DepartamentoCreateNestedOneWithoutMunicipioInput = {
+    create?: XOR<DepartamentoCreateWithoutMunicipioInput, DepartamentoUncheckedCreateWithoutMunicipioInput>
+    connectOrCreate?: DepartamentoCreateOrConnectWithoutMunicipioInput
+    connect?: DepartamentoWhereUniqueInput
+  }
+
+  export type PersonaClubUncheckedCreateNestedManyWithoutMunicipioInput = {
+    create?: XOR<PersonaClubCreateWithoutMunicipioInput, PersonaClubUncheckedCreateWithoutMunicipioInput> | PersonaClubCreateWithoutMunicipioInput[] | PersonaClubUncheckedCreateWithoutMunicipioInput[]
+    connectOrCreate?: PersonaClubCreateOrConnectWithoutMunicipioInput | PersonaClubCreateOrConnectWithoutMunicipioInput[]
+    createMany?: PersonaClubCreateManyMunicipioInputEnvelope
+    connect?: PersonaClubWhereUniqueInput | PersonaClubWhereUniqueInput[]
+  }
+
+  export type PersonaClubUpdateManyWithoutMunicipioNestedInput = {
+    create?: XOR<PersonaClubCreateWithoutMunicipioInput, PersonaClubUncheckedCreateWithoutMunicipioInput> | PersonaClubCreateWithoutMunicipioInput[] | PersonaClubUncheckedCreateWithoutMunicipioInput[]
+    connectOrCreate?: PersonaClubCreateOrConnectWithoutMunicipioInput | PersonaClubCreateOrConnectWithoutMunicipioInput[]
+    upsert?: PersonaClubUpsertWithWhereUniqueWithoutMunicipioInput | PersonaClubUpsertWithWhereUniqueWithoutMunicipioInput[]
+    createMany?: PersonaClubCreateManyMunicipioInputEnvelope
+    set?: PersonaClubWhereUniqueInput | PersonaClubWhereUniqueInput[]
+    disconnect?: PersonaClubWhereUniqueInput | PersonaClubWhereUniqueInput[]
+    delete?: PersonaClubWhereUniqueInput | PersonaClubWhereUniqueInput[]
+    connect?: PersonaClubWhereUniqueInput | PersonaClubWhereUniqueInput[]
+    update?: PersonaClubUpdateWithWhereUniqueWithoutMunicipioInput | PersonaClubUpdateWithWhereUniqueWithoutMunicipioInput[]
+    updateMany?: PersonaClubUpdateManyWithWhereWithoutMunicipioInput | PersonaClubUpdateManyWithWhereWithoutMunicipioInput[]
+    deleteMany?: PersonaClubScalarWhereInput | PersonaClubScalarWhereInput[]
+  }
+
+  export type DepartamentoUpdateOneRequiredWithoutMunicipioNestedInput = {
+    create?: XOR<DepartamentoCreateWithoutMunicipioInput, DepartamentoUncheckedCreateWithoutMunicipioInput>
+    connectOrCreate?: DepartamentoCreateOrConnectWithoutMunicipioInput
+    upsert?: DepartamentoUpsertWithoutMunicipioInput
+    connect?: DepartamentoWhereUniqueInput
+    update?: XOR<XOR<DepartamentoUpdateToOneWithWhereWithoutMunicipioInput, DepartamentoUpdateWithoutMunicipioInput>, DepartamentoUncheckedUpdateWithoutMunicipioInput>
+  }
+
+  export type PersonaClubUncheckedUpdateManyWithoutMunicipioNestedInput = {
+    create?: XOR<PersonaClubCreateWithoutMunicipioInput, PersonaClubUncheckedCreateWithoutMunicipioInput> | PersonaClubCreateWithoutMunicipioInput[] | PersonaClubUncheckedCreateWithoutMunicipioInput[]
+    connectOrCreate?: PersonaClubCreateOrConnectWithoutMunicipioInput | PersonaClubCreateOrConnectWithoutMunicipioInput[]
+    upsert?: PersonaClubUpsertWithWhereUniqueWithoutMunicipioInput | PersonaClubUpsertWithWhereUniqueWithoutMunicipioInput[]
+    createMany?: PersonaClubCreateManyMunicipioInputEnvelope
+    set?: PersonaClubWhereUniqueInput | PersonaClubWhereUniqueInput[]
+    disconnect?: PersonaClubWhereUniqueInput | PersonaClubWhereUniqueInput[]
+    delete?: PersonaClubWhereUniqueInput | PersonaClubWhereUniqueInput[]
+    connect?: PersonaClubWhereUniqueInput | PersonaClubWhereUniqueInput[]
+    update?: PersonaClubUpdateWithWhereUniqueWithoutMunicipioInput | PersonaClubUpdateWithWhereUniqueWithoutMunicipioInput[]
+    updateMany?: PersonaClubUpdateManyWithWhereWithoutMunicipioInput | PersonaClubUpdateManyWithWhereWithoutMunicipioInput[]
+    deleteMany?: PersonaClubScalarWhereInput | PersonaClubScalarWhereInput[]
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -19784,75 +19626,87 @@ export namespace Prisma {
     _max?: NestedDecimalNullableFilter<$PrismaModel>
   }
 
-  export type GestionAdminCreateWithoutCargoInput = {
-    fechaInicio?: Date | string | null
-    fechaFin?: Date | string | null
+  export type DeportistaCreateWithoutCategoriaInput = {
     activo?: boolean | null
-    tutor?: TutorCreateNestedOneWithoutGestionAdminInput
-    deportista?: DeportistaCreateNestedOneWithoutGestionAdminInput
+    tutor?: TutorCreateNestedOneWithoutDeportistaInput
+    personaClub: PersonaClubCreateNestedOneWithoutDeportistaInput
+    desercionDeportista?: DesercionDeportistaCreateNestedOneWithoutDeportistaInput
+    pagosDeportista?: PagoDeportistaCreateNestedManyWithoutDeportistaInput
   }
 
-  export type GestionAdminUncheckedCreateWithoutCargoInput = {
+  export type DeportistaUncheckedCreateWithoutCategoriaInput = {
     id?: number
     idTutor?: number | null
-    idDeportista?: number | null
-    fechaInicio?: Date | string | null
-    fechaFin?: Date | string | null
+    idPersonaClub: number
     activo?: boolean | null
+    desercionDeportista?: DesercionDeportistaUncheckedCreateNestedOneWithoutDeportistaInput
+    pagosDeportista?: PagoDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
   }
 
-  export type GestionAdminCreateOrConnectWithoutCargoInput = {
-    where: GestionAdminWhereUniqueInput
-    create: XOR<GestionAdminCreateWithoutCargoInput, GestionAdminUncheckedCreateWithoutCargoInput>
+  export type DeportistaCreateOrConnectWithoutCategoriaInput = {
+    where: DeportistaWhereUniqueInput
+    create: XOR<DeportistaCreateWithoutCategoriaInput, DeportistaUncheckedCreateWithoutCategoriaInput>
   }
 
-  export type GestionAdminCreateManyCargoInputEnvelope = {
-    data: GestionAdminCreateManyCargoInput | GestionAdminCreateManyCargoInput[]
-    skipDuplicates?: boolean
+  export type DeportistaUpsertWithoutCategoriaInput = {
+    update: XOR<DeportistaUpdateWithoutCategoriaInput, DeportistaUncheckedUpdateWithoutCategoriaInput>
+    create: XOR<DeportistaCreateWithoutCategoriaInput, DeportistaUncheckedCreateWithoutCategoriaInput>
+    where?: DeportistaWhereInput
   }
 
-  export type GestionAdminUpsertWithWhereUniqueWithoutCargoInput = {
-    where: GestionAdminWhereUniqueInput
-    update: XOR<GestionAdminUpdateWithoutCargoInput, GestionAdminUncheckedUpdateWithoutCargoInput>
-    create: XOR<GestionAdminCreateWithoutCargoInput, GestionAdminUncheckedCreateWithoutCargoInput>
+  export type DeportistaUpdateToOneWithWhereWithoutCategoriaInput = {
+    where?: DeportistaWhereInput
+    data: XOR<DeportistaUpdateWithoutCategoriaInput, DeportistaUncheckedUpdateWithoutCategoriaInput>
   }
 
-  export type GestionAdminUpdateWithWhereUniqueWithoutCargoInput = {
-    where: GestionAdminWhereUniqueInput
-    data: XOR<GestionAdminUpdateWithoutCargoInput, GestionAdminUncheckedUpdateWithoutCargoInput>
+  export type DeportistaUpdateWithoutCategoriaInput = {
+    activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    tutor?: TutorUpdateOneWithoutDeportistaNestedInput
+    personaClub?: PersonaClubUpdateOneRequiredWithoutDeportistaNestedInput
+    desercionDeportista?: DesercionDeportistaUpdateOneWithoutDeportistaNestedInput
+    pagosDeportista?: PagoDeportistaUpdateManyWithoutDeportistaNestedInput
   }
 
-  export type GestionAdminUpdateManyWithWhereWithoutCargoInput = {
-    where: GestionAdminScalarWhereInput
-    data: XOR<GestionAdminUpdateManyMutationInput, GestionAdminUncheckedUpdateManyWithoutCargoInput>
+  export type DeportistaUncheckedUpdateWithoutCategoriaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    idTutor?: NullableIntFieldUpdateOperationsInput | number | null
+    idPersonaClub?: IntFieldUpdateOperationsInput | number
+    activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    desercionDeportista?: DesercionDeportistaUncheckedUpdateOneWithoutDeportistaNestedInput
+    pagosDeportista?: PagoDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
   }
 
-  export type GestionAdminScalarWhereInput = {
-    AND?: GestionAdminScalarWhereInput | GestionAdminScalarWhereInput[]
-    OR?: GestionAdminScalarWhereInput[]
-    NOT?: GestionAdminScalarWhereInput | GestionAdminScalarWhereInput[]
-    id?: IntFilter<"GestionAdmin"> | number
-    idTutor?: IntNullableFilter<"GestionAdmin"> | number | null
-    idDeportista?: IntNullableFilter<"GestionAdmin"> | number | null
-    idCargo?: IntNullableFilter<"GestionAdmin"> | number | null
-    fechaInicio?: DateTimeNullableFilter<"GestionAdmin"> | Date | string | null
-    fechaFin?: DateTimeNullableFilter<"GestionAdmin"> | Date | string | null
-    activo?: BoolNullableFilter<"GestionAdmin"> | boolean | null
+  export type MunicipioCreateWithoutPersonaClubInput = {
+    nombre?: string | null
+    estado?: boolean | null
+    departamento: DepartamentoCreateNestedOneWithoutMunicipioInput
+  }
+
+  export type MunicipioUncheckedCreateWithoutPersonaClubInput = {
+    id?: number
+    idDepartamento: number
+    nombre?: string | null
+    estado?: boolean | null
+  }
+
+  export type MunicipioCreateOrConnectWithoutPersonaClubInput = {
+    where: MunicipioWhereUniqueInput
+    create: XOR<MunicipioCreateWithoutPersonaClubInput, MunicipioUncheckedCreateWithoutPersonaClubInput>
   }
 
   export type EntrenadorCreateWithoutPersonaClubInput = {
-    idContactoEmergencia?: number | null
     fechaIngreso?: Date | string | null
     activo?: boolean | null
     contrato?: Uint8Array | null
+    contactosEmergencia?: ContactosEmergenciaCreateNestedManyWithoutEntrenadorInput
   }
 
   export type EntrenadorUncheckedCreateWithoutPersonaClubInput = {
     id?: number
-    idContactoEmergencia?: number | null
     fechaIngreso?: Date | string | null
     activo?: boolean | null
     contrato?: Uint8Array | null
+    contactosEmergencia?: ContactosEmergenciaUncheckedCreateNestedManyWithoutEntrenadorInput
   }
 
   export type EntrenadorCreateOrConnectWithoutPersonaClubInput = {
@@ -19861,12 +19715,11 @@ export namespace Prisma {
   }
 
   export type DeportistaCreateWithoutPersonaClubInput = {
-    idCategoria?: number | null
     activo?: boolean | null
     tutor?: TutorCreateNestedOneWithoutDeportistaInput
-    desercionDeportista?: DesercionDeportistaCreateNestedManyWithoutDeportistaInput
-    GestionAdmin?: GestionAdminCreateNestedManyWithoutDeportistaInput
-    PagoDeportista?: PagoDeportistaCreateNestedManyWithoutDeportistaInput
+    categoria?: CategoriaCreateNestedOneWithoutDeportistaInput
+    desercionDeportista?: DesercionDeportistaCreateNestedOneWithoutDeportistaInput
+    pagosDeportista?: PagoDeportistaCreateNestedManyWithoutDeportistaInput
   }
 
   export type DeportistaUncheckedCreateWithoutPersonaClubInput = {
@@ -19874,9 +19727,8 @@ export namespace Prisma {
     idTutor?: number | null
     idCategoria?: number | null
     activo?: boolean | null
-    desercionDeportista?: DesercionDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
-    GestionAdmin?: GestionAdminUncheckedCreateNestedManyWithoutDeportistaInput
-    PagoDeportista?: PagoDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
+    desercionDeportista?: DesercionDeportistaUncheckedCreateNestedOneWithoutDeportistaInput
+    pagosDeportista?: PagoDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
   }
 
   export type DeportistaCreateOrConnectWithoutPersonaClubInput = {
@@ -19902,6 +19754,30 @@ export namespace Prisma {
     create: XOR<UsuarioCreateWithoutPersonaInput, UsuarioUncheckedCreateWithoutPersonaInput>
   }
 
+  export type MunicipioUpsertWithoutPersonaClubInput = {
+    update: XOR<MunicipioUpdateWithoutPersonaClubInput, MunicipioUncheckedUpdateWithoutPersonaClubInput>
+    create: XOR<MunicipioCreateWithoutPersonaClubInput, MunicipioUncheckedCreateWithoutPersonaClubInput>
+    where?: MunicipioWhereInput
+  }
+
+  export type MunicipioUpdateToOneWithWhereWithoutPersonaClubInput = {
+    where?: MunicipioWhereInput
+    data: XOR<MunicipioUpdateWithoutPersonaClubInput, MunicipioUncheckedUpdateWithoutPersonaClubInput>
+  }
+
+  export type MunicipioUpdateWithoutPersonaClubInput = {
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    departamento?: DepartamentoUpdateOneRequiredWithoutMunicipioNestedInput
+  }
+
+  export type MunicipioUncheckedUpdateWithoutPersonaClubInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    idDepartamento?: IntFieldUpdateOperationsInput | number
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
   export type EntrenadorUpsertWithoutPersonaClubInput = {
     update: XOR<EntrenadorUpdateWithoutPersonaClubInput, EntrenadorUncheckedUpdateWithoutPersonaClubInput>
     create: XOR<EntrenadorCreateWithoutPersonaClubInput, EntrenadorUncheckedCreateWithoutPersonaClubInput>
@@ -19914,18 +19790,18 @@ export namespace Prisma {
   }
 
   export type EntrenadorUpdateWithoutPersonaClubInput = {
-    idContactoEmergencia?: NullableIntFieldUpdateOperationsInput | number | null
     fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    contactosEmergencia?: ContactosEmergenciaUpdateManyWithoutEntrenadorNestedInput
   }
 
   export type EntrenadorUncheckedUpdateWithoutPersonaClubInput = {
     id?: IntFieldUpdateOperationsInput | number
-    idContactoEmergencia?: NullableIntFieldUpdateOperationsInput | number | null
     fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    contactosEmergencia?: ContactosEmergenciaUncheckedUpdateManyWithoutEntrenadorNestedInput
   }
 
   export type DeportistaUpsertWithoutPersonaClubInput = {
@@ -19940,12 +19816,11 @@ export namespace Prisma {
   }
 
   export type DeportistaUpdateWithoutPersonaClubInput = {
-    idCategoria?: NullableIntFieldUpdateOperationsInput | number | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     tutor?: TutorUpdateOneWithoutDeportistaNestedInput
-    desercionDeportista?: DesercionDeportistaUpdateManyWithoutDeportistaNestedInput
-    GestionAdmin?: GestionAdminUpdateManyWithoutDeportistaNestedInput
-    PagoDeportista?: PagoDeportistaUpdateManyWithoutDeportistaNestedInput
+    categoria?: CategoriaUpdateOneWithoutDeportistaNestedInput
+    desercionDeportista?: DesercionDeportistaUpdateOneWithoutDeportistaNestedInput
+    pagosDeportista?: PagoDeportistaUpdateManyWithoutDeportistaNestedInput
   }
 
   export type DeportistaUncheckedUpdateWithoutPersonaClubInput = {
@@ -19953,9 +19828,8 @@ export namespace Prisma {
     idTutor?: NullableIntFieldUpdateOperationsInput | number | null
     idCategoria?: NullableIntFieldUpdateOperationsInput | number | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    desercionDeportista?: DesercionDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
-    GestionAdmin?: GestionAdminUncheckedUpdateManyWithoutDeportistaNestedInput
-    PagoDeportista?: PagoDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
+    desercionDeportista?: DesercionDeportistaUncheckedUpdateOneWithoutDeportistaNestedInput
+    pagosDeportista?: PagoDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
   }
 
   export type UsuarioUpsertWithoutPersonaInput = {
@@ -19982,9 +19856,81 @@ export namespace Prisma {
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
+  export type EntrenadorCreateWithoutContactosEmergenciaInput = {
+    fechaIngreso?: Date | string | null
+    activo?: boolean | null
+    contrato?: Uint8Array | null
+    personaClub: PersonaClubCreateNestedOneWithoutEntrenadorInput
+  }
+
+  export type EntrenadorUncheckedCreateWithoutContactosEmergenciaInput = {
+    id?: number
+    idPersonaClub: number
+    fechaIngreso?: Date | string | null
+    activo?: boolean | null
+    contrato?: Uint8Array | null
+  }
+
+  export type EntrenadorCreateOrConnectWithoutContactosEmergenciaInput = {
+    where: EntrenadorWhereUniqueInput
+    create: XOR<EntrenadorCreateWithoutContactosEmergenciaInput, EntrenadorUncheckedCreateWithoutContactosEmergenciaInput>
+  }
+
+  export type EntrenadorUpsertWithoutContactosEmergenciaInput = {
+    update: XOR<EntrenadorUpdateWithoutContactosEmergenciaInput, EntrenadorUncheckedUpdateWithoutContactosEmergenciaInput>
+    create: XOR<EntrenadorCreateWithoutContactosEmergenciaInput, EntrenadorUncheckedCreateWithoutContactosEmergenciaInput>
+    where?: EntrenadorWhereInput
+  }
+
+  export type EntrenadorUpdateToOneWithWhereWithoutContactosEmergenciaInput = {
+    where?: EntrenadorWhereInput
+    data: XOR<EntrenadorUpdateWithoutContactosEmergenciaInput, EntrenadorUncheckedUpdateWithoutContactosEmergenciaInput>
+  }
+
+  export type EntrenadorUpdateWithoutContactosEmergenciaInput = {
+    fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    personaClub?: PersonaClubUpdateOneRequiredWithoutEntrenadorNestedInput
+  }
+
+  export type EntrenadorUncheckedUpdateWithoutContactosEmergenciaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    idPersonaClub?: IntFieldUpdateOperationsInput | number
+    fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+  }
+
+  export type ContactosEmergenciaCreateWithoutEntrenadorInput = {
+    tipoDocumento: string
+    nombres?: string | null
+    apellidos?: string | null
+    correo?: string | null
+    telefono?: string | null
+  }
+
+  export type ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput = {
+    id?: number
+    tipoDocumento: string
+    nombres?: string | null
+    apellidos?: string | null
+    correo?: string | null
+    telefono?: string | null
+  }
+
+  export type ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput = {
+    where: ContactosEmergenciaWhereUniqueInput
+    create: XOR<ContactosEmergenciaCreateWithoutEntrenadorInput, ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput>
+  }
+
+  export type ContactosEmergenciaCreateManyEntrenadorInputEnvelope = {
+    data: ContactosEmergenciaCreateManyEntrenadorInput | ContactosEmergenciaCreateManyEntrenadorInput[]
+    skipDuplicates?: boolean
+  }
+
   export type PersonaClubCreateWithoutEntrenadorInput = {
     tipoDocumento: string
-    idMunicipio: number
     nombres: string
     apellidos: string
     fechaNacimento?: Date | string | null
@@ -19998,6 +19944,7 @@ export namespace Prisma {
     tallaPantaloneta?: string | null
     genero?: string | null
     direccion?: string | null
+    municipio: MunicipioCreateNestedOneWithoutPersonaClubInput
     deportista?: DeportistaCreateNestedOneWithoutPersonaClubInput
     usuario?: UsuarioCreateNestedOneWithoutPersonaInput
   }
@@ -20028,6 +19975,35 @@ export namespace Prisma {
     create: XOR<PersonaClubCreateWithoutEntrenadorInput, PersonaClubUncheckedCreateWithoutEntrenadorInput>
   }
 
+  export type ContactosEmergenciaUpsertWithWhereUniqueWithoutEntrenadorInput = {
+    where: ContactosEmergenciaWhereUniqueInput
+    update: XOR<ContactosEmergenciaUpdateWithoutEntrenadorInput, ContactosEmergenciaUncheckedUpdateWithoutEntrenadorInput>
+    create: XOR<ContactosEmergenciaCreateWithoutEntrenadorInput, ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput>
+  }
+
+  export type ContactosEmergenciaUpdateWithWhereUniqueWithoutEntrenadorInput = {
+    where: ContactosEmergenciaWhereUniqueInput
+    data: XOR<ContactosEmergenciaUpdateWithoutEntrenadorInput, ContactosEmergenciaUncheckedUpdateWithoutEntrenadorInput>
+  }
+
+  export type ContactosEmergenciaUpdateManyWithWhereWithoutEntrenadorInput = {
+    where: ContactosEmergenciaScalarWhereInput
+    data: XOR<ContactosEmergenciaUpdateManyMutationInput, ContactosEmergenciaUncheckedUpdateManyWithoutEntrenadorInput>
+  }
+
+  export type ContactosEmergenciaScalarWhereInput = {
+    AND?: ContactosEmergenciaScalarWhereInput | ContactosEmergenciaScalarWhereInput[]
+    OR?: ContactosEmergenciaScalarWhereInput[]
+    NOT?: ContactosEmergenciaScalarWhereInput | ContactosEmergenciaScalarWhereInput[]
+    id?: IntFilter<"ContactosEmergencia"> | number
+    tipoDocumento?: StringFilter<"ContactosEmergencia"> | string
+    idEntrenador?: IntNullableFilter<"ContactosEmergencia"> | number | null
+    nombres?: StringNullableFilter<"ContactosEmergencia"> | string | null
+    apellidos?: StringNullableFilter<"ContactosEmergencia"> | string | null
+    correo?: StringNullableFilter<"ContactosEmergencia"> | string | null
+    telefono?: StringNullableFilter<"ContactosEmergencia"> | string | null
+  }
+
   export type PersonaClubUpsertWithoutEntrenadorInput = {
     update: XOR<PersonaClubUpdateWithoutEntrenadorInput, PersonaClubUncheckedUpdateWithoutEntrenadorInput>
     create: XOR<PersonaClubCreateWithoutEntrenadorInput, PersonaClubUncheckedCreateWithoutEntrenadorInput>
@@ -20041,7 +20017,6 @@ export namespace Prisma {
 
   export type PersonaClubUpdateWithoutEntrenadorInput = {
     tipoDocumento?: StringFieldUpdateOperationsInput | string
-    idMunicipio?: IntFieldUpdateOperationsInput | number
     nombres?: StringFieldUpdateOperationsInput | string
     apellidos?: StringFieldUpdateOperationsInput | string
     fechaNacimento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -20055,6 +20030,7 @@ export namespace Prisma {
     tallaPantaloneta?: NullableStringFieldUpdateOperationsInput | string | null
     genero?: NullableStringFieldUpdateOperationsInput | string | null
     direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    municipio?: MunicipioUpdateOneRequiredWithoutPersonaClubNestedInput
     deportista?: DeportistaUpdateOneWithoutPersonaClubNestedInput
     usuario?: UsuarioUpdateOneWithoutPersonaNestedInput
   }
@@ -20081,12 +20057,11 @@ export namespace Prisma {
   }
 
   export type DeportistaCreateWithoutTutorInput = {
-    idCategoria?: number | null
     activo?: boolean | null
     personaClub: PersonaClubCreateNestedOneWithoutDeportistaInput
-    desercionDeportista?: DesercionDeportistaCreateNestedManyWithoutDeportistaInput
-    GestionAdmin?: GestionAdminCreateNestedManyWithoutDeportistaInput
-    PagoDeportista?: PagoDeportistaCreateNestedManyWithoutDeportistaInput
+    categoria?: CategoriaCreateNestedOneWithoutDeportistaInput
+    desercionDeportista?: DesercionDeportistaCreateNestedOneWithoutDeportistaInput
+    pagosDeportista?: PagoDeportistaCreateNestedManyWithoutDeportistaInput
   }
 
   export type DeportistaUncheckedCreateWithoutTutorInput = {
@@ -20094,9 +20069,8 @@ export namespace Prisma {
     idPersonaClub: number
     idCategoria?: number | null
     activo?: boolean | null
-    desercionDeportista?: DesercionDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
-    GestionAdmin?: GestionAdminUncheckedCreateNestedManyWithoutDeportistaInput
-    PagoDeportista?: PagoDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
+    desercionDeportista?: DesercionDeportistaUncheckedCreateNestedOneWithoutDeportistaInput
+    pagosDeportista?: PagoDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
   }
 
   export type DeportistaCreateOrConnectWithoutTutorInput = {
@@ -20104,84 +20078,58 @@ export namespace Prisma {
     create: XOR<DeportistaCreateWithoutTutorInput, DeportistaUncheckedCreateWithoutTutorInput>
   }
 
-  export type DeportistaCreateManyTutorInputEnvelope = {
-    data: DeportistaCreateManyTutorInput | DeportistaCreateManyTutorInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type GestionAdminCreateWithoutTutorInput = {
-    fechaInicio?: Date | string | null
-    fechaFin?: Date | string | null
-    activo?: boolean | null
-    deportista?: DeportistaCreateNestedOneWithoutGestionAdminInput
-    cargo?: CargosAdminCreateNestedOneWithoutGestionAdminInput
-  }
-
-  export type GestionAdminUncheckedCreateWithoutTutorInput = {
-    id?: number
-    idDeportista?: number | null
-    idCargo?: number | null
-    fechaInicio?: Date | string | null
-    fechaFin?: Date | string | null
-    activo?: boolean | null
-  }
-
-  export type GestionAdminCreateOrConnectWithoutTutorInput = {
-    where: GestionAdminWhereUniqueInput
-    create: XOR<GestionAdminCreateWithoutTutorInput, GestionAdminUncheckedCreateWithoutTutorInput>
-  }
-
-  export type GestionAdminCreateManyTutorInputEnvelope = {
-    data: GestionAdminCreateManyTutorInput | GestionAdminCreateManyTutorInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type DeportistaUpsertWithWhereUniqueWithoutTutorInput = {
-    where: DeportistaWhereUniqueInput
+  export type DeportistaUpsertWithoutTutorInput = {
     update: XOR<DeportistaUpdateWithoutTutorInput, DeportistaUncheckedUpdateWithoutTutorInput>
     create: XOR<DeportistaCreateWithoutTutorInput, DeportistaUncheckedCreateWithoutTutorInput>
+    where?: DeportistaWhereInput
   }
 
-  export type DeportistaUpdateWithWhereUniqueWithoutTutorInput = {
-    where: DeportistaWhereUniqueInput
+  export type DeportistaUpdateToOneWithWhereWithoutTutorInput = {
+    where?: DeportistaWhereInput
     data: XOR<DeportistaUpdateWithoutTutorInput, DeportistaUncheckedUpdateWithoutTutorInput>
   }
 
-  export type DeportistaUpdateManyWithWhereWithoutTutorInput = {
-    where: DeportistaScalarWhereInput
-    data: XOR<DeportistaUpdateManyMutationInput, DeportistaUncheckedUpdateManyWithoutTutorInput>
+  export type DeportistaUpdateWithoutTutorInput = {
+    activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    personaClub?: PersonaClubUpdateOneRequiredWithoutDeportistaNestedInput
+    categoria?: CategoriaUpdateOneWithoutDeportistaNestedInput
+    desercionDeportista?: DesercionDeportistaUpdateOneWithoutDeportistaNestedInput
+    pagosDeportista?: PagoDeportistaUpdateManyWithoutDeportistaNestedInput
   }
 
-  export type DeportistaScalarWhereInput = {
-    AND?: DeportistaScalarWhereInput | DeportistaScalarWhereInput[]
-    OR?: DeportistaScalarWhereInput[]
-    NOT?: DeportistaScalarWhereInput | DeportistaScalarWhereInput[]
-    id?: IntFilter<"Deportista"> | number
-    idTutor?: IntNullableFilter<"Deportista"> | number | null
-    idPersonaClub?: IntFilter<"Deportista"> | number
-    idCategoria?: IntNullableFilter<"Deportista"> | number | null
-    activo?: BoolNullableFilter<"Deportista"> | boolean | null
+  export type DeportistaUncheckedUpdateWithoutTutorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    idPersonaClub?: IntFieldUpdateOperationsInput | number
+    idCategoria?: NullableIntFieldUpdateOperationsInput | number | null
+    activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    desercionDeportista?: DesercionDeportistaUncheckedUpdateOneWithoutDeportistaNestedInput
+    pagosDeportista?: PagoDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
   }
 
-  export type GestionAdminUpsertWithWhereUniqueWithoutTutorInput = {
-    where: GestionAdminWhereUniqueInput
-    update: XOR<GestionAdminUpdateWithoutTutorInput, GestionAdminUncheckedUpdateWithoutTutorInput>
-    create: XOR<GestionAdminCreateWithoutTutorInput, GestionAdminUncheckedCreateWithoutTutorInput>
+  export type TutorCreateWithoutDeportistaInput = {
+    tipoDocumento: string
+    nombres?: string | null
+    apellidos?: string | null
+    correo?: string | null
+    telefono?: string | null
   }
 
-  export type GestionAdminUpdateWithWhereUniqueWithoutTutorInput = {
-    where: GestionAdminWhereUniqueInput
-    data: XOR<GestionAdminUpdateWithoutTutorInput, GestionAdminUncheckedUpdateWithoutTutorInput>
+  export type TutorUncheckedCreateWithoutDeportistaInput = {
+    id?: number
+    tipoDocumento: string
+    nombres?: string | null
+    apellidos?: string | null
+    correo?: string | null
+    telefono?: string | null
   }
 
-  export type GestionAdminUpdateManyWithWhereWithoutTutorInput = {
-    where: GestionAdminScalarWhereInput
-    data: XOR<GestionAdminUpdateManyMutationInput, GestionAdminUncheckedUpdateManyWithoutTutorInput>
+  export type TutorCreateOrConnectWithoutDeportistaInput = {
+    where: TutorWhereUniqueInput
+    create: XOR<TutorCreateWithoutDeportistaInput, TutorUncheckedCreateWithoutDeportistaInput>
   }
 
   export type PersonaClubCreateWithoutDeportistaInput = {
     tipoDocumento: string
-    idMunicipio: number
     nombres: string
     apellidos: string
     fechaNacimento?: Date | string | null
@@ -20195,6 +20143,7 @@ export namespace Prisma {
     tallaPantaloneta?: string | null
     genero?: string | null
     direccion?: string | null
+    municipio: MunicipioCreateNestedOneWithoutPersonaClubInput
     entrenador?: EntrenadorCreateNestedOneWithoutPersonaClubInput
     usuario?: UsuarioCreateNestedOneWithoutPersonaInput
   }
@@ -20225,28 +20174,18 @@ export namespace Prisma {
     create: XOR<PersonaClubCreateWithoutDeportistaInput, PersonaClubUncheckedCreateWithoutDeportistaInput>
   }
 
-  export type TutorCreateWithoutDeportistaInput = {
-    tipoDocumento: string
-    nombres?: string | null
-    apellidos?: string | null
-    correo?: string | null
-    telefono?: string | null
-    GestionAdmin?: GestionAdminCreateNestedManyWithoutTutorInput
+  export type CategoriaCreateWithoutDeportistaInput = {
+    nombre?: string | null
   }
 
-  export type TutorUncheckedCreateWithoutDeportistaInput = {
+  export type CategoriaUncheckedCreateWithoutDeportistaInput = {
     id?: number
-    tipoDocumento: string
-    nombres?: string | null
-    apellidos?: string | null
-    correo?: string | null
-    telefono?: string | null
-    GestionAdmin?: GestionAdminUncheckedCreateNestedManyWithoutTutorInput
+    nombre?: string | null
   }
 
-  export type TutorCreateOrConnectWithoutDeportistaInput = {
-    where: TutorWhereUniqueInput
-    create: XOR<TutorCreateWithoutDeportistaInput, TutorUncheckedCreateWithoutDeportistaInput>
+  export type CategoriaCreateOrConnectWithoutDeportistaInput = {
+    where: CategoriaWhereUniqueInput
+    create: XOR<CategoriaCreateWithoutDeportistaInput, CategoriaUncheckedCreateWithoutDeportistaInput>
   }
 
   export type DesercionDeportistaCreateWithoutDeportistaInput = {
@@ -20265,38 +20204,6 @@ export namespace Prisma {
   export type DesercionDeportistaCreateOrConnectWithoutDeportistaInput = {
     where: DesercionDeportistaWhereUniqueInput
     create: XOR<DesercionDeportistaCreateWithoutDeportistaInput, DesercionDeportistaUncheckedCreateWithoutDeportistaInput>
-  }
-
-  export type DesercionDeportistaCreateManyDeportistaInputEnvelope = {
-    data: DesercionDeportistaCreateManyDeportistaInput | DesercionDeportistaCreateManyDeportistaInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type GestionAdminCreateWithoutDeportistaInput = {
-    fechaInicio?: Date | string | null
-    fechaFin?: Date | string | null
-    activo?: boolean | null
-    tutor?: TutorCreateNestedOneWithoutGestionAdminInput
-    cargo?: CargosAdminCreateNestedOneWithoutGestionAdminInput
-  }
-
-  export type GestionAdminUncheckedCreateWithoutDeportistaInput = {
-    id?: number
-    idTutor?: number | null
-    idCargo?: number | null
-    fechaInicio?: Date | string | null
-    fechaFin?: Date | string | null
-    activo?: boolean | null
-  }
-
-  export type GestionAdminCreateOrConnectWithoutDeportistaInput = {
-    where: GestionAdminWhereUniqueInput
-    create: XOR<GestionAdminCreateWithoutDeportistaInput, GestionAdminUncheckedCreateWithoutDeportistaInput>
-  }
-
-  export type GestionAdminCreateManyDeportistaInputEnvelope = {
-    data: GestionAdminCreateManyDeportistaInput | GestionAdminCreateManyDeportistaInput[]
-    skipDuplicates?: boolean
   }
 
   export type PagoDeportistaCreateWithoutDeportistaInput = {
@@ -20322,6 +20229,34 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type TutorUpsertWithoutDeportistaInput = {
+    update: XOR<TutorUpdateWithoutDeportistaInput, TutorUncheckedUpdateWithoutDeportistaInput>
+    create: XOR<TutorCreateWithoutDeportistaInput, TutorUncheckedCreateWithoutDeportistaInput>
+    where?: TutorWhereInput
+  }
+
+  export type TutorUpdateToOneWithWhereWithoutDeportistaInput = {
+    where?: TutorWhereInput
+    data: XOR<TutorUpdateWithoutDeportistaInput, TutorUncheckedUpdateWithoutDeportistaInput>
+  }
+
+  export type TutorUpdateWithoutDeportistaInput = {
+    tipoDocumento?: StringFieldUpdateOperationsInput | string
+    nombres?: NullableStringFieldUpdateOperationsInput | string | null
+    apellidos?: NullableStringFieldUpdateOperationsInput | string | null
+    correo?: NullableStringFieldUpdateOperationsInput | string | null
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TutorUncheckedUpdateWithoutDeportistaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tipoDocumento?: StringFieldUpdateOperationsInput | string
+    nombres?: NullableStringFieldUpdateOperationsInput | string | null
+    apellidos?: NullableStringFieldUpdateOperationsInput | string | null
+    correo?: NullableStringFieldUpdateOperationsInput | string | null
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type PersonaClubUpsertWithoutDeportistaInput = {
     update: XOR<PersonaClubUpdateWithoutDeportistaInput, PersonaClubUncheckedUpdateWithoutDeportistaInput>
     create: XOR<PersonaClubCreateWithoutDeportistaInput, PersonaClubUncheckedCreateWithoutDeportistaInput>
@@ -20335,7 +20270,6 @@ export namespace Prisma {
 
   export type PersonaClubUpdateWithoutDeportistaInput = {
     tipoDocumento?: StringFieldUpdateOperationsInput | string
-    idMunicipio?: IntFieldUpdateOperationsInput | number
     nombres?: StringFieldUpdateOperationsInput | string
     apellidos?: StringFieldUpdateOperationsInput | string
     fechaNacimento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -20349,6 +20283,7 @@ export namespace Prisma {
     tallaPantaloneta?: NullableStringFieldUpdateOperationsInput | string | null
     genero?: NullableStringFieldUpdateOperationsInput | string | null
     direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    municipio?: MunicipioUpdateOneRequiredWithoutPersonaClubNestedInput
     entrenador?: EntrenadorUpdateOneWithoutPersonaClubNestedInput
     usuario?: UsuarioUpdateOneWithoutPersonaNestedInput
   }
@@ -20374,77 +20309,48 @@ export namespace Prisma {
     usuario?: UsuarioUncheckedUpdateOneWithoutPersonaNestedInput
   }
 
-  export type TutorUpsertWithoutDeportistaInput = {
-    update: XOR<TutorUpdateWithoutDeportistaInput, TutorUncheckedUpdateWithoutDeportistaInput>
-    create: XOR<TutorCreateWithoutDeportistaInput, TutorUncheckedCreateWithoutDeportistaInput>
-    where?: TutorWhereInput
+  export type CategoriaUpsertWithoutDeportistaInput = {
+    update: XOR<CategoriaUpdateWithoutDeportistaInput, CategoriaUncheckedUpdateWithoutDeportistaInput>
+    create: XOR<CategoriaCreateWithoutDeportistaInput, CategoriaUncheckedCreateWithoutDeportistaInput>
+    where?: CategoriaWhereInput
   }
 
-  export type TutorUpdateToOneWithWhereWithoutDeportistaInput = {
-    where?: TutorWhereInput
-    data: XOR<TutorUpdateWithoutDeportistaInput, TutorUncheckedUpdateWithoutDeportistaInput>
+  export type CategoriaUpdateToOneWithWhereWithoutDeportistaInput = {
+    where?: CategoriaWhereInput
+    data: XOR<CategoriaUpdateWithoutDeportistaInput, CategoriaUncheckedUpdateWithoutDeportistaInput>
   }
 
-  export type TutorUpdateWithoutDeportistaInput = {
-    tipoDocumento?: StringFieldUpdateOperationsInput | string
-    nombres?: NullableStringFieldUpdateOperationsInput | string | null
-    apellidos?: NullableStringFieldUpdateOperationsInput | string | null
-    correo?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    GestionAdmin?: GestionAdminUpdateManyWithoutTutorNestedInput
+  export type CategoriaUpdateWithoutDeportistaInput = {
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type TutorUncheckedUpdateWithoutDeportistaInput = {
+  export type CategoriaUncheckedUpdateWithoutDeportistaInput = {
     id?: IntFieldUpdateOperationsInput | number
-    tipoDocumento?: StringFieldUpdateOperationsInput | string
-    nombres?: NullableStringFieldUpdateOperationsInput | string | null
-    apellidos?: NullableStringFieldUpdateOperationsInput | string | null
-    correo?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    GestionAdmin?: GestionAdminUncheckedUpdateManyWithoutTutorNestedInput
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type DesercionDeportistaUpsertWithWhereUniqueWithoutDeportistaInput = {
-    where: DesercionDeportistaWhereUniqueInput
+  export type DesercionDeportistaUpsertWithoutDeportistaInput = {
     update: XOR<DesercionDeportistaUpdateWithoutDeportistaInput, DesercionDeportistaUncheckedUpdateWithoutDeportistaInput>
     create: XOR<DesercionDeportistaCreateWithoutDeportistaInput, DesercionDeportistaUncheckedCreateWithoutDeportistaInput>
+    where?: DesercionDeportistaWhereInput
   }
 
-  export type DesercionDeportistaUpdateWithWhereUniqueWithoutDeportistaInput = {
-    where: DesercionDeportistaWhereUniqueInput
+  export type DesercionDeportistaUpdateToOneWithWhereWithoutDeportistaInput = {
+    where?: DesercionDeportistaWhereInput
     data: XOR<DesercionDeportistaUpdateWithoutDeportistaInput, DesercionDeportistaUncheckedUpdateWithoutDeportistaInput>
   }
 
-  export type DesercionDeportistaUpdateManyWithWhereWithoutDeportistaInput = {
-    where: DesercionDeportistaScalarWhereInput
-    data: XOR<DesercionDeportistaUpdateManyMutationInput, DesercionDeportistaUncheckedUpdateManyWithoutDeportistaInput>
+  export type DesercionDeportistaUpdateWithoutDeportistaInput = {
+    fechaDesercion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    razon?: NullableStringFieldUpdateOperationsInput | string | null
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type DesercionDeportistaScalarWhereInput = {
-    AND?: DesercionDeportistaScalarWhereInput | DesercionDeportistaScalarWhereInput[]
-    OR?: DesercionDeportistaScalarWhereInput[]
-    NOT?: DesercionDeportistaScalarWhereInput | DesercionDeportistaScalarWhereInput[]
-    id?: IntFilter<"DesercionDeportista"> | number
-    idDeportista?: IntFilter<"DesercionDeportista"> | number
-    fechaDesercion?: DateTimeNullableFilter<"DesercionDeportista"> | Date | string | null
-    razon?: StringNullableFilter<"DesercionDeportista"> | string | null
-    descripcion?: StringNullableFilter<"DesercionDeportista"> | string | null
-  }
-
-  export type GestionAdminUpsertWithWhereUniqueWithoutDeportistaInput = {
-    where: GestionAdminWhereUniqueInput
-    update: XOR<GestionAdminUpdateWithoutDeportistaInput, GestionAdminUncheckedUpdateWithoutDeportistaInput>
-    create: XOR<GestionAdminCreateWithoutDeportistaInput, GestionAdminUncheckedCreateWithoutDeportistaInput>
-  }
-
-  export type GestionAdminUpdateWithWhereUniqueWithoutDeportistaInput = {
-    where: GestionAdminWhereUniqueInput
-    data: XOR<GestionAdminUpdateWithoutDeportistaInput, GestionAdminUncheckedUpdateWithoutDeportistaInput>
-  }
-
-  export type GestionAdminUpdateManyWithWhereWithoutDeportistaInput = {
-    where: GestionAdminScalarWhereInput
-    data: XOR<GestionAdminUpdateManyMutationInput, GestionAdminUncheckedUpdateManyWithoutDeportistaInput>
+  export type DesercionDeportistaUncheckedUpdateWithoutDeportistaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    fechaDesercion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    razon?: NullableStringFieldUpdateOperationsInput | string | null
+    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PagoDeportistaUpsertWithWhereUniqueWithoutDeportistaInput = {
@@ -20474,60 +20380,12 @@ export namespace Prisma {
     tipoPago?: StringNullableFilter<"PagoDeportista"> | string | null
   }
 
-  export type MunicipioCreateWithoutDepartamentoInput = {
-    nombre?: string | null
-    estado?: boolean | null
-  }
-
-  export type MunicipioUncheckedCreateWithoutDepartamentoInput = {
-    id?: number
-    nombre?: string | null
-    estado?: boolean | null
-  }
-
-  export type MunicipioCreateOrConnectWithoutDepartamentoInput = {
-    where: MunicipioWhereUniqueInput
-    create: XOR<MunicipioCreateWithoutDepartamentoInput, MunicipioUncheckedCreateWithoutDepartamentoInput>
-  }
-
-  export type MunicipioCreateManyDepartamentoInputEnvelope = {
-    data: MunicipioCreateManyDepartamentoInput | MunicipioCreateManyDepartamentoInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type MunicipioUpsertWithWhereUniqueWithoutDepartamentoInput = {
-    where: MunicipioWhereUniqueInput
-    update: XOR<MunicipioUpdateWithoutDepartamentoInput, MunicipioUncheckedUpdateWithoutDepartamentoInput>
-    create: XOR<MunicipioCreateWithoutDepartamentoInput, MunicipioUncheckedCreateWithoutDepartamentoInput>
-  }
-
-  export type MunicipioUpdateWithWhereUniqueWithoutDepartamentoInput = {
-    where: MunicipioWhereUniqueInput
-    data: XOR<MunicipioUpdateWithoutDepartamentoInput, MunicipioUncheckedUpdateWithoutDepartamentoInput>
-  }
-
-  export type MunicipioUpdateManyWithWhereWithoutDepartamentoInput = {
-    where: MunicipioScalarWhereInput
-    data: XOR<MunicipioUpdateManyMutationInput, MunicipioUncheckedUpdateManyWithoutDepartamentoInput>
-  }
-
-  export type MunicipioScalarWhereInput = {
-    AND?: MunicipioScalarWhereInput | MunicipioScalarWhereInput[]
-    OR?: MunicipioScalarWhereInput[]
-    NOT?: MunicipioScalarWhereInput | MunicipioScalarWhereInput[]
-    id?: IntFilter<"Municipio"> | number
-    idDepartamento?: IntFilter<"Municipio"> | number
-    nombre?: StringNullableFilter<"Municipio"> | string | null
-    estado?: BoolNullableFilter<"Municipio"> | boolean | null
-  }
-
   export type DeportistaCreateWithoutDesercionDeportistaInput = {
-    idCategoria?: number | null
     activo?: boolean | null
-    personaClub: PersonaClubCreateNestedOneWithoutDeportistaInput
     tutor?: TutorCreateNestedOneWithoutDeportistaInput
-    GestionAdmin?: GestionAdminCreateNestedManyWithoutDeportistaInput
-    PagoDeportista?: PagoDeportistaCreateNestedManyWithoutDeportistaInput
+    personaClub: PersonaClubCreateNestedOneWithoutDeportistaInput
+    categoria?: CategoriaCreateNestedOneWithoutDeportistaInput
+    pagosDeportista?: PagoDeportistaCreateNestedManyWithoutDeportistaInput
   }
 
   export type DeportistaUncheckedCreateWithoutDesercionDeportistaInput = {
@@ -20536,8 +20394,7 @@ export namespace Prisma {
     idPersonaClub: number
     idCategoria?: number | null
     activo?: boolean | null
-    GestionAdmin?: GestionAdminUncheckedCreateNestedManyWithoutDeportistaInput
-    PagoDeportista?: PagoDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
+    pagosDeportista?: PagoDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
   }
 
   export type DeportistaCreateOrConnectWithoutDesercionDeportistaInput = {
@@ -20557,12 +20414,11 @@ export namespace Prisma {
   }
 
   export type DeportistaUpdateWithoutDesercionDeportistaInput = {
-    idCategoria?: NullableIntFieldUpdateOperationsInput | number | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    personaClub?: PersonaClubUpdateOneRequiredWithoutDeportistaNestedInput
     tutor?: TutorUpdateOneWithoutDeportistaNestedInput
-    GestionAdmin?: GestionAdminUpdateManyWithoutDeportistaNestedInput
-    PagoDeportista?: PagoDeportistaUpdateManyWithoutDeportistaNestedInput
+    personaClub?: PersonaClubUpdateOneRequiredWithoutDeportistaNestedInput
+    categoria?: CategoriaUpdateOneWithoutDeportistaNestedInput
+    pagosDeportista?: PagoDeportistaUpdateManyWithoutDeportistaNestedInput
   }
 
   export type DeportistaUncheckedUpdateWithoutDesercionDeportistaInput = {
@@ -20571,243 +20427,61 @@ export namespace Prisma {
     idPersonaClub?: IntFieldUpdateOperationsInput | number
     idCategoria?: NullableIntFieldUpdateOperationsInput | number | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    GestionAdmin?: GestionAdminUncheckedUpdateManyWithoutDeportistaNestedInput
-    PagoDeportista?: PagoDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
+    pagosDeportista?: PagoDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
   }
 
-  export type TutorCreateWithoutGestionAdminInput = {
-    tipoDocumento: string
-    nombres?: string | null
-    apellidos?: string | null
-    correo?: string | null
-    telefono?: string | null
-    deportista?: DeportistaCreateNestedManyWithoutTutorInput
-  }
-
-  export type TutorUncheckedCreateWithoutGestionAdminInput = {
-    id?: number
-    tipoDocumento: string
-    nombres?: string | null
-    apellidos?: string | null
-    correo?: string | null
-    telefono?: string | null
-    deportista?: DeportistaUncheckedCreateNestedManyWithoutTutorInput
-  }
-
-  export type TutorCreateOrConnectWithoutGestionAdminInput = {
-    where: TutorWhereUniqueInput
-    create: XOR<TutorCreateWithoutGestionAdminInput, TutorUncheckedCreateWithoutGestionAdminInput>
-  }
-
-  export type DeportistaCreateWithoutGestionAdminInput = {
-    idCategoria?: number | null
+  export type DeportistaCreateWithoutPagosDeportistaInput = {
     activo?: boolean | null
-    personaClub: PersonaClubCreateNestedOneWithoutDeportistaInput
     tutor?: TutorCreateNestedOneWithoutDeportistaInput
-    desercionDeportista?: DesercionDeportistaCreateNestedManyWithoutDeportistaInput
-    PagoDeportista?: PagoDeportistaCreateNestedManyWithoutDeportistaInput
+    personaClub: PersonaClubCreateNestedOneWithoutDeportistaInput
+    categoria?: CategoriaCreateNestedOneWithoutDeportistaInput
+    desercionDeportista?: DesercionDeportistaCreateNestedOneWithoutDeportistaInput
   }
 
-  export type DeportistaUncheckedCreateWithoutGestionAdminInput = {
+  export type DeportistaUncheckedCreateWithoutPagosDeportistaInput = {
     id?: number
     idTutor?: number | null
     idPersonaClub: number
     idCategoria?: number | null
     activo?: boolean | null
-    desercionDeportista?: DesercionDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
-    PagoDeportista?: PagoDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
+    desercionDeportista?: DesercionDeportistaUncheckedCreateNestedOneWithoutDeportistaInput
   }
 
-  export type DeportistaCreateOrConnectWithoutGestionAdminInput = {
+  export type DeportistaCreateOrConnectWithoutPagosDeportistaInput = {
     where: DeportistaWhereUniqueInput
-    create: XOR<DeportistaCreateWithoutGestionAdminInput, DeportistaUncheckedCreateWithoutGestionAdminInput>
+    create: XOR<DeportistaCreateWithoutPagosDeportistaInput, DeportistaUncheckedCreateWithoutPagosDeportistaInput>
   }
 
-  export type CargosAdminCreateWithoutGestionAdminInput = {
-    nombre?: string | null
-  }
-
-  export type CargosAdminUncheckedCreateWithoutGestionAdminInput = {
-    id?: number
-    nombre?: string | null
-  }
-
-  export type CargosAdminCreateOrConnectWithoutGestionAdminInput = {
-    where: CargosAdminWhereUniqueInput
-    create: XOR<CargosAdminCreateWithoutGestionAdminInput, CargosAdminUncheckedCreateWithoutGestionAdminInput>
-  }
-
-  export type TutorUpsertWithoutGestionAdminInput = {
-    update: XOR<TutorUpdateWithoutGestionAdminInput, TutorUncheckedUpdateWithoutGestionAdminInput>
-    create: XOR<TutorCreateWithoutGestionAdminInput, TutorUncheckedCreateWithoutGestionAdminInput>
-    where?: TutorWhereInput
-  }
-
-  export type TutorUpdateToOneWithWhereWithoutGestionAdminInput = {
-    where?: TutorWhereInput
-    data: XOR<TutorUpdateWithoutGestionAdminInput, TutorUncheckedUpdateWithoutGestionAdminInput>
-  }
-
-  export type TutorUpdateWithoutGestionAdminInput = {
-    tipoDocumento?: StringFieldUpdateOperationsInput | string
-    nombres?: NullableStringFieldUpdateOperationsInput | string | null
-    apellidos?: NullableStringFieldUpdateOperationsInput | string | null
-    correo?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    deportista?: DeportistaUpdateManyWithoutTutorNestedInput
-  }
-
-  export type TutorUncheckedUpdateWithoutGestionAdminInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    tipoDocumento?: StringFieldUpdateOperationsInput | string
-    nombres?: NullableStringFieldUpdateOperationsInput | string | null
-    apellidos?: NullableStringFieldUpdateOperationsInput | string | null
-    correo?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    deportista?: DeportistaUncheckedUpdateManyWithoutTutorNestedInput
-  }
-
-  export type DeportistaUpsertWithoutGestionAdminInput = {
-    update: XOR<DeportistaUpdateWithoutGestionAdminInput, DeportistaUncheckedUpdateWithoutGestionAdminInput>
-    create: XOR<DeportistaCreateWithoutGestionAdminInput, DeportistaUncheckedCreateWithoutGestionAdminInput>
+  export type DeportistaUpsertWithoutPagosDeportistaInput = {
+    update: XOR<DeportistaUpdateWithoutPagosDeportistaInput, DeportistaUncheckedUpdateWithoutPagosDeportistaInput>
+    create: XOR<DeportistaCreateWithoutPagosDeportistaInput, DeportistaUncheckedCreateWithoutPagosDeportistaInput>
     where?: DeportistaWhereInput
   }
 
-  export type DeportistaUpdateToOneWithWhereWithoutGestionAdminInput = {
+  export type DeportistaUpdateToOneWithWhereWithoutPagosDeportistaInput = {
     where?: DeportistaWhereInput
-    data: XOR<DeportistaUpdateWithoutGestionAdminInput, DeportistaUncheckedUpdateWithoutGestionAdminInput>
+    data: XOR<DeportistaUpdateWithoutPagosDeportistaInput, DeportistaUncheckedUpdateWithoutPagosDeportistaInput>
   }
 
-  export type DeportistaUpdateWithoutGestionAdminInput = {
-    idCategoria?: NullableIntFieldUpdateOperationsInput | number | null
+  export type DeportistaUpdateWithoutPagosDeportistaInput = {
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    personaClub?: PersonaClubUpdateOneRequiredWithoutDeportistaNestedInput
     tutor?: TutorUpdateOneWithoutDeportistaNestedInput
-    desercionDeportista?: DesercionDeportistaUpdateManyWithoutDeportistaNestedInput
-    PagoDeportista?: PagoDeportistaUpdateManyWithoutDeportistaNestedInput
+    personaClub?: PersonaClubUpdateOneRequiredWithoutDeportistaNestedInput
+    categoria?: CategoriaUpdateOneWithoutDeportistaNestedInput
+    desercionDeportista?: DesercionDeportistaUpdateOneWithoutDeportistaNestedInput
   }
 
-  export type DeportistaUncheckedUpdateWithoutGestionAdminInput = {
+  export type DeportistaUncheckedUpdateWithoutPagosDeportistaInput = {
     id?: IntFieldUpdateOperationsInput | number
     idTutor?: NullableIntFieldUpdateOperationsInput | number | null
     idPersonaClub?: IntFieldUpdateOperationsInput | number
     idCategoria?: NullableIntFieldUpdateOperationsInput | number | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    desercionDeportista?: DesercionDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
-    PagoDeportista?: PagoDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
-  }
-
-  export type CargosAdminUpsertWithoutGestionAdminInput = {
-    update: XOR<CargosAdminUpdateWithoutGestionAdminInput, CargosAdminUncheckedUpdateWithoutGestionAdminInput>
-    create: XOR<CargosAdminCreateWithoutGestionAdminInput, CargosAdminUncheckedCreateWithoutGestionAdminInput>
-    where?: CargosAdminWhereInput
-  }
-
-  export type CargosAdminUpdateToOneWithWhereWithoutGestionAdminInput = {
-    where?: CargosAdminWhereInput
-    data: XOR<CargosAdminUpdateWithoutGestionAdminInput, CargosAdminUncheckedUpdateWithoutGestionAdminInput>
-  }
-
-  export type CargosAdminUpdateWithoutGestionAdminInput = {
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type CargosAdminUncheckedUpdateWithoutGestionAdminInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type DepartamentoCreateWithoutMunicipiosInput = {
-    nombre?: string | null
-  }
-
-  export type DepartamentoUncheckedCreateWithoutMunicipiosInput = {
-    id?: number
-    nombre?: string | null
-  }
-
-  export type DepartamentoCreateOrConnectWithoutMunicipiosInput = {
-    where: DepartamentoWhereUniqueInput
-    create: XOR<DepartamentoCreateWithoutMunicipiosInput, DepartamentoUncheckedCreateWithoutMunicipiosInput>
-  }
-
-  export type DepartamentoUpsertWithoutMunicipiosInput = {
-    update: XOR<DepartamentoUpdateWithoutMunicipiosInput, DepartamentoUncheckedUpdateWithoutMunicipiosInput>
-    create: XOR<DepartamentoCreateWithoutMunicipiosInput, DepartamentoUncheckedCreateWithoutMunicipiosInput>
-    where?: DepartamentoWhereInput
-  }
-
-  export type DepartamentoUpdateToOneWithWhereWithoutMunicipiosInput = {
-    where?: DepartamentoWhereInput
-    data: XOR<DepartamentoUpdateWithoutMunicipiosInput, DepartamentoUncheckedUpdateWithoutMunicipiosInput>
-  }
-
-  export type DepartamentoUpdateWithoutMunicipiosInput = {
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type DepartamentoUncheckedUpdateWithoutMunicipiosInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type DeportistaCreateWithoutPagoDeportistaInput = {
-    idCategoria?: number | null
-    activo?: boolean | null
-    personaClub: PersonaClubCreateNestedOneWithoutDeportistaInput
-    tutor?: TutorCreateNestedOneWithoutDeportistaInput
-    desercionDeportista?: DesercionDeportistaCreateNestedManyWithoutDeportistaInput
-    GestionAdmin?: GestionAdminCreateNestedManyWithoutDeportistaInput
-  }
-
-  export type DeportistaUncheckedCreateWithoutPagoDeportistaInput = {
-    id?: number
-    idTutor?: number | null
-    idPersonaClub: number
-    idCategoria?: number | null
-    activo?: boolean | null
-    desercionDeportista?: DesercionDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
-    GestionAdmin?: GestionAdminUncheckedCreateNestedManyWithoutDeportistaInput
-  }
-
-  export type DeportistaCreateOrConnectWithoutPagoDeportistaInput = {
-    where: DeportistaWhereUniqueInput
-    create: XOR<DeportistaCreateWithoutPagoDeportistaInput, DeportistaUncheckedCreateWithoutPagoDeportistaInput>
-  }
-
-  export type DeportistaUpsertWithoutPagoDeportistaInput = {
-    update: XOR<DeportistaUpdateWithoutPagoDeportistaInput, DeportistaUncheckedUpdateWithoutPagoDeportistaInput>
-    create: XOR<DeportistaCreateWithoutPagoDeportistaInput, DeportistaUncheckedCreateWithoutPagoDeportistaInput>
-    where?: DeportistaWhereInput
-  }
-
-  export type DeportistaUpdateToOneWithWhereWithoutPagoDeportistaInput = {
-    where?: DeportistaWhereInput
-    data: XOR<DeportistaUpdateWithoutPagoDeportistaInput, DeportistaUncheckedUpdateWithoutPagoDeportistaInput>
-  }
-
-  export type DeportistaUpdateWithoutPagoDeportistaInput = {
-    idCategoria?: NullableIntFieldUpdateOperationsInput | number | null
-    activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    personaClub?: PersonaClubUpdateOneRequiredWithoutDeportistaNestedInput
-    tutor?: TutorUpdateOneWithoutDeportistaNestedInput
-    desercionDeportista?: DesercionDeportistaUpdateManyWithoutDeportistaNestedInput
-    GestionAdmin?: GestionAdminUpdateManyWithoutDeportistaNestedInput
-  }
-
-  export type DeportistaUncheckedUpdateWithoutPagoDeportistaInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    idTutor?: NullableIntFieldUpdateOperationsInput | number | null
-    idPersonaClub?: IntFieldUpdateOperationsInput | number
-    idCategoria?: NullableIntFieldUpdateOperationsInput | number | null
-    activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    desercionDeportista?: DesercionDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
-    GestionAdmin?: GestionAdminUncheckedUpdateManyWithoutDeportistaNestedInput
+    desercionDeportista?: DesercionDeportistaUncheckedUpdateOneWithoutDeportistaNestedInput
   }
 
   export type PersonaClubCreateWithoutUsuarioInput = {
     tipoDocumento: string
-    idMunicipio: number
     nombres: string
     apellidos: string
     fechaNacimento?: Date | string | null
@@ -20821,6 +20495,7 @@ export namespace Prisma {
     tallaPantaloneta?: string | null
     genero?: string | null
     direccion?: string | null
+    municipio: MunicipioCreateNestedOneWithoutPersonaClubInput
     entrenador?: EntrenadorCreateNestedOneWithoutPersonaClubInput
     deportista?: DeportistaCreateNestedOneWithoutPersonaClubInput
   }
@@ -20864,7 +20539,6 @@ export namespace Prisma {
 
   export type PersonaClubUpdateWithoutUsuarioInput = {
     tipoDocumento?: StringFieldUpdateOperationsInput | string
-    idMunicipio?: IntFieldUpdateOperationsInput | number
     nombres?: StringFieldUpdateOperationsInput | string
     apellidos?: StringFieldUpdateOperationsInput | string
     fechaNacimento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -20878,6 +20552,7 @@ export namespace Prisma {
     tallaPantaloneta?: NullableStringFieldUpdateOperationsInput | string | null
     genero?: NullableStringFieldUpdateOperationsInput | string | null
     direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    municipio?: MunicipioUpdateOneRequiredWithoutPersonaClubNestedInput
     entrenador?: EntrenadorUpdateOneWithoutPersonaClubNestedInput
     deportista?: DeportistaUpdateOneWithoutPersonaClubNestedInput
   }
@@ -20903,123 +20578,204 @@ export namespace Prisma {
     deportista?: DeportistaUncheckedUpdateOneWithoutPersonaClubNestedInput
   }
 
-  export type GestionAdminCreateManyCargoInput = {
+  export type MunicipioCreateWithoutDepartamentoInput = {
+    nombre?: string | null
+    estado?: boolean | null
+    personaClub?: PersonaClubCreateNestedManyWithoutMunicipioInput
+  }
+
+  export type MunicipioUncheckedCreateWithoutDepartamentoInput = {
     id?: number
-    idTutor?: number | null
-    idDeportista?: number | null
-    fechaInicio?: Date | string | null
-    fechaFin?: Date | string | null
-    activo?: boolean | null
+    nombre?: string | null
+    estado?: boolean | null
+    personaClub?: PersonaClubUncheckedCreateNestedManyWithoutMunicipioInput
   }
 
-  export type GestionAdminUpdateWithoutCargoInput = {
-    fechaInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    fechaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    tutor?: TutorUpdateOneWithoutGestionAdminNestedInput
-    deportista?: DeportistaUpdateOneWithoutGestionAdminNestedInput
+  export type MunicipioCreateOrConnectWithoutDepartamentoInput = {
+    where: MunicipioWhereUniqueInput
+    create: XOR<MunicipioCreateWithoutDepartamentoInput, MunicipioUncheckedCreateWithoutDepartamentoInput>
   }
 
-  export type GestionAdminUncheckedUpdateWithoutCargoInput = {
+  export type MunicipioUpsertWithoutDepartamentoInput = {
+    update: XOR<MunicipioUpdateWithoutDepartamentoInput, MunicipioUncheckedUpdateWithoutDepartamentoInput>
+    create: XOR<MunicipioCreateWithoutDepartamentoInput, MunicipioUncheckedCreateWithoutDepartamentoInput>
+    where?: MunicipioWhereInput
+  }
+
+  export type MunicipioUpdateToOneWithWhereWithoutDepartamentoInput = {
+    where?: MunicipioWhereInput
+    data: XOR<MunicipioUpdateWithoutDepartamentoInput, MunicipioUncheckedUpdateWithoutDepartamentoInput>
+  }
+
+  export type MunicipioUpdateWithoutDepartamentoInput = {
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    personaClub?: PersonaClubUpdateManyWithoutMunicipioNestedInput
+  }
+
+  export type MunicipioUncheckedUpdateWithoutDepartamentoInput = {
     id?: IntFieldUpdateOperationsInput | number
-    idTutor?: NullableIntFieldUpdateOperationsInput | number | null
-    idDeportista?: NullableIntFieldUpdateOperationsInput | number | null
-    fechaInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    fechaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    personaClub?: PersonaClubUncheckedUpdateManyWithoutMunicipioNestedInput
   }
 
-  export type GestionAdminUncheckedUpdateManyWithoutCargoInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    idTutor?: NullableIntFieldUpdateOperationsInput | number | null
-    idDeportista?: NullableIntFieldUpdateOperationsInput | number | null
-    fechaInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    fechaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  export type PersonaClubCreateWithoutMunicipioInput = {
+    tipoDocumento: string
+    nombres: string
+    apellidos: string
+    fechaNacimento?: Date | string | null
+    tipoRh?: string | null
+    peso?: number | null
+    altura?: number | null
+    correo: string
+    numeroTelefono?: number | null
+    tallaCamisa?: string | null
+    tallaCalzado?: string | null
+    tallaPantaloneta?: string | null
+    genero?: string | null
+    direccion?: string | null
+    entrenador?: EntrenadorCreateNestedOneWithoutPersonaClubInput
+    deportista?: DeportistaCreateNestedOneWithoutPersonaClubInput
+    usuario?: UsuarioCreateNestedOneWithoutPersonaInput
   }
 
-  export type DeportistaCreateManyTutorInput = {
+  export type PersonaClubUncheckedCreateWithoutMunicipioInput = {
     id?: number
-    idPersonaClub: number
-    idCategoria?: number | null
-    activo?: boolean | null
+    tipoDocumento: string
+    nombres: string
+    apellidos: string
+    fechaNacimento?: Date | string | null
+    tipoRh?: string | null
+    peso?: number | null
+    altura?: number | null
+    correo: string
+    numeroTelefono?: number | null
+    tallaCamisa?: string | null
+    tallaCalzado?: string | null
+    tallaPantaloneta?: string | null
+    genero?: string | null
+    direccion?: string | null
+    entrenador?: EntrenadorUncheckedCreateNestedOneWithoutPersonaClubInput
+    deportista?: DeportistaUncheckedCreateNestedOneWithoutPersonaClubInput
+    usuario?: UsuarioUncheckedCreateNestedOneWithoutPersonaInput
   }
 
-  export type GestionAdminCreateManyTutorInput = {
+  export type PersonaClubCreateOrConnectWithoutMunicipioInput = {
+    where: PersonaClubWhereUniqueInput
+    create: XOR<PersonaClubCreateWithoutMunicipioInput, PersonaClubUncheckedCreateWithoutMunicipioInput>
+  }
+
+  export type PersonaClubCreateManyMunicipioInputEnvelope = {
+    data: PersonaClubCreateManyMunicipioInput | PersonaClubCreateManyMunicipioInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DepartamentoCreateWithoutMunicipioInput = {
+    nombre?: string | null
+  }
+
+  export type DepartamentoUncheckedCreateWithoutMunicipioInput = {
     id?: number
-    idDeportista?: number | null
-    idCargo?: number | null
-    fechaInicio?: Date | string | null
-    fechaFin?: Date | string | null
-    activo?: boolean | null
+    nombre?: string | null
   }
 
-  export type DeportistaUpdateWithoutTutorInput = {
-    idCategoria?: NullableIntFieldUpdateOperationsInput | number | null
-    activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    personaClub?: PersonaClubUpdateOneRequiredWithoutDeportistaNestedInput
-    desercionDeportista?: DesercionDeportistaUpdateManyWithoutDeportistaNestedInput
-    GestionAdmin?: GestionAdminUpdateManyWithoutDeportistaNestedInput
-    PagoDeportista?: PagoDeportistaUpdateManyWithoutDeportistaNestedInput
+  export type DepartamentoCreateOrConnectWithoutMunicipioInput = {
+    where: DepartamentoWhereUniqueInput
+    create: XOR<DepartamentoCreateWithoutMunicipioInput, DepartamentoUncheckedCreateWithoutMunicipioInput>
   }
 
-  export type DeportistaUncheckedUpdateWithoutTutorInput = {
+  export type PersonaClubUpsertWithWhereUniqueWithoutMunicipioInput = {
+    where: PersonaClubWhereUniqueInput
+    update: XOR<PersonaClubUpdateWithoutMunicipioInput, PersonaClubUncheckedUpdateWithoutMunicipioInput>
+    create: XOR<PersonaClubCreateWithoutMunicipioInput, PersonaClubUncheckedCreateWithoutMunicipioInput>
+  }
+
+  export type PersonaClubUpdateWithWhereUniqueWithoutMunicipioInput = {
+    where: PersonaClubWhereUniqueInput
+    data: XOR<PersonaClubUpdateWithoutMunicipioInput, PersonaClubUncheckedUpdateWithoutMunicipioInput>
+  }
+
+  export type PersonaClubUpdateManyWithWhereWithoutMunicipioInput = {
+    where: PersonaClubScalarWhereInput
+    data: XOR<PersonaClubUpdateManyMutationInput, PersonaClubUncheckedUpdateManyWithoutMunicipioInput>
+  }
+
+  export type PersonaClubScalarWhereInput = {
+    AND?: PersonaClubScalarWhereInput | PersonaClubScalarWhereInput[]
+    OR?: PersonaClubScalarWhereInput[]
+    NOT?: PersonaClubScalarWhereInput | PersonaClubScalarWhereInput[]
+    id?: IntFilter<"PersonaClub"> | number
+    tipoDocumento?: StringFilter<"PersonaClub"> | string
+    idMunicipio?: IntFilter<"PersonaClub"> | number
+    nombres?: StringFilter<"PersonaClub"> | string
+    apellidos?: StringFilter<"PersonaClub"> | string
+    fechaNacimento?: DateTimeNullableFilter<"PersonaClub"> | Date | string | null
+    tipoRh?: StringNullableFilter<"PersonaClub"> | string | null
+    peso?: FloatNullableFilter<"PersonaClub"> | number | null
+    altura?: FloatNullableFilter<"PersonaClub"> | number | null
+    correo?: StringFilter<"PersonaClub"> | string
+    numeroTelefono?: IntNullableFilter<"PersonaClub"> | number | null
+    tallaCamisa?: StringNullableFilter<"PersonaClub"> | string | null
+    tallaCalzado?: StringNullableFilter<"PersonaClub"> | string | null
+    tallaPantaloneta?: StringNullableFilter<"PersonaClub"> | string | null
+    genero?: StringNullableFilter<"PersonaClub"> | string | null
+    direccion?: StringNullableFilter<"PersonaClub"> | string | null
+  }
+
+  export type DepartamentoUpsertWithoutMunicipioInput = {
+    update: XOR<DepartamentoUpdateWithoutMunicipioInput, DepartamentoUncheckedUpdateWithoutMunicipioInput>
+    create: XOR<DepartamentoCreateWithoutMunicipioInput, DepartamentoUncheckedCreateWithoutMunicipioInput>
+    where?: DepartamentoWhereInput
+  }
+
+  export type DepartamentoUpdateToOneWithWhereWithoutMunicipioInput = {
+    where?: DepartamentoWhereInput
+    data: XOR<DepartamentoUpdateWithoutMunicipioInput, DepartamentoUncheckedUpdateWithoutMunicipioInput>
+  }
+
+  export type DepartamentoUpdateWithoutMunicipioInput = {
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type DepartamentoUncheckedUpdateWithoutMunicipioInput = {
     id?: IntFieldUpdateOperationsInput | number
-    idPersonaClub?: IntFieldUpdateOperationsInput | number
-    idCategoria?: NullableIntFieldUpdateOperationsInput | number | null
-    activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    desercionDeportista?: DesercionDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
-    GestionAdmin?: GestionAdminUncheckedUpdateManyWithoutDeportistaNestedInput
-    PagoDeportista?: PagoDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type DeportistaUncheckedUpdateManyWithoutTutorInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    idPersonaClub?: IntFieldUpdateOperationsInput | number
-    idCategoria?: NullableIntFieldUpdateOperationsInput | number | null
-    activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-  }
-
-  export type GestionAdminUpdateWithoutTutorInput = {
-    fechaInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    fechaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    deportista?: DeportistaUpdateOneWithoutGestionAdminNestedInput
-    cargo?: CargosAdminUpdateOneWithoutGestionAdminNestedInput
-  }
-
-  export type GestionAdminUncheckedUpdateWithoutTutorInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    idDeportista?: NullableIntFieldUpdateOperationsInput | number | null
-    idCargo?: NullableIntFieldUpdateOperationsInput | number | null
-    fechaInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    fechaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-  }
-
-  export type GestionAdminUncheckedUpdateManyWithoutTutorInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    idDeportista?: NullableIntFieldUpdateOperationsInput | number | null
-    idCargo?: NullableIntFieldUpdateOperationsInput | number | null
-    fechaInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    fechaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-  }
-
-  export type DesercionDeportistaCreateManyDeportistaInput = {
+  export type ContactosEmergenciaCreateManyEntrenadorInput = {
     id?: number
-    fechaDesercion?: Date | string | null
-    razon?: string | null
-    descripcion?: string | null
+    tipoDocumento: string
+    nombres?: string | null
+    apellidos?: string | null
+    correo?: string | null
+    telefono?: string | null
   }
 
-  export type GestionAdminCreateManyDeportistaInput = {
-    id?: number
-    idTutor?: number | null
-    idCargo?: number | null
-    fechaInicio?: Date | string | null
-    fechaFin?: Date | string | null
-    activo?: boolean | null
+  export type ContactosEmergenciaUpdateWithoutEntrenadorInput = {
+    tipoDocumento?: StringFieldUpdateOperationsInput | string
+    nombres?: NullableStringFieldUpdateOperationsInput | string | null
+    apellidos?: NullableStringFieldUpdateOperationsInput | string | null
+    correo?: NullableStringFieldUpdateOperationsInput | string | null
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ContactosEmergenciaUncheckedUpdateWithoutEntrenadorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tipoDocumento?: StringFieldUpdateOperationsInput | string
+    nombres?: NullableStringFieldUpdateOperationsInput | string | null
+    apellidos?: NullableStringFieldUpdateOperationsInput | string | null
+    correo?: NullableStringFieldUpdateOperationsInput | string | null
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ContactosEmergenciaUncheckedUpdateManyWithoutEntrenadorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tipoDocumento?: StringFieldUpdateOperationsInput | string
+    nombres?: NullableStringFieldUpdateOperationsInput | string | null
+    apellidos?: NullableStringFieldUpdateOperationsInput | string | null
+    correo?: NullableStringFieldUpdateOperationsInput | string | null
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PagoDeportistaCreateManyDeportistaInput = {
@@ -21027,52 +20783,6 @@ export namespace Prisma {
     fechaPago?: Date | string | null
     valor?: Decimal | DecimalJsLike | number | string | null
     tipoPago?: string | null
-  }
-
-  export type DesercionDeportistaUpdateWithoutDeportistaInput = {
-    fechaDesercion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    razon?: NullableStringFieldUpdateOperationsInput | string | null
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type DesercionDeportistaUncheckedUpdateWithoutDeportistaInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    fechaDesercion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    razon?: NullableStringFieldUpdateOperationsInput | string | null
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type DesercionDeportistaUncheckedUpdateManyWithoutDeportistaInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    fechaDesercion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    razon?: NullableStringFieldUpdateOperationsInput | string | null
-    descripcion?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type GestionAdminUpdateWithoutDeportistaInput = {
-    fechaInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    fechaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    tutor?: TutorUpdateOneWithoutGestionAdminNestedInput
-    cargo?: CargosAdminUpdateOneWithoutGestionAdminNestedInput
-  }
-
-  export type GestionAdminUncheckedUpdateWithoutDeportistaInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    idTutor?: NullableIntFieldUpdateOperationsInput | number | null
-    idCargo?: NullableIntFieldUpdateOperationsInput | number | null
-    fechaInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    fechaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-  }
-
-  export type GestionAdminUncheckedUpdateManyWithoutDeportistaInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    idTutor?: NullableIntFieldUpdateOperationsInput | number | null
-    idCargo?: NullableIntFieldUpdateOperationsInput | number | null
-    fechaInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    fechaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type PagoDeportistaUpdateWithoutDeportistaInput = {
@@ -21095,27 +20805,81 @@ export namespace Prisma {
     tipoPago?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type MunicipioCreateManyDepartamentoInput = {
+  export type PersonaClubCreateManyMunicipioInput = {
     id?: number
-    nombre?: string | null
-    estado?: boolean | null
+    tipoDocumento: string
+    nombres: string
+    apellidos: string
+    fechaNacimento?: Date | string | null
+    tipoRh?: string | null
+    peso?: number | null
+    altura?: number | null
+    correo: string
+    numeroTelefono?: number | null
+    tallaCamisa?: string | null
+    tallaCalzado?: string | null
+    tallaPantaloneta?: string | null
+    genero?: string | null
+    direccion?: string | null
   }
 
-  export type MunicipioUpdateWithoutDepartamentoInput = {
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    estado?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  export type PersonaClubUpdateWithoutMunicipioInput = {
+    tipoDocumento?: StringFieldUpdateOperationsInput | string
+    nombres?: StringFieldUpdateOperationsInput | string
+    apellidos?: StringFieldUpdateOperationsInput | string
+    fechaNacimento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    tipoRh?: NullableStringFieldUpdateOperationsInput | string | null
+    peso?: NullableFloatFieldUpdateOperationsInput | number | null
+    altura?: NullableFloatFieldUpdateOperationsInput | number | null
+    correo?: StringFieldUpdateOperationsInput | string
+    numeroTelefono?: NullableIntFieldUpdateOperationsInput | number | null
+    tallaCamisa?: NullableStringFieldUpdateOperationsInput | string | null
+    tallaCalzado?: NullableStringFieldUpdateOperationsInput | string | null
+    tallaPantaloneta?: NullableStringFieldUpdateOperationsInput | string | null
+    genero?: NullableStringFieldUpdateOperationsInput | string | null
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    entrenador?: EntrenadorUpdateOneWithoutPersonaClubNestedInput
+    deportista?: DeportistaUpdateOneWithoutPersonaClubNestedInput
+    usuario?: UsuarioUpdateOneWithoutPersonaNestedInput
   }
 
-  export type MunicipioUncheckedUpdateWithoutDepartamentoInput = {
+  export type PersonaClubUncheckedUpdateWithoutMunicipioInput = {
     id?: IntFieldUpdateOperationsInput | number
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    estado?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    tipoDocumento?: StringFieldUpdateOperationsInput | string
+    nombres?: StringFieldUpdateOperationsInput | string
+    apellidos?: StringFieldUpdateOperationsInput | string
+    fechaNacimento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    tipoRh?: NullableStringFieldUpdateOperationsInput | string | null
+    peso?: NullableFloatFieldUpdateOperationsInput | number | null
+    altura?: NullableFloatFieldUpdateOperationsInput | number | null
+    correo?: StringFieldUpdateOperationsInput | string
+    numeroTelefono?: NullableIntFieldUpdateOperationsInput | number | null
+    tallaCamisa?: NullableStringFieldUpdateOperationsInput | string | null
+    tallaCalzado?: NullableStringFieldUpdateOperationsInput | string | null
+    tallaPantaloneta?: NullableStringFieldUpdateOperationsInput | string | null
+    genero?: NullableStringFieldUpdateOperationsInput | string | null
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
+    entrenador?: EntrenadorUncheckedUpdateOneWithoutPersonaClubNestedInput
+    deportista?: DeportistaUncheckedUpdateOneWithoutPersonaClubNestedInput
+    usuario?: UsuarioUncheckedUpdateOneWithoutPersonaNestedInput
   }
 
-  export type MunicipioUncheckedUpdateManyWithoutDepartamentoInput = {
+  export type PersonaClubUncheckedUpdateManyWithoutMunicipioInput = {
     id?: IntFieldUpdateOperationsInput | number
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    estado?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    tipoDocumento?: StringFieldUpdateOperationsInput | string
+    nombres?: StringFieldUpdateOperationsInput | string
+    apellidos?: StringFieldUpdateOperationsInput | string
+    fechaNacimento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    tipoRh?: NullableStringFieldUpdateOperationsInput | string | null
+    peso?: NullableFloatFieldUpdateOperationsInput | number | null
+    altura?: NullableFloatFieldUpdateOperationsInput | number | null
+    correo?: StringFieldUpdateOperationsInput | string
+    numeroTelefono?: NullableIntFieldUpdateOperationsInput | number | null
+    tallaCamisa?: NullableStringFieldUpdateOperationsInput | string | null
+    tallaCalzado?: NullableStringFieldUpdateOperationsInput | string | null
+    tallaPantaloneta?: NullableStringFieldUpdateOperationsInput | string | null
+    genero?: NullableStringFieldUpdateOperationsInput | string | null
+    direccion?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 

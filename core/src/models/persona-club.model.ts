@@ -1,8 +1,7 @@
 export interface PersonClub {
     id: number;
-    tipoDocumento: number;
+    tipoDocumento: string;
     idMunicipio: number;
-    idUsuario: number;
     nombres: string;
     apellidos: string;
     fechaNacimiento?: Date;

@@ -167,7 +167,6 @@ exports.Prisma.ContactosEmergenciaScalarFieldEnum = {
 exports.Prisma.EntrenadorScalarFieldEnum = {
   id: 'id',
   idPersonaClub: 'idPersonaClub',
-  idContactoEmergencia: 'idContactoEmergencia',
   fechaIngreso: 'fechaIngreso',
   activo: 'activo',
   contrato: 'contrato'
@@ -190,11 +189,6 @@ exports.Prisma.DeportistaScalarFieldEnum = {
   activo: 'activo'
 };
 
-exports.Prisma.DepartamentoScalarFieldEnum = {
-  id: 'id',
-  nombre: 'nombre'
-};
-
 exports.Prisma.DesercionDeportistaScalarFieldEnum = {
   id: 'id',
   idDeportista: 'idDeportista',
@@ -213,13 +207,6 @@ exports.Prisma.GestionAdminScalarFieldEnum = {
   activo: 'activo'
 };
 
-exports.Prisma.MunicipioScalarFieldEnum = {
-  id: 'id',
-  idDepartamento: 'idDepartamento',
-  nombre: 'nombre',
-  estado: 'estado'
-};
-
 exports.Prisma.PagoDeportistaScalarFieldEnum = {
   id: 'id',
   idDeportista: 'idDeportista',
@@ -228,18 +215,30 @@ exports.Prisma.PagoDeportistaScalarFieldEnum = {
   tipoPago: 'tipoPago'
 };
 
-exports.Prisma.TipoDocumentoScalarFieldEnum = {
-  id: 'id',
-  tipoDocumento: 'tipoDocumento',
-  descripcion: 'descripcion'
-};
-
 exports.Prisma.UsuarioScalarFieldEnum = {
   id: 'id',
   usuario: 'usuario',
   contrasenia: 'contrasenia',
   activo: 'activo',
   idPersona: 'idPersona'
+};
+
+exports.Prisma.DepartamentoScalarFieldEnum = {
+  id: 'id',
+  nombre: 'nombre'
+};
+
+exports.Prisma.MunicipioScalarFieldEnum = {
+  id: 'id',
+  idDepartamento: 'idDepartamento',
+  nombre: 'nombre',
+  estado: 'estado'
+};
+
+exports.Prisma.TipoDocumentoScalarFieldEnum = {
+  id: 'id',
+  tipoDocumento: 'tipoDocumento',
+  descripcion: 'descripcion'
 };
 
 exports.Prisma.SortOrder = {
@@ -289,31 +288,31 @@ exports.Prisma.TutorOrderByRelevanceFieldEnum = {
   telefono: 'telefono'
 };
 
-exports.Prisma.DepartamentoOrderByRelevanceFieldEnum = {
-  nombre: 'nombre'
-};
-
 exports.Prisma.DesercionDeportistaOrderByRelevanceFieldEnum = {
   razon: 'razon',
   descripcion: 'descripcion'
-};
-
-exports.Prisma.MunicipioOrderByRelevanceFieldEnum = {
-  nombre: 'nombre'
 };
 
 exports.Prisma.PagoDeportistaOrderByRelevanceFieldEnum = {
   tipoPago: 'tipoPago'
 };
 
-exports.Prisma.TipoDocumentoOrderByRelevanceFieldEnum = {
-  tipoDocumento: 'tipoDocumento',
-  descripcion: 'descripcion'
-};
-
 exports.Prisma.UsuarioOrderByRelevanceFieldEnum = {
   usuario: 'usuario',
   contrasenia: 'contrasenia'
+};
+
+exports.Prisma.DepartamentoOrderByRelevanceFieldEnum = {
+  nombre: 'nombre'
+};
+
+exports.Prisma.MunicipioOrderByRelevanceFieldEnum = {
+  nombre: 'nombre'
+};
+
+exports.Prisma.TipoDocumentoOrderByRelevanceFieldEnum = {
+  tipoDocumento: 'tipoDocumento',
+  descripcion: 'descripcion'
 };
 
 
@@ -325,13 +324,13 @@ exports.Prisma.ModelName = {
   Entrenador: 'Entrenador',
   Tutor: 'Tutor',
   Deportista: 'Deportista',
-  Departamento: 'Departamento',
   DesercionDeportista: 'DesercionDeportista',
   GestionAdmin: 'GestionAdmin',
-  Municipio: 'Municipio',
   PagoDeportista: 'PagoDeportista',
-  TipoDocumento: 'TipoDocumento',
-  Usuario: 'Usuario'
+  Usuario: 'Usuario',
+  Departamento: 'Departamento',
+  Municipio: 'Municipio',
+  TipoDocumento: 'TipoDocumento'
 };
 
 /**
