@@ -7,4 +7,6 @@ export default {
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
   coverageDirectory: '../../coverage/apps/api',
+  testPathIgnorePatterns: ['<rootDir>/generated/'],
+  coveragePathIgnorePatterns: ['<rootDir>/generated/'],
 };
