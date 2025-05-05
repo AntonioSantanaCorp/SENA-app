@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+@use './app/libs/buttons/styles/buttons.scss';
+@use 'styles/components/dialog';
+@use '@angular/cdk' as cdk;
+
+@include cdk.overlay();
+
+
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+
+label,
+th {
+  font-weight: 500;
+}
+
+.page {
+  display: grid;
+  gap: 25px;
+  padding: 15px 20px;
+}
+
+.form-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  gap: 16px;
+  padding-top: 18px;
+}
+
+.divider {
+  width: 100%;
+  height: 3px;
+  background: lightgray;
+  border-radius: 5px;
+}
