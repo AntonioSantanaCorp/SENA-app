@@ -1,0 +1,32 @@
+<ng-container [formGroup]="form">
+  <app-control-input attrFor="departamento">
+    <label> Departamento residencia *</label>
+    <select formControlName="departamento">
+      <option selected disabled value="">Seleccione departamento</option>
+      <!-- @for (document of documentsTypes; track $index) {
+            <option [value]="document.value">{{ document.label }}</option>
+            } -->
+    </select>
+  </app-control-input>
+
+  <app-control-input attrFor="ciudad">
+    <label> Direccion residencia *</label>
+    <select formControlName="ciudad">
+      <option selected disabled value="">Seleccione cuidad</option>
+      <!-- @for (document of documentsTypes; track $index) {
+              <option [value]="document.value">{{ document.label }}</option>
+              } -->
+    </select>
+  </app-control-input>
+
+  <app-control-input attrFor="direccion">
+    <label>Direccion residencia *</label>
+    <input
+      placeholder="Ingrese direccion"
+      type="text"
+      formControlName="direccion"
+    />
+  </app-control-input>
+
+  <ng-content select="app-control-input"></ng-content>
+</ng-container>
