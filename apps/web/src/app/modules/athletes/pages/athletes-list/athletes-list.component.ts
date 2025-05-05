@@ -7,15 +7,18 @@ import {
   OnInit,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { AppRoutes } from '@core/constants/app-routes.constant';
-import { IconButtonComponent } from '@libs/buttons';
-import { HeaderTitleComponent } from '@libs/titles';
 
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { AthleteApiService } from '@core/domains/athlete/services/athlete-api.service';
-import { PaginatorComponent } from '@libs/tables/components/paginator/paginator.component';
-import { SearchInputComponent } from '@libs/tables/components/search-input/search-input.component';
-import { DataTableApi } from '@libs/tables/models/datatable-api.model';
+
+import { AthleteApiService } from '@web/libs/athlete/services';
+import { IconButtonComponent } from '@web/libs/shared/ui/buttons';
+import {
+  DataTableApi,
+  PaginatorComponent,
+  SearchInputComponent,
+} from '@web/libs/shared/ui/tables';
+import { HeaderTitleComponent } from '@web/libs/shared/ui/titles';
+import { AppRoutes } from '../../../../constants';
 import { DeleteAthleteComponent } from '../../components/delete-athlete/delete-athlete.component';
 import { DISPLAYED_COLUMNS } from '../../constants/athletes-list.constants';
 import { AthleteStore } from '../../store/athlete.store';

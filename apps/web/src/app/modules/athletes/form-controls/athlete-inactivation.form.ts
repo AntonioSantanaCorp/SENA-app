@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { AthleteInactivationReason } from '@core/domains/athlete/constants/inactivation-reasons.constant';
+import { AthleteInactivationReason } from '@web/libs/athlete/constants';
 
 export function createAthleteInactivationForm() {
   const formBuilder = inject(FormBuilder);

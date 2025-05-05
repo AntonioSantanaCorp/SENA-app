@@ -1,7 +1,7 @@
-import { Athlete } from '@core/domains/athlete/models/athlete.model';
-import { withDataTableFeature } from '@libs/tables/datasource-features/datatable-state';
 import { signalStore } from '@ngrx/signals';
+import { AthleteResponse } from '@sacd/core/http/responses';
+import { withDataTableFeature } from '@web/libs/shared/ui/tables';
 
 export const AthleteStore = signalStore(
-  withDataTableFeature<Athlete>((athlete) => athlete.id)
+  withDataTableFeature<AthleteResponse>((athlete) => athlete.id)
 );

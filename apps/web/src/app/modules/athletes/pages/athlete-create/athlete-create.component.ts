@@ -1,12 +1,15 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserDetailsFormComponent } from '@web/libs/shared/ui/forms-information';
 import {
   AddressInfoComponent,
   TutorInfoComponent,
-  UserDetailsFormComponent,
   UserGeneralInfoComponent,
-} from '@libs/forms-information';
-import { HeaderSubtitleComponent, HeaderTitleComponent } from '@libs/titles';
+} from '@web/libs/shared/ui/forms-information';
+import {
+  HeaderSubtitleComponent,
+  HeaderTitleComponent,
+} from '@web/libs/shared/ui/titles';
 
 @Component({
   selector: 'app-athlete-create',

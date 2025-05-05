@@ -4,8 +4,11 @@ import {
   AddressInfoComponent,
   TutorInfoComponent,
   UserGeneralInfoComponent,
-} from '@libs/forms-information';
-import { HeaderSubtitleComponent, HeaderTitleComponent } from '@libs/titles';
+} from '@web/libs/shared/ui/forms-information';
+import {
+  HeaderSubtitleComponent,
+  HeaderTitleComponent,
+} from '@web/libs/shared/ui/titles';
 
 @Component({
   selector: 'app-athlete-edit',

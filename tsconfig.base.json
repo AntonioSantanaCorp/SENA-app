@@ -16,8 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@sacd/core/*": ["core/src/*"],
-      "@web/libs/athlete": ["apps/web/src/libs/athlete/src/index.ts"],
-      "@web/libs/trainer": ["apps/web/src/libs/trainer/src/index.ts"],
+      "@web/libs/athlete/*": ["apps/web/src/libs/athlete/src/*"],
+      "@web/libs/trainer/*": ["apps/web/src/libs/trainer/src/*"],
       "@web/libs/shared/*": ["apps/web/src/libs/shared/src/*"]
     }
   },

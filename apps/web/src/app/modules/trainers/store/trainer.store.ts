@@ -1,7 +1,7 @@
-import { Trainer } from '@core/domains/trainer/models/trainer.model';
-import { withDataTableFeature } from '@libs/tables/datasource-features/datatable-state';
 import { signalStore } from '@ngrx/signals';
+import { TrainerResponse } from '@sacd/core/http/responses';
+import { withDataTableFeature } from '@web/libs/shared/ui/tables';
 
 export const TrainerStore = signalStore(
-  withDataTableFeature<Trainer>((trainer) => trainer.id)
+  withDataTableFeature<TrainerResponse>((trainer) => trainer.id)
 );

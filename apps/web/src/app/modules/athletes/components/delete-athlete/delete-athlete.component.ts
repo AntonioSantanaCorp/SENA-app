@@ -1,7 +1,7 @@
 import { DialogRef } from '@angular/cdk/dialog';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ATHLETE_INACTIVATION_REASONS } from '@core/domains/athlete/constants/inactivation-reasons.constant';
+import { ATHLETE_INACTIVATION_REASONS } from '@web/libs/athlete/constants';
 import { ControlInputComponent } from '@web/libs/shared/ui/control-field';
 import { HeaderTitleComponent } from '@web/libs/shared/ui/titles';
 import { createAthleteInactivationForm } from '../../form-controls/athlete-inactivation.form';

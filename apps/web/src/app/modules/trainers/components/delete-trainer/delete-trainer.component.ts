@@ -1,9 +1,10 @@
 import { DialogRef } from '@angular/cdk/dialog';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TRAINER_INACTIVATION_REASONS } from '@core/domains/trainer/constants/inactivation-reasons.constant';
-import { ControlInputComponent } from '@libs/control-field';
-import { HeaderTitleComponent } from '@libs/titles';
+
+import { ControlInputComponent } from '@web/libs/shared/ui/control-field';
+import { HeaderTitleComponent } from '@web/libs/shared/ui/titles';
+import { TRAINER_INACTIVATION_REASONS } from '@web/libs/trainer/constants';
 import { createTrainerInactivationForm } from '../../form-controls/trainer-inactivation.form';
 
 @Component({
