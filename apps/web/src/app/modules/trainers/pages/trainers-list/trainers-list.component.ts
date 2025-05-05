@@ -16,7 +16,7 @@ import {
 } from '@web/libs/shared/ui/tables';
 import { HeaderTitleComponent } from '@web/libs/shared/ui/titles';
 import { TrainerApiService } from '@web/libs/trainer/services';
-import { AppRoutes } from '../../../../constants';
+import { AppRoutes } from '../../../../core/constants';
 import { DeleteTrainerComponent } from '../../components/delete-trainer/delete-trainer.component';
 import { DISPLAYED_COLUMNS } from '../../constant/trainer-list.constant';
 import { TrainerStore } from '../../store/trainer.store';

@@ -1,6 +1,6 @@
 import { Directive, input, signal } from '@angular/core';
 import { RouterLinkActive } from '@angular/router';
-import { AppBaseRoutesType } from '../../constants';
+import { AppBaseRoutesType } from '../../core/constants';
 
 
 @Directive({

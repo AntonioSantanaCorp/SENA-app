@@ -18,7 +18,7 @@ import {
   SearchInputComponent,
 } from '@web/libs/shared/ui/tables';
 import { HeaderTitleComponent } from '@web/libs/shared/ui/titles';
-import { AppRoutes } from '../../../../constants';
+import { AppRoutes } from '../../../../core/constants';
 import { DeleteAthleteComponent } from '../../components/delete-athlete/delete-athlete.component';
 import { DISPLAYED_COLUMNS } from '../../constants/athletes-list.constants';
 import { AthleteStore } from '../../store/athlete.store';
