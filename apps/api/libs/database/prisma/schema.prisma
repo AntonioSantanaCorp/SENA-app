@@ -17,7 +17,7 @@ model CargosAdmin {
 }
 
 model Categoria {
-  id         Int         @id @default(autoincrement())
+  id         String      @id
   nombre     String?     @db.Text
   Deportista Deportista?
 
@@ -92,7 +92,7 @@ model Deportista {
   id                  Int                  @id @default(autoincrement())
   idTutor             Int?                 @unique @map("id_tutor")
   idPersonaClub       Int                  @unique @map("id_persona_club")
-  idCategoria         Int?                 @unique @map("id_categoria")
+  idCategoria         String?                 @unique @map("id_categoria")
   activo              Boolean?
   tutor               Tutor?               @relation(fields: [idTutor], references: [id])
   personaClub         PersonaClub          @relation(fields: [idPersonaClub], references: [id])

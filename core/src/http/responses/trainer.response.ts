@@ -1,4 +1,4 @@
-import { EmergencyContact, PersonClub } from '../../models';
+import { EmergencyContact, PersonClub } from '../../entities';
 
 export interface TrainerResponse {
   id: number;

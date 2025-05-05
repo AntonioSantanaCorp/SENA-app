@@ -2930,27 +2930,17 @@ export namespace Prisma {
 
   export type AggregateCategoria = {
     _count: CategoriaCountAggregateOutputType | null
-    _avg: CategoriaAvgAggregateOutputType | null
-    _sum: CategoriaSumAggregateOutputType | null
     _min: CategoriaMinAggregateOutputType | null
     _max: CategoriaMaxAggregateOutputType | null
   }
 
-  export type CategoriaAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type CategoriaSumAggregateOutputType = {
-    id: number | null
-  }
-
   export type CategoriaMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     nombre: string | null
   }
 
   export type CategoriaMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     nombre: string | null
   }
 
@@ -2960,14 +2950,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type CategoriaAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type CategoriaSumAggregateInputType = {
-    id?: true
-  }
 
   export type CategoriaMinAggregateInputType = {
     id?: true
@@ -3023,18 +3005,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: CategoriaAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: CategoriaSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: CategoriaMinAggregateInputType
@@ -3065,18 +3035,14 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: CategoriaCountAggregateInputType | true
-    _avg?: CategoriaAvgAggregateInputType
-    _sum?: CategoriaSumAggregateInputType
     _min?: CategoriaMinAggregateInputType
     _max?: CategoriaMaxAggregateInputType
   }
 
   export type CategoriaGroupByOutputType = {
-    id: number
+    id: string
     nombre: string | null
     _count: CategoriaCountAggregateOutputType | null
-    _avg: CategoriaAvgAggregateOutputType | null
-    _sum: CategoriaSumAggregateOutputType | null
     _min: CategoriaMinAggregateOutputType | null
     _max: CategoriaMaxAggregateOutputType | null
   }
@@ -3119,7 +3085,7 @@ export namespace Prisma {
       Deportista: Prisma.$DeportistaPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       nombre: string | null
     }, ExtArgs["result"]["categoria"]>
     composites: {}
@@ -3491,7 +3457,7 @@ export namespace Prisma {
    * Fields of the Categoria model
    */
   interface CategoriaFieldRefs {
-    readonly id: FieldRef<"Categoria", 'Int'>
+    readonly id: FieldRef<"Categoria", 'String'>
     readonly nombre: FieldRef<"Categoria", 'String'>
   }
     
@@ -3716,7 +3682,7 @@ export namespace Prisma {
     /**
      * The data needed to create a Categoria.
      */
-    data?: XOR<CategoriaCreateInput, CategoriaUncheckedCreateInput>
+    data: XOR<CategoriaCreateInput, CategoriaUncheckedCreateInput>
     relationLoadStrategy?: RelationLoadStrategy
   }
 
@@ -8101,21 +8067,19 @@ export namespace Prisma {
     id: number | null
     idTutor: number | null
     idPersonaClub: number | null
-    idCategoria: number | null
   }
 
   export type DeportistaSumAggregateOutputType = {
     id: number | null
     idTutor: number | null
     idPersonaClub: number | null
-    idCategoria: number | null
   }
 
   export type DeportistaMinAggregateOutputType = {
     id: number | null
     idTutor: number | null
     idPersonaClub: number | null
-    idCategoria: number | null
+    idCategoria: string | null
     activo: boolean | null
   }
 
@@ -8123,7 +8087,7 @@ export namespace Prisma {
     id: number | null
     idTutor: number | null
     idPersonaClub: number | null
-    idCategoria: number | null
+    idCategoria: string | null
     activo: boolean | null
   }
 
@@ -8141,14 +8105,12 @@ export namespace Prisma {
     id?: true
     idTutor?: true
     idPersonaClub?: true
-    idCategoria?: true
   }
 
   export type DeportistaSumAggregateInputType = {
     id?: true
     idTutor?: true
     idPersonaClub?: true
-    idCategoria?: true
   }
 
   export type DeportistaMinAggregateInputType = {
@@ -8266,7 +8228,7 @@ export namespace Prisma {
     id: number
     idTutor: number | null
     idPersonaClub: number
-    idCategoria: number | null
+    idCategoria: string | null
     activo: boolean | null
     _count: DeportistaCountAggregateOutputType | null
     _avg: DeportistaAvgAggregateOutputType | null
@@ -8336,7 +8298,7 @@ export namespace Prisma {
       id: number
       idTutor: number | null
       idPersonaClub: number
-      idCategoria: number | null
+      idCategoria: string | null
       activo: boolean | null
     }, ExtArgs["result"]["deportista"]>
     composites: {}
@@ -8715,7 +8677,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Deportista", 'Int'>
     readonly idTutor: FieldRef<"Deportista", 'Int'>
     readonly idPersonaClub: FieldRef<"Deportista", 'Int'>
-    readonly idCategoria: FieldRef<"Deportista", 'Int'>
+    readonly idCategoria: FieldRef<"Deportista", 'String'>
     readonly activo: FieldRef<"Deportista", 'Boolean'>
   }
     
@@ -16157,6 +16119,7 @@ export namespace Prisma {
 
 
   export const CategoriaOrderByRelevanceFieldEnum: {
+    id: 'id',
     nombre: 'nombre'
   };
 
@@ -16199,6 +16162,13 @@ export namespace Prisma {
   };
 
   export type TutorOrderByRelevanceFieldEnum = (typeof TutorOrderByRelevanceFieldEnum)[keyof typeof TutorOrderByRelevanceFieldEnum]
+
+
+  export const DeportistaOrderByRelevanceFieldEnum: {
+    idCategoria: 'idCategoria'
+  };
+
+  export type DeportistaOrderByRelevanceFieldEnum = (typeof DeportistaOrderByRelevanceFieldEnum)[keyof typeof DeportistaOrderByRelevanceFieldEnum]
 
 
   export const DesercionDeportistaOrderByRelevanceFieldEnum: {
@@ -16347,7 +16317,7 @@ export namespace Prisma {
     AND?: CategoriaWhereInput | CategoriaWhereInput[]
     OR?: CategoriaWhereInput[]
     NOT?: CategoriaWhereInput | CategoriaWhereInput[]
-    id?: IntFilter<"Categoria"> | number
+    id?: StringFilter<"Categoria"> | string
     nombre?: StringNullableFilter<"Categoria"> | string | null
     Deportista?: XOR<DeportistaNullableScalarRelationFilter, DeportistaWhereInput> | null
   }
@@ -16360,7 +16330,7 @@ export namespace Prisma {
   }
 
   export type CategoriaWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: CategoriaWhereInput | CategoriaWhereInput[]
     OR?: CategoriaWhereInput[]
     NOT?: CategoriaWhereInput | CategoriaWhereInput[]
@@ -16372,17 +16342,15 @@ export namespace Prisma {
     id?: SortOrder
     nombre?: SortOrderInput | SortOrder
     _count?: CategoriaCountOrderByAggregateInput
-    _avg?: CategoriaAvgOrderByAggregateInput
     _max?: CategoriaMaxOrderByAggregateInput
     _min?: CategoriaMinOrderByAggregateInput
-    _sum?: CategoriaSumOrderByAggregateInput
   }
 
   export type CategoriaScalarWhereWithAggregatesInput = {
     AND?: CategoriaScalarWhereWithAggregatesInput | CategoriaScalarWhereWithAggregatesInput[]
     OR?: CategoriaScalarWhereWithAggregatesInput[]
     NOT?: CategoriaScalarWhereWithAggregatesInput | CategoriaScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Categoria"> | number
+    id?: StringWithAggregatesFilter<"Categoria"> | string
     nombre?: StringNullableWithAggregatesFilter<"Categoria"> | string | null
   }
 
@@ -16706,7 +16674,7 @@ export namespace Prisma {
     id?: IntFilter<"Deportista"> | number
     idTutor?: IntNullableFilter<"Deportista"> | number | null
     idPersonaClub?: IntFilter<"Deportista"> | number
-    idCategoria?: IntNullableFilter<"Deportista"> | number | null
+    idCategoria?: StringNullableFilter<"Deportista"> | string | null
     activo?: BoolNullableFilter<"Deportista"> | boolean | null
     tutor?: XOR<TutorNullableScalarRelationFilter, TutorWhereInput> | null
     personaClub?: XOR<PersonaClubScalarRelationFilter, PersonaClubWhereInput>
@@ -16726,13 +16694,14 @@ export namespace Prisma {
     categoria?: CategoriaOrderByWithRelationInput
     desercionDeportista?: DesercionDeportistaOrderByWithRelationInput
     pagosDeportista?: PagoDeportistaOrderByRelationAggregateInput
+    _relevance?: DeportistaOrderByRelevanceInput
   }
 
   export type DeportistaWhereUniqueInput = Prisma.AtLeast<{
     id?: number
     idTutor?: number
     idPersonaClub?: number
-    idCategoria?: number
+    idCategoria?: string
     AND?: DeportistaWhereInput | DeportistaWhereInput[]
     OR?: DeportistaWhereInput[]
     NOT?: DeportistaWhereInput | DeportistaWhereInput[]
@@ -16764,7 +16733,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Deportista"> | number
     idTutor?: IntNullableWithAggregatesFilter<"Deportista"> | number | null
     idPersonaClub?: IntWithAggregatesFilter<"Deportista"> | number
-    idCategoria?: IntNullableWithAggregatesFilter<"Deportista"> | number | null
+    idCategoria?: StringNullableWithAggregatesFilter<"Deportista"> | string | null
     activo?: BoolNullableWithAggregatesFilter<"Deportista"> | boolean | null
   }
 
@@ -17183,38 +17152,41 @@ export namespace Prisma {
   }
 
   export type CategoriaCreateInput = {
+    id: string
     nombre?: string | null
     Deportista?: DeportistaCreateNestedOneWithoutCategoriaInput
   }
 
   export type CategoriaUncheckedCreateInput = {
-    id?: number
+    id: string
     nombre?: string | null
     Deportista?: DeportistaUncheckedCreateNestedOneWithoutCategoriaInput
   }
 
   export type CategoriaUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
     Deportista?: DeportistaUpdateOneWithoutCategoriaNestedInput
   }
 
   export type CategoriaUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
     Deportista?: DeportistaUncheckedUpdateOneWithoutCategoriaNestedInput
   }
 
   export type CategoriaCreateManyInput = {
-    id?: number
+    id: string
     nombre?: string | null
   }
 
   export type CategoriaUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type CategoriaUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -17558,7 +17530,7 @@ export namespace Prisma {
     id?: number
     idTutor?: number | null
     idPersonaClub: number
-    idCategoria?: number | null
+    idCategoria?: string | null
     activo?: boolean | null
     desercionDeportista?: DesercionDeportistaUncheckedCreateNestedOneWithoutDeportistaInput
     pagosDeportista?: PagoDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
@@ -17577,7 +17549,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     idTutor?: NullableIntFieldUpdateOperationsInput | number | null
     idPersonaClub?: IntFieldUpdateOperationsInput | number
-    idCategoria?: NullableIntFieldUpdateOperationsInput | number | null
+    idCategoria?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     desercionDeportista?: DesercionDeportistaUncheckedUpdateOneWithoutDeportistaNestedInput
     pagosDeportista?: PagoDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
@@ -17587,7 +17559,7 @@ export namespace Prisma {
     id?: number
     idTutor?: number | null
     idPersonaClub: number
-    idCategoria?: number | null
+    idCategoria?: string | null
     activo?: boolean | null
   }
 
@@ -17599,7 +17571,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     idTutor?: NullableIntFieldUpdateOperationsInput | number | null
     idPersonaClub?: IntFieldUpdateOperationsInput | number
-    idCategoria?: NullableIntFieldUpdateOperationsInput | number | null
+    idCategoria?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
@@ -18044,6 +18016,21 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type StringFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[]
+    notIn?: string[]
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringFilter<$PrismaModel> | string
+  }
+
   export type DeportistaNullableScalarRelationFilter = {
     is?: DeportistaWhereInput | null
     isNot?: DeportistaWhereInput | null
@@ -18060,10 +18047,6 @@ export namespace Prisma {
     nombre?: SortOrder
   }
 
-  export type CategoriaAvgOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
   export type CategoriaMaxOrderByAggregateInput = {
     id?: SortOrder
     nombre?: SortOrder
@@ -18074,11 +18057,7 @@ export namespace Prisma {
     nombre?: SortOrder
   }
 
-  export type CategoriaSumOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type StringFilter<$PrismaModel = never> = {
+  export type StringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[]
     notIn?: string[]
@@ -18090,7 +18069,10 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     search?: string
-    not?: NestedStringFilter<$PrismaModel> | string
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
   }
 
   export type DateTimeNullableFilter<$PrismaModel = never> = {
@@ -18218,24 +18200,6 @@ export namespace Prisma {
     peso?: SortOrder
     altura?: SortOrder
     numeroTelefono?: SortOrder
-  }
-
-  export type StringWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
-    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedStringFilter<$PrismaModel>
-    _max?: NestedStringFilter<$PrismaModel>
   }
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -18475,6 +18439,12 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+  export type DeportistaOrderByRelevanceInput = {
+    fields: DeportistaOrderByRelevanceFieldEnum | DeportistaOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
   export type DeportistaCountOrderByAggregateInput = {
     id?: SortOrder
     idTutor?: SortOrder
@@ -18487,7 +18457,6 @@ export namespace Prisma {
     id?: SortOrder
     idTutor?: SortOrder
     idPersonaClub?: SortOrder
-    idCategoria?: SortOrder
   }
 
   export type DeportistaMaxOrderByAggregateInput = {
@@ -18510,7 +18479,6 @@ export namespace Prisma {
     id?: SortOrder
     idTutor?: SortOrder
     idPersonaClub?: SortOrder
-    idCategoria?: SortOrder
   }
 
   export type DeportistaScalarRelationFilter = {
@@ -18858,6 +18826,10 @@ export namespace Prisma {
     connect?: DeportistaWhereUniqueInput
   }
 
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
+  }
+
   export type DeportistaUpdateOneWithoutCategoriaNestedInput = {
     create?: XOR<DeportistaCreateWithoutCategoriaInput, DeportistaUncheckedCreateWithoutCategoriaInput>
     connectOrCreate?: DeportistaCreateOrConnectWithoutCategoriaInput
@@ -18918,10 +18890,6 @@ export namespace Prisma {
     create?: XOR<UsuarioCreateWithoutPersonaInput, UsuarioUncheckedCreateWithoutPersonaInput>
     connectOrCreate?: UsuarioCreateOrConnectWithoutPersonaInput
     connect?: UsuarioWhereUniqueInput
-  }
-
-  export type StringFieldUpdateOperationsInput = {
-    set?: string
   }
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
@@ -19483,6 +19451,24 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[]
+    notIn?: string[]
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
+  }
+
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | null
@@ -19503,24 +19489,6 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
-    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedStringFilter<$PrismaModel>
-    _max?: NestedStringFilter<$PrismaModel>
   }
 
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -19725,7 +19693,7 @@ export namespace Prisma {
   export type DeportistaUncheckedCreateWithoutPersonaClubInput = {
     id?: number
     idTutor?: number | null
-    idCategoria?: number | null
+    idCategoria?: string | null
     activo?: boolean | null
     desercionDeportista?: DesercionDeportistaUncheckedCreateNestedOneWithoutDeportistaInput
     pagosDeportista?: PagoDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
@@ -19826,7 +19794,7 @@ export namespace Prisma {
   export type DeportistaUncheckedUpdateWithoutPersonaClubInput = {
     id?: IntFieldUpdateOperationsInput | number
     idTutor?: NullableIntFieldUpdateOperationsInput | number | null
-    idCategoria?: NullableIntFieldUpdateOperationsInput | number | null
+    idCategoria?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     desercionDeportista?: DesercionDeportistaUncheckedUpdateOneWithoutDeportistaNestedInput
     pagosDeportista?: PagoDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
@@ -20067,7 +20035,7 @@ export namespace Prisma {
   export type DeportistaUncheckedCreateWithoutTutorInput = {
     id?: number
     idPersonaClub: number
-    idCategoria?: number | null
+    idCategoria?: string | null
     activo?: boolean | null
     desercionDeportista?: DesercionDeportistaUncheckedCreateNestedOneWithoutDeportistaInput
     pagosDeportista?: PagoDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
@@ -20100,7 +20068,7 @@ export namespace Prisma {
   export type DeportistaUncheckedUpdateWithoutTutorInput = {
     id?: IntFieldUpdateOperationsInput | number
     idPersonaClub?: IntFieldUpdateOperationsInput | number
-    idCategoria?: NullableIntFieldUpdateOperationsInput | number | null
+    idCategoria?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     desercionDeportista?: DesercionDeportistaUncheckedUpdateOneWithoutDeportistaNestedInput
     pagosDeportista?: PagoDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
@@ -20175,11 +20143,12 @@ export namespace Prisma {
   }
 
   export type CategoriaCreateWithoutDeportistaInput = {
+    id: string
     nombre?: string | null
   }
 
   export type CategoriaUncheckedCreateWithoutDeportistaInput = {
-    id?: number
+    id: string
     nombre?: string | null
   }
 
@@ -20321,11 +20290,12 @@ export namespace Prisma {
   }
 
   export type CategoriaUpdateWithoutDeportistaInput = {
+    id?: StringFieldUpdateOperationsInput | string
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type CategoriaUncheckedUpdateWithoutDeportistaInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -20392,7 +20362,7 @@ export namespace Prisma {
     id?: number
     idTutor?: number | null
     idPersonaClub: number
-    idCategoria?: number | null
+    idCategoria?: string | null
     activo?: boolean | null
     pagosDeportista?: PagoDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
   }
@@ -20425,7 +20395,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     idTutor?: NullableIntFieldUpdateOperationsInput | number | null
     idPersonaClub?: IntFieldUpdateOperationsInput | number
-    idCategoria?: NullableIntFieldUpdateOperationsInput | number | null
+    idCategoria?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     pagosDeportista?: PagoDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
   }
@@ -20442,7 +20412,7 @@ export namespace Prisma {
     id?: number
     idTutor?: number | null
     idPersonaClub: number
-    idCategoria?: number | null
+    idCategoria?: string | null
     activo?: boolean | null
     desercionDeportista?: DesercionDeportistaUncheckedCreateNestedOneWithoutDeportistaInput
   }
@@ -20475,7 +20445,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     idTutor?: NullableIntFieldUpdateOperationsInput | number | null
     idPersonaClub?: IntFieldUpdateOperationsInput | number
-    idCategoria?: NullableIntFieldUpdateOperationsInput | number | null
+    idCategoria?: NullableStringFieldUpdateOperationsInput | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     desercionDeportista?: DesercionDeportistaUncheckedUpdateOneWithoutDeportistaNestedInput
   }

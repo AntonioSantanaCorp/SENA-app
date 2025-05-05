@@ -1,5 +1,5 @@
+import { PersonClubRequest } from '@sacd/core/http/requests';
 import { IsDate, IsNotEmpty, IsNumber, IsString } from 'class-validator';
-import { PersonClubRequest } from '../requests';
 
 export class PersonClubDto implements PersonClubRequest {
   @IsString()

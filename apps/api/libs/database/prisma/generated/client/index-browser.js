@@ -256,6 +256,7 @@ exports.Prisma.CargosAdminOrderByRelevanceFieldEnum = {
 };
 
 exports.Prisma.CategoriaOrderByRelevanceFieldEnum = {
+  id: 'id',
   nombre: 'nombre'
 };
 
@@ -286,6 +287,10 @@ exports.Prisma.TutorOrderByRelevanceFieldEnum = {
   apellidos: 'apellidos',
   correo: 'correo',
   telefono: 'telefono'
+};
+
+exports.Prisma.DeportistaOrderByRelevanceFieldEnum = {
+  idCategoria: 'idCategoria'
 };
 
 exports.Prisma.DesercionDeportistaOrderByRelevanceFieldEnum = {
