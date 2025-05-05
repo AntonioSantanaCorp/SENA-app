@@ -1,4 +1,4 @@
-export interface PersonClub {
+export interface PersonClubResponse {
     id: number;
     tipoDocumento: string;
     idMunicipio: number;
