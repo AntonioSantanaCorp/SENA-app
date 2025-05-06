@@ -15,12 +15,12 @@
 <table class="table table-hover" cdk-table [dataSource]="athleteStore.data()">
   <ng-container cdkColumnDef="nombres">
     <th cdk-header-cell *cdkHeaderCellDef>Nombres y Apellidos</th>
-    <td cdk-cell *cdkCellDef="let element">{{ element.nombres }}</td>
+    <td cdk-cell *cdkCellDef="let element">{{ element.personaClub.nombres }}</td>
   </ng-container>
   <ng-container cdkColumnDef="documento">
     <th cdk-header-cell *cdkHeaderCellDef>Documento</th>
     <td cdk-cell *cdkCellDef="let element">
-      {{ element.tipoDocumento }} {{ element.numeroDocumento }}
+      {{ element.tipoDocumento }} {{ element.personaClub.numeroDocumento }}
     </td>
   </ng-container>
   <ng-container cdkColumnDef="estado">

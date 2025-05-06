@@ -5,7 +5,7 @@ import {
   inject,
   ViewEncapsulation,
 } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LocationStore } from '@web/libs/locations';
 import { distinctUntilChanged, map } from 'rxjs/operators';
@@ -43,18 +43,23 @@ export class AddressInfoComponent extends FormComponent<AddressInfoForm> {
       );
   });
 
-  private readonly _departamentoSelected = toSignal(
+  private readonly _departamentoSelected$ =
     this.form.controls.departamento.valueChanges.pipe(
       map((value) => Number(value)),
       distinctUntilChanged()
-    )
+    );
+
+  private readonly _departamentoSelected = toSignal(
+    this._departamentoSelected$
   );
 
-  protected departamentoChange(event: Event): void {
-    const value = (event.target as HTMLSelectElement).value;
+  constructor() {
+    super();
 
-    if (!value) return;
-
-    this.locationStore.getMunicipios(Number(value));
+    this._departamentoSelected$
+      .pipe(takeUntilDestroyed())
+      .subscribe((departamento) =>
+        this.locationStore.getMunicipios(departamento)
+      );
   }
 }

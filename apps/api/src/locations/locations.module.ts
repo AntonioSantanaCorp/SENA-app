@@ -5,6 +5,7 @@ import { LocationsService } from './service/locations.service';
 
 @Module({
   imports: [DatabaseModule],
+  exports: [LocationsService],
   controllers: [LocationsController],
   providers: [LocationsService],
 })

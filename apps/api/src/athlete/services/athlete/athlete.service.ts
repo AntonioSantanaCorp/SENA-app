@@ -4,12 +4,13 @@ import { AthleteResponse } from '@sacd/core/http/responses';
 import { AthleteDto } from '../../models/athlete.dto';
 import { AthleteSchema } from '../../models/athlete.schema';
 import { CategoriesService } from '../categories/categories.service';
-
+import { LocationsService } from '../../../locations/service/locations.service';
 @Injectable()
 export class AthleteService {
   constructor(
     private readonly _db: DatabaseService,
-    private readonly _categoriesDb: CategoriesService
+    private readonly _categoriesDb: CategoriesService,
+    private readonly _locationsService: LocationsService
   ) {}
 
   public async getAthletes(): Promise<AthleteResponse[]> {
@@ -21,7 +22,9 @@ export class AthleteService {
       },
     });
 
-    const response: AthleteResponse[] = athletes.map(this.mapAthleteToResponse);
+    const response: AthleteResponse[] = await Promise.all(
+      athletes.map(athlete => this.mapAthleteToResponse(athlete))
+    );
 
     return response;
   }
@@ -36,7 +39,7 @@ export class AthleteService {
       },
     });
 
-    if (athlete) throw new NotFoundException('Deportista no encontrado');
+    if (!athlete) throw new NotFoundException('Deportista no encontrado');
 
     return this.mapAthleteToResponse(athlete);
   }
@@ -57,21 +60,33 @@ export class AthleteService {
       },
     });
 
+    const departamento =
+      await this._locationsService.getDepartamentoByMunicipio(
+        createdPersonClub.idMunicipio
+      );
+
     return {
       id: createdDeportista.id,
       activo: createdDeportista.activo,
       categoria: categories.find(({ id }) => id === 'SUB-20'),
-      personaClub: createdPersonClub,
+      personaClub: { ...createdPersonClub, idDepartamento: departamento.id },
       tutor: createdTutor,
     };
   }
 
-  private mapAthleteToResponse(athlete: AthleteSchema): AthleteResponse {
+  private async mapAthleteToResponse(
+    athlete: AthleteSchema
+  ): Promise<AthleteResponse> {
+    const departamento =
+      await this._locationsService.getDepartamentoByMunicipio(
+        athlete.personaClub.idMunicipio
+      );
+
     return {
       id: athlete.id,
       activo: athlete.activo,
       categoria: athlete.categoria,
-      personaClub: athlete.personaClub,
+      personaClub: { ...athlete.personaClub, idDepartamento: departamento.id },
       tutor: athlete.tutor,
     };
   }

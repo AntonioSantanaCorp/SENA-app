@@ -20,3 +20,7 @@ export function createTutorInfoForm() {
 export type TutorInfoForm = ReturnType<
   typeof createTutorInfoForm & Record<string, AbstractControl>
 >;
+
+export type TutorInfo = ReturnType<
+  ReturnType<typeof createTutorInfoForm>['getRawValue']
+>;

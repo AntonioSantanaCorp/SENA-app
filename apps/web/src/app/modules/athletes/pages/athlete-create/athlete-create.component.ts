@@ -39,14 +39,14 @@ export default class AthleteCreateComponent extends UserDetailsFormComponent {
       if (this.form.invalid) return;
 
       await firstValueFrom(
-        this._athleteApi.create(this.createAthleteRequest())
+        this._athleteApi.create(this.mapToAthleteRequest())
       );
     } catch (error) {
       console.error(error);
     }
   }
 
-  private createAthleteRequest(): AthleteRequest {
+  private mapToAthleteRequest(): AthleteRequest {
     const { addressInfo, generalInfo, tutorInfo } = this.form.getRawValue();
 
     if (!generalInfo || !addressInfo || !tutorInfo) {

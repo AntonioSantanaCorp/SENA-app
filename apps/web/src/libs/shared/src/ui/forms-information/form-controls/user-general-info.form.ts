@@ -29,3 +29,7 @@ export function createUserGeneralInfoForm() {
 export type UserGeneralInfoForm = ReturnType<
   typeof createUserGeneralInfoForm & Record<string, AbstractControl>
 >;
+
+export type UserGeneralInfo = ReturnType<
+  ReturnType<typeof createUserGeneralInfoForm>['getRawValue']
+>;

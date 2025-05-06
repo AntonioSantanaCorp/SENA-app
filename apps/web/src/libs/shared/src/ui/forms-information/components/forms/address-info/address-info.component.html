@@ -1,10 +1,7 @@
 <ng-container [formGroup]="form">
   <ui-control-input attrFor="departamento">
     <label> Departamento residencia *</label>
-    <select
-      formControlName="departamento"
-      (change)="departamentoChange($event)"
-    >
+    <select formControlName="departamento">
       <option selected disabled value="">Seleccione departamento</option>
       @for (departamento of locationStore.departamentos(); track $index) {
       <option [value]="departamento.id">{{ departamento.nombre }}</option>

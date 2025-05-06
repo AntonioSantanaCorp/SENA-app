@@ -14,3 +14,7 @@ export function createAddressInfoForm() {
 export type AddressInfoForm = ReturnType<
   typeof createAddressInfoForm & Record<string, AbstractControl>
 >;
+
+export type AddressInfo = ReturnType<
+  ReturnType<typeof createAddressInfoForm>['getRawValue']
+>;

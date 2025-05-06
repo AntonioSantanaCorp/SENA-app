@@ -24,12 +24,29 @@ export function withDataTableFeature<TEntity extends object>(
     withComputed(({ filters, entities, pagination }) => ({
       length: computed(() => entities().length),
       data: computed(() => {
+        // Función recursiva para buscar en todas las propiedades, incluidas las anidadas
+        const containsQuery = (obj: any, query: string): boolean => {
+          if (obj == null) return false;
+          if (
+            typeof obj === 'string' ||
+            typeof obj === 'number' ||
+            typeof obj === 'boolean'
+          ) {
+            return String(obj).toLowerCase().includes(query.toLowerCase());
+          }
+          if (Array.isArray(obj)) {
+            return obj.some((item) => containsQuery(item, query));
+          }
+          if (typeof obj === 'object') {
+            return Reflect.ownKeys(obj).some((key) =>
+              containsQuery(obj[key], query)
+            );
+          }
+          return false;
+        };
+
         const filterDataFn = () =>
-          entities().filter((entity) =>
-            Reflect.ownKeys(entity).some((key) =>
-              String(Reflect.get(entity, key)).includes(filters().query)
-            )
-          );
+          entities().filter((entity) => containsQuery(entity, filters().query));
 
         const dataFiltered = filters().query.trim()
           ? filterDataFn()

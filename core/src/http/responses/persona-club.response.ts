@@ -1,7 +1,9 @@
 export interface PersonClubResponse {
     id: number;
     tipoDocumento: string;
+    numeroDocumento: string;
     idMunicipio: number;
+    idDepartamento: number;
     nombres: string;
     apellidos: string;
     fechaNacimiento?: Date;

@@ -20,4 +20,19 @@ export class LocationsService {
       },
     });
   }
+
+  async getDepartamentoByMunicipio(
+    idMunicipio: number
+  ): Promise<DepartamentoResponse | null> {
+    const municipio = await this._db.municipio.findUnique({
+      where: {
+        id: idMunicipio,
+      },
+      include: {
+        departamento: true,
+      },
+    });
+
+    return municipio?.departamento;
+  }
 }

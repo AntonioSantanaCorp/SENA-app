@@ -23,4 +23,8 @@ export class AthleteApiService extends DataTableApi<AthleteResponse> {
   public create(athlete: AthleteRequest): Observable<AthleteResponse> {
     return this._http.post<AthleteResponse>(this._apiUrl, athlete);
   }
+
+  public getById(id: string): Observable<AthleteResponse> {
+    return this._http.get<AthleteResponse>(`${this._apiUrl}/${id}`);
+  }
 }
