@@ -25,6 +25,7 @@
     "@nestjs/platform-express": "^10.0.2",
     "@nestjs/swagger": "^11.2.0",
     "@ngrx/signals": "^19.1.0",
+    "@popperjs/core": "^2.11.8",
     "@prisma/client": "^6.7.0",
     "axios": "^1.6.0",
     "bootstrap": "^5.3.3",

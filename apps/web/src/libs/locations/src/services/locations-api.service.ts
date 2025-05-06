@@ -10,17 +10,18 @@ import {
   providedIn: 'root',
 })
 export class LocationsApiService {
+  private readonly _apiUrl = `${environment.apiUrl}/locations`;
   constructor(private http: HttpClient) {}
 
   getDepartamentos() {
     return this.http.get<DepartamentoResponse[]>(
-      `${environment.apiUrl}/departamentos`
+      `${this._apiUrl}/departamentos`
     );
   }
 
   getMunicipios(idDepartamento: number) {
     return this.http.get<MunicipioResponse[]>(
-      `${environment.apiUrl}/municipios/${idDepartamento}`
+      `${this._apiUrl}/municipios/${idDepartamento}`
     );
   }
 }
