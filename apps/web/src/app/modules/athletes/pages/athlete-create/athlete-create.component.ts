@@ -1,5 +1,11 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  effect,
+  inject,
+} from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LocationStore } from '@web/libs/locations';
 import { UserDetailsFormComponent } from '@web/libs/shared/ui/forms-information';
 import {
   AddressInfoComponent,
@@ -27,6 +33,16 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class AthleteCreateComponent extends UserDetailsFormComponent {
+  private readonly locationStore = inject(LocationStore);
+
+  constructor() {
+    super();
+
+    effect(() => {
+      console.log(this.locationStore.departamentos());
+    });
+  }
+
   protected create(): void {
     this.form.markAllAsTouched();
     console.log(this.form.value);
