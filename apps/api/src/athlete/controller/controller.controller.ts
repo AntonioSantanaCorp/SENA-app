@@ -6,7 +6,7 @@ export class ControllerController {
   constructor(private readonly athleteService: AthleteService) {}
 
   @Get()
-  getAthletes() {
+  async findAll() {
     return this.athleteService.getAthletes();
   }
 
