@@ -137,6 +137,7 @@ exports.Prisma.CategoriaScalarFieldEnum = {
 
 exports.Prisma.PersonaClubScalarFieldEnum = {
   id: 'id',
+  numeroDocumento: 'numeroDocumento',
   tipoDocumento: 'tipoDocumento',
   idMunicipio: 'idMunicipio',
   nombres: 'nombres',
@@ -175,6 +176,7 @@ exports.Prisma.EntrenadorScalarFieldEnum = {
 exports.Prisma.TutorScalarFieldEnum = {
   id: 'id',
   tipoDocumento: 'tipoDocumento',
+  numeroDocumento: 'numeroDocumento',
   nombres: 'nombres',
   apellidos: 'apellidos',
   correo: 'correo',
@@ -261,6 +263,7 @@ exports.Prisma.CategoriaOrderByRelevanceFieldEnum = {
 };
 
 exports.Prisma.PersonaClubOrderByRelevanceFieldEnum = {
+  numeroDocumento: 'numeroDocumento',
   tipoDocumento: 'tipoDocumento',
   nombres: 'nombres',
   apellidos: 'apellidos',
@@ -283,6 +286,7 @@ exports.Prisma.ContactosEmergenciaOrderByRelevanceFieldEnum = {
 
 exports.Prisma.TutorOrderByRelevanceFieldEnum = {
   tipoDocumento: 'tipoDocumento',
+  numeroDocumento: 'numeroDocumento',
   nombres: 'nombres',
   apellidos: 'apellidos',
   correo: 'correo',

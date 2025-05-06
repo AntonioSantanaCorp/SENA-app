@@ -3878,6 +3878,7 @@ export namespace Prisma {
 
   export type PersonaClubMinAggregateOutputType = {
     id: number | null
+    numeroDocumento: string | null
     tipoDocumento: string | null
     idMunicipio: number | null
     nombres: string | null
@@ -3897,6 +3898,7 @@ export namespace Prisma {
 
   export type PersonaClubMaxAggregateOutputType = {
     id: number | null
+    numeroDocumento: string | null
     tipoDocumento: string | null
     idMunicipio: number | null
     nombres: string | null
@@ -3916,6 +3918,7 @@ export namespace Prisma {
 
   export type PersonaClubCountAggregateOutputType = {
     id: number
+    numeroDocumento: number
     tipoDocumento: number
     idMunicipio: number
     nombres: number
@@ -3953,6 +3956,7 @@ export namespace Prisma {
 
   export type PersonaClubMinAggregateInputType = {
     id?: true
+    numeroDocumento?: true
     tipoDocumento?: true
     idMunicipio?: true
     nombres?: true
@@ -3972,6 +3976,7 @@ export namespace Prisma {
 
   export type PersonaClubMaxAggregateInputType = {
     id?: true
+    numeroDocumento?: true
     tipoDocumento?: true
     idMunicipio?: true
     nombres?: true
@@ -3991,6 +3996,7 @@ export namespace Prisma {
 
   export type PersonaClubCountAggregateInputType = {
     id?: true
+    numeroDocumento?: true
     tipoDocumento?: true
     idMunicipio?: true
     nombres?: true
@@ -4097,6 +4103,7 @@ export namespace Prisma {
 
   export type PersonaClubGroupByOutputType = {
     id: number
+    numeroDocumento: string
     tipoDocumento: string
     idMunicipio: number
     nombres: string
@@ -4135,6 +4142,7 @@ export namespace Prisma {
 
   export type PersonaClubSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    numeroDocumento?: boolean
     tipoDocumento?: boolean
     idMunicipio?: boolean
     nombres?: boolean
@@ -4160,6 +4168,7 @@ export namespace Prisma {
 
   export type PersonaClubSelectScalar = {
     id?: boolean
+    numeroDocumento?: boolean
     tipoDocumento?: boolean
     idMunicipio?: boolean
     nombres?: boolean
@@ -4177,7 +4186,7 @@ export namespace Prisma {
     direccion?: boolean
   }
 
-  export type PersonaClubOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tipoDocumento" | "idMunicipio" | "nombres" | "apellidos" | "fechaNacimento" | "tipoRh" | "peso" | "altura" | "correo" | "numeroTelefono" | "tallaCamisa" | "tallaCalzado" | "tallaPantaloneta" | "genero" | "direccion", ExtArgs["result"]["personaClub"]>
+  export type PersonaClubOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "numeroDocumento" | "tipoDocumento" | "idMunicipio" | "nombres" | "apellidos" | "fechaNacimento" | "tipoRh" | "peso" | "altura" | "correo" | "numeroTelefono" | "tallaCamisa" | "tallaCalzado" | "tallaPantaloneta" | "genero" | "direccion", ExtArgs["result"]["personaClub"]>
   export type PersonaClubInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     municipio?: boolean | MunicipioDefaultArgs<ExtArgs>
     entrenador?: boolean | PersonaClub$entrenadorArgs<ExtArgs>
@@ -4195,6 +4204,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      numeroDocumento: string
       tipoDocumento: string
       idMunicipio: number
       nombres: string
@@ -4584,6 +4594,7 @@ export namespace Prisma {
    */
   interface PersonaClubFieldRefs {
     readonly id: FieldRef<"PersonaClub", 'Int'>
+    readonly numeroDocumento: FieldRef<"PersonaClub", 'String'>
     readonly tipoDocumento: FieldRef<"PersonaClub", 'String'>
     readonly idMunicipio: FieldRef<"PersonaClub", 'Int'>
     readonly nombres: FieldRef<"PersonaClub", 'String'>
@@ -7072,6 +7083,7 @@ export namespace Prisma {
   export type TutorMinAggregateOutputType = {
     id: number | null
     tipoDocumento: string | null
+    numeroDocumento: string | null
     nombres: string | null
     apellidos: string | null
     correo: string | null
@@ -7081,6 +7093,7 @@ export namespace Prisma {
   export type TutorMaxAggregateOutputType = {
     id: number | null
     tipoDocumento: string | null
+    numeroDocumento: string | null
     nombres: string | null
     apellidos: string | null
     correo: string | null
@@ -7090,6 +7103,7 @@ export namespace Prisma {
   export type TutorCountAggregateOutputType = {
     id: number
     tipoDocumento: number
+    numeroDocumento: number
     nombres: number
     apellidos: number
     correo: number
@@ -7109,6 +7123,7 @@ export namespace Prisma {
   export type TutorMinAggregateInputType = {
     id?: true
     tipoDocumento?: true
+    numeroDocumento?: true
     nombres?: true
     apellidos?: true
     correo?: true
@@ -7118,6 +7133,7 @@ export namespace Prisma {
   export type TutorMaxAggregateInputType = {
     id?: true
     tipoDocumento?: true
+    numeroDocumento?: true
     nombres?: true
     apellidos?: true
     correo?: true
@@ -7127,6 +7143,7 @@ export namespace Prisma {
   export type TutorCountAggregateInputType = {
     id?: true
     tipoDocumento?: true
+    numeroDocumento?: true
     nombres?: true
     apellidos?: true
     correo?: true
@@ -7223,6 +7240,7 @@ export namespace Prisma {
   export type TutorGroupByOutputType = {
     id: number
     tipoDocumento: string
+    numeroDocumento: string | null
     nombres: string | null
     apellidos: string | null
     correo: string | null
@@ -7251,6 +7269,7 @@ export namespace Prisma {
   export type TutorSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     tipoDocumento?: boolean
+    numeroDocumento?: boolean
     nombres?: boolean
     apellidos?: boolean
     correo?: boolean
@@ -7263,13 +7282,14 @@ export namespace Prisma {
   export type TutorSelectScalar = {
     id?: boolean
     tipoDocumento?: boolean
+    numeroDocumento?: boolean
     nombres?: boolean
     apellidos?: boolean
     correo?: boolean
     telefono?: boolean
   }
 
-  export type TutorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tipoDocumento" | "nombres" | "apellidos" | "correo" | "telefono", ExtArgs["result"]["tutor"]>
+  export type TutorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tipoDocumento" | "numeroDocumento" | "nombres" | "apellidos" | "correo" | "telefono", ExtArgs["result"]["tutor"]>
   export type TutorInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     deportista?: boolean | Tutor$deportistaArgs<ExtArgs>
   }
@@ -7282,6 +7302,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       tipoDocumento: string
+      numeroDocumento: string | null
       nombres: string | null
       apellidos: string | null
       correo: string | null
@@ -7658,6 +7679,7 @@ export namespace Prisma {
   interface TutorFieldRefs {
     readonly id: FieldRef<"Tutor", 'Int'>
     readonly tipoDocumento: FieldRef<"Tutor", 'String'>
+    readonly numeroDocumento: FieldRef<"Tutor", 'String'>
     readonly nombres: FieldRef<"Tutor", 'String'>
     readonly apellidos: FieldRef<"Tutor", 'String'>
     readonly correo: FieldRef<"Tutor", 'String'>
@@ -15955,6 +15977,7 @@ export namespace Prisma {
 
   export const PersonaClubScalarFieldEnum: {
     id: 'id',
+    numeroDocumento: 'numeroDocumento',
     tipoDocumento: 'tipoDocumento',
     idMunicipio: 'idMunicipio',
     nombres: 'nombres',
@@ -16002,6 +16025,7 @@ export namespace Prisma {
   export const TutorScalarFieldEnum: {
     id: 'id',
     tipoDocumento: 'tipoDocumento',
+    numeroDocumento: 'numeroDocumento',
     nombres: 'nombres',
     apellidos: 'apellidos',
     correo: 'correo',
@@ -16127,6 +16151,7 @@ export namespace Prisma {
 
 
   export const PersonaClubOrderByRelevanceFieldEnum: {
+    numeroDocumento: 'numeroDocumento',
     tipoDocumento: 'tipoDocumento',
     nombres: 'nombres',
     apellidos: 'apellidos',
@@ -16155,6 +16180,7 @@ export namespace Prisma {
 
   export const TutorOrderByRelevanceFieldEnum: {
     tipoDocumento: 'tipoDocumento',
+    numeroDocumento: 'numeroDocumento',
     nombres: 'nombres',
     apellidos: 'apellidos',
     correo: 'correo',
@@ -16359,6 +16385,7 @@ export namespace Prisma {
     OR?: PersonaClubWhereInput[]
     NOT?: PersonaClubWhereInput | PersonaClubWhereInput[]
     id?: IntFilter<"PersonaClub"> | number
+    numeroDocumento?: StringFilter<"PersonaClub"> | string
     tipoDocumento?: StringFilter<"PersonaClub"> | string
     idMunicipio?: IntFilter<"PersonaClub"> | number
     nombres?: StringFilter<"PersonaClub"> | string
@@ -16382,6 +16409,7 @@ export namespace Prisma {
 
   export type PersonaClubOrderByWithRelationInput = {
     id?: SortOrder
+    numeroDocumento?: SortOrder
     tipoDocumento?: SortOrder
     idMunicipio?: SortOrder
     nombres?: SortOrder
@@ -16410,6 +16438,7 @@ export namespace Prisma {
     AND?: PersonaClubWhereInput | PersonaClubWhereInput[]
     OR?: PersonaClubWhereInput[]
     NOT?: PersonaClubWhereInput | PersonaClubWhereInput[]
+    numeroDocumento?: StringFilter<"PersonaClub"> | string
     tipoDocumento?: StringFilter<"PersonaClub"> | string
     nombres?: StringFilter<"PersonaClub"> | string
     apellidos?: StringFilter<"PersonaClub"> | string
@@ -16432,6 +16461,7 @@ export namespace Prisma {
 
   export type PersonaClubOrderByWithAggregationInput = {
     id?: SortOrder
+    numeroDocumento?: SortOrder
     tipoDocumento?: SortOrder
     idMunicipio?: SortOrder
     nombres?: SortOrder
@@ -16459,6 +16489,7 @@ export namespace Prisma {
     OR?: PersonaClubScalarWhereWithAggregatesInput[]
     NOT?: PersonaClubScalarWhereWithAggregatesInput | PersonaClubScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"PersonaClub"> | number
+    numeroDocumento?: StringWithAggregatesFilter<"PersonaClub"> | string
     tipoDocumento?: StringWithAggregatesFilter<"PersonaClub"> | string
     idMunicipio?: IntWithAggregatesFilter<"PersonaClub"> | number
     nombres?: StringWithAggregatesFilter<"PersonaClub"> | string
@@ -16610,6 +16641,7 @@ export namespace Prisma {
     NOT?: TutorWhereInput | TutorWhereInput[]
     id?: IntFilter<"Tutor"> | number
     tipoDocumento?: StringFilter<"Tutor"> | string
+    numeroDocumento?: StringNullableFilter<"Tutor"> | string | null
     nombres?: StringNullableFilter<"Tutor"> | string | null
     apellidos?: StringNullableFilter<"Tutor"> | string | null
     correo?: StringNullableFilter<"Tutor"> | string | null
@@ -16620,6 +16652,7 @@ export namespace Prisma {
   export type TutorOrderByWithRelationInput = {
     id?: SortOrder
     tipoDocumento?: SortOrder
+    numeroDocumento?: SortOrderInput | SortOrder
     nombres?: SortOrderInput | SortOrder
     apellidos?: SortOrderInput | SortOrder
     correo?: SortOrderInput | SortOrder
@@ -16634,6 +16667,7 @@ export namespace Prisma {
     OR?: TutorWhereInput[]
     NOT?: TutorWhereInput | TutorWhereInput[]
     tipoDocumento?: StringFilter<"Tutor"> | string
+    numeroDocumento?: StringNullableFilter<"Tutor"> | string | null
     nombres?: StringNullableFilter<"Tutor"> | string | null
     apellidos?: StringNullableFilter<"Tutor"> | string | null
     correo?: StringNullableFilter<"Tutor"> | string | null
@@ -16644,6 +16678,7 @@ export namespace Prisma {
   export type TutorOrderByWithAggregationInput = {
     id?: SortOrder
     tipoDocumento?: SortOrder
+    numeroDocumento?: SortOrderInput | SortOrder
     nombres?: SortOrderInput | SortOrder
     apellidos?: SortOrderInput | SortOrder
     correo?: SortOrderInput | SortOrder
@@ -16661,6 +16696,7 @@ export namespace Prisma {
     NOT?: TutorScalarWhereWithAggregatesInput | TutorScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Tutor"> | number
     tipoDocumento?: StringWithAggregatesFilter<"Tutor"> | string
+    numeroDocumento?: StringNullableWithAggregatesFilter<"Tutor"> | string | null
     nombres?: StringNullableWithAggregatesFilter<"Tutor"> | string | null
     apellidos?: StringNullableWithAggregatesFilter<"Tutor"> | string | null
     correo?: StringNullableWithAggregatesFilter<"Tutor"> | string | null
@@ -17191,6 +17227,7 @@ export namespace Prisma {
   }
 
   export type PersonaClubCreateInput = {
+    numeroDocumento: string
     tipoDocumento: string
     nombres: string
     apellidos: string
@@ -17213,6 +17250,7 @@ export namespace Prisma {
 
   export type PersonaClubUncheckedCreateInput = {
     id?: number
+    numeroDocumento: string
     tipoDocumento: string
     idMunicipio: number
     nombres: string
@@ -17234,6 +17272,7 @@ export namespace Prisma {
   }
 
   export type PersonaClubUpdateInput = {
+    numeroDocumento?: StringFieldUpdateOperationsInput | string
     tipoDocumento?: StringFieldUpdateOperationsInput | string
     nombres?: StringFieldUpdateOperationsInput | string
     apellidos?: StringFieldUpdateOperationsInput | string
@@ -17256,6 +17295,7 @@ export namespace Prisma {
 
   export type PersonaClubUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    numeroDocumento?: StringFieldUpdateOperationsInput | string
     tipoDocumento?: StringFieldUpdateOperationsInput | string
     idMunicipio?: IntFieldUpdateOperationsInput | number
     nombres?: StringFieldUpdateOperationsInput | string
@@ -17278,6 +17318,7 @@ export namespace Prisma {
 
   export type PersonaClubCreateManyInput = {
     id?: number
+    numeroDocumento: string
     tipoDocumento: string
     idMunicipio: number
     nombres: string
@@ -17296,6 +17337,7 @@ export namespace Prisma {
   }
 
   export type PersonaClubUpdateManyMutationInput = {
+    numeroDocumento?: StringFieldUpdateOperationsInput | string
     tipoDocumento?: StringFieldUpdateOperationsInput | string
     nombres?: StringFieldUpdateOperationsInput | string
     apellidos?: StringFieldUpdateOperationsInput | string
@@ -17314,6 +17356,7 @@ export namespace Prisma {
 
   export type PersonaClubUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    numeroDocumento?: StringFieldUpdateOperationsInput | string
     tipoDocumento?: StringFieldUpdateOperationsInput | string
     idMunicipio?: IntFieldUpdateOperationsInput | number
     nombres?: StringFieldUpdateOperationsInput | string
@@ -17455,6 +17498,7 @@ export namespace Prisma {
 
   export type TutorCreateInput = {
     tipoDocumento: string
+    numeroDocumento?: string | null
     nombres?: string | null
     apellidos?: string | null
     correo?: string | null
@@ -17465,6 +17509,7 @@ export namespace Prisma {
   export type TutorUncheckedCreateInput = {
     id?: number
     tipoDocumento: string
+    numeroDocumento?: string | null
     nombres?: string | null
     apellidos?: string | null
     correo?: string | null
@@ -17474,6 +17519,7 @@ export namespace Prisma {
 
   export type TutorUpdateInput = {
     tipoDocumento?: StringFieldUpdateOperationsInput | string
+    numeroDocumento?: NullableStringFieldUpdateOperationsInput | string | null
     nombres?: NullableStringFieldUpdateOperationsInput | string | null
     apellidos?: NullableStringFieldUpdateOperationsInput | string | null
     correo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17484,6 +17530,7 @@ export namespace Prisma {
   export type TutorUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     tipoDocumento?: StringFieldUpdateOperationsInput | string
+    numeroDocumento?: NullableStringFieldUpdateOperationsInput | string | null
     nombres?: NullableStringFieldUpdateOperationsInput | string | null
     apellidos?: NullableStringFieldUpdateOperationsInput | string | null
     correo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17494,6 +17541,7 @@ export namespace Prisma {
   export type TutorCreateManyInput = {
     id?: number
     tipoDocumento: string
+    numeroDocumento?: string | null
     nombres?: string | null
     apellidos?: string | null
     correo?: string | null
@@ -17502,6 +17550,7 @@ export namespace Prisma {
 
   export type TutorUpdateManyMutationInput = {
     tipoDocumento?: StringFieldUpdateOperationsInput | string
+    numeroDocumento?: NullableStringFieldUpdateOperationsInput | string | null
     nombres?: NullableStringFieldUpdateOperationsInput | string | null
     apellidos?: NullableStringFieldUpdateOperationsInput | string | null
     correo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17511,6 +17560,7 @@ export namespace Prisma {
   export type TutorUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     tipoDocumento?: StringFieldUpdateOperationsInput | string
+    numeroDocumento?: NullableStringFieldUpdateOperationsInput | string | null
     nombres?: NullableStringFieldUpdateOperationsInput | string | null
     apellidos?: NullableStringFieldUpdateOperationsInput | string | null
     correo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -18131,6 +18181,7 @@ export namespace Prisma {
 
   export type PersonaClubCountOrderByAggregateInput = {
     id?: SortOrder
+    numeroDocumento?: SortOrder
     tipoDocumento?: SortOrder
     idMunicipio?: SortOrder
     nombres?: SortOrder
@@ -18158,6 +18209,7 @@ export namespace Prisma {
 
   export type PersonaClubMaxOrderByAggregateInput = {
     id?: SortOrder
+    numeroDocumento?: SortOrder
     tipoDocumento?: SortOrder
     idMunicipio?: SortOrder
     nombres?: SortOrder
@@ -18177,6 +18229,7 @@ export namespace Prisma {
 
   export type PersonaClubMinOrderByAggregateInput = {
     id?: SortOrder
+    numeroDocumento?: SortOrder
     tipoDocumento?: SortOrder
     idMunicipio?: SortOrder
     nombres?: SortOrder
@@ -18382,6 +18435,7 @@ export namespace Prisma {
   export type TutorCountOrderByAggregateInput = {
     id?: SortOrder
     tipoDocumento?: SortOrder
+    numeroDocumento?: SortOrder
     nombres?: SortOrder
     apellidos?: SortOrder
     correo?: SortOrder
@@ -18395,6 +18449,7 @@ export namespace Prisma {
   export type TutorMaxOrderByAggregateInput = {
     id?: SortOrder
     tipoDocumento?: SortOrder
+    numeroDocumento?: SortOrder
     nombres?: SortOrder
     apellidos?: SortOrder
     correo?: SortOrder
@@ -18404,6 +18459,7 @@ export namespace Prisma {
   export type TutorMinOrderByAggregateInput = {
     id?: SortOrder
     tipoDocumento?: SortOrder
+    numeroDocumento?: SortOrder
     nombres?: SortOrder
     apellidos?: SortOrder
     correo?: SortOrder
@@ -19898,6 +19954,7 @@ export namespace Prisma {
   }
 
   export type PersonaClubCreateWithoutEntrenadorInput = {
+    numeroDocumento: string
     tipoDocumento: string
     nombres: string
     apellidos: string
@@ -19919,6 +19976,7 @@ export namespace Prisma {
 
   export type PersonaClubUncheckedCreateWithoutEntrenadorInput = {
     id?: number
+    numeroDocumento: string
     tipoDocumento: string
     idMunicipio: number
     nombres: string
@@ -19984,6 +20042,7 @@ export namespace Prisma {
   }
 
   export type PersonaClubUpdateWithoutEntrenadorInput = {
+    numeroDocumento?: StringFieldUpdateOperationsInput | string
     tipoDocumento?: StringFieldUpdateOperationsInput | string
     nombres?: StringFieldUpdateOperationsInput | string
     apellidos?: StringFieldUpdateOperationsInput | string
@@ -20005,6 +20064,7 @@ export namespace Prisma {
 
   export type PersonaClubUncheckedUpdateWithoutEntrenadorInput = {
     id?: IntFieldUpdateOperationsInput | number
+    numeroDocumento?: StringFieldUpdateOperationsInput | string
     tipoDocumento?: StringFieldUpdateOperationsInput | string
     idMunicipio?: IntFieldUpdateOperationsInput | number
     nombres?: StringFieldUpdateOperationsInput | string
@@ -20076,6 +20136,7 @@ export namespace Prisma {
 
   export type TutorCreateWithoutDeportistaInput = {
     tipoDocumento: string
+    numeroDocumento?: string | null
     nombres?: string | null
     apellidos?: string | null
     correo?: string | null
@@ -20085,6 +20146,7 @@ export namespace Prisma {
   export type TutorUncheckedCreateWithoutDeportistaInput = {
     id?: number
     tipoDocumento: string
+    numeroDocumento?: string | null
     nombres?: string | null
     apellidos?: string | null
     correo?: string | null
@@ -20097,6 +20159,7 @@ export namespace Prisma {
   }
 
   export type PersonaClubCreateWithoutDeportistaInput = {
+    numeroDocumento: string
     tipoDocumento: string
     nombres: string
     apellidos: string
@@ -20118,6 +20181,7 @@ export namespace Prisma {
 
   export type PersonaClubUncheckedCreateWithoutDeportistaInput = {
     id?: number
+    numeroDocumento: string
     tipoDocumento: string
     idMunicipio: number
     nombres: string
@@ -20211,6 +20275,7 @@ export namespace Prisma {
 
   export type TutorUpdateWithoutDeportistaInput = {
     tipoDocumento?: StringFieldUpdateOperationsInput | string
+    numeroDocumento?: NullableStringFieldUpdateOperationsInput | string | null
     nombres?: NullableStringFieldUpdateOperationsInput | string | null
     apellidos?: NullableStringFieldUpdateOperationsInput | string | null
     correo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20220,6 +20285,7 @@ export namespace Prisma {
   export type TutorUncheckedUpdateWithoutDeportistaInput = {
     id?: IntFieldUpdateOperationsInput | number
     tipoDocumento?: StringFieldUpdateOperationsInput | string
+    numeroDocumento?: NullableStringFieldUpdateOperationsInput | string | null
     nombres?: NullableStringFieldUpdateOperationsInput | string | null
     apellidos?: NullableStringFieldUpdateOperationsInput | string | null
     correo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20238,6 +20304,7 @@ export namespace Prisma {
   }
 
   export type PersonaClubUpdateWithoutDeportistaInput = {
+    numeroDocumento?: StringFieldUpdateOperationsInput | string
     tipoDocumento?: StringFieldUpdateOperationsInput | string
     nombres?: StringFieldUpdateOperationsInput | string
     apellidos?: StringFieldUpdateOperationsInput | string
@@ -20259,6 +20326,7 @@ export namespace Prisma {
 
   export type PersonaClubUncheckedUpdateWithoutDeportistaInput = {
     id?: IntFieldUpdateOperationsInput | number
+    numeroDocumento?: StringFieldUpdateOperationsInput | string
     tipoDocumento?: StringFieldUpdateOperationsInput | string
     idMunicipio?: IntFieldUpdateOperationsInput | number
     nombres?: StringFieldUpdateOperationsInput | string
@@ -20451,6 +20519,7 @@ export namespace Prisma {
   }
 
   export type PersonaClubCreateWithoutUsuarioInput = {
+    numeroDocumento: string
     tipoDocumento: string
     nombres: string
     apellidos: string
@@ -20472,6 +20541,7 @@ export namespace Prisma {
 
   export type PersonaClubUncheckedCreateWithoutUsuarioInput = {
     id?: number
+    numeroDocumento: string
     tipoDocumento: string
     idMunicipio: number
     nombres: string
@@ -20508,6 +20578,7 @@ export namespace Prisma {
   }
 
   export type PersonaClubUpdateWithoutUsuarioInput = {
+    numeroDocumento?: StringFieldUpdateOperationsInput | string
     tipoDocumento?: StringFieldUpdateOperationsInput | string
     nombres?: StringFieldUpdateOperationsInput | string
     apellidos?: StringFieldUpdateOperationsInput | string
@@ -20529,6 +20600,7 @@ export namespace Prisma {
 
   export type PersonaClubUncheckedUpdateWithoutUsuarioInput = {
     id?: IntFieldUpdateOperationsInput | number
+    numeroDocumento?: StringFieldUpdateOperationsInput | string
     tipoDocumento?: StringFieldUpdateOperationsInput | string
     idMunicipio?: IntFieldUpdateOperationsInput | number
     nombres?: StringFieldUpdateOperationsInput | string
@@ -20591,6 +20663,7 @@ export namespace Prisma {
   }
 
   export type PersonaClubCreateWithoutMunicipioInput = {
+    numeroDocumento: string
     tipoDocumento: string
     nombres: string
     apellidos: string
@@ -20612,6 +20685,7 @@ export namespace Prisma {
 
   export type PersonaClubUncheckedCreateWithoutMunicipioInput = {
     id?: number
+    numeroDocumento: string
     tipoDocumento: string
     nombres: string
     apellidos: string
@@ -20676,6 +20750,7 @@ export namespace Prisma {
     OR?: PersonaClubScalarWhereInput[]
     NOT?: PersonaClubScalarWhereInput | PersonaClubScalarWhereInput[]
     id?: IntFilter<"PersonaClub"> | number
+    numeroDocumento?: StringFilter<"PersonaClub"> | string
     tipoDocumento?: StringFilter<"PersonaClub"> | string
     idMunicipio?: IntFilter<"PersonaClub"> | number
     nombres?: StringFilter<"PersonaClub"> | string
@@ -20777,6 +20852,7 @@ export namespace Prisma {
 
   export type PersonaClubCreateManyMunicipioInput = {
     id?: number
+    numeroDocumento: string
     tipoDocumento: string
     nombres: string
     apellidos: string
@@ -20794,6 +20870,7 @@ export namespace Prisma {
   }
 
   export type PersonaClubUpdateWithoutMunicipioInput = {
+    numeroDocumento?: StringFieldUpdateOperationsInput | string
     tipoDocumento?: StringFieldUpdateOperationsInput | string
     nombres?: StringFieldUpdateOperationsInput | string
     apellidos?: StringFieldUpdateOperationsInput | string
@@ -20815,6 +20892,7 @@ export namespace Prisma {
 
   export type PersonaClubUncheckedUpdateWithoutMunicipioInput = {
     id?: IntFieldUpdateOperationsInput | number
+    numeroDocumento?: StringFieldUpdateOperationsInput | string
     tipoDocumento?: StringFieldUpdateOperationsInput | string
     nombres?: StringFieldUpdateOperationsInput | string
     apellidos?: StringFieldUpdateOperationsInput | string
@@ -20836,6 +20914,7 @@ export namespace Prisma {
 
   export type PersonaClubUncheckedUpdateManyWithoutMunicipioInput = {
     id?: IntFieldUpdateOperationsInput | number
+    numeroDocumento?: StringFieldUpdateOperationsInput | string
     tipoDocumento?: StringFieldUpdateOperationsInput | string
     nombres?: StringFieldUpdateOperationsInput | string
     apellidos?: StringFieldUpdateOperationsInput | string

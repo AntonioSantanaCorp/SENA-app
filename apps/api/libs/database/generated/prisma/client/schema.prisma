@@ -1,6 +1,6 @@
 generator client {
   provider        = "prisma-client-js"
-  output          = "../libs/database/prisma/generated/client"
+  output          = "../generated/prisma/client"
   previewFeatures = ["relationJoins"]
 }
 
@@ -26,6 +26,7 @@ model Categoria {
 
 model PersonaClub {
   id               Int         @id @default(autoincrement())
+  numeroDocumento  String      @map("numero_documento") @db.VarChar(100)
   tipoDocumento    String      @map("tipo_documento") @db.VarChar(10)
   idMunicipio      Int         @unique @map("id_municipio")
   nombres          String      @db.VarChar(5000)
@@ -77,13 +78,14 @@ model Entrenador {
 }
 
 model Tutor {
-  id            Int         @id @default(autoincrement())
-  tipoDocumento String      @map("tipo_documento") @db.VarChar(10)
-  nombres       String?     @db.VarChar(5000)
-  apellidos     String?     @db.VarChar(5000)
-  correo        String?     @db.Text
-  telefono      String?     @db.Text
-  deportista    Deportista?
+  id              Int         @id @default(autoincrement())
+  tipoDocumento   String      @map("tipo_documento") @db.VarChar(10)
+  numeroDocumento String?     @map("numero_documento") @db.VarChar(100)
+  nombres         String?     @db.VarChar(5000)
+  apellidos       String?     @db.VarChar(5000)
+  correo          String?     @db.Text
+  telefono        String?     @db.Text
+  deportista      Deportista?
 
   @@map("tb_tutores")
 }

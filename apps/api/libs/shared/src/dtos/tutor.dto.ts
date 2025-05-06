@@ -8,6 +8,10 @@ export class TutorDto implements TutorRequest {
 
   @IsString()
   @IsNotEmpty()
+  numeroDocumento: string;
+
+  @IsString()
+  @IsNotEmpty()
   nombres: string;
 
   @IsString()

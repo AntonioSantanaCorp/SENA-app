@@ -1,9 +1,10 @@
 export interface PersonClubRequest {
   tipoDocumento: string;
+  numeroDocumento: string;
   idMunicipio: number;
   nombres: string;
   apellidos: string;
-  fechaNacimiento: Date;
+  fechaNacimento: Date;
   tipoRh: string;
   peso: number;
   altura: number;

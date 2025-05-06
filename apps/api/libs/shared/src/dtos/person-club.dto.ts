@@ -1,63 +1,67 @@
 import { PersonClubRequest } from '@sacd/core/http/requests';
-import { IsDate, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsDate, IsDateString, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 
 export class PersonClubDto implements PersonClubRequest {
-  @IsString()
   @IsNotEmpty()
+  @IsString()
   tipoDocumento: string;
 
-  @IsNumber()
   @IsNotEmpty()
+  numeroDocumento: string;
+
+  @IsNotEmpty()
+  @IsNumber()
   idMunicipio: number;
 
-  @IsString()
   @IsNotEmpty()
+  @IsString()
   nombres: string;
 
-  @IsString()
   @IsNotEmpty()
+  @IsString()
   apellidos: string;
 
-  @IsDate()
   @IsNotEmpty()
-  fechaNacimiento: Date;
+  @IsDateString()
+  fechaNacimento: Date;
 
-  @IsString()
   @IsNotEmpty()
+  @IsString()
   tipoRh: string;
 
-  @IsNumber()
   @IsNotEmpty()
+  @IsNumber()
   peso: number;
 
-  @IsNumber()
   @IsNotEmpty()
+  @IsNumber()
   altura: number;
 
-  @IsString()
   @IsNotEmpty()
+  @IsString()
   correo: string;
 
-  @IsNumber()
   @IsNotEmpty()
+  @IsNumber()
   numeroTelefono: number;
 
-  @IsString()
   @IsNotEmpty()
+  @IsString()
   tallaCamisa: string;
 
-  @IsString()
   @IsNotEmpty()
+  @IsString()
   tallaCalzado: string;
 
-  @IsString()
   @IsNotEmpty()
+  @IsString()
   tallaPantaloneta: string;
 
-  @IsString()
   @IsNotEmpty()
+  @IsString()
   genero: string;
 
   @IsString()
+  @IsOptional()
   direccion?: string | undefined;
 }

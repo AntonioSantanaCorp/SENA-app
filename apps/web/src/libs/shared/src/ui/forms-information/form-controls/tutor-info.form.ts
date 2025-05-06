@@ -13,6 +13,7 @@ export function createTutorInfoForm() {
       [Validators.required, Validators.pattern('^[0-9]+$')],
     ],
     correo: ['', Validators.required],
+    telefono: ['', Validators.required],
   });
 }
 
