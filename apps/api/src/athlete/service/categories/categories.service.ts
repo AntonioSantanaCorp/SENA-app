@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Categoria } from '../../../prisma/generated/client';
-import { DatabaseService } from '../../database/database.service';
+import { Categoria, DatabaseService } from '@api/database';
 
 @Injectable()
 export class CategoriesService {

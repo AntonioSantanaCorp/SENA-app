@@ -1,8 +1,9 @@
-import { CategoriesService, DatabaseService } from '@api/database';
+import { DatabaseService } from '@api/database';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { AthleteResponse } from '@sacd/core/http/responses';
-import { AthleteDto } from '../models/athlete.dto';
-import { AthleteSchema } from '../models/athlete.schema';
+import { AthleteDto } from '../../models/athlete.dto';
+import { AthleteSchema } from '../../models/athlete.schema';
+import { CategoriesService } from '../categories/categories.service';
 
 @Injectable()
 export class AthleteService {
