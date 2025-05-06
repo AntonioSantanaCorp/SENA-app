@@ -2,7 +2,13 @@
   "name": "@sacd/app",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "nx run-many --target=serve --projects=api,web --parallel",
+    "build": "nx run-many --target=build --projects=api,web --parallel",
+    "test": "nx test",
+    "lint": "nx lint",
+    "e2e": "nx e2e"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^19.2.9",
@@ -66,6 +72,7 @@
     "prettier": "^2.6.2",
     "ts-jest": "^29.1.0",
     "ts-node": "10.9.1",
+    "tsconfig-paths": "^4.2.0",
     "tslib": "^2.3.0",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.19.0",

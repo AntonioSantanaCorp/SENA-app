@@ -1,8 +1,8 @@
 import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
-import { AthleteService } from '../service/athlete/athlete.service';
+import { AthleteService } from '../services/athlete/athlete.service';
 
 @Controller('athlete')
-export class ControllerController {
+export class AthleteController {
   constructor(private readonly athleteService: AthleteService) {}
 
   @Get()
