@@ -1,11 +1,14 @@
 <ng-container [formGroup]="form">
   <ui-control-input attrFor="departamento">
     <label> Departamento residencia *</label>
-    <select formControlName="departamento">
+    <select
+      formControlName="departamento"
+      (change)="departamentoChange($event)"
+    >
       <option selected disabled value="">Seleccione departamento</option>
-      <!-- @for (document of documentsTypes; track $index) {
-            <option [value]="document.value">{{ document.label }}</option>
-            } -->
+      @for (departamento of locationStore.departamentos(); track $index) {
+      <option [value]="departamento.id">{{ departamento.nombre }}</option>
+      }
     </select>
   </ui-control-input>
 
@@ -13,9 +16,9 @@
     <label> Direccion residencia *</label>
     <select formControlName="ciudad">
       <option selected disabled value="">Seleccione cuidad</option>
-      <!-- @for (document of documentsTypes; track $index) {
-              <option [value]="document.value">{{ document.label }}</option>
-              } -->
+      @for (municipio of municipios(); track $index) {
+      <option [value]="municipio.id">{{ municipio.nombre }}</option>
+      }
     </select>
   </ui-control-input>
 
