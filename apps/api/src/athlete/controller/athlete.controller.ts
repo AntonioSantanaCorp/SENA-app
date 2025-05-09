@@ -1,6 +1,8 @@
+import { DeleteAthleteDto } from '@api/shared';
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   ParseIntPipe,
@@ -26,5 +28,10 @@ export class AthleteController {
   @Post()
   create(@Body() athlete: AthleteDto) {
     return this.athleteService.createAthlete(athlete);
+  }
+
+  @Delete()
+  delete(@Body() request: DeleteAthleteDto) {
+    return this.athleteService.deleteAthlete(request);
   }
 }

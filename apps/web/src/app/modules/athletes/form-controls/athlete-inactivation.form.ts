@@ -5,13 +5,13 @@ import { AthleteInactivationReason } from '@web/libs/athlete/constants';
 export function createAthleteInactivationForm() {
   const formBuilder = inject(FormBuilder);
   const form = formBuilder.nonNullable.group({
-    inactivationReason: ['', Validators.required],
-    descripcion: new FormControl({ value: '', disabled: true }),
+    reason: ['', Validators.required],
+    description: new FormControl({ value: '', disabled: true }),
   });
   const descriptionValidator = Validators.required;
 
-  form.controls.inactivationReason.valueChanges.subscribe((value) => {
-    const { descripcion } = form.controls;
+  form.controls.reason.valueChanges.subscribe((value) => {
+    const { description: descripcion } = form.controls;
 
     if (value === AthleteInactivationReason.Otro) {
       descripcion.addValidators(descriptionValidator);

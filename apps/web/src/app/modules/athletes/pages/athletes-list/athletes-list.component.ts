@@ -22,6 +22,7 @@ import { AppRoutes } from '../../../../core/constants';
 import { DeleteAthleteComponent } from '../../components/delete-athlete/delete-athlete.component';
 import { DISPLAYED_COLUMNS } from '../../constants/athletes-list.constants';
 import { AthleteStore } from '../../store/athlete.store';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-athletes-list',
@@ -58,8 +59,13 @@ export default class AthletesListComponent implements OnInit {
     await this.athleteStore.loadData();
   }
 
-  public onDelete(): void {
-    this._dialog.open(DeleteAthleteComponent);
+  public onDelete(id: string): void {
+    this._dialog
+      .open<{ deleted: boolean } | undefined, string>(DeleteAthleteComponent, {
+        data: id,
+      })
+      .closed.pipe(filter((result) => result !== undefined && result?.deleted))
+      .subscribe(() => this.athleteStore.loadData());
   }
 
   public searchAthlete(): void {
@@ -71,3 +77,4 @@ export default class AthletesListComponent implements OnInit {
     this.athleteStore.setQuery('');
   }
 }
+

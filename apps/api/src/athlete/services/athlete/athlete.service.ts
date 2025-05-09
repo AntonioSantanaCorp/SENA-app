@@ -5,6 +5,7 @@ import { AthleteDto } from '../../models/athlete.dto';
 import { AthleteSchema } from '../../models/athlete.schema';
 import { CategoriesService } from '../categories/categories.service';
 import { LocationsService } from '../../../locations/service/locations.service';
+import { DeleteAthleteRequest } from '@sacd/core/http/requests';
 @Injectable()
 export class AthleteService {
   constructor(
@@ -15,6 +16,9 @@ export class AthleteService {
 
   public async getAthletes(): Promise<AthleteResponse[]> {
     const athletes = await this._db.deportista.findMany({
+      where: {
+        activo: true,
+      },
       include: {
         categoria: true,
         personaClub: true,
@@ -23,7 +27,7 @@ export class AthleteService {
     });
 
     const response: AthleteResponse[] = await Promise.all(
-      athletes.map(athlete => this.mapAthleteToResponse(athlete))
+      athletes.map((athlete) => this.mapAthleteToResponse(athlete))
     );
 
     return response;
@@ -72,6 +76,22 @@ export class AthleteService {
       personaClub: { ...createdPersonClub, idDepartamento: departamento.id },
       tutor: createdTutor,
     };
+  }
+
+  public async deleteAthlete(request: DeleteAthleteRequest): Promise<void> {
+    const { id, reason, description } = request;
+
+    await Promise.all([
+      this._db.deportista.update({ where: { id }, data: { activo: false } }),
+      this._db.desercionDeportista.create({
+        data: {
+          idDeportista: id,
+          fechaDesercion: new Date(),
+          razon: reason,
+          descripcion: description,
+        },
+      }),
+    ]);
   }
 
   private async mapAthleteToResponse(
