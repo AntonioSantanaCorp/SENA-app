@@ -24,23 +24,18 @@ export function withDataTableFeature<TEntity extends object>(
     withComputed(({ filters, entities, pagination }) => ({
       length: computed(() => entities().length),
       data: computed(() => {
-        // Función recursiva para buscar en todas las propiedades, incluidas las anidadas
+        // Definir las propiedades a buscar dentro de personaClub
+        const searchProperties = ['nombres', 'apellidos', 'numeroDocumento'];
+
         const containsQuery = (obj: any, query: string): boolean => {
-          if (obj == null) return false;
-          if (
-            typeof obj === 'string' ||
-            typeof obj === 'number' ||
-            typeof obj === 'boolean'
-          ) {
-            return String(obj).toLowerCase().includes(query.toLowerCase());
-          }
-          if (Array.isArray(obj)) {
-            return obj.some((item) => containsQuery(item, query));
-          }
-          if (typeof obj === 'object') {
-            return Reflect.ownKeys(obj).some((key) =>
-              containsQuery(obj[key], query)
-            );
+          if (!obj || typeof obj !== 'object') return false;
+          // Solo buscar dentro de personaClub y las propiedades definidas
+          if ('personaClub' in obj && typeof obj.personaClub === 'object') {
+            return searchProperties.some((prop) => {
+              const value = obj.personaClub[prop];
+              if (value == null) return false;
+              return String(value).toLowerCase().includes(query.toLowerCase());
+            });
           }
           return false;
         };
