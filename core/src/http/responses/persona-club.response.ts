@@ -6,12 +6,12 @@ export interface PersonClubResponse {
     idDepartamento: number;
     nombres: string;
     apellidos: string;
-    fechaNacimiento?: Date;
+    fechaNacimento?: Date;
     tipoRh?: string;
     peso?: number;
     altura?: number;
     correo: string;
-    numeroTelefono?: number;
+    numeroTelefono?: string;
     tallaCamisa?: string;
     tallaCalzado?: string;
     tallaPantaloneta?: string;

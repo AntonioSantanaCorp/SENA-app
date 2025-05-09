@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AthleteRequest } from '@sacd/core/http/requests';
 import { AthleteApiService } from '@web/libs/athlete/services';
 import {
@@ -12,7 +13,8 @@ import {
   HeaderSubtitleComponent,
   HeaderTitleComponent,
 } from '@web/libs/shared/ui/titles';
-import { firstValueFrom } from 'rxjs';
+import { AppRoutes } from '../../../../core/constants';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-athlete-create',
@@ -30,20 +32,45 @@ import { firstValueFrom } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class AthleteCreateComponent extends UserDetailsFormComponent {
-  private readonly _athleteApi = inject(AthleteApiService);
+  protected readonly isLoading = signal(false);
 
-  protected async create(): Promise<void> {
-    try {
-      this.form.markAllAsTouched();
+  constructor(
+    private readonly _athleteApi: AthleteApiService,
+    private readonly _router: Router
+  ) {
+    super();
+  }
 
-      if (this.form.invalid) return;
+  protected create(): void {
+    this.form.markAllAsTouched();
 
-      await firstValueFrom(
-        this._athleteApi.create(this.mapToAthleteRequest())
-      );
-    } catch (error) {
-      console.error(error);
-    }
+    if (this.form.invalid) return;
+
+    this.isLoading.set(true);
+    this._athleteApi.create(this.mapToAthleteRequest()).subscribe({
+      next: () => {
+        this._router.navigate([AppRoutes.AthleteList]);
+        this.isLoading.set(false);
+        Swal.fire({
+          icon: 'success',
+          title: 'Deportista creado correctamente',
+          timer: 2000,
+          showCancelButton: false,
+        });
+      },
+      error: () => {
+        this.isLoading.set(false);
+        Swal.fire({
+          icon: 'error',
+          title: 'Error al crear el deportista, intente de nuevo',
+          showCancelButton: false,
+        });
+      },
+    });
+  }
+
+  protected cancel(): void {
+    this._router.navigate([AppRoutes.AthleteList]);
   }
 
   private mapToAthleteRequest(): AthleteRequest {
@@ -65,11 +92,12 @@ export default class AthleteCreateComponent extends UserDetailsFormComponent {
         peso: generalInfo.peso,
         altura: generalInfo.altura,
         correo: generalInfo.correo,
-        numeroTelefono: Number(generalInfo.telefono),
+        numeroTelefono: String(generalInfo.telefono),
         tallaCamisa: generalInfo.tallaCamisa,
         tallaCalzado: String(generalInfo.tallaCalzado),
         tallaPantaloneta: String(generalInfo.tallaPantalon),
         genero: generalInfo.genero,
+        direccion: addressInfo.direccion,
       },
       tutor: {
         nombres: tutorInfo.nombres,

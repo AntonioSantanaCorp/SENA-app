@@ -25,8 +25,21 @@
 </section>
 
 <footer class="d-flex gap-2 justify-content-end">
-  <button class="btn btn-outline-danger">Cancelar</button>
-  <button class="btn btn-primary" (click)="create()">
-    Inscribir deportista
+  <button
+    class="btn btn-outline-danger"
+    [disabled]="isLoading()"
+    (click)="cancel()"
+  >
+    Cancelar
+  </button>
+  <button
+    class="btn btn-primary d-flex gap-2 align-items-center"
+    [disabled]="isLoading()"
+    (click)="create()"
+  >
+    @if (isLoading()) {
+    <div class="spinner"></div>
+    }
+    <span>Inscribir deportista</span>
   </button>
 </footer>

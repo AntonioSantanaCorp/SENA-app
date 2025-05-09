@@ -16,9 +16,6 @@ export class AthleteService {
 
   public async getAthletes(): Promise<AthleteResponse[]> {
     const athletes = await this._db.deportista.findMany({
-      where: {
-        activo: true,
-      },
       include: {
         categoria: true,
         personaClub: true,

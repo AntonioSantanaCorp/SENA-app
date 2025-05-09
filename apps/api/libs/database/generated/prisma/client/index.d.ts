@@ -3865,7 +3865,6 @@ export namespace Prisma {
     idMunicipio: number | null
     peso: number | null
     altura: number | null
-    numeroTelefono: number | null
   }
 
   export type PersonaClubSumAggregateOutputType = {
@@ -3873,7 +3872,6 @@ export namespace Prisma {
     idMunicipio: number | null
     peso: number | null
     altura: number | null
-    numeroTelefono: number | null
   }
 
   export type PersonaClubMinAggregateOutputType = {
@@ -3888,7 +3886,7 @@ export namespace Prisma {
     peso: number | null
     altura: number | null
     correo: string | null
-    numeroTelefono: number | null
+    numeroTelefono: string | null
     tallaCamisa: string | null
     tallaCalzado: string | null
     tallaPantaloneta: string | null
@@ -3908,7 +3906,7 @@ export namespace Prisma {
     peso: number | null
     altura: number | null
     correo: string | null
-    numeroTelefono: number | null
+    numeroTelefono: string | null
     tallaCamisa: string | null
     tallaCalzado: string | null
     tallaPantaloneta: string | null
@@ -3943,7 +3941,6 @@ export namespace Prisma {
     idMunicipio?: true
     peso?: true
     altura?: true
-    numeroTelefono?: true
   }
 
   export type PersonaClubSumAggregateInputType = {
@@ -3951,7 +3948,6 @@ export namespace Prisma {
     idMunicipio?: true
     peso?: true
     altura?: true
-    numeroTelefono?: true
   }
 
   export type PersonaClubMinAggregateInputType = {
@@ -4113,7 +4109,7 @@ export namespace Prisma {
     peso: number | null
     altura: number | null
     correo: string
-    numeroTelefono: number | null
+    numeroTelefono: string
     tallaCamisa: string | null
     tallaCalzado: string | null
     tallaPantaloneta: string | null
@@ -4214,7 +4210,7 @@ export namespace Prisma {
       peso: number | null
       altura: number | null
       correo: string
-      numeroTelefono: number | null
+      numeroTelefono: string
       tallaCamisa: string | null
       tallaCalzado: string | null
       tallaPantaloneta: string | null
@@ -4604,7 +4600,7 @@ export namespace Prisma {
     readonly peso: FieldRef<"PersonaClub", 'Float'>
     readonly altura: FieldRef<"PersonaClub", 'Float'>
     readonly correo: FieldRef<"PersonaClub", 'String'>
-    readonly numeroTelefono: FieldRef<"PersonaClub", 'Int'>
+    readonly numeroTelefono: FieldRef<"PersonaClub", 'String'>
     readonly tallaCamisa: FieldRef<"PersonaClub", 'String'>
     readonly tallaCalzado: FieldRef<"PersonaClub", 'String'>
     readonly tallaPantaloneta: FieldRef<"PersonaClub", 'String'>
@@ -16157,6 +16153,7 @@ export namespace Prisma {
     apellidos: 'apellidos',
     tipoRh: 'tipoRh',
     correo: 'correo',
+    numeroTelefono: 'numeroTelefono',
     tallaCamisa: 'tallaCamisa',
     tallaCalzado: 'tallaCalzado',
     tallaPantaloneta: 'tallaPantaloneta',
@@ -16395,7 +16392,7 @@ export namespace Prisma {
     peso?: FloatNullableFilter<"PersonaClub"> | number | null
     altura?: FloatNullableFilter<"PersonaClub"> | number | null
     correo?: StringFilter<"PersonaClub"> | string
-    numeroTelefono?: IntNullableFilter<"PersonaClub"> | number | null
+    numeroTelefono?: StringFilter<"PersonaClub"> | string
     tallaCamisa?: StringNullableFilter<"PersonaClub"> | string | null
     tallaCalzado?: StringNullableFilter<"PersonaClub"> | string | null
     tallaPantaloneta?: StringNullableFilter<"PersonaClub"> | string | null
@@ -16419,7 +16416,7 @@ export namespace Prisma {
     peso?: SortOrderInput | SortOrder
     altura?: SortOrderInput | SortOrder
     correo?: SortOrder
-    numeroTelefono?: SortOrderInput | SortOrder
+    numeroTelefono?: SortOrder
     tallaCamisa?: SortOrderInput | SortOrder
     tallaCalzado?: SortOrderInput | SortOrder
     tallaPantaloneta?: SortOrderInput | SortOrder
@@ -16447,7 +16444,7 @@ export namespace Prisma {
     peso?: FloatNullableFilter<"PersonaClub"> | number | null
     altura?: FloatNullableFilter<"PersonaClub"> | number | null
     correo?: StringFilter<"PersonaClub"> | string
-    numeroTelefono?: IntNullableFilter<"PersonaClub"> | number | null
+    numeroTelefono?: StringFilter<"PersonaClub"> | string
     tallaCamisa?: StringNullableFilter<"PersonaClub"> | string | null
     tallaCalzado?: StringNullableFilter<"PersonaClub"> | string | null
     tallaPantaloneta?: StringNullableFilter<"PersonaClub"> | string | null
@@ -16471,7 +16468,7 @@ export namespace Prisma {
     peso?: SortOrderInput | SortOrder
     altura?: SortOrderInput | SortOrder
     correo?: SortOrder
-    numeroTelefono?: SortOrderInput | SortOrder
+    numeroTelefono?: SortOrder
     tallaCamisa?: SortOrderInput | SortOrder
     tallaCalzado?: SortOrderInput | SortOrder
     tallaPantaloneta?: SortOrderInput | SortOrder
@@ -16499,7 +16496,7 @@ export namespace Prisma {
     peso?: FloatNullableWithAggregatesFilter<"PersonaClub"> | number | null
     altura?: FloatNullableWithAggregatesFilter<"PersonaClub"> | number | null
     correo?: StringWithAggregatesFilter<"PersonaClub"> | string
-    numeroTelefono?: IntNullableWithAggregatesFilter<"PersonaClub"> | number | null
+    numeroTelefono?: StringWithAggregatesFilter<"PersonaClub"> | string
     tallaCamisa?: StringNullableWithAggregatesFilter<"PersonaClub"> | string | null
     tallaCalzado?: StringNullableWithAggregatesFilter<"PersonaClub"> | string | null
     tallaPantaloneta?: StringNullableWithAggregatesFilter<"PersonaClub"> | string | null
@@ -17236,7 +17233,7 @@ export namespace Prisma {
     peso?: number | null
     altura?: number | null
     correo: string
-    numeroTelefono?: number | null
+    numeroTelefono: string
     tallaCamisa?: string | null
     tallaCalzado?: string | null
     tallaPantaloneta?: string | null
@@ -17260,7 +17257,7 @@ export namespace Prisma {
     peso?: number | null
     altura?: number | null
     correo: string
-    numeroTelefono?: number | null
+    numeroTelefono: string
     tallaCamisa?: string | null
     tallaCalzado?: string | null
     tallaPantaloneta?: string | null
@@ -17281,7 +17278,7 @@ export namespace Prisma {
     peso?: NullableFloatFieldUpdateOperationsInput | number | null
     altura?: NullableFloatFieldUpdateOperationsInput | number | null
     correo?: StringFieldUpdateOperationsInput | string
-    numeroTelefono?: NullableIntFieldUpdateOperationsInput | number | null
+    numeroTelefono?: StringFieldUpdateOperationsInput | string
     tallaCamisa?: NullableStringFieldUpdateOperationsInput | string | null
     tallaCalzado?: NullableStringFieldUpdateOperationsInput | string | null
     tallaPantaloneta?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17305,7 +17302,7 @@ export namespace Prisma {
     peso?: NullableFloatFieldUpdateOperationsInput | number | null
     altura?: NullableFloatFieldUpdateOperationsInput | number | null
     correo?: StringFieldUpdateOperationsInput | string
-    numeroTelefono?: NullableIntFieldUpdateOperationsInput | number | null
+    numeroTelefono?: StringFieldUpdateOperationsInput | string
     tallaCamisa?: NullableStringFieldUpdateOperationsInput | string | null
     tallaCalzado?: NullableStringFieldUpdateOperationsInput | string | null
     tallaPantaloneta?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17328,7 +17325,7 @@ export namespace Prisma {
     peso?: number | null
     altura?: number | null
     correo: string
-    numeroTelefono?: number | null
+    numeroTelefono: string
     tallaCamisa?: string | null
     tallaCalzado?: string | null
     tallaPantaloneta?: string | null
@@ -17346,7 +17343,7 @@ export namespace Prisma {
     peso?: NullableFloatFieldUpdateOperationsInput | number | null
     altura?: NullableFloatFieldUpdateOperationsInput | number | null
     correo?: StringFieldUpdateOperationsInput | string
-    numeroTelefono?: NullableIntFieldUpdateOperationsInput | number | null
+    numeroTelefono?: StringFieldUpdateOperationsInput | string
     tallaCamisa?: NullableStringFieldUpdateOperationsInput | string | null
     tallaCalzado?: NullableStringFieldUpdateOperationsInput | string | null
     tallaPantaloneta?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17366,7 +17363,7 @@ export namespace Prisma {
     peso?: NullableFloatFieldUpdateOperationsInput | number | null
     altura?: NullableFloatFieldUpdateOperationsInput | number | null
     correo?: StringFieldUpdateOperationsInput | string
-    numeroTelefono?: NullableIntFieldUpdateOperationsInput | number | null
+    numeroTelefono?: StringFieldUpdateOperationsInput | string
     tallaCamisa?: NullableStringFieldUpdateOperationsInput | string | null
     tallaCalzado?: NullableStringFieldUpdateOperationsInput | string | null
     tallaPantaloneta?: NullableStringFieldUpdateOperationsInput | string | null
@@ -18147,17 +18144,6 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type MunicipioScalarRelationFilter = {
     is?: MunicipioWhereInput
     isNot?: MunicipioWhereInput
@@ -18204,7 +18190,6 @@ export namespace Prisma {
     idMunicipio?: SortOrder
     peso?: SortOrder
     altura?: SortOrder
-    numeroTelefono?: SortOrder
   }
 
   export type PersonaClubMaxOrderByAggregateInput = {
@@ -18252,7 +18237,6 @@ export namespace Prisma {
     idMunicipio?: SortOrder
     peso?: SortOrder
     altura?: SortOrder
-    numeroTelefono?: SortOrder
   }
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -18285,7 +18269,7 @@ export namespace Prisma {
     _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+  export type IntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | null
     notIn?: number[] | null
@@ -18293,12 +18277,7 @@ export namespace Prisma {
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type ContactosEmergenciaOrderByRelevanceInput = {
@@ -18345,6 +18324,22 @@ export namespace Prisma {
   export type ContactosEmergenciaSumOrderByAggregateInput = {
     id?: SortOrder
     idEntrenador?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type BoolNullableFilter<$PrismaModel = never> = {
@@ -18960,14 +18955,6 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
   export type MunicipioUpdateOneRequiredWithoutPersonaClubNestedInput = {
     create?: XOR<MunicipioCreateWithoutPersonaClubInput, MunicipioUncheckedCreateWithoutPersonaClubInput>
     connectOrCreate?: MunicipioCreateOrConnectWithoutPersonaClubInput
@@ -19050,6 +19037,14 @@ export namespace Prisma {
     delete?: EntrenadorWhereInput | boolean
     connect?: EntrenadorWhereUniqueInput
     update?: XOR<XOR<EntrenadorUpdateToOneWithWhereWithoutContactosEmergenciaInput, EntrenadorUpdateWithoutContactosEmergenciaInput>, EntrenadorUncheckedUpdateWithoutContactosEmergenciaInput>
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type ContactosEmergenciaCreateNestedManyWithoutEntrenadorInput = {
@@ -19963,7 +19958,7 @@ export namespace Prisma {
     peso?: number | null
     altura?: number | null
     correo: string
-    numeroTelefono?: number | null
+    numeroTelefono: string
     tallaCamisa?: string | null
     tallaCalzado?: string | null
     tallaPantaloneta?: string | null
@@ -19986,7 +19981,7 @@ export namespace Prisma {
     peso?: number | null
     altura?: number | null
     correo: string
-    numeroTelefono?: number | null
+    numeroTelefono: string
     tallaCamisa?: string | null
     tallaCalzado?: string | null
     tallaPantaloneta?: string | null
@@ -20051,7 +20046,7 @@ export namespace Prisma {
     peso?: NullableFloatFieldUpdateOperationsInput | number | null
     altura?: NullableFloatFieldUpdateOperationsInput | number | null
     correo?: StringFieldUpdateOperationsInput | string
-    numeroTelefono?: NullableIntFieldUpdateOperationsInput | number | null
+    numeroTelefono?: StringFieldUpdateOperationsInput | string
     tallaCamisa?: NullableStringFieldUpdateOperationsInput | string | null
     tallaCalzado?: NullableStringFieldUpdateOperationsInput | string | null
     tallaPantaloneta?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20074,7 +20069,7 @@ export namespace Prisma {
     peso?: NullableFloatFieldUpdateOperationsInput | number | null
     altura?: NullableFloatFieldUpdateOperationsInput | number | null
     correo?: StringFieldUpdateOperationsInput | string
-    numeroTelefono?: NullableIntFieldUpdateOperationsInput | number | null
+    numeroTelefono?: StringFieldUpdateOperationsInput | string
     tallaCamisa?: NullableStringFieldUpdateOperationsInput | string | null
     tallaCalzado?: NullableStringFieldUpdateOperationsInput | string | null
     tallaPantaloneta?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20168,7 +20163,7 @@ export namespace Prisma {
     peso?: number | null
     altura?: number | null
     correo: string
-    numeroTelefono?: number | null
+    numeroTelefono: string
     tallaCamisa?: string | null
     tallaCalzado?: string | null
     tallaPantaloneta?: string | null
@@ -20191,7 +20186,7 @@ export namespace Prisma {
     peso?: number | null
     altura?: number | null
     correo: string
-    numeroTelefono?: number | null
+    numeroTelefono: string
     tallaCamisa?: string | null
     tallaCalzado?: string | null
     tallaPantaloneta?: string | null
@@ -20313,7 +20308,7 @@ export namespace Prisma {
     peso?: NullableFloatFieldUpdateOperationsInput | number | null
     altura?: NullableFloatFieldUpdateOperationsInput | number | null
     correo?: StringFieldUpdateOperationsInput | string
-    numeroTelefono?: NullableIntFieldUpdateOperationsInput | number | null
+    numeroTelefono?: StringFieldUpdateOperationsInput | string
     tallaCamisa?: NullableStringFieldUpdateOperationsInput | string | null
     tallaCalzado?: NullableStringFieldUpdateOperationsInput | string | null
     tallaPantaloneta?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20336,7 +20331,7 @@ export namespace Prisma {
     peso?: NullableFloatFieldUpdateOperationsInput | number | null
     altura?: NullableFloatFieldUpdateOperationsInput | number | null
     correo?: StringFieldUpdateOperationsInput | string
-    numeroTelefono?: NullableIntFieldUpdateOperationsInput | number | null
+    numeroTelefono?: StringFieldUpdateOperationsInput | string
     tallaCamisa?: NullableStringFieldUpdateOperationsInput | string | null
     tallaCalzado?: NullableStringFieldUpdateOperationsInput | string | null
     tallaPantaloneta?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20528,7 +20523,7 @@ export namespace Prisma {
     peso?: number | null
     altura?: number | null
     correo: string
-    numeroTelefono?: number | null
+    numeroTelefono: string
     tallaCamisa?: string | null
     tallaCalzado?: string | null
     tallaPantaloneta?: string | null
@@ -20551,7 +20546,7 @@ export namespace Prisma {
     peso?: number | null
     altura?: number | null
     correo: string
-    numeroTelefono?: number | null
+    numeroTelefono: string
     tallaCamisa?: string | null
     tallaCalzado?: string | null
     tallaPantaloneta?: string | null
@@ -20587,7 +20582,7 @@ export namespace Prisma {
     peso?: NullableFloatFieldUpdateOperationsInput | number | null
     altura?: NullableFloatFieldUpdateOperationsInput | number | null
     correo?: StringFieldUpdateOperationsInput | string
-    numeroTelefono?: NullableIntFieldUpdateOperationsInput | number | null
+    numeroTelefono?: StringFieldUpdateOperationsInput | string
     tallaCamisa?: NullableStringFieldUpdateOperationsInput | string | null
     tallaCalzado?: NullableStringFieldUpdateOperationsInput | string | null
     tallaPantaloneta?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20610,7 +20605,7 @@ export namespace Prisma {
     peso?: NullableFloatFieldUpdateOperationsInput | number | null
     altura?: NullableFloatFieldUpdateOperationsInput | number | null
     correo?: StringFieldUpdateOperationsInput | string
-    numeroTelefono?: NullableIntFieldUpdateOperationsInput | number | null
+    numeroTelefono?: StringFieldUpdateOperationsInput | string
     tallaCamisa?: NullableStringFieldUpdateOperationsInput | string | null
     tallaCalzado?: NullableStringFieldUpdateOperationsInput | string | null
     tallaPantaloneta?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20672,7 +20667,7 @@ export namespace Prisma {
     peso?: number | null
     altura?: number | null
     correo: string
-    numeroTelefono?: number | null
+    numeroTelefono: string
     tallaCamisa?: string | null
     tallaCalzado?: string | null
     tallaPantaloneta?: string | null
@@ -20694,7 +20689,7 @@ export namespace Prisma {
     peso?: number | null
     altura?: number | null
     correo: string
-    numeroTelefono?: number | null
+    numeroTelefono: string
     tallaCamisa?: string | null
     tallaCalzado?: string | null
     tallaPantaloneta?: string | null
@@ -20760,7 +20755,7 @@ export namespace Prisma {
     peso?: FloatNullableFilter<"PersonaClub"> | number | null
     altura?: FloatNullableFilter<"PersonaClub"> | number | null
     correo?: StringFilter<"PersonaClub"> | string
-    numeroTelefono?: IntNullableFilter<"PersonaClub"> | number | null
+    numeroTelefono?: StringFilter<"PersonaClub"> | string
     tallaCamisa?: StringNullableFilter<"PersonaClub"> | string | null
     tallaCalzado?: StringNullableFilter<"PersonaClub"> | string | null
     tallaPantaloneta?: StringNullableFilter<"PersonaClub"> | string | null
@@ -20861,7 +20856,7 @@ export namespace Prisma {
     peso?: number | null
     altura?: number | null
     correo: string
-    numeroTelefono?: number | null
+    numeroTelefono: string
     tallaCamisa?: string | null
     tallaCalzado?: string | null
     tallaPantaloneta?: string | null
@@ -20879,7 +20874,7 @@ export namespace Prisma {
     peso?: NullableFloatFieldUpdateOperationsInput | number | null
     altura?: NullableFloatFieldUpdateOperationsInput | number | null
     correo?: StringFieldUpdateOperationsInput | string
-    numeroTelefono?: NullableIntFieldUpdateOperationsInput | number | null
+    numeroTelefono?: StringFieldUpdateOperationsInput | string
     tallaCamisa?: NullableStringFieldUpdateOperationsInput | string | null
     tallaCalzado?: NullableStringFieldUpdateOperationsInput | string | null
     tallaPantaloneta?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20901,7 +20896,7 @@ export namespace Prisma {
     peso?: NullableFloatFieldUpdateOperationsInput | number | null
     altura?: NullableFloatFieldUpdateOperationsInput | number | null
     correo?: StringFieldUpdateOperationsInput | string
-    numeroTelefono?: NullableIntFieldUpdateOperationsInput | number | null
+    numeroTelefono?: StringFieldUpdateOperationsInput | string
     tallaCamisa?: NullableStringFieldUpdateOperationsInput | string | null
     tallaCalzado?: NullableStringFieldUpdateOperationsInput | string | null
     tallaPantaloneta?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20923,7 +20918,7 @@ export namespace Prisma {
     peso?: NullableFloatFieldUpdateOperationsInput | number | null
     altura?: NullableFloatFieldUpdateOperationsInput | number | null
     correo?: StringFieldUpdateOperationsInput | string
-    numeroTelefono?: NullableIntFieldUpdateOperationsInput | number | null
+    numeroTelefono?: StringFieldUpdateOperationsInput | string
     tallaCamisa?: NullableStringFieldUpdateOperationsInput | string | null
     tallaCalzado?: NullableStringFieldUpdateOperationsInput | string | null
     tallaPantaloneta?: NullableStringFieldUpdateOperationsInput | string | null

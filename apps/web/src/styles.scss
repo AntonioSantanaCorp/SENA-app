@@ -38,8 +38,8 @@ th {
 }
 
 .spinner {
-  width: var(--spinner-size, 24px);
-  height: var(--spinner-size, 24px);
+  width: var(--spinner-size, 20px);
+  height: var(--spinner-size, 20px);
   border: calc(var(--spinner-size, 24px) * 0.1) solid rgba(0, 0, 0, 0.1);
   border-left-color: currentColor;
   border-radius: 50%;

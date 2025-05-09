@@ -269,6 +269,7 @@ exports.Prisma.PersonaClubOrderByRelevanceFieldEnum = {
   apellidos: 'apellidos',
   tipoRh: 'tipoRh',
   correo: 'correo',
+  numeroTelefono: 'numeroTelefono',
   tallaCamisa: 'tallaCamisa',
   tallaCalzado: 'tallaCalzado',
   tallaPantaloneta: 'tallaPantaloneta',

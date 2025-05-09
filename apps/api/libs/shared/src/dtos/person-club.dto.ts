@@ -42,8 +42,8 @@ export class PersonClubDto implements PersonClubRequest {
   correo: string;
 
   @IsNotEmpty()
-  @IsNumber()
-  numeroTelefono: number;
+  @IsString()
+  numeroTelefono: string;
 
   @IsNotEmpty()
   @IsString()

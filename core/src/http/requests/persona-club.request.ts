@@ -9,7 +9,7 @@ export interface PersonClubRequest {
   peso: number;
   altura: number;
   correo: string;
-  numeroTelefono: number;
+  numeroTelefono: string;
   tallaCamisa: string;
   tallaCalzado: string;
   tallaPantaloneta: string;

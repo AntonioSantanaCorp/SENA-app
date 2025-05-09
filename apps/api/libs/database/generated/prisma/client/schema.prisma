@@ -29,14 +29,14 @@ model PersonaClub {
   numeroDocumento  String      @map("numero_documento") @db.VarChar(100)
   tipoDocumento    String      @map("tipo_documento") @db.VarChar(10)
   idMunicipio      Int         @unique @map("id_municipio")
-  nombres          String      @db.VarChar(5000)
-  apellidos        String      @db.VarChar(5000)
+  nombres          String      @db.VarChar(500)
+  apellidos        String      @db.VarChar(500)
   fechaNacimento   DateTime?   @map("fecha_nacimento") @db.Date
   tipoRh           String?     @map("tipo_rh") @db.VarChar(100)
   peso             Float?      @db.Float
   altura           Float?      @db.Float
-  correo           String      @db.VarChar(5000)
-  numeroTelefono   Int?        @map("numero_telefono")
+  correo           String      @db.VarChar(500)
+  numeroTelefono   String      @map("numero_telefono") @db.VarChar(100)
   tallaCamisa      String?     @map("talla_camisa") @db.VarChar(100)
   tallaCalzado     String?     @map("talla_calzado") @db.VarChar(100)
   tallaPantaloneta String?     @map("talla_pantaloneta") @db.VarChar(100)

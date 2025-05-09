@@ -53,7 +53,15 @@ export class DeleteAthleteComponent {
           Swal.fire({
             icon: 'success',
             title: 'Deportista inactivado correctamente',
-            timer: 1500,
+            timer: 2000,
+            showCancelButton: false,
+          });
+        },
+        error: () => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error al crear el deportista, intente de nuevo',
+            timer: 2000,
             showCancelButton: false,
           });
         },
