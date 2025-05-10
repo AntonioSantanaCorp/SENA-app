@@ -19,11 +19,6 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type CargosAdmin = $Result.DefaultSelection<Prisma.$CargosAdminPayload>
 /**
- * Model Categoria
- * 
- */
-export type Categoria = $Result.DefaultSelection<Prisma.$CategoriaPayload>
-/**
  * Model PersonaClub
  * 
  */
@@ -218,16 +213,6 @@ export class PrismaClient<
     * ```
     */
   get cargosAdmin(): Prisma.CargosAdminDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.categoria`: Exposes CRUD operations for the **Categoria** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Categorias
-    * const categorias = await prisma.categoria.findMany()
-    * ```
-    */
-  get categoria(): Prisma.CategoriaDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.personaClub`: Exposes CRUD operations for the **PersonaClub** model.
@@ -789,7 +774,6 @@ export namespace Prisma {
 
   export const ModelName: {
     CargosAdmin: 'CargosAdmin',
-    Categoria: 'Categoria',
     PersonaClub: 'PersonaClub',
     ContactosEmergencia: 'ContactosEmergencia',
     Entrenador: 'Entrenador',
@@ -820,7 +804,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "cargosAdmin" | "categoria" | "personaClub" | "contactosEmergencia" | "entrenador" | "tutor" | "deportista" | "desercionDeportista" | "gestionAdmin" | "pagoDeportista" | "usuario" | "departamento" | "municipio" | "tipoDocumento"
+      modelProps: "cargosAdmin" | "personaClub" | "contactosEmergencia" | "entrenador" | "tutor" | "deportista" | "desercionDeportista" | "gestionAdmin" | "pagoDeportista" | "usuario" | "departamento" | "municipio" | "tipoDocumento"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -887,72 +871,6 @@ export namespace Prisma {
           count: {
             args: Prisma.CargosAdminCountArgs<ExtArgs>
             result: $Utils.Optional<CargosAdminCountAggregateOutputType> | number
-          }
-        }
-      }
-      Categoria: {
-        payload: Prisma.$CategoriaPayload<ExtArgs>
-        fields: Prisma.CategoriaFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.CategoriaFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CategoriaPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.CategoriaFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CategoriaPayload>
-          }
-          findFirst: {
-            args: Prisma.CategoriaFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CategoriaPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.CategoriaFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CategoriaPayload>
-          }
-          findMany: {
-            args: Prisma.CategoriaFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CategoriaPayload>[]
-          }
-          create: {
-            args: Prisma.CategoriaCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CategoriaPayload>
-          }
-          createMany: {
-            args: Prisma.CategoriaCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          delete: {
-            args: Prisma.CategoriaDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CategoriaPayload>
-          }
-          update: {
-            args: Prisma.CategoriaUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CategoriaPayload>
-          }
-          deleteMany: {
-            args: Prisma.CategoriaDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.CategoriaUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          upsert: {
-            args: Prisma.CategoriaUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CategoriaPayload>
-          }
-          aggregate: {
-            args: Prisma.CategoriaAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateCategoria>
-          }
-          groupBy: {
-            args: Prisma.CategoriaGroupByArgs<ExtArgs>
-            result: $Utils.Optional<CategoriaGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.CategoriaCountArgs<ExtArgs>
-            result: $Utils.Optional<CategoriaCountAggregateOutputType> | number
           }
         }
       }
@@ -1833,7 +1751,6 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     cargosAdmin?: CargosAdminOmit
-    categoria?: CategoriaOmit
     personaClub?: PersonaClubOmit
     contactosEmergencia?: ContactosEmergenciaOmit
     entrenador?: EntrenadorOmit
@@ -2921,930 +2838,6 @@ export namespace Prisma {
      * Omit specific fields from the CargosAdmin
      */
     omit?: CargosAdminOmit<ExtArgs> | null
-  }
-
-
-  /**
-   * Model Categoria
-   */
-
-  export type AggregateCategoria = {
-    _count: CategoriaCountAggregateOutputType | null
-    _min: CategoriaMinAggregateOutputType | null
-    _max: CategoriaMaxAggregateOutputType | null
-  }
-
-  export type CategoriaMinAggregateOutputType = {
-    id: string | null
-    nombre: string | null
-  }
-
-  export type CategoriaMaxAggregateOutputType = {
-    id: string | null
-    nombre: string | null
-  }
-
-  export type CategoriaCountAggregateOutputType = {
-    id: number
-    nombre: number
-    _all: number
-  }
-
-
-  export type CategoriaMinAggregateInputType = {
-    id?: true
-    nombre?: true
-  }
-
-  export type CategoriaMaxAggregateInputType = {
-    id?: true
-    nombre?: true
-  }
-
-  export type CategoriaCountAggregateInputType = {
-    id?: true
-    nombre?: true
-    _all?: true
-  }
-
-  export type CategoriaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Categoria to aggregate.
-     */
-    where?: CategoriaWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Categorias to fetch.
-     */
-    orderBy?: CategoriaOrderByWithRelationInput | CategoriaOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: CategoriaWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Categorias from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Categorias.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Categorias
-    **/
-    _count?: true | CategoriaCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: CategoriaMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: CategoriaMaxAggregateInputType
-  }
-
-  export type GetCategoriaAggregateType<T extends CategoriaAggregateArgs> = {
-        [P in keyof T & keyof AggregateCategoria]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateCategoria[P]>
-      : GetScalarType<T[P], AggregateCategoria[P]>
-  }
-
-
-
-
-  export type CategoriaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CategoriaWhereInput
-    orderBy?: CategoriaOrderByWithAggregationInput | CategoriaOrderByWithAggregationInput[]
-    by: CategoriaScalarFieldEnum[] | CategoriaScalarFieldEnum
-    having?: CategoriaScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: CategoriaCountAggregateInputType | true
-    _min?: CategoriaMinAggregateInputType
-    _max?: CategoriaMaxAggregateInputType
-  }
-
-  export type CategoriaGroupByOutputType = {
-    id: string
-    nombre: string | null
-    _count: CategoriaCountAggregateOutputType | null
-    _min: CategoriaMinAggregateOutputType | null
-    _max: CategoriaMaxAggregateOutputType | null
-  }
-
-  type GetCategoriaGroupByPayload<T extends CategoriaGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<CategoriaGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof CategoriaGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], CategoriaGroupByOutputType[P]>
-            : GetScalarType<T[P], CategoriaGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type CategoriaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    nombre?: boolean
-    Deportista?: boolean | Categoria$DeportistaArgs<ExtArgs>
-  }, ExtArgs["result"]["categoria"]>
-
-
-
-  export type CategoriaSelectScalar = {
-    id?: boolean
-    nombre?: boolean
-  }
-
-  export type CategoriaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nombre", ExtArgs["result"]["categoria"]>
-  export type CategoriaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    Deportista?: boolean | Categoria$DeportistaArgs<ExtArgs>
-  }
-
-  export type $CategoriaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Categoria"
-    objects: {
-      Deportista: Prisma.$DeportistaPayload<ExtArgs> | null
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-      nombre: string | null
-    }, ExtArgs["result"]["categoria"]>
-    composites: {}
-  }
-
-  type CategoriaGetPayload<S extends boolean | null | undefined | CategoriaDefaultArgs> = $Result.GetResult<Prisma.$CategoriaPayload, S>
-
-  type CategoriaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<CategoriaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
-      select?: CategoriaCountAggregateInputType | true
-    }
-
-  export interface CategoriaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Categoria'], meta: { name: 'Categoria' } }
-    /**
-     * Find zero or one Categoria that matches the filter.
-     * @param {CategoriaFindUniqueArgs} args - Arguments to find a Categoria
-     * @example
-     * // Get one Categoria
-     * const categoria = await prisma.categoria.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends CategoriaFindUniqueArgs>(args: SelectSubset<T, CategoriaFindUniqueArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Categoria that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {CategoriaFindUniqueOrThrowArgs} args - Arguments to find a Categoria
-     * @example
-     * // Get one Categoria
-     * const categoria = await prisma.categoria.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends CategoriaFindUniqueOrThrowArgs>(args: SelectSubset<T, CategoriaFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Categoria that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CategoriaFindFirstArgs} args - Arguments to find a Categoria
-     * @example
-     * // Get one Categoria
-     * const categoria = await prisma.categoria.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends CategoriaFindFirstArgs>(args?: SelectSubset<T, CategoriaFindFirstArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Categoria that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CategoriaFindFirstOrThrowArgs} args - Arguments to find a Categoria
-     * @example
-     * // Get one Categoria
-     * const categoria = await prisma.categoria.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends CategoriaFindFirstOrThrowArgs>(args?: SelectSubset<T, CategoriaFindFirstOrThrowArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Categorias that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CategoriaFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Categorias
-     * const categorias = await prisma.categoria.findMany()
-     * 
-     * // Get first 10 Categorias
-     * const categorias = await prisma.categoria.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const categoriaWithIdOnly = await prisma.categoria.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends CategoriaFindManyArgs>(args?: SelectSubset<T, CategoriaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Categoria.
-     * @param {CategoriaCreateArgs} args - Arguments to create a Categoria.
-     * @example
-     * // Create one Categoria
-     * const Categoria = await prisma.categoria.create({
-     *   data: {
-     *     // ... data to create a Categoria
-     *   }
-     * })
-     * 
-     */
-    create<T extends CategoriaCreateArgs>(args: SelectSubset<T, CategoriaCreateArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Categorias.
-     * @param {CategoriaCreateManyArgs} args - Arguments to create many Categorias.
-     * @example
-     * // Create many Categorias
-     * const categoria = await prisma.categoria.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends CategoriaCreateManyArgs>(args?: SelectSubset<T, CategoriaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a Categoria.
-     * @param {CategoriaDeleteArgs} args - Arguments to delete one Categoria.
-     * @example
-     * // Delete one Categoria
-     * const Categoria = await prisma.categoria.delete({
-     *   where: {
-     *     // ... filter to delete one Categoria
-     *   }
-     * })
-     * 
-     */
-    delete<T extends CategoriaDeleteArgs>(args: SelectSubset<T, CategoriaDeleteArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Categoria.
-     * @param {CategoriaUpdateArgs} args - Arguments to update one Categoria.
-     * @example
-     * // Update one Categoria
-     * const categoria = await prisma.categoria.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends CategoriaUpdateArgs>(args: SelectSubset<T, CategoriaUpdateArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Categorias.
-     * @param {CategoriaDeleteManyArgs} args - Arguments to filter Categorias to delete.
-     * @example
-     * // Delete a few Categorias
-     * const { count } = await prisma.categoria.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends CategoriaDeleteManyArgs>(args?: SelectSubset<T, CategoriaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Categorias.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CategoriaUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Categorias
-     * const categoria = await prisma.categoria.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends CategoriaUpdateManyArgs>(args: SelectSubset<T, CategoriaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one Categoria.
-     * @param {CategoriaUpsertArgs} args - Arguments to update or create a Categoria.
-     * @example
-     * // Update or create a Categoria
-     * const categoria = await prisma.categoria.upsert({
-     *   create: {
-     *     // ... data to create a Categoria
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Categoria we want to update
-     *   }
-     * })
-     */
-    upsert<T extends CategoriaUpsertArgs>(args: SelectSubset<T, CategoriaUpsertArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Categorias.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CategoriaCountArgs} args - Arguments to filter Categorias to count.
-     * @example
-     * // Count the number of Categorias
-     * const count = await prisma.categoria.count({
-     *   where: {
-     *     // ... the filter for the Categorias we want to count
-     *   }
-     * })
-    **/
-    count<T extends CategoriaCountArgs>(
-      args?: Subset<T, CategoriaCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], CategoriaCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Categoria.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CategoriaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends CategoriaAggregateArgs>(args: Subset<T, CategoriaAggregateArgs>): Prisma.PrismaPromise<GetCategoriaAggregateType<T>>
-
-    /**
-     * Group by Categoria.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CategoriaGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends CategoriaGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: CategoriaGroupByArgs['orderBy'] }
-        : { orderBy?: CategoriaGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, CategoriaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCategoriaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Categoria model
-   */
-  readonly fields: CategoriaFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Categoria.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__CategoriaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    Deportista<T extends Categoria$DeportistaArgs<ExtArgs> = {}>(args?: Subset<T, Categoria$DeportistaArgs<ExtArgs>>): Prisma__DeportistaClient<$Result.GetResult<Prisma.$DeportistaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the Categoria model
-   */
-  interface CategoriaFieldRefs {
-    readonly id: FieldRef<"Categoria", 'String'>
-    readonly nombre: FieldRef<"Categoria", 'String'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Categoria findUnique
-   */
-  export type CategoriaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Categoria
-     */
-    select?: CategoriaSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Categoria
-     */
-    omit?: CategoriaOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CategoriaInclude<ExtArgs> | null
-    /**
-     * Filter, which Categoria to fetch.
-     */
-    where: CategoriaWhereUniqueInput
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Categoria findUniqueOrThrow
-   */
-  export type CategoriaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Categoria
-     */
-    select?: CategoriaSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Categoria
-     */
-    omit?: CategoriaOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CategoriaInclude<ExtArgs> | null
-    /**
-     * Filter, which Categoria to fetch.
-     */
-    where: CategoriaWhereUniqueInput
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Categoria findFirst
-   */
-  export type CategoriaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Categoria
-     */
-    select?: CategoriaSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Categoria
-     */
-    omit?: CategoriaOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CategoriaInclude<ExtArgs> | null
-    /**
-     * Filter, which Categoria to fetch.
-     */
-    where?: CategoriaWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Categorias to fetch.
-     */
-    orderBy?: CategoriaOrderByWithRelationInput | CategoriaOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Categorias.
-     */
-    cursor?: CategoriaWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Categorias from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Categorias.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Categorias.
-     */
-    distinct?: CategoriaScalarFieldEnum | CategoriaScalarFieldEnum[]
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Categoria findFirstOrThrow
-   */
-  export type CategoriaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Categoria
-     */
-    select?: CategoriaSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Categoria
-     */
-    omit?: CategoriaOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CategoriaInclude<ExtArgs> | null
-    /**
-     * Filter, which Categoria to fetch.
-     */
-    where?: CategoriaWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Categorias to fetch.
-     */
-    orderBy?: CategoriaOrderByWithRelationInput | CategoriaOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Categorias.
-     */
-    cursor?: CategoriaWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Categorias from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Categorias.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Categorias.
-     */
-    distinct?: CategoriaScalarFieldEnum | CategoriaScalarFieldEnum[]
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Categoria findMany
-   */
-  export type CategoriaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Categoria
-     */
-    select?: CategoriaSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Categoria
-     */
-    omit?: CategoriaOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CategoriaInclude<ExtArgs> | null
-    /**
-     * Filter, which Categorias to fetch.
-     */
-    where?: CategoriaWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Categorias to fetch.
-     */
-    orderBy?: CategoriaOrderByWithRelationInput | CategoriaOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Categorias.
-     */
-    cursor?: CategoriaWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Categorias from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Categorias.
-     */
-    skip?: number
-    distinct?: CategoriaScalarFieldEnum | CategoriaScalarFieldEnum[]
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Categoria create
-   */
-  export type CategoriaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Categoria
-     */
-    select?: CategoriaSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Categoria
-     */
-    omit?: CategoriaOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CategoriaInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Categoria.
-     */
-    data: XOR<CategoriaCreateInput, CategoriaUncheckedCreateInput>
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Categoria createMany
-   */
-  export type CategoriaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Categorias.
-     */
-    data: CategoriaCreateManyInput | CategoriaCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Categoria update
-   */
-  export type CategoriaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Categoria
-     */
-    select?: CategoriaSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Categoria
-     */
-    omit?: CategoriaOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CategoriaInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Categoria.
-     */
-    data: XOR<CategoriaUpdateInput, CategoriaUncheckedUpdateInput>
-    /**
-     * Choose, which Categoria to update.
-     */
-    where: CategoriaWhereUniqueInput
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Categoria updateMany
-   */
-  export type CategoriaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Categorias.
-     */
-    data: XOR<CategoriaUpdateManyMutationInput, CategoriaUncheckedUpdateManyInput>
-    /**
-     * Filter which Categorias to update
-     */
-    where?: CategoriaWhereInput
-    /**
-     * Limit how many Categorias to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Categoria upsert
-   */
-  export type CategoriaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Categoria
-     */
-    select?: CategoriaSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Categoria
-     */
-    omit?: CategoriaOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CategoriaInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Categoria to update in case it exists.
-     */
-    where: CategoriaWhereUniqueInput
-    /**
-     * In case the Categoria found by the `where` argument doesn't exist, create a new Categoria with this data.
-     */
-    create: XOR<CategoriaCreateInput, CategoriaUncheckedCreateInput>
-    /**
-     * In case the Categoria was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<CategoriaUpdateInput, CategoriaUncheckedUpdateInput>
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Categoria delete
-   */
-  export type CategoriaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Categoria
-     */
-    select?: CategoriaSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Categoria
-     */
-    omit?: CategoriaOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CategoriaInclude<ExtArgs> | null
-    /**
-     * Filter which Categoria to delete.
-     */
-    where: CategoriaWhereUniqueInput
-    relationLoadStrategy?: RelationLoadStrategy
-  }
-
-  /**
-   * Categoria deleteMany
-   */
-  export type CategoriaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Categorias to delete
-     */
-    where?: CategoriaWhereInput
-    /**
-     * Limit how many Categorias to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Categoria.Deportista
-   */
-  export type Categoria$DeportistaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Deportista
-     */
-    select?: DeportistaSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Deportista
-     */
-    omit?: DeportistaOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DeportistaInclude<ExtArgs> | null
-    where?: DeportistaWhereInput
-  }
-
-  /**
-   * Categoria without action
-   */
-  export type CategoriaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Categoria
-     */
-    select?: CategoriaSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Categoria
-     */
-    omit?: CategoriaOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CategoriaInclude<ExtArgs> | null
   }
 
 
@@ -8097,7 +7090,7 @@ export namespace Prisma {
     id: number | null
     idTutor: number | null
     idPersonaClub: number | null
-    idCategoria: string | null
+    categoria: string | null
     activo: boolean | null
   }
 
@@ -8105,7 +7098,7 @@ export namespace Prisma {
     id: number | null
     idTutor: number | null
     idPersonaClub: number | null
-    idCategoria: string | null
+    categoria: string | null
     activo: boolean | null
   }
 
@@ -8113,7 +7106,7 @@ export namespace Prisma {
     id: number
     idTutor: number
     idPersonaClub: number
-    idCategoria: number
+    categoria: number
     activo: number
     _all: number
   }
@@ -8135,7 +7128,7 @@ export namespace Prisma {
     id?: true
     idTutor?: true
     idPersonaClub?: true
-    idCategoria?: true
+    categoria?: true
     activo?: true
   }
 
@@ -8143,7 +7136,7 @@ export namespace Prisma {
     id?: true
     idTutor?: true
     idPersonaClub?: true
-    idCategoria?: true
+    categoria?: true
     activo?: true
   }
 
@@ -8151,7 +7144,7 @@ export namespace Prisma {
     id?: true
     idTutor?: true
     idPersonaClub?: true
-    idCategoria?: true
+    categoria?: true
     activo?: true
     _all?: true
   }
@@ -8246,7 +7239,7 @@ export namespace Prisma {
     id: number
     idTutor: number | null
     idPersonaClub: number
-    idCategoria: string | null
+    categoria: string
     activo: boolean | null
     _count: DeportistaCountAggregateOutputType | null
     _avg: DeportistaAvgAggregateOutputType | null
@@ -8273,11 +7266,10 @@ export namespace Prisma {
     id?: boolean
     idTutor?: boolean
     idPersonaClub?: boolean
-    idCategoria?: boolean
+    categoria?: boolean
     activo?: boolean
     tutor?: boolean | Deportista$tutorArgs<ExtArgs>
     personaClub?: boolean | PersonaClubDefaultArgs<ExtArgs>
-    categoria?: boolean | Deportista$categoriaArgs<ExtArgs>
     desercionDeportista?: boolean | Deportista$desercionDeportistaArgs<ExtArgs>
     pagosDeportista?: boolean | Deportista$pagosDeportistaArgs<ExtArgs>
     _count?: boolean | DeportistaCountOutputTypeDefaultArgs<ExtArgs>
@@ -8289,15 +7281,14 @@ export namespace Prisma {
     id?: boolean
     idTutor?: boolean
     idPersonaClub?: boolean
-    idCategoria?: boolean
+    categoria?: boolean
     activo?: boolean
   }
 
-  export type DeportistaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "idTutor" | "idPersonaClub" | "idCategoria" | "activo", ExtArgs["result"]["deportista"]>
+  export type DeportistaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "idTutor" | "idPersonaClub" | "categoria" | "activo", ExtArgs["result"]["deportista"]>
   export type DeportistaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     tutor?: boolean | Deportista$tutorArgs<ExtArgs>
     personaClub?: boolean | PersonaClubDefaultArgs<ExtArgs>
-    categoria?: boolean | Deportista$categoriaArgs<ExtArgs>
     desercionDeportista?: boolean | Deportista$desercionDeportistaArgs<ExtArgs>
     pagosDeportista?: boolean | Deportista$pagosDeportistaArgs<ExtArgs>
     _count?: boolean | DeportistaCountOutputTypeDefaultArgs<ExtArgs>
@@ -8308,7 +7299,6 @@ export namespace Prisma {
     objects: {
       tutor: Prisma.$TutorPayload<ExtArgs> | null
       personaClub: Prisma.$PersonaClubPayload<ExtArgs>
-      categoria: Prisma.$CategoriaPayload<ExtArgs> | null
       desercionDeportista: Prisma.$DesercionDeportistaPayload<ExtArgs> | null
       pagosDeportista: Prisma.$PagoDeportistaPayload<ExtArgs>[]
     }
@@ -8316,7 +7306,7 @@ export namespace Prisma {
       id: number
       idTutor: number | null
       idPersonaClub: number
-      idCategoria: string | null
+      categoria: string
       activo: boolean | null
     }, ExtArgs["result"]["deportista"]>
     composites: {}
@@ -8660,7 +7650,6 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     tutor<T extends Deportista$tutorArgs<ExtArgs> = {}>(args?: Subset<T, Deportista$tutorArgs<ExtArgs>>): Prisma__TutorClient<$Result.GetResult<Prisma.$TutorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     personaClub<T extends PersonaClubDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PersonaClubDefaultArgs<ExtArgs>>): Prisma__PersonaClubClient<$Result.GetResult<Prisma.$PersonaClubPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    categoria<T extends Deportista$categoriaArgs<ExtArgs> = {}>(args?: Subset<T, Deportista$categoriaArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     desercionDeportista<T extends Deportista$desercionDeportistaArgs<ExtArgs> = {}>(args?: Subset<T, Deportista$desercionDeportistaArgs<ExtArgs>>): Prisma__DesercionDeportistaClient<$Result.GetResult<Prisma.$DesercionDeportistaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     pagosDeportista<T extends Deportista$pagosDeportistaArgs<ExtArgs> = {}>(args?: Subset<T, Deportista$pagosDeportistaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PagoDeportistaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
@@ -8695,7 +7684,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Deportista", 'Int'>
     readonly idTutor: FieldRef<"Deportista", 'Int'>
     readonly idPersonaClub: FieldRef<"Deportista", 'Int'>
-    readonly idCategoria: FieldRef<"Deportista", 'String'>
+    readonly categoria: FieldRef<"Deportista", 'String'>
     readonly activo: FieldRef<"Deportista", 'Boolean'>
   }
     
@@ -9065,25 +8054,6 @@ export namespace Prisma {
      */
     include?: TutorInclude<ExtArgs> | null
     where?: TutorWhereInput
-  }
-
-  /**
-   * Deportista.categoria
-   */
-  export type Deportista$categoriaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Categoria
-     */
-    select?: CategoriaSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Categoria
-     */
-    omit?: CategoriaOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CategoriaInclude<ExtArgs> | null
-    where?: CategoriaWhereInput
   }
 
   /**
@@ -15963,14 +14933,6 @@ export namespace Prisma {
   export type RelationLoadStrategy = (typeof RelationLoadStrategy)[keyof typeof RelationLoadStrategy]
 
 
-  export const CategoriaScalarFieldEnum: {
-    id: 'id',
-    nombre: 'nombre'
-  };
-
-  export type CategoriaScalarFieldEnum = (typeof CategoriaScalarFieldEnum)[keyof typeof CategoriaScalarFieldEnum]
-
-
   export const PersonaClubScalarFieldEnum: {
     id: 'id',
     numeroDocumento: 'numeroDocumento',
@@ -16035,7 +14997,7 @@ export namespace Prisma {
     id: 'id',
     idTutor: 'idTutor',
     idPersonaClub: 'idPersonaClub',
-    idCategoria: 'idCategoria',
+    categoria: 'categoria',
     activo: 'activo'
   };
 
@@ -16138,14 +15100,6 @@ export namespace Prisma {
   export type CargosAdminOrderByRelevanceFieldEnum = (typeof CargosAdminOrderByRelevanceFieldEnum)[keyof typeof CargosAdminOrderByRelevanceFieldEnum]
 
 
-  export const CategoriaOrderByRelevanceFieldEnum: {
-    id: 'id',
-    nombre: 'nombre'
-  };
-
-  export type CategoriaOrderByRelevanceFieldEnum = (typeof CategoriaOrderByRelevanceFieldEnum)[keyof typeof CategoriaOrderByRelevanceFieldEnum]
-
-
   export const PersonaClubOrderByRelevanceFieldEnum: {
     numeroDocumento: 'numeroDocumento',
     tipoDocumento: 'tipoDocumento',
@@ -16188,7 +15142,7 @@ export namespace Prisma {
 
 
   export const DeportistaOrderByRelevanceFieldEnum: {
-    idCategoria: 'idCategoria'
+    categoria: 'categoria'
   };
 
   export type DeportistaOrderByRelevanceFieldEnum = (typeof DeportistaOrderByRelevanceFieldEnum)[keyof typeof DeportistaOrderByRelevanceFieldEnum]
@@ -16334,47 +15288,6 @@ export namespace Prisma {
     NOT?: CargosAdminScalarWhereWithAggregatesInput | CargosAdminScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"CargosAdmin"> | number
     nombre?: StringNullableWithAggregatesFilter<"CargosAdmin"> | string | null
-  }
-
-  export type CategoriaWhereInput = {
-    AND?: CategoriaWhereInput | CategoriaWhereInput[]
-    OR?: CategoriaWhereInput[]
-    NOT?: CategoriaWhereInput | CategoriaWhereInput[]
-    id?: StringFilter<"Categoria"> | string
-    nombre?: StringNullableFilter<"Categoria"> | string | null
-    Deportista?: XOR<DeportistaNullableScalarRelationFilter, DeportistaWhereInput> | null
-  }
-
-  export type CategoriaOrderByWithRelationInput = {
-    id?: SortOrder
-    nombre?: SortOrderInput | SortOrder
-    Deportista?: DeportistaOrderByWithRelationInput
-    _relevance?: CategoriaOrderByRelevanceInput
-  }
-
-  export type CategoriaWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    AND?: CategoriaWhereInput | CategoriaWhereInput[]
-    OR?: CategoriaWhereInput[]
-    NOT?: CategoriaWhereInput | CategoriaWhereInput[]
-    nombre?: StringNullableFilter<"Categoria"> | string | null
-    Deportista?: XOR<DeportistaNullableScalarRelationFilter, DeportistaWhereInput> | null
-  }, "id">
-
-  export type CategoriaOrderByWithAggregationInput = {
-    id?: SortOrder
-    nombre?: SortOrderInput | SortOrder
-    _count?: CategoriaCountOrderByAggregateInput
-    _max?: CategoriaMaxOrderByAggregateInput
-    _min?: CategoriaMinOrderByAggregateInput
-  }
-
-  export type CategoriaScalarWhereWithAggregatesInput = {
-    AND?: CategoriaScalarWhereWithAggregatesInput | CategoriaScalarWhereWithAggregatesInput[]
-    OR?: CategoriaScalarWhereWithAggregatesInput[]
-    NOT?: CategoriaScalarWhereWithAggregatesInput | CategoriaScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Categoria"> | string
-    nombre?: StringNullableWithAggregatesFilter<"Categoria"> | string | null
   }
 
   export type PersonaClubWhereInput = {
@@ -16707,11 +15620,10 @@ export namespace Prisma {
     id?: IntFilter<"Deportista"> | number
     idTutor?: IntNullableFilter<"Deportista"> | number | null
     idPersonaClub?: IntFilter<"Deportista"> | number
-    idCategoria?: StringNullableFilter<"Deportista"> | string | null
+    categoria?: StringFilter<"Deportista"> | string
     activo?: BoolNullableFilter<"Deportista"> | boolean | null
     tutor?: XOR<TutorNullableScalarRelationFilter, TutorWhereInput> | null
     personaClub?: XOR<PersonaClubScalarRelationFilter, PersonaClubWhereInput>
-    categoria?: XOR<CategoriaNullableScalarRelationFilter, CategoriaWhereInput> | null
     desercionDeportista?: XOR<DesercionDeportistaNullableScalarRelationFilter, DesercionDeportistaWhereInput> | null
     pagosDeportista?: PagoDeportistaListRelationFilter
   }
@@ -16720,11 +15632,10 @@ export namespace Prisma {
     id?: SortOrder
     idTutor?: SortOrderInput | SortOrder
     idPersonaClub?: SortOrder
-    idCategoria?: SortOrderInput | SortOrder
+    categoria?: SortOrder
     activo?: SortOrderInput | SortOrder
     tutor?: TutorOrderByWithRelationInput
     personaClub?: PersonaClubOrderByWithRelationInput
-    categoria?: CategoriaOrderByWithRelationInput
     desercionDeportista?: DesercionDeportistaOrderByWithRelationInput
     pagosDeportista?: PagoDeportistaOrderByRelationAggregateInput
     _relevance?: DeportistaOrderByRelevanceInput
@@ -16734,23 +15645,22 @@ export namespace Prisma {
     id?: number
     idTutor?: number
     idPersonaClub?: number
-    idCategoria?: string
     AND?: DeportistaWhereInput | DeportistaWhereInput[]
     OR?: DeportistaWhereInput[]
     NOT?: DeportistaWhereInput | DeportistaWhereInput[]
+    categoria?: StringFilter<"Deportista"> | string
     activo?: BoolNullableFilter<"Deportista"> | boolean | null
     tutor?: XOR<TutorNullableScalarRelationFilter, TutorWhereInput> | null
     personaClub?: XOR<PersonaClubScalarRelationFilter, PersonaClubWhereInput>
-    categoria?: XOR<CategoriaNullableScalarRelationFilter, CategoriaWhereInput> | null
     desercionDeportista?: XOR<DesercionDeportistaNullableScalarRelationFilter, DesercionDeportistaWhereInput> | null
     pagosDeportista?: PagoDeportistaListRelationFilter
-  }, "id" | "idTutor" | "idPersonaClub" | "idCategoria">
+  }, "id" | "idTutor" | "idPersonaClub">
 
   export type DeportistaOrderByWithAggregationInput = {
     id?: SortOrder
     idTutor?: SortOrderInput | SortOrder
     idPersonaClub?: SortOrder
-    idCategoria?: SortOrderInput | SortOrder
+    categoria?: SortOrder
     activo?: SortOrderInput | SortOrder
     _count?: DeportistaCountOrderByAggregateInput
     _avg?: DeportistaAvgOrderByAggregateInput
@@ -16766,7 +15676,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Deportista"> | number
     idTutor?: IntNullableWithAggregatesFilter<"Deportista"> | number | null
     idPersonaClub?: IntWithAggregatesFilter<"Deportista"> | number
-    idCategoria?: StringNullableWithAggregatesFilter<"Deportista"> | string | null
+    categoria?: StringWithAggregatesFilter<"Deportista"> | string
     activo?: BoolNullableWithAggregatesFilter<"Deportista"> | boolean | null
   }
 
@@ -17184,45 +16094,6 @@ export namespace Prisma {
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type CategoriaCreateInput = {
-    id: string
-    nombre?: string | null
-    Deportista?: DeportistaCreateNestedOneWithoutCategoriaInput
-  }
-
-  export type CategoriaUncheckedCreateInput = {
-    id: string
-    nombre?: string | null
-    Deportista?: DeportistaUncheckedCreateNestedOneWithoutCategoriaInput
-  }
-
-  export type CategoriaUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    Deportista?: DeportistaUpdateOneWithoutCategoriaNestedInput
-  }
-
-  export type CategoriaUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    Deportista?: DeportistaUncheckedUpdateOneWithoutCategoriaNestedInput
-  }
-
-  export type CategoriaCreateManyInput = {
-    id: string
-    nombre?: string | null
-  }
-
-  export type CategoriaUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type CategoriaUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
   export type PersonaClubCreateInput = {
     numeroDocumento: string
     tipoDocumento: string
@@ -17565,10 +16436,10 @@ export namespace Prisma {
   }
 
   export type DeportistaCreateInput = {
+    categoria: string
     activo?: boolean | null
     tutor?: TutorCreateNestedOneWithoutDeportistaInput
     personaClub: PersonaClubCreateNestedOneWithoutDeportistaInput
-    categoria?: CategoriaCreateNestedOneWithoutDeportistaInput
     desercionDeportista?: DesercionDeportistaCreateNestedOneWithoutDeportistaInput
     pagosDeportista?: PagoDeportistaCreateNestedManyWithoutDeportistaInput
   }
@@ -17577,17 +16448,17 @@ export namespace Prisma {
     id?: number
     idTutor?: number | null
     idPersonaClub: number
-    idCategoria?: string | null
+    categoria: string
     activo?: boolean | null
     desercionDeportista?: DesercionDeportistaUncheckedCreateNestedOneWithoutDeportistaInput
     pagosDeportista?: PagoDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
   }
 
   export type DeportistaUpdateInput = {
+    categoria?: StringFieldUpdateOperationsInput | string
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     tutor?: TutorUpdateOneWithoutDeportistaNestedInput
     personaClub?: PersonaClubUpdateOneRequiredWithoutDeportistaNestedInput
-    categoria?: CategoriaUpdateOneWithoutDeportistaNestedInput
     desercionDeportista?: DesercionDeportistaUpdateOneWithoutDeportistaNestedInput
     pagosDeportista?: PagoDeportistaUpdateManyWithoutDeportistaNestedInput
   }
@@ -17596,7 +16467,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     idTutor?: NullableIntFieldUpdateOperationsInput | number | null
     idPersonaClub?: IntFieldUpdateOperationsInput | number
-    idCategoria?: NullableStringFieldUpdateOperationsInput | string | null
+    categoria?: StringFieldUpdateOperationsInput | string
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     desercionDeportista?: DesercionDeportistaUncheckedUpdateOneWithoutDeportistaNestedInput
     pagosDeportista?: PagoDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
@@ -17606,11 +16477,12 @@ export namespace Prisma {
     id?: number
     idTutor?: number | null
     idPersonaClub: number
-    idCategoria?: string | null
+    categoria: string
     activo?: boolean | null
   }
 
   export type DeportistaUpdateManyMutationInput = {
+    categoria?: StringFieldUpdateOperationsInput | string
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
@@ -17618,7 +16490,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     idTutor?: NullableIntFieldUpdateOperationsInput | number | null
     idPersonaClub?: IntFieldUpdateOperationsInput | number
-    idCategoria?: NullableStringFieldUpdateOperationsInput | string | null
+    categoria?: StringFieldUpdateOperationsInput | string
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
@@ -18078,50 +16950,6 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type DeportistaNullableScalarRelationFilter = {
-    is?: DeportistaWhereInput | null
-    isNot?: DeportistaWhereInput | null
-  }
-
-  export type CategoriaOrderByRelevanceInput = {
-    fields: CategoriaOrderByRelevanceFieldEnum | CategoriaOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
-  export type CategoriaCountOrderByAggregateInput = {
-    id?: SortOrder
-    nombre?: SortOrder
-  }
-
-  export type CategoriaMaxOrderByAggregateInput = {
-    id?: SortOrder
-    nombre?: SortOrder
-  }
-
-  export type CategoriaMinOrderByAggregateInput = {
-    id?: SortOrder
-    nombre?: SortOrder
-  }
-
-  export type StringWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
-    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedStringFilter<$PrismaModel>
-    _max?: NestedStringFilter<$PrismaModel>
-  }
-
   export type DateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | null
@@ -18152,6 +16980,11 @@ export namespace Prisma {
   export type EntrenadorNullableScalarRelationFilter = {
     is?: EntrenadorWhereInput | null
     isNot?: EntrenadorWhereInput | null
+  }
+
+  export type DeportistaNullableScalarRelationFilter = {
+    is?: DeportistaWhereInput | null
+    isNot?: DeportistaWhereInput | null
   }
 
   export type UsuarioNullableScalarRelationFilter = {
@@ -18237,6 +17070,24 @@ export namespace Prisma {
     idMunicipio?: SortOrder
     peso?: SortOrder
     altura?: SortOrder
+  }
+
+  export type StringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[]
+    notIn?: string[]
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
   }
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -18470,11 +17321,6 @@ export namespace Prisma {
     isNot?: TutorWhereInput | null
   }
 
-  export type CategoriaNullableScalarRelationFilter = {
-    is?: CategoriaWhereInput | null
-    isNot?: CategoriaWhereInput | null
-  }
-
   export type DesercionDeportistaNullableScalarRelationFilter = {
     is?: DesercionDeportistaWhereInput | null
     isNot?: DesercionDeportistaWhereInput | null
@@ -18500,7 +17346,7 @@ export namespace Prisma {
     id?: SortOrder
     idTutor?: SortOrder
     idPersonaClub?: SortOrder
-    idCategoria?: SortOrder
+    categoria?: SortOrder
     activo?: SortOrder
   }
 
@@ -18514,7 +17360,7 @@ export namespace Prisma {
     id?: SortOrder
     idTutor?: SortOrder
     idPersonaClub?: SortOrder
-    idCategoria?: SortOrder
+    categoria?: SortOrder
     activo?: SortOrder
   }
 
@@ -18522,7 +17368,7 @@ export namespace Prisma {
     id?: SortOrder
     idTutor?: SortOrder
     idPersonaClub?: SortOrder
-    idCategoria?: SortOrder
+    categoria?: SortOrder
     activo?: SortOrder
   }
 
@@ -18865,42 +17711,6 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type DeportistaCreateNestedOneWithoutCategoriaInput = {
-    create?: XOR<DeportistaCreateWithoutCategoriaInput, DeportistaUncheckedCreateWithoutCategoriaInput>
-    connectOrCreate?: DeportistaCreateOrConnectWithoutCategoriaInput
-    connect?: DeportistaWhereUniqueInput
-  }
-
-  export type DeportistaUncheckedCreateNestedOneWithoutCategoriaInput = {
-    create?: XOR<DeportistaCreateWithoutCategoriaInput, DeportistaUncheckedCreateWithoutCategoriaInput>
-    connectOrCreate?: DeportistaCreateOrConnectWithoutCategoriaInput
-    connect?: DeportistaWhereUniqueInput
-  }
-
-  export type StringFieldUpdateOperationsInput = {
-    set?: string
-  }
-
-  export type DeportistaUpdateOneWithoutCategoriaNestedInput = {
-    create?: XOR<DeportistaCreateWithoutCategoriaInput, DeportistaUncheckedCreateWithoutCategoriaInput>
-    connectOrCreate?: DeportistaCreateOrConnectWithoutCategoriaInput
-    upsert?: DeportistaUpsertWithoutCategoriaInput
-    disconnect?: DeportistaWhereInput | boolean
-    delete?: DeportistaWhereInput | boolean
-    connect?: DeportistaWhereUniqueInput
-    update?: XOR<XOR<DeportistaUpdateToOneWithWhereWithoutCategoriaInput, DeportistaUpdateWithoutCategoriaInput>, DeportistaUncheckedUpdateWithoutCategoriaInput>
-  }
-
-  export type DeportistaUncheckedUpdateOneWithoutCategoriaNestedInput = {
-    create?: XOR<DeportistaCreateWithoutCategoriaInput, DeportistaUncheckedCreateWithoutCategoriaInput>
-    connectOrCreate?: DeportistaCreateOrConnectWithoutCategoriaInput
-    upsert?: DeportistaUpsertWithoutCategoriaInput
-    disconnect?: DeportistaWhereInput | boolean
-    delete?: DeportistaWhereInput | boolean
-    connect?: DeportistaWhereUniqueInput
-    update?: XOR<XOR<DeportistaUpdateToOneWithWhereWithoutCategoriaInput, DeportistaUpdateWithoutCategoriaInput>, DeportistaUncheckedUpdateWithoutCategoriaInput>
-  }
-
   export type MunicipioCreateNestedOneWithoutPersonaClubInput = {
     create?: XOR<MunicipioCreateWithoutPersonaClubInput, MunicipioUncheckedCreateWithoutPersonaClubInput>
     connectOrCreate?: MunicipioCreateOrConnectWithoutPersonaClubInput
@@ -18941,6 +17751,10 @@ export namespace Prisma {
     create?: XOR<UsuarioCreateWithoutPersonaInput, UsuarioUncheckedCreateWithoutPersonaInput>
     connectOrCreate?: UsuarioCreateOrConnectWithoutPersonaInput
     connect?: UsuarioWhereUniqueInput
+  }
+
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
   }
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
@@ -19155,12 +17969,6 @@ export namespace Prisma {
     connect?: PersonaClubWhereUniqueInput
   }
 
-  export type CategoriaCreateNestedOneWithoutDeportistaInput = {
-    create?: XOR<CategoriaCreateWithoutDeportistaInput, CategoriaUncheckedCreateWithoutDeportistaInput>
-    connectOrCreate?: CategoriaCreateOrConnectWithoutDeportistaInput
-    connect?: CategoriaWhereUniqueInput
-  }
-
   export type DesercionDeportistaCreateNestedOneWithoutDeportistaInput = {
     create?: XOR<DesercionDeportistaCreateWithoutDeportistaInput, DesercionDeportistaUncheckedCreateWithoutDeportistaInput>
     connectOrCreate?: DesercionDeportistaCreateOrConnectWithoutDeportistaInput
@@ -19203,16 +18011,6 @@ export namespace Prisma {
     upsert?: PersonaClubUpsertWithoutDeportistaInput
     connect?: PersonaClubWhereUniqueInput
     update?: XOR<XOR<PersonaClubUpdateToOneWithWhereWithoutDeportistaInput, PersonaClubUpdateWithoutDeportistaInput>, PersonaClubUncheckedUpdateWithoutDeportistaInput>
-  }
-
-  export type CategoriaUpdateOneWithoutDeportistaNestedInput = {
-    create?: XOR<CategoriaCreateWithoutDeportistaInput, CategoriaUncheckedCreateWithoutDeportistaInput>
-    connectOrCreate?: CategoriaCreateOrConnectWithoutDeportistaInput
-    upsert?: CategoriaUpsertWithoutDeportistaInput
-    disconnect?: CategoriaWhereInput | boolean
-    delete?: CategoriaWhereInput | boolean
-    connect?: CategoriaWhereUniqueInput
-    update?: XOR<XOR<CategoriaUpdateToOneWithWhereWithoutDeportistaInput, CategoriaUpdateWithoutDeportistaInput>, CategoriaUncheckedUpdateWithoutDeportistaInput>
   }
 
   export type DesercionDeportistaUpdateOneWithoutDeportistaNestedInput = {
@@ -19502,24 +18300,6 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
-    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedStringFilter<$PrismaModel>
-    _max?: NestedStringFilter<$PrismaModel>
-  }
-
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | null
@@ -19540,6 +18320,24 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[]
+    notIn?: string[]
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
   }
 
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -19645,56 +18443,6 @@ export namespace Prisma {
     _max?: NestedDecimalNullableFilter<$PrismaModel>
   }
 
-  export type DeportistaCreateWithoutCategoriaInput = {
-    activo?: boolean | null
-    tutor?: TutorCreateNestedOneWithoutDeportistaInput
-    personaClub: PersonaClubCreateNestedOneWithoutDeportistaInput
-    desercionDeportista?: DesercionDeportistaCreateNestedOneWithoutDeportistaInput
-    pagosDeportista?: PagoDeportistaCreateNestedManyWithoutDeportistaInput
-  }
-
-  export type DeportistaUncheckedCreateWithoutCategoriaInput = {
-    id?: number
-    idTutor?: number | null
-    idPersonaClub: number
-    activo?: boolean | null
-    desercionDeportista?: DesercionDeportistaUncheckedCreateNestedOneWithoutDeportistaInput
-    pagosDeportista?: PagoDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
-  }
-
-  export type DeportistaCreateOrConnectWithoutCategoriaInput = {
-    where: DeportistaWhereUniqueInput
-    create: XOR<DeportistaCreateWithoutCategoriaInput, DeportistaUncheckedCreateWithoutCategoriaInput>
-  }
-
-  export type DeportistaUpsertWithoutCategoriaInput = {
-    update: XOR<DeportistaUpdateWithoutCategoriaInput, DeportistaUncheckedUpdateWithoutCategoriaInput>
-    create: XOR<DeportistaCreateWithoutCategoriaInput, DeportistaUncheckedCreateWithoutCategoriaInput>
-    where?: DeportistaWhereInput
-  }
-
-  export type DeportistaUpdateToOneWithWhereWithoutCategoriaInput = {
-    where?: DeportistaWhereInput
-    data: XOR<DeportistaUpdateWithoutCategoriaInput, DeportistaUncheckedUpdateWithoutCategoriaInput>
-  }
-
-  export type DeportistaUpdateWithoutCategoriaInput = {
-    activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    tutor?: TutorUpdateOneWithoutDeportistaNestedInput
-    personaClub?: PersonaClubUpdateOneRequiredWithoutDeportistaNestedInput
-    desercionDeportista?: DesercionDeportistaUpdateOneWithoutDeportistaNestedInput
-    pagosDeportista?: PagoDeportistaUpdateManyWithoutDeportistaNestedInput
-  }
-
-  export type DeportistaUncheckedUpdateWithoutCategoriaInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    idTutor?: NullableIntFieldUpdateOperationsInput | number | null
-    idPersonaClub?: IntFieldUpdateOperationsInput | number
-    activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    desercionDeportista?: DesercionDeportistaUncheckedUpdateOneWithoutDeportistaNestedInput
-    pagosDeportista?: PagoDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
-  }
-
   export type MunicipioCreateWithoutPersonaClubInput = {
     nombre?: string | null
     estado?: boolean | null
@@ -19734,9 +18482,9 @@ export namespace Prisma {
   }
 
   export type DeportistaCreateWithoutPersonaClubInput = {
+    categoria: string
     activo?: boolean | null
     tutor?: TutorCreateNestedOneWithoutDeportistaInput
-    categoria?: CategoriaCreateNestedOneWithoutDeportistaInput
     desercionDeportista?: DesercionDeportistaCreateNestedOneWithoutDeportistaInput
     pagosDeportista?: PagoDeportistaCreateNestedManyWithoutDeportistaInput
   }
@@ -19744,7 +18492,7 @@ export namespace Prisma {
   export type DeportistaUncheckedCreateWithoutPersonaClubInput = {
     id?: number
     idTutor?: number | null
-    idCategoria?: string | null
+    categoria: string
     activo?: boolean | null
     desercionDeportista?: DesercionDeportistaUncheckedCreateNestedOneWithoutDeportistaInput
     pagosDeportista?: PagoDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
@@ -19835,9 +18583,9 @@ export namespace Prisma {
   }
 
   export type DeportistaUpdateWithoutPersonaClubInput = {
+    categoria?: StringFieldUpdateOperationsInput | string
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     tutor?: TutorUpdateOneWithoutDeportistaNestedInput
-    categoria?: CategoriaUpdateOneWithoutDeportistaNestedInput
     desercionDeportista?: DesercionDeportistaUpdateOneWithoutDeportistaNestedInput
     pagosDeportista?: PagoDeportistaUpdateManyWithoutDeportistaNestedInput
   }
@@ -19845,7 +18593,7 @@ export namespace Prisma {
   export type DeportistaUncheckedUpdateWithoutPersonaClubInput = {
     id?: IntFieldUpdateOperationsInput | number
     idTutor?: NullableIntFieldUpdateOperationsInput | number | null
-    idCategoria?: NullableStringFieldUpdateOperationsInput | string | null
+    categoria?: StringFieldUpdateOperationsInput | string
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     desercionDeportista?: DesercionDeportistaUncheckedUpdateOneWithoutDeportistaNestedInput
     pagosDeportista?: PagoDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
@@ -20080,9 +18828,9 @@ export namespace Prisma {
   }
 
   export type DeportistaCreateWithoutTutorInput = {
+    categoria: string
     activo?: boolean | null
     personaClub: PersonaClubCreateNestedOneWithoutDeportistaInput
-    categoria?: CategoriaCreateNestedOneWithoutDeportistaInput
     desercionDeportista?: DesercionDeportistaCreateNestedOneWithoutDeportistaInput
     pagosDeportista?: PagoDeportistaCreateNestedManyWithoutDeportistaInput
   }
@@ -20090,7 +18838,7 @@ export namespace Prisma {
   export type DeportistaUncheckedCreateWithoutTutorInput = {
     id?: number
     idPersonaClub: number
-    idCategoria?: string | null
+    categoria: string
     activo?: boolean | null
     desercionDeportista?: DesercionDeportistaUncheckedCreateNestedOneWithoutDeportistaInput
     pagosDeportista?: PagoDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
@@ -20113,9 +18861,9 @@ export namespace Prisma {
   }
 
   export type DeportistaUpdateWithoutTutorInput = {
+    categoria?: StringFieldUpdateOperationsInput | string
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     personaClub?: PersonaClubUpdateOneRequiredWithoutDeportistaNestedInput
-    categoria?: CategoriaUpdateOneWithoutDeportistaNestedInput
     desercionDeportista?: DesercionDeportistaUpdateOneWithoutDeportistaNestedInput
     pagosDeportista?: PagoDeportistaUpdateManyWithoutDeportistaNestedInput
   }
@@ -20123,7 +18871,7 @@ export namespace Prisma {
   export type DeportistaUncheckedUpdateWithoutTutorInput = {
     id?: IntFieldUpdateOperationsInput | number
     idPersonaClub?: IntFieldUpdateOperationsInput | number
-    idCategoria?: NullableStringFieldUpdateOperationsInput | string | null
+    categoria?: StringFieldUpdateOperationsInput | string
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     desercionDeportista?: DesercionDeportistaUncheckedUpdateOneWithoutDeportistaNestedInput
     pagosDeportista?: PagoDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
@@ -20199,21 +18947,6 @@ export namespace Prisma {
   export type PersonaClubCreateOrConnectWithoutDeportistaInput = {
     where: PersonaClubWhereUniqueInput
     create: XOR<PersonaClubCreateWithoutDeportistaInput, PersonaClubUncheckedCreateWithoutDeportistaInput>
-  }
-
-  export type CategoriaCreateWithoutDeportistaInput = {
-    id: string
-    nombre?: string | null
-  }
-
-  export type CategoriaUncheckedCreateWithoutDeportistaInput = {
-    id: string
-    nombre?: string | null
-  }
-
-  export type CategoriaCreateOrConnectWithoutDeportistaInput = {
-    where: CategoriaWhereUniqueInput
-    create: XOR<CategoriaCreateWithoutDeportistaInput, CategoriaUncheckedCreateWithoutDeportistaInput>
   }
 
   export type DesercionDeportistaCreateWithoutDeportistaInput = {
@@ -20341,27 +19074,6 @@ export namespace Prisma {
     usuario?: UsuarioUncheckedUpdateOneWithoutPersonaNestedInput
   }
 
-  export type CategoriaUpsertWithoutDeportistaInput = {
-    update: XOR<CategoriaUpdateWithoutDeportistaInput, CategoriaUncheckedUpdateWithoutDeportistaInput>
-    create: XOR<CategoriaCreateWithoutDeportistaInput, CategoriaUncheckedCreateWithoutDeportistaInput>
-    where?: CategoriaWhereInput
-  }
-
-  export type CategoriaUpdateToOneWithWhereWithoutDeportistaInput = {
-    where?: CategoriaWhereInput
-    data: XOR<CategoriaUpdateWithoutDeportistaInput, CategoriaUncheckedUpdateWithoutDeportistaInput>
-  }
-
-  export type CategoriaUpdateWithoutDeportistaInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type CategoriaUncheckedUpdateWithoutDeportistaInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
   export type DesercionDeportistaUpsertWithoutDeportistaInput = {
     update: XOR<DesercionDeportistaUpdateWithoutDeportistaInput, DesercionDeportistaUncheckedUpdateWithoutDeportistaInput>
     create: XOR<DesercionDeportistaCreateWithoutDeportistaInput, DesercionDeportistaUncheckedCreateWithoutDeportistaInput>
@@ -20414,10 +19126,10 @@ export namespace Prisma {
   }
 
   export type DeportistaCreateWithoutDesercionDeportistaInput = {
+    categoria: string
     activo?: boolean | null
     tutor?: TutorCreateNestedOneWithoutDeportistaInput
     personaClub: PersonaClubCreateNestedOneWithoutDeportistaInput
-    categoria?: CategoriaCreateNestedOneWithoutDeportistaInput
     pagosDeportista?: PagoDeportistaCreateNestedManyWithoutDeportistaInput
   }
 
@@ -20425,7 +19137,7 @@ export namespace Prisma {
     id?: number
     idTutor?: number | null
     idPersonaClub: number
-    idCategoria?: string | null
+    categoria: string
     activo?: boolean | null
     pagosDeportista?: PagoDeportistaUncheckedCreateNestedManyWithoutDeportistaInput
   }
@@ -20447,10 +19159,10 @@ export namespace Prisma {
   }
 
   export type DeportistaUpdateWithoutDesercionDeportistaInput = {
+    categoria?: StringFieldUpdateOperationsInput | string
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     tutor?: TutorUpdateOneWithoutDeportistaNestedInput
     personaClub?: PersonaClubUpdateOneRequiredWithoutDeportistaNestedInput
-    categoria?: CategoriaUpdateOneWithoutDeportistaNestedInput
     pagosDeportista?: PagoDeportistaUpdateManyWithoutDeportistaNestedInput
   }
 
@@ -20458,16 +19170,16 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     idTutor?: NullableIntFieldUpdateOperationsInput | number | null
     idPersonaClub?: IntFieldUpdateOperationsInput | number
-    idCategoria?: NullableStringFieldUpdateOperationsInput | string | null
+    categoria?: StringFieldUpdateOperationsInput | string
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     pagosDeportista?: PagoDeportistaUncheckedUpdateManyWithoutDeportistaNestedInput
   }
 
   export type DeportistaCreateWithoutPagosDeportistaInput = {
+    categoria: string
     activo?: boolean | null
     tutor?: TutorCreateNestedOneWithoutDeportistaInput
     personaClub: PersonaClubCreateNestedOneWithoutDeportistaInput
-    categoria?: CategoriaCreateNestedOneWithoutDeportistaInput
     desercionDeportista?: DesercionDeportistaCreateNestedOneWithoutDeportistaInput
   }
 
@@ -20475,7 +19187,7 @@ export namespace Prisma {
     id?: number
     idTutor?: number | null
     idPersonaClub: number
-    idCategoria?: string | null
+    categoria: string
     activo?: boolean | null
     desercionDeportista?: DesercionDeportistaUncheckedCreateNestedOneWithoutDeportistaInput
   }
@@ -20497,10 +19209,10 @@ export namespace Prisma {
   }
 
   export type DeportistaUpdateWithoutPagosDeportistaInput = {
+    categoria?: StringFieldUpdateOperationsInput | string
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     tutor?: TutorUpdateOneWithoutDeportistaNestedInput
     personaClub?: PersonaClubUpdateOneRequiredWithoutDeportistaNestedInput
-    categoria?: CategoriaUpdateOneWithoutDeportistaNestedInput
     desercionDeportista?: DesercionDeportistaUpdateOneWithoutDeportistaNestedInput
   }
 
@@ -20508,7 +19220,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     idTutor?: NullableIntFieldUpdateOperationsInput | number | null
     idPersonaClub?: IntFieldUpdateOperationsInput | number
-    idCategoria?: NullableStringFieldUpdateOperationsInput | string | null
+    categoria?: StringFieldUpdateOperationsInput | string
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     desercionDeportista?: DesercionDeportistaUncheckedUpdateOneWithoutDeportistaNestedInput
   }

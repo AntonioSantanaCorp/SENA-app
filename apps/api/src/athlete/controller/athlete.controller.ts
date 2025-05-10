@@ -7,6 +7,7 @@ import {
   Param,
   ParseIntPipe,
   Post,
+  Put,
 } from '@nestjs/common';
 import { AthleteDto } from '../models/athlete.dto';
 import { AthleteService } from '../services/athlete/athlete.service';
@@ -28,6 +29,11 @@ export class AthleteController {
   @Post()
   create(@Body() athlete: AthleteDto) {
     return this.athleteService.createAthlete(athlete);
+  }
+
+  @Put(':id')
+  update(@Param('id', ParseIntPipe) id: number, @Body() athlete: AthleteDto) {
+    return this.athleteService.updateAthlete(id, athlete);
   }
 
   @Delete()

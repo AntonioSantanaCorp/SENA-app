@@ -16,14 +16,6 @@ model CargosAdmin {
     @@map("tb_cargos_admin")
 }
 
-model Categoria {
-    id         String      @id
-    nombre     String?     @db.Text
-    Deportista Deportista?
-
-    @@map("tb_categorias")
-}
-
 model PersonaClub {
     id               Int         @id @default(autoincrement())
     numeroDocumento  String      @map("numero_documento") @db.VarChar(100)
@@ -94,15 +86,13 @@ model Deportista {
     id                  Int                  @id @default(autoincrement())
     idTutor             Int?                 @unique @map("id_tutor")
     idPersonaClub       Int                  @unique @map("id_persona_club")
-    idCategoria         String?              @unique @map("id_categoria")
+    categoria           String
     activo              Boolean?
     tutor               Tutor?               @relation(fields: [idTutor], references: [id])
     personaClub         PersonaClub          @relation(fields: [idPersonaClub], references: [id])
-    categoria           Categoria?           @relation(fields: [idCategoria], references: [id])
     desercionDeportista DesercionDeportista?
     pagosDeportista     PagoDeportista[]
 
-    @@index([idCategoria], map: "fk_deportistas_categoria")
     @@index([idPersonaClub], map: "fk_deportistas_personas")
     @@index([idTutor], map: "fk_deportistas_tutor")
     @@map("tb_deportistas")

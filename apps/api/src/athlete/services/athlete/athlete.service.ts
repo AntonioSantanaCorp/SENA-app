@@ -3,24 +3,20 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { AthleteResponse } from '@sacd/core/http/responses';
 import { AthleteDto } from '../../models/athlete.dto';
 import { AthleteSchema } from '../../models/athlete.schema';
-import { CategoriesService } from '../categories/categories.service';
-import { LocationsService } from '../../../locations/service/locations.service';
+
 import { DeleteAthleteRequest } from '@sacd/core/http/requests';
+import { CategoriesGenerator } from '@sacd/core/models';
+import { LocationsService } from '../../../locations/service/locations.service';
 @Injectable()
 export class AthleteService {
   constructor(
     private readonly _db: DatabaseService,
-    private readonly _categoriesDb: CategoriesService,
     private readonly _locationsService: LocationsService
   ) {}
 
   public async getAthletes(): Promise<AthleteResponse[]> {
     const athletes = await this._db.deportista.findMany({
-      include: {
-        categoria: true,
-        personaClub: true,
-        tutor: true,
-      },
+      include: { personaClub: true, tutor: true },
     });
 
     const response: AthleteResponse[] = await Promise.all(
@@ -33,11 +29,7 @@ export class AthleteService {
   public async getAthleteById(id: number): Promise<AthleteResponse> {
     const athlete = await this._db.deportista.findUnique({
       where: { id },
-      include: {
-        categoria: true,
-        personaClub: true,
-        tutor: true,
-      },
+      include: { personaClub: true, tutor: true },
     });
 
     if (!athlete) throw new NotFoundException('Deportista no encontrado');
@@ -46,10 +38,9 @@ export class AthleteService {
   }
 
   public async createAthlete(athlete: AthleteDto): Promise<AthleteResponse> {
-    const [createdPersonClub, createdTutor, categories] = await Promise.all([
+    const [createdPersonClub, createdTutor] = await Promise.all([
       this._db.personaClub.create({ data: { ...athlete.personaClub } }),
       this._db.tutor.create({ data: { ...athlete.tutor } }),
-      this._categoriesDb.getCategories(),
     ]);
 
     const createdDeportista = await this._db.deportista.create({
@@ -57,7 +48,9 @@ export class AthleteService {
         idTutor: createdTutor.id,
         idPersonaClub: createdPersonClub.id,
         activo: true,
-        idCategoria: 'SUB-20',
+        categoria: CategoriesGenerator.getCategory(
+          createdPersonClub.fechaNacimento
+        ),
       },
     });
 
@@ -69,9 +62,44 @@ export class AthleteService {
     return {
       id: createdDeportista.id,
       activo: createdDeportista.activo,
-      categoria: categories.find(({ id }) => id === 'SUB-20'),
+      categoria: createdDeportista.categoria,
       personaClub: { ...createdPersonClub, idDepartamento: departamento.id },
       tutor: createdTutor,
+    };
+  }
+
+  public async updateAthlete(
+    id: number,
+    athlete: AthleteDto
+  ): Promise<AthleteResponse> {
+    const athleteDb = await this._db.deportista.findUnique({
+      where: { id },
+    });
+
+    if (!athleteDb) throw new NotFoundException('Deportista no encontrado');
+
+    const [updatedPersonClub, updatedTutor] = await Promise.all([
+      this._db.personaClub.update({
+        where: { id: athleteDb.idPersonaClub },
+        data: { ...athlete.personaClub },
+      }),
+      this._db.tutor.update({
+        where: { id: athleteDb.idTutor },
+        data: { ...athlete.tutor },
+      }),
+    ]);
+
+    const departamento =
+      await this._locationsService.getDepartamentoByMunicipio(
+        updatedPersonClub.idMunicipio
+      );
+
+    return {
+      id: athleteDb.id,
+      activo: athleteDb.activo,
+      categoria: athleteDb.categoria,
+      personaClub: { ...updatedPersonClub, idDepartamento: departamento.id },
+      tutor: updatedTutor,
     };
   }
 

@@ -130,11 +130,6 @@ exports.Prisma.RelationLoadStrategy = {
   join: 'join'
 };
 
-exports.Prisma.CategoriaScalarFieldEnum = {
-  id: 'id',
-  nombre: 'nombre'
-};
-
 exports.Prisma.PersonaClubScalarFieldEnum = {
   id: 'id',
   numeroDocumento: 'numeroDocumento',
@@ -187,7 +182,7 @@ exports.Prisma.DeportistaScalarFieldEnum = {
   id: 'id',
   idTutor: 'idTutor',
   idPersonaClub: 'idPersonaClub',
-  idCategoria: 'idCategoria',
+  categoria: 'categoria',
   activo: 'activo'
 };
 
@@ -257,11 +252,6 @@ exports.Prisma.CargosAdminOrderByRelevanceFieldEnum = {
   nombre: 'nombre'
 };
 
-exports.Prisma.CategoriaOrderByRelevanceFieldEnum = {
-  id: 'id',
-  nombre: 'nombre'
-};
-
 exports.Prisma.PersonaClubOrderByRelevanceFieldEnum = {
   numeroDocumento: 'numeroDocumento',
   tipoDocumento: 'tipoDocumento',
@@ -295,7 +285,7 @@ exports.Prisma.TutorOrderByRelevanceFieldEnum = {
 };
 
 exports.Prisma.DeportistaOrderByRelevanceFieldEnum = {
-  idCategoria: 'idCategoria'
+  categoria: 'categoria'
 };
 
 exports.Prisma.DesercionDeportistaOrderByRelevanceFieldEnum = {
@@ -328,7 +318,6 @@ exports.Prisma.TipoDocumentoOrderByRelevanceFieldEnum = {
 
 exports.Prisma.ModelName = {
   CargosAdmin: 'CargosAdmin',
-  Categoria: 'Categoria',
   PersonaClub: 'PersonaClub',
   ContactosEmergencia: 'ContactosEmergencia',
   Entrenador: 'Entrenador',
