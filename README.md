@@ -18,6 +18,7 @@ Este proyecto es una aplicación monorepo gestionada con **Nx**, que incluye un 
 apps/
   ├── api/   # Backend (NestJS)
   └── web/   # Frontend (Angular)
+  └── database-scripts/ (scripts bd)
 ```
 
 ## Requisitos previos
@@ -30,7 +31,7 @@ apps/
 
 1. Clona el repositorio:
    ```bash
-   git clone <url-del-repositorio>
+   git clone https://github.com/AntonioSantanaCorp/SENA-app.git
    cd SENA-app
    ```
 
