@@ -7,18 +7,22 @@ import {
   OnInit,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { AppRoutes } from '@core/constants/app-routes.constant';
-import { IconButtonComponent } from '@libs/buttons';
-import { HeaderTitleComponent } from '@libs/titles';
 
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { AthleteApiService } from '@core/domains/athlete/services/athlete-api.service';
-import { PaginatorComponent } from '@libs/tables/components/paginator/paginator.component';
-import { SearchInputComponent } from '@libs/tables/components/search-input/search-input.component';
-import { DataTableApi } from '@libs/tables/models/datatable-api.model';
+
+import { AthleteApiService } from '@web/libs/athlete/services';
+import { IconButtonComponent } from '@web/libs/shared/ui/buttons';
+import {
+  DataTableApi,
+  PaginatorComponent,
+  SearchInputComponent,
+} from '@web/libs/shared/ui/tables';
+import { HeaderTitleComponent } from '@web/libs/shared/ui/titles';
+import { AppRoutes } from '../../../../core/constants';
 import { DeleteAthleteComponent } from '../../components/delete-athlete/delete-athlete.component';
 import { DISPLAYED_COLUMNS } from '../../constants/athletes-list.constants';
 import { AthleteStore } from '../../store/athlete.store';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-athletes-list',
@@ -55,8 +59,13 @@ export default class AthletesListComponent implements OnInit {
     await this.athleteStore.loadData();
   }
 
-  public onDelete(): void {
-    this._dialog.open(DeleteAthleteComponent);
+  public onDelete(id: string): void {
+    this._dialog
+      .open<{ deleted: boolean } | undefined, string>(DeleteAthleteComponent, {
+        data: id,
+      })
+      .closed.pipe(filter((result) => result !== undefined && result?.deleted))
+      .subscribe(() => this.athleteStore.loadData());
   }
 
   public searchAthlete(): void {
@@ -68,3 +77,4 @@ export default class AthletesListComponent implements OnInit {
     this.athleteStore.setQuery('');
   }
 }
+

@@ -1,12 +1,12 @@
-<app-header-title>
+<ui-header-title>
   <span class="material-symbols-outlined"> person_add </span>
   <span>Gestionar entrenadores</span>
-</app-header-title>
+</ui-header-title>
 
 <span>
   En este modulo podras editar, inactivar y filtrar a los entrenadores del club
 </span>
-<app-search-input
+<ui-search-input
   [dataTable]="trainerStore"
   placeholderText="Buscar entrenador"
 />
@@ -38,13 +38,13 @@
         <button
           class="btn btn-outline-danger"
           title="Eliminar entrenador"
-          appIconButton
+          ui-icon-button
           (click)="onDelete()"
         >
           delete
         </button>
         <a
-          appIconButton
+          ui-icon-button
           title="Editar entrenador"
           [routerLink]="[appRoutes.TrainerEdit]"
         >
@@ -56,4 +56,4 @@
   <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
   <tr cdk-row *cdkRowDef="let row; columns: displayedColumns"></tr>
 </table>
-<app-paginator [dataTable]="trainerStore" />
+<ui-paginator [dataTable]="trainerStore" />

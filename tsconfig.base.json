@@ -14,7 +14,15 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@api/database": ["apps/api/libs/database/src/index.ts"],
+      "@api/shared": ["apps/api/libs/shared/src/index.ts"],
+      "@sacd/core/*": ["core/src/*"],
+      "@web/libs/locations": ["apps/web/src/libs/locations/src/index.ts"],
+      "@web/libs/athlete/*": ["apps/web/src/libs/athlete/src/*"],
+      "@web/libs/shared/*": ["apps/web/src/libs/shared/src/*"],
+      "@web/libs/trainer/*": ["apps/web/src/libs/trainer/src/*"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

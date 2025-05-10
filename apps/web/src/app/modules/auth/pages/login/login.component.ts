@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ControlInputComponent } from '@libs/control-field';
+import { ControlInputComponent } from '@web/libs/shared/ui/control-field';
 import { createAuthForm } from '../../form-controls/auth.form';
 
 @Component({
@@ -8,6 +8,7 @@ import { createAuthForm } from '../../form-controls/auth.form';
   imports: [ReactiveFormsModule, ControlInputComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class LoginComponent {
   protected readonly form = createAuthForm();

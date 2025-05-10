@@ -1,11 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
-@use './app/libs/buttons/styles/buttons.scss';
-@use 'styles/components/dialog';
+@use './libs/shared/src/ui/styles';
+@use './styles/components/dialog';
 @use '@angular/cdk' as cdk;
 
 @include cdk.overlay();
-
-
 
 html,
 body {
@@ -38,4 +35,19 @@ th {
   height: 3px;
   background: lightgray;
   border-radius: 5px;
+}
+
+.spinner {
+  width: var(--spinner-size, 20px);
+  height: var(--spinner-size, 20px);
+  border: calc(var(--spinner-size, 24px) * 0.1) solid rgba(0, 0, 0, 0.1);
+  border-left-color: currentColor;
+  border-radius: 50%;
+  animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
 }

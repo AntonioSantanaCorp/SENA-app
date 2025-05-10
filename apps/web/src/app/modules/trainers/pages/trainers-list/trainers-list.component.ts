@@ -8,13 +8,15 @@ import {
   OnInit,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { AppRoutes } from '@core/constants/app-routes.constant';
-import { TrainerApiService } from '@core/domains/trainer/services/trainer-api.service';
-import { IconButtonComponent } from '@libs/buttons';
-import { PaginatorComponent } from '@libs/tables/components/paginator/paginator.component';
-import { SearchInputComponent } from '@libs/tables/components/search-input/search-input.component';
-import { DataTableApi } from '@libs/tables/models/datatable-api.model';
-import { HeaderTitleComponent } from '@libs/titles';
+import { IconButtonComponent } from '@web/libs/shared/ui/buttons';
+import {
+  DataTableApi,
+  PaginatorComponent,
+  SearchInputComponent,
+} from '@web/libs/shared/ui/tables';
+import { HeaderTitleComponent } from '@web/libs/shared/ui/titles';
+import { TrainerApiService } from '@web/libs/trainer/services';
+import { AppRoutes } from '../../../../core/constants';
 import { DeleteTrainerComponent } from '../../components/delete-trainer/delete-trainer.component';
 import { DISPLAYED_COLUMNS } from '../../constant/trainer-list.constant';
 import { TrainerStore } from '../../store/trainer.store';

@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
-import { AppBaseRoutes, AppRoutes } from '@core/constants/app-routes.constant';
+import { AppBaseRoutes, AppRoutes } from './core/constants';
 
 export const routes: Routes = [
   {
@@ -11,10 +11,6 @@ export const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
-      {
-        path: AppBaseRoutes.AdminArea,
-        loadChildren: () => import('./modules/area-admin/area-admin.routes'),
-      },
       {
         path: AppBaseRoutes.Athlete,
         loadChildren: () => import('./modules/athletes/athletes.routes'),

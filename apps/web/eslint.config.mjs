@@ -8,19 +8,18 @@ export default [
   {
     files: ['**/*.ts'],
     rules: {
+      "@typescript-eslint/consistent-type-definitions": "off",
       '@angular-eslint/directive-selector': [
         'error',
         {
-          type: 'attribute',
-          prefix: 'app',
+          type: ['element', 'attribute'],
           style: 'camelCase',
         },
       ],
       '@angular-eslint/component-selector': [
         'error',
         {
-          type: 'element',
-          prefix: 'app',
+          type: ['element', 'attribute'],
           style: 'kebab-case',
         },
       ],
@@ -28,7 +27,8 @@ export default [
   },
   {
     files: ['**/*.html'],
-    // Override or add rules here
-    rules: {},
+    rules: {
+      "@angular-eslint/template/label-has-associated-control": "off",
+    }
   },
 ];

@@ -1,7 +1,7 @@
-<app-header-title>
+<ui-header-title>
   <span class="material-symbols-outlined">person_remove</span>
   <span> Inactivar Entrenador </span>
-</app-header-title>
+</ui-header-title>
 
 <span>
   <strong>¿Esta seguro que quiere inactivar al deportista?</strong> tenga en
@@ -9,7 +9,7 @@
 </span>
 <!-- TODO: form invalid constraints -->
 <ng-container [formGroup]="form">
-  <app-control-input attrFor="razon">
+  <ui-control-input attrFor="razon">
     <label> Razon de la inactivacion</label>
     <select formControlName="inactivationReason">
       <option value="" selected disabled>
@@ -19,14 +19,14 @@
         <option [value]="reason">{{ reason }}</option>
       }
     </select>
-  </app-control-input>
-  <app-control-input attrFor="descripcion">
+  </ui-control-input>
+  <ui-control-input attrFor="descripcion">
     <label>Descripcion</label>
     <textarea
       formControlName="descripcion"
       placeholder="Escriba una descripcion del porque de la inactivacion"
     ></textarea>
-  </app-control-input>
+  </ui-control-input>
 </ng-container>
 
 <footer class="d-flex justify-content-end gap-2">

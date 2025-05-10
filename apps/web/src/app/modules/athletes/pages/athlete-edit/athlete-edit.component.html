@@ -1,7 +1,7 @@
-<app-header-title>
+<ui-header-title>
   <span class="material-symbols-outlined"> person_edit </span>
   <span>Editar Deportista</span>
-</app-header-title>
+</ui-header-title>
 
 <span>
   En este formulario podras <strong>agregar un deportista</strong>, no olvides
@@ -9,21 +9,21 @@
 </span>
 
 <section>
-  <app-header-subtitle> Informacion general </app-header-subtitle>
-  <app-user-general-info> </app-user-general-info>
+  <ui-header-subtitle> Informacion general </ui-header-subtitle>
+  <ui-user-general-info> </ui-user-general-info>
 </section>
 
 <section>
-  <app-header-subtitle> Informacion residencia </app-header-subtitle>
-  <app-address-info> </app-address-info>
+  <ui-header-subtitle> Informacion residencia </ui-header-subtitle>
+  <ui-address-info> </ui-address-info>
 </section>
 
 <section>
-  <app-header-subtitle>Informacion tutor </app-header-subtitle>
-  <app-tutor-info></app-tutor-info>
+  <ui-header-subtitle>Informacion tutor </ui-header-subtitle>
+  <ui-tutor-info></ui-tutor-info>
 </section>
 
 <footer class="d-flex gap-2 justify-content-end">
-  <button class="btn btn-outline-danger">Cancelar</button>
+  <button class="btn btn-outline-danger" (click)="cancel()">Cancelar</button>
   <button class="btn btn-primary">Editar deportista</button>
 </footer>

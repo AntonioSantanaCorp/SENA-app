@@ -1,13 +1,13 @@
-<app-header-title>
+<ui-header-title>
   <span class="material-symbols-outlined"> person_add </span>
   <span>Gestionar deportistas</span>
-</app-header-title>
+</ui-header-title>
 
 <span>
   En este modulo podras editar, inactivar y filtrar a los deportista del club
 </span>
 
-<app-search-input
+<ui-search-input
   [dataTable]="athleteStore"
   placeholderText="Buscar deportista"
 />
@@ -15,17 +15,21 @@
 <table class="table table-hover" cdk-table [dataSource]="athleteStore.data()">
   <ng-container cdkColumnDef="nombres">
     <th cdk-header-cell *cdkHeaderCellDef>Nombres y Apellidos</th>
-    <td cdk-cell *cdkCellDef="let element">{{ element.nombres }}</td>
+    <td cdk-cell *cdkCellDef="let element">
+      {{ element.personaClub.nombres }} {{ element.personaClub.apellidos }}
+    </td>
   </ng-container>
   <ng-container cdkColumnDef="documento">
     <th cdk-header-cell *cdkHeaderCellDef>Documento</th>
     <td cdk-cell *cdkCellDef="let element">
-      {{ element.tipoDocumento }} {{ element.numeroDocumento }}
+      {{ element.tipoDocumento }} {{ element.personaClub.numeroDocumento }}
     </td>
   </ng-container>
   <ng-container cdkColumnDef="estado">
     <th cdk-header-cell *cdkHeaderCellDef>Estado</th>
-    <td cdk-cell *cdkCellDef="let element">{{ element.activo }}</td>
+    <td cdk-cell *cdkCellDef="let element">
+      {{ element.activo ? 'Activo' : 'Inactivo' }}
+    </td>
   </ng-container>
   <ng-container cdkColumnDef="categoria">
     <th cdk-header-cell *cdkHeaderCellDef>Categoria</th>
@@ -38,13 +42,13 @@
         <button
           class="btn btn-outline-danger"
           title="Eliminar deportista"
-          appIconButton
-          (click)="onDelete()"
+          ui-icon-button
+          (click)="onDelete(element.id)"
         >
           delete
         </button>
         <a
-          appIconButton
+          ui-icon-button
           title="Editar deportista"
           [routerLink]="[appRoutes.AthleteEdit, element.id]"
         >
@@ -56,4 +60,4 @@
   <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
   <tr cdk-row *cdkRowDef="let row; columns: displayedColumns"></tr>
 </table>
-<app-paginator [dataTable]="athleteStore" />
+<ui-paginator [dataTable]="athleteStore" />
