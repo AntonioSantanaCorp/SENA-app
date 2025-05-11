@@ -1,5 +1,7 @@
 import { FormControl, Validators } from '@angular/forms';
 
 export function contractControl() {
-  return new FormControl<FileList | null>(null, Validators.required);
+  return new FormControl<File | null>(null, Validators.required);
 }
+
+export type ContractForm = ReturnType<typeof contractControl>;

@@ -13,7 +13,12 @@
   <ui-user-general-info>
     <ui-control-input attrFor="contrato">
       <label>Cargar contrato</label>
-      <input type="file" [formControl]="contract" accept="application/pdf" />
+      <input
+        #contratoRef
+        type="file"
+        [formControl]="contract"
+        accept="application/pdf"
+      />
     </ui-control-input>
   </ui-user-general-info>
 </section>

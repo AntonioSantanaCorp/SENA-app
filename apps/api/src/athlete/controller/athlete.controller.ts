@@ -22,7 +22,7 @@ export class AthleteController {
   }
 
   @Get(':id')
-  getAthleteById(@Param('id', ParseIntPipe) id: number) {
+  getById(@Param('id', ParseIntPipe) id: number) {
     return this.athleteService.getAthleteById(id);
   }
 

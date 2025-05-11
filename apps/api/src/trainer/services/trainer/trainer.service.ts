@@ -1,5 +1,5 @@
 import { DatabaseService } from '@api/database';
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { TrainerResponse } from '@sacd/core/http/responses';
 import { LocationsService } from '../../../locations/service/locations.service';
 import { TrainerDto } from '../../models/trainer.dto';
@@ -47,7 +47,9 @@ export class TrainerService {
           idContactoEmergencia: createdEmergencyContact.id,
           fechaIngreso: new Date(),
           activo: true,
-          contrato: Buffer.from(trainer.contrato),
+          contrato: trainer.contrato
+            ? Buffer.from(trainer.contrato)
+            : undefined,
         },
       });
 
@@ -58,6 +60,49 @@ export class TrainerService {
       });
     } catch (error) {
       throw new Error('Error al crear el entrenador');
+    }
+  }
+
+  public async updateTrainer(
+    id: number,
+    trainer: TrainerDto
+  ): Promise<TrainerResponse> {
+    try {
+      const trainerDb = await this._db.entrenador.findUnique({
+        where: { id },
+        include: { personaClub: true },
+      });
+
+      if (!trainerDb) throw new NotFoundException('Entrenador no encontrado');
+
+      const [updatedPersonClub, updatedEmergencyContact] = await Promise.all([
+        this._db.personaClub.update({
+          where: { id: trainerDb.idPersonaClub },
+          data: { ...trainer.personaClub },
+        }),
+        this._db.contactosEmergencia.update({
+          where: { id: trainerDb.idContactoEmergencia },
+          data: { ...trainer.contactosEmergencia },
+        }),
+        this._db.entrenador.update({
+          where: { id },
+          data: {
+            contrato: trainer.contrato
+              ? Buffer.from(trainer.contrato)
+              : undefined,
+          },
+        }),
+      ]);
+
+      return this.mapTrainerToResponse({
+        ...trainerDb,
+        personaClub: updatedPersonClub,
+        contactosEmergencia: updatedEmergencyContact,
+        contrato: trainerDb.contrato,
+        fechaIngreso: trainerDb.fechaIngreso,
+      });
+    } catch (error) {
+      throw new Error('Error al actualizar el entrenador');
     }
   }
 
