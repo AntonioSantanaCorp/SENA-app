@@ -4009,19 +4009,16 @@ export namespace Prisma {
 
   export type ContactosEmergenciaAvgAggregateOutputType = {
     id: number | null
-    idEntrenador: number | null
   }
 
   export type ContactosEmergenciaSumAggregateOutputType = {
     id: number | null
-    idEntrenador: number | null
   }
 
   export type ContactosEmergenciaMinAggregateOutputType = {
     id: number | null
     tipoDocumento: string | null
     numeroDocumento: string | null
-    idEntrenador: number | null
     nombres: string | null
     apellidos: string | null
     correo: string | null
@@ -4032,7 +4029,6 @@ export namespace Prisma {
     id: number | null
     tipoDocumento: string | null
     numeroDocumento: string | null
-    idEntrenador: number | null
     nombres: string | null
     apellidos: string | null
     correo: string | null
@@ -4043,7 +4039,6 @@ export namespace Prisma {
     id: number
     tipoDocumento: number
     numeroDocumento: number
-    idEntrenador: number
     nombres: number
     apellidos: number
     correo: number
@@ -4054,19 +4049,16 @@ export namespace Prisma {
 
   export type ContactosEmergenciaAvgAggregateInputType = {
     id?: true
-    idEntrenador?: true
   }
 
   export type ContactosEmergenciaSumAggregateInputType = {
     id?: true
-    idEntrenador?: true
   }
 
   export type ContactosEmergenciaMinAggregateInputType = {
     id?: true
     tipoDocumento?: true
     numeroDocumento?: true
-    idEntrenador?: true
     nombres?: true
     apellidos?: true
     correo?: true
@@ -4077,7 +4069,6 @@ export namespace Prisma {
     id?: true
     tipoDocumento?: true
     numeroDocumento?: true
-    idEntrenador?: true
     nombres?: true
     apellidos?: true
     correo?: true
@@ -4088,7 +4079,6 @@ export namespace Prisma {
     id?: true
     tipoDocumento?: true
     numeroDocumento?: true
-    idEntrenador?: true
     nombres?: true
     apellidos?: true
     correo?: true
@@ -4186,7 +4176,6 @@ export namespace Prisma {
     id: number
     tipoDocumento: string
     numeroDocumento: string | null
-    idEntrenador: number | null
     nombres: string | null
     apellidos: string | null
     correo: string | null
@@ -4216,7 +4205,6 @@ export namespace Prisma {
     id?: boolean
     tipoDocumento?: boolean
     numeroDocumento?: boolean
-    idEntrenador?: boolean
     nombres?: boolean
     apellidos?: boolean
     correo?: boolean
@@ -4230,14 +4218,13 @@ export namespace Prisma {
     id?: boolean
     tipoDocumento?: boolean
     numeroDocumento?: boolean
-    idEntrenador?: boolean
     nombres?: boolean
     apellidos?: boolean
     correo?: boolean
     telefono?: boolean
   }
 
-  export type ContactosEmergenciaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tipoDocumento" | "numeroDocumento" | "idEntrenador" | "nombres" | "apellidos" | "correo" | "telefono", ExtArgs["result"]["contactosEmergencia"]>
+  export type ContactosEmergenciaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tipoDocumento" | "numeroDocumento" | "nombres" | "apellidos" | "correo" | "telefono", ExtArgs["result"]["contactosEmergencia"]>
   export type ContactosEmergenciaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     entrenador?: boolean | ContactosEmergencia$entrenadorArgs<ExtArgs>
   }
@@ -4251,7 +4238,6 @@ export namespace Prisma {
       id: number
       tipoDocumento: string
       numeroDocumento: string | null
-      idEntrenador: number | null
       nombres: string | null
       apellidos: string | null
       correo: string | null
@@ -4629,7 +4615,6 @@ export namespace Prisma {
     readonly id: FieldRef<"ContactosEmergencia", 'Int'>
     readonly tipoDocumento: FieldRef<"ContactosEmergencia", 'String'>
     readonly numeroDocumento: FieldRef<"ContactosEmergencia", 'String'>
-    readonly idEntrenador: FieldRef<"ContactosEmergencia", 'Int'>
     readonly nombres: FieldRef<"ContactosEmergencia", 'String'>
     readonly apellidos: FieldRef<"ContactosEmergencia", 'String'>
     readonly correo: FieldRef<"ContactosEmergencia", 'String'>
@@ -5038,16 +5023,19 @@ export namespace Prisma {
   export type EntrenadorAvgAggregateOutputType = {
     id: number | null
     idPersonaClub: number | null
+    idContactoEmergencia: number | null
   }
 
   export type EntrenadorSumAggregateOutputType = {
     id: number | null
     idPersonaClub: number | null
+    idContactoEmergencia: number | null
   }
 
   export type EntrenadorMinAggregateOutputType = {
     id: number | null
     idPersonaClub: number | null
+    idContactoEmergencia: number | null
     fechaIngreso: Date | null
     activo: boolean | null
     contrato: Uint8Array | null
@@ -5056,6 +5044,7 @@ export namespace Prisma {
   export type EntrenadorMaxAggregateOutputType = {
     id: number | null
     idPersonaClub: number | null
+    idContactoEmergencia: number | null
     fechaIngreso: Date | null
     activo: boolean | null
     contrato: Uint8Array | null
@@ -5064,6 +5053,7 @@ export namespace Prisma {
   export type EntrenadorCountAggregateOutputType = {
     id: number
     idPersonaClub: number
+    idContactoEmergencia: number
     fechaIngreso: number
     activo: number
     contrato: number
@@ -5074,16 +5064,19 @@ export namespace Prisma {
   export type EntrenadorAvgAggregateInputType = {
     id?: true
     idPersonaClub?: true
+    idContactoEmergencia?: true
   }
 
   export type EntrenadorSumAggregateInputType = {
     id?: true
     idPersonaClub?: true
+    idContactoEmergencia?: true
   }
 
   export type EntrenadorMinAggregateInputType = {
     id?: true
     idPersonaClub?: true
+    idContactoEmergencia?: true
     fechaIngreso?: true
     activo?: true
     contrato?: true
@@ -5092,6 +5085,7 @@ export namespace Prisma {
   export type EntrenadorMaxAggregateInputType = {
     id?: true
     idPersonaClub?: true
+    idContactoEmergencia?: true
     fechaIngreso?: true
     activo?: true
     contrato?: true
@@ -5100,6 +5094,7 @@ export namespace Prisma {
   export type EntrenadorCountAggregateInputType = {
     id?: true
     idPersonaClub?: true
+    idContactoEmergencia?: true
     fechaIngreso?: true
     activo?: true
     contrato?: true
@@ -5195,6 +5190,7 @@ export namespace Prisma {
   export type EntrenadorGroupByOutputType = {
     id: number
     idPersonaClub: number
+    idContactoEmergencia: number | null
     fechaIngreso: Date | null
     activo: boolean | null
     contrato: Uint8Array | null
@@ -5222,6 +5218,7 @@ export namespace Prisma {
   export type EntrenadorSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     idPersonaClub?: boolean
+    idContactoEmergencia?: boolean
     fechaIngreso?: boolean
     activo?: boolean
     contrato?: boolean
@@ -5234,12 +5231,13 @@ export namespace Prisma {
   export type EntrenadorSelectScalar = {
     id?: boolean
     idPersonaClub?: boolean
+    idContactoEmergencia?: boolean
     fechaIngreso?: boolean
     activo?: boolean
     contrato?: boolean
   }
 
-  export type EntrenadorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "idPersonaClub" | "fechaIngreso" | "activo" | "contrato", ExtArgs["result"]["entrenador"]>
+  export type EntrenadorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "idPersonaClub" | "idContactoEmergencia" | "fechaIngreso" | "activo" | "contrato", ExtArgs["result"]["entrenador"]>
   export type EntrenadorInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     contactosEmergencia?: boolean | Entrenador$contactosEmergenciaArgs<ExtArgs>
     personaClub?: boolean | PersonaClubDefaultArgs<ExtArgs>
@@ -5254,6 +5252,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       idPersonaClub: number
+      idContactoEmergencia: number | null
       fechaIngreso: Date | null
       activo: boolean | null
       contrato: Uint8Array | null
@@ -5630,6 +5629,7 @@ export namespace Prisma {
   interface EntrenadorFieldRefs {
     readonly id: FieldRef<"Entrenador", 'Int'>
     readonly idPersonaClub: FieldRef<"Entrenador", 'Int'>
+    readonly idContactoEmergencia: FieldRef<"Entrenador", 'Int'>
     readonly fechaIngreso: FieldRef<"Entrenador", 'DateTime'>
     readonly activo: FieldRef<"Entrenador", 'Boolean'>
     readonly contrato: FieldRef<"Entrenador", 'Bytes'>
@@ -14933,7 +14933,6 @@ export namespace Prisma {
     id: 'id',
     tipoDocumento: 'tipoDocumento',
     numeroDocumento: 'numeroDocumento',
-    idEntrenador: 'idEntrenador',
     nombres: 'nombres',
     apellidos: 'apellidos',
     correo: 'correo',
@@ -14946,6 +14945,7 @@ export namespace Prisma {
   export const EntrenadorScalarFieldEnum: {
     id: 'id',
     idPersonaClub: 'idPersonaClub',
+    idContactoEmergencia: 'idContactoEmergencia',
     fechaIngreso: 'fechaIngreso',
     activo: 'activo',
     contrato: 'contrato'
@@ -15399,7 +15399,6 @@ export namespace Prisma {
     id?: IntFilter<"ContactosEmergencia"> | number
     tipoDocumento?: StringFilter<"ContactosEmergencia"> | string
     numeroDocumento?: StringNullableFilter<"ContactosEmergencia"> | string | null
-    idEntrenador?: IntNullableFilter<"ContactosEmergencia"> | number | null
     nombres?: StringNullableFilter<"ContactosEmergencia"> | string | null
     apellidos?: StringNullableFilter<"ContactosEmergencia"> | string | null
     correo?: StringNullableFilter<"ContactosEmergencia"> | string | null
@@ -15411,7 +15410,6 @@ export namespace Prisma {
     id?: SortOrder
     tipoDocumento?: SortOrder
     numeroDocumento?: SortOrderInput | SortOrder
-    idEntrenador?: SortOrderInput | SortOrder
     nombres?: SortOrderInput | SortOrder
     apellidos?: SortOrderInput | SortOrder
     correo?: SortOrderInput | SortOrder
@@ -15422,7 +15420,6 @@ export namespace Prisma {
 
   export type ContactosEmergenciaWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    idEntrenador?: number
     AND?: ContactosEmergenciaWhereInput | ContactosEmergenciaWhereInput[]
     OR?: ContactosEmergenciaWhereInput[]
     NOT?: ContactosEmergenciaWhereInput | ContactosEmergenciaWhereInput[]
@@ -15433,13 +15430,12 @@ export namespace Prisma {
     correo?: StringNullableFilter<"ContactosEmergencia"> | string | null
     telefono?: StringNullableFilter<"ContactosEmergencia"> | string | null
     entrenador?: XOR<EntrenadorNullableScalarRelationFilter, EntrenadorWhereInput> | null
-  }, "id" | "idEntrenador">
+  }, "id">
 
   export type ContactosEmergenciaOrderByWithAggregationInput = {
     id?: SortOrder
     tipoDocumento?: SortOrder
     numeroDocumento?: SortOrderInput | SortOrder
-    idEntrenador?: SortOrderInput | SortOrder
     nombres?: SortOrderInput | SortOrder
     apellidos?: SortOrderInput | SortOrder
     correo?: SortOrderInput | SortOrder
@@ -15458,7 +15454,6 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"ContactosEmergencia"> | number
     tipoDocumento?: StringWithAggregatesFilter<"ContactosEmergencia"> | string
     numeroDocumento?: StringNullableWithAggregatesFilter<"ContactosEmergencia"> | string | null
-    idEntrenador?: IntNullableWithAggregatesFilter<"ContactosEmergencia"> | number | null
     nombres?: StringNullableWithAggregatesFilter<"ContactosEmergencia"> | string | null
     apellidos?: StringNullableWithAggregatesFilter<"ContactosEmergencia"> | string | null
     correo?: StringNullableWithAggregatesFilter<"ContactosEmergencia"> | string | null
@@ -15471,6 +15466,7 @@ export namespace Prisma {
     NOT?: EntrenadorWhereInput | EntrenadorWhereInput[]
     id?: IntFilter<"Entrenador"> | number
     idPersonaClub?: IntFilter<"Entrenador"> | number
+    idContactoEmergencia?: IntNullableFilter<"Entrenador"> | number | null
     fechaIngreso?: DateTimeNullableFilter<"Entrenador"> | Date | string | null
     activo?: BoolNullableFilter<"Entrenador"> | boolean | null
     contrato?: BytesNullableFilter<"Entrenador"> | Uint8Array | null
@@ -15481,6 +15477,7 @@ export namespace Prisma {
   export type EntrenadorOrderByWithRelationInput = {
     id?: SortOrder
     idPersonaClub?: SortOrder
+    idContactoEmergencia?: SortOrderInput | SortOrder
     fechaIngreso?: SortOrderInput | SortOrder
     activo?: SortOrderInput | SortOrder
     contrato?: SortOrderInput | SortOrder
@@ -15491,6 +15488,7 @@ export namespace Prisma {
   export type EntrenadorWhereUniqueInput = Prisma.AtLeast<{
     id?: number
     idPersonaClub?: number
+    idContactoEmergencia?: number
     AND?: EntrenadorWhereInput | EntrenadorWhereInput[]
     OR?: EntrenadorWhereInput[]
     NOT?: EntrenadorWhereInput | EntrenadorWhereInput[]
@@ -15499,11 +15497,12 @@ export namespace Prisma {
     contrato?: BytesNullableFilter<"Entrenador"> | Uint8Array | null
     contactosEmergencia?: XOR<ContactosEmergenciaNullableScalarRelationFilter, ContactosEmergenciaWhereInput> | null
     personaClub?: XOR<PersonaClubScalarRelationFilter, PersonaClubWhereInput>
-  }, "id" | "idPersonaClub">
+  }, "id" | "idPersonaClub" | "idContactoEmergencia">
 
   export type EntrenadorOrderByWithAggregationInput = {
     id?: SortOrder
     idPersonaClub?: SortOrder
+    idContactoEmergencia?: SortOrderInput | SortOrder
     fechaIngreso?: SortOrderInput | SortOrder
     activo?: SortOrderInput | SortOrder
     contrato?: SortOrderInput | SortOrder
@@ -15520,6 +15519,7 @@ export namespace Prisma {
     NOT?: EntrenadorScalarWhereWithAggregatesInput | EntrenadorScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Entrenador"> | number
     idPersonaClub?: IntWithAggregatesFilter<"Entrenador"> | number
+    idContactoEmergencia?: IntNullableWithAggregatesFilter<"Entrenador"> | number | null
     fechaIngreso?: DateTimeNullableWithAggregatesFilter<"Entrenador"> | Date | string | null
     activo?: BoolNullableWithAggregatesFilter<"Entrenador"> | boolean | null
     contrato?: BytesNullableWithAggregatesFilter<"Entrenador"> | Uint8Array | null
@@ -16236,11 +16236,11 @@ export namespace Prisma {
     id?: number
     tipoDocumento: string
     numeroDocumento?: string | null
-    idEntrenador?: number | null
     nombres?: string | null
     apellidos?: string | null
     correo?: string | null
     telefono?: string | null
+    entrenador?: EntrenadorUncheckedCreateNestedOneWithoutContactosEmergenciaInput
   }
 
   export type ContactosEmergenciaUpdateInput = {
@@ -16257,18 +16257,17 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     tipoDocumento?: StringFieldUpdateOperationsInput | string
     numeroDocumento?: NullableStringFieldUpdateOperationsInput | string | null
-    idEntrenador?: NullableIntFieldUpdateOperationsInput | number | null
     nombres?: NullableStringFieldUpdateOperationsInput | string | null
     apellidos?: NullableStringFieldUpdateOperationsInput | string | null
     correo?: NullableStringFieldUpdateOperationsInput | string | null
     telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    entrenador?: EntrenadorUncheckedUpdateOneWithoutContactosEmergenciaNestedInput
   }
 
   export type ContactosEmergenciaCreateManyInput = {
     id?: number
     tipoDocumento: string
     numeroDocumento?: string | null
-    idEntrenador?: number | null
     nombres?: string | null
     apellidos?: string | null
     correo?: string | null
@@ -16288,7 +16287,6 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     tipoDocumento?: StringFieldUpdateOperationsInput | string
     numeroDocumento?: NullableStringFieldUpdateOperationsInput | string | null
-    idEntrenador?: NullableIntFieldUpdateOperationsInput | number | null
     nombres?: NullableStringFieldUpdateOperationsInput | string | null
     apellidos?: NullableStringFieldUpdateOperationsInput | string | null
     correo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -16306,10 +16304,10 @@ export namespace Prisma {
   export type EntrenadorUncheckedCreateInput = {
     id?: number
     idPersonaClub: number
+    idContactoEmergencia?: number | null
     fechaIngreso?: Date | string | null
     activo?: boolean | null
     contrato?: Uint8Array | null
-    contactosEmergencia?: ContactosEmergenciaUncheckedCreateNestedOneWithoutEntrenadorInput
   }
 
   export type EntrenadorUpdateInput = {
@@ -16323,15 +16321,16 @@ export namespace Prisma {
   export type EntrenadorUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     idPersonaClub?: IntFieldUpdateOperationsInput | number
+    idContactoEmergencia?: NullableIntFieldUpdateOperationsInput | number | null
     fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
-    contactosEmergencia?: ContactosEmergenciaUncheckedUpdateOneWithoutEntrenadorNestedInput
   }
 
   export type EntrenadorCreateManyInput = {
     id?: number
     idPersonaClub: number
+    idContactoEmergencia?: number | null
     fechaIngreso?: Date | string | null
     activo?: boolean | null
     contrato?: Uint8Array | null
@@ -16346,6 +16345,7 @@ export namespace Prisma {
   export type EntrenadorUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     idPersonaClub?: IntFieldUpdateOperationsInput | number
+    idContactoEmergencia?: NullableIntFieldUpdateOperationsInput | number | null
     fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
@@ -17107,17 +17107,6 @@ export namespace Prisma {
     _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type ContactosEmergenciaOrderByRelevanceInput = {
     fields: ContactosEmergenciaOrderByRelevanceFieldEnum | ContactosEmergenciaOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -17128,7 +17117,6 @@ export namespace Prisma {
     id?: SortOrder
     tipoDocumento?: SortOrder
     numeroDocumento?: SortOrder
-    idEntrenador?: SortOrder
     nombres?: SortOrder
     apellidos?: SortOrder
     correo?: SortOrder
@@ -17137,14 +17125,12 @@ export namespace Prisma {
 
   export type ContactosEmergenciaAvgOrderByAggregateInput = {
     id?: SortOrder
-    idEntrenador?: SortOrder
   }
 
   export type ContactosEmergenciaMaxOrderByAggregateInput = {
     id?: SortOrder
     tipoDocumento?: SortOrder
     numeroDocumento?: SortOrder
-    idEntrenador?: SortOrder
     nombres?: SortOrder
     apellidos?: SortOrder
     correo?: SortOrder
@@ -17155,7 +17141,6 @@ export namespace Prisma {
     id?: SortOrder
     tipoDocumento?: SortOrder
     numeroDocumento?: SortOrder
-    idEntrenador?: SortOrder
     nombres?: SortOrder
     apellidos?: SortOrder
     correo?: SortOrder
@@ -17164,10 +17149,9 @@ export namespace Prisma {
 
   export type ContactosEmergenciaSumOrderByAggregateInput = {
     id?: SortOrder
-    idEntrenador?: SortOrder
   }
 
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+  export type IntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | null
     notIn?: number[] | null
@@ -17175,12 +17159,7 @@ export namespace Prisma {
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type BoolNullableFilter<$PrismaModel = never> = {
@@ -17208,6 +17187,7 @@ export namespace Prisma {
   export type EntrenadorCountOrderByAggregateInput = {
     id?: SortOrder
     idPersonaClub?: SortOrder
+    idContactoEmergencia?: SortOrder
     fechaIngreso?: SortOrder
     activo?: SortOrder
     contrato?: SortOrder
@@ -17216,11 +17196,13 @@ export namespace Prisma {
   export type EntrenadorAvgOrderByAggregateInput = {
     id?: SortOrder
     idPersonaClub?: SortOrder
+    idContactoEmergencia?: SortOrder
   }
 
   export type EntrenadorMaxOrderByAggregateInput = {
     id?: SortOrder
     idPersonaClub?: SortOrder
+    idContactoEmergencia?: SortOrder
     fechaIngreso?: SortOrder
     activo?: SortOrder
     contrato?: SortOrder
@@ -17229,6 +17211,7 @@ export namespace Prisma {
   export type EntrenadorMinOrderByAggregateInput = {
     id?: SortOrder
     idPersonaClub?: SortOrder
+    idContactoEmergencia?: SortOrder
     fechaIngreso?: SortOrder
     activo?: SortOrder
     contrato?: SortOrder
@@ -17237,6 +17220,23 @@ export namespace Prisma {
   export type EntrenadorSumOrderByAggregateInput = {
     id?: SortOrder
     idPersonaClub?: SortOrder
+    idContactoEmergencia?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -17828,6 +17828,12 @@ export namespace Prisma {
     connect?: EntrenadorWhereUniqueInput
   }
 
+  export type EntrenadorUncheckedCreateNestedOneWithoutContactosEmergenciaInput = {
+    create?: XOR<EntrenadorCreateWithoutContactosEmergenciaInput, EntrenadorUncheckedCreateWithoutContactosEmergenciaInput>
+    connectOrCreate?: EntrenadorCreateOrConnectWithoutContactosEmergenciaInput
+    connect?: EntrenadorWhereUniqueInput
+  }
+
   export type EntrenadorUpdateOneWithoutContactosEmergenciaNestedInput = {
     create?: XOR<EntrenadorCreateWithoutContactosEmergenciaInput, EntrenadorUncheckedCreateWithoutContactosEmergenciaInput>
     connectOrCreate?: EntrenadorCreateOrConnectWithoutContactosEmergenciaInput
@@ -17838,12 +17844,14 @@ export namespace Prisma {
     update?: XOR<XOR<EntrenadorUpdateToOneWithWhereWithoutContactosEmergenciaInput, EntrenadorUpdateWithoutContactosEmergenciaInput>, EntrenadorUncheckedUpdateWithoutContactosEmergenciaInput>
   }
 
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
+  export type EntrenadorUncheckedUpdateOneWithoutContactosEmergenciaNestedInput = {
+    create?: XOR<EntrenadorCreateWithoutContactosEmergenciaInput, EntrenadorUncheckedCreateWithoutContactosEmergenciaInput>
+    connectOrCreate?: EntrenadorCreateOrConnectWithoutContactosEmergenciaInput
+    upsert?: EntrenadorUpsertWithoutContactosEmergenciaInput
+    disconnect?: EntrenadorWhereInput | boolean
+    delete?: EntrenadorWhereInput | boolean
+    connect?: EntrenadorWhereUniqueInput
+    update?: XOR<XOR<EntrenadorUpdateToOneWithWhereWithoutContactosEmergenciaInput, EntrenadorUpdateWithoutContactosEmergenciaInput>, EntrenadorUncheckedUpdateWithoutContactosEmergenciaInput>
   }
 
   export type ContactosEmergenciaCreateNestedOneWithoutEntrenadorInput = {
@@ -17856,12 +17864,6 @@ export namespace Prisma {
     create?: XOR<PersonaClubCreateWithoutEntrenadorInput, PersonaClubUncheckedCreateWithoutEntrenadorInput>
     connectOrCreate?: PersonaClubCreateOrConnectWithoutEntrenadorInput
     connect?: PersonaClubWhereUniqueInput
-  }
-
-  export type ContactosEmergenciaUncheckedCreateNestedOneWithoutEntrenadorInput = {
-    create?: XOR<ContactosEmergenciaCreateWithoutEntrenadorInput, ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput>
-    connectOrCreate?: ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput
-    connect?: ContactosEmergenciaWhereUniqueInput
   }
 
   export type NullableBoolFieldUpdateOperationsInput = {
@@ -17890,14 +17892,12 @@ export namespace Prisma {
     update?: XOR<XOR<PersonaClubUpdateToOneWithWhereWithoutEntrenadorInput, PersonaClubUpdateWithoutEntrenadorInput>, PersonaClubUncheckedUpdateWithoutEntrenadorInput>
   }
 
-  export type ContactosEmergenciaUncheckedUpdateOneWithoutEntrenadorNestedInput = {
-    create?: XOR<ContactosEmergenciaCreateWithoutEntrenadorInput, ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput>
-    connectOrCreate?: ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput
-    upsert?: ContactosEmergenciaUpsertWithoutEntrenadorInput
-    disconnect?: ContactosEmergenciaWhereInput | boolean
-    delete?: ContactosEmergenciaWhereInput | boolean
-    connect?: ContactosEmergenciaWhereUniqueInput
-    update?: XOR<XOR<ContactosEmergenciaUpdateToOneWithWhereWithoutEntrenadorInput, ContactosEmergenciaUpdateWithoutEntrenadorInput>, ContactosEmergenciaUncheckedUpdateWithoutEntrenadorInput>
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type DeportistaCreateNestedOneWithoutTutorInput = {
@@ -18345,6 +18345,18 @@ export namespace Prisma {
     _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
+  export type NestedBoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+
+  export type NestedBytesNullableFilter<$PrismaModel = never> = {
+    equals?: Uint8Array | BytesFieldRefInput<$PrismaModel> | null
+    in?: Uint8Array[] | null
+    notIn?: Uint8Array[] | null
+    not?: NestedBytesNullableFilter<$PrismaModel> | Uint8Array | null
+  }
+
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | null
@@ -18359,18 +18371,6 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type NestedBoolNullableFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
-    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
-  }
-
-  export type NestedBytesNullableFilter<$PrismaModel = never> = {
-    equals?: Uint8Array | BytesFieldRefInput<$PrismaModel> | null
-    in?: Uint8Array[] | null
-    notIn?: Uint8Array[] | null
-    not?: NestedBytesNullableFilter<$PrismaModel> | Uint8Array | null
   }
 
   export type NestedBoolNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -18445,10 +18445,10 @@ export namespace Prisma {
 
   export type EntrenadorUncheckedCreateWithoutPersonaClubInput = {
     id?: number
+    idContactoEmergencia?: number | null
     fechaIngreso?: Date | string | null
     activo?: boolean | null
     contrato?: Uint8Array | null
-    contactosEmergencia?: ContactosEmergenciaUncheckedCreateNestedOneWithoutEntrenadorInput
   }
 
   export type EntrenadorCreateOrConnectWithoutPersonaClubInput = {
@@ -18540,10 +18540,10 @@ export namespace Prisma {
 
   export type EntrenadorUncheckedUpdateWithoutPersonaClubInput = {
     id?: IntFieldUpdateOperationsInput | number
+    idContactoEmergencia?: NullableIntFieldUpdateOperationsInput | number | null
     fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
-    contactosEmergencia?: ContactosEmergenciaUncheckedUpdateOneWithoutEntrenadorNestedInput
   }
 
   export type DeportistaUpsertWithoutPersonaClubInput = {

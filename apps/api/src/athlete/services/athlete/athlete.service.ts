@@ -60,18 +60,11 @@ export class AthleteService {
         },
       });
 
-      const departamento =
-        await this._locationsService.getDepartamentoByMunicipio(
-          createdPersonClub.idMunicipio
-        );
-
-      return {
-        id: createdDeportista.id,
-        activo: createdDeportista.activo,
-        categoria: createdDeportista.categoria,
-        personaClub: { ...createdPersonClub, idDepartamento: departamento.id },
+      return this.mapAthleteToResponse({
+        ...createdDeportista,
+        personaClub: createdPersonClub,
         tutor: createdTutor,
-      };
+      });
     } catch (error) {
       console.log(error);
       throw error;

@@ -154,7 +154,6 @@ exports.Prisma.ContactosEmergenciaScalarFieldEnum = {
   id: 'id',
   tipoDocumento: 'tipoDocumento',
   numeroDocumento: 'numeroDocumento',
-  idEntrenador: 'idEntrenador',
   nombres: 'nombres',
   apellidos: 'apellidos',
   correo: 'correo',
@@ -164,6 +163,7 @@ exports.Prisma.ContactosEmergenciaScalarFieldEnum = {
 exports.Prisma.EntrenadorScalarFieldEnum = {
   id: 'id',
   idPersonaClub: 'idPersonaClub',
+  idContactoEmergencia: 'idContactoEmergencia',
   fechaIngreso: 'fechaIngreso',
   activo: 'activo',
   contrato: 'contrato'
