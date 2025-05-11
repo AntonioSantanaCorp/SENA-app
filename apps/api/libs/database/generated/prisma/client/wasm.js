@@ -153,6 +153,7 @@ exports.Prisma.PersonaClubScalarFieldEnum = {
 exports.Prisma.ContactosEmergenciaScalarFieldEnum = {
   id: 'id',
   tipoDocumento: 'tipoDocumento',
+  numeroDocumento: 'numeroDocumento',
   idEntrenador: 'idEntrenador',
   nombres: 'nombres',
   apellidos: 'apellidos',
@@ -269,6 +270,7 @@ exports.Prisma.PersonaClubOrderByRelevanceFieldEnum = {
 
 exports.Prisma.ContactosEmergenciaOrderByRelevanceFieldEnum = {
   tipoDocumento: 'tipoDocumento',
+  numeroDocumento: 'numeroDocumento',
   nombres: 'nombres',
   apellidos: 'apellidos',
   correo: 'correo',

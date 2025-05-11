@@ -1853,37 +1853,6 @@ export namespace Prisma {
 
 
   /**
-   * Count Type EntrenadorCountOutputType
-   */
-
-  export type EntrenadorCountOutputType = {
-    contactosEmergencia: number
-  }
-
-  export type EntrenadorCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    contactosEmergencia?: boolean | EntrenadorCountOutputTypeCountContactosEmergenciaArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * EntrenadorCountOutputType without action
-   */
-  export type EntrenadorCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the EntrenadorCountOutputType
-     */
-    select?: EntrenadorCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * EntrenadorCountOutputType without action
-   */
-  export type EntrenadorCountOutputTypeCountContactosEmergenciaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ContactosEmergenciaWhereInput
-  }
-
-
-  /**
    * Count Type DeportistaCountOutputType
    */
 
@@ -4051,6 +4020,7 @@ export namespace Prisma {
   export type ContactosEmergenciaMinAggregateOutputType = {
     id: number | null
     tipoDocumento: string | null
+    numeroDocumento: string | null
     idEntrenador: number | null
     nombres: string | null
     apellidos: string | null
@@ -4061,6 +4031,7 @@ export namespace Prisma {
   export type ContactosEmergenciaMaxAggregateOutputType = {
     id: number | null
     tipoDocumento: string | null
+    numeroDocumento: string | null
     idEntrenador: number | null
     nombres: string | null
     apellidos: string | null
@@ -4071,6 +4042,7 @@ export namespace Prisma {
   export type ContactosEmergenciaCountAggregateOutputType = {
     id: number
     tipoDocumento: number
+    numeroDocumento: number
     idEntrenador: number
     nombres: number
     apellidos: number
@@ -4093,6 +4065,7 @@ export namespace Prisma {
   export type ContactosEmergenciaMinAggregateInputType = {
     id?: true
     tipoDocumento?: true
+    numeroDocumento?: true
     idEntrenador?: true
     nombres?: true
     apellidos?: true
@@ -4103,6 +4076,7 @@ export namespace Prisma {
   export type ContactosEmergenciaMaxAggregateInputType = {
     id?: true
     tipoDocumento?: true
+    numeroDocumento?: true
     idEntrenador?: true
     nombres?: true
     apellidos?: true
@@ -4113,6 +4087,7 @@ export namespace Prisma {
   export type ContactosEmergenciaCountAggregateInputType = {
     id?: true
     tipoDocumento?: true
+    numeroDocumento?: true
     idEntrenador?: true
     nombres?: true
     apellidos?: true
@@ -4210,6 +4185,7 @@ export namespace Prisma {
   export type ContactosEmergenciaGroupByOutputType = {
     id: number
     tipoDocumento: string
+    numeroDocumento: string | null
     idEntrenador: number | null
     nombres: string | null
     apellidos: string | null
@@ -4239,6 +4215,7 @@ export namespace Prisma {
   export type ContactosEmergenciaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     tipoDocumento?: boolean
+    numeroDocumento?: boolean
     idEntrenador?: boolean
     nombres?: boolean
     apellidos?: boolean
@@ -4252,6 +4229,7 @@ export namespace Prisma {
   export type ContactosEmergenciaSelectScalar = {
     id?: boolean
     tipoDocumento?: boolean
+    numeroDocumento?: boolean
     idEntrenador?: boolean
     nombres?: boolean
     apellidos?: boolean
@@ -4259,7 +4237,7 @@ export namespace Prisma {
     telefono?: boolean
   }
 
-  export type ContactosEmergenciaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tipoDocumento" | "idEntrenador" | "nombres" | "apellidos" | "correo" | "telefono", ExtArgs["result"]["contactosEmergencia"]>
+  export type ContactosEmergenciaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tipoDocumento" | "numeroDocumento" | "idEntrenador" | "nombres" | "apellidos" | "correo" | "telefono", ExtArgs["result"]["contactosEmergencia"]>
   export type ContactosEmergenciaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     entrenador?: boolean | ContactosEmergencia$entrenadorArgs<ExtArgs>
   }
@@ -4272,6 +4250,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       tipoDocumento: string
+      numeroDocumento: string | null
       idEntrenador: number | null
       nombres: string | null
       apellidos: string | null
@@ -4649,6 +4628,7 @@ export namespace Prisma {
   interface ContactosEmergenciaFieldRefs {
     readonly id: FieldRef<"ContactosEmergencia", 'Int'>
     readonly tipoDocumento: FieldRef<"ContactosEmergencia", 'String'>
+    readonly numeroDocumento: FieldRef<"ContactosEmergencia", 'String'>
     readonly idEntrenador: FieldRef<"ContactosEmergencia", 'Int'>
     readonly nombres: FieldRef<"ContactosEmergencia", 'String'>
     readonly apellidos: FieldRef<"ContactosEmergencia", 'String'>
@@ -5247,7 +5227,6 @@ export namespace Prisma {
     contrato?: boolean
     contactosEmergencia?: boolean | Entrenador$contactosEmergenciaArgs<ExtArgs>
     personaClub?: boolean | PersonaClubDefaultArgs<ExtArgs>
-    _count?: boolean | EntrenadorCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["entrenador"]>
 
 
@@ -5264,13 +5243,12 @@ export namespace Prisma {
   export type EntrenadorInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     contactosEmergencia?: boolean | Entrenador$contactosEmergenciaArgs<ExtArgs>
     personaClub?: boolean | PersonaClubDefaultArgs<ExtArgs>
-    _count?: boolean | EntrenadorCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $EntrenadorPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Entrenador"
     objects: {
-      contactosEmergencia: Prisma.$ContactosEmergenciaPayload<ExtArgs>[]
+      contactosEmergencia: Prisma.$ContactosEmergenciaPayload<ExtArgs> | null
       personaClub: Prisma.$PersonaClubPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -5619,7 +5597,7 @@ export namespace Prisma {
    */
   export interface Prisma__EntrenadorClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    contactosEmergencia<T extends Entrenador$contactosEmergenciaArgs<ExtArgs> = {}>(args?: Subset<T, Entrenador$contactosEmergenciaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ContactosEmergenciaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    contactosEmergencia<T extends Entrenador$contactosEmergenciaArgs<ExtArgs> = {}>(args?: Subset<T, Entrenador$contactosEmergenciaArgs<ExtArgs>>): Prisma__ContactosEmergenciaClient<$Result.GetResult<Prisma.$ContactosEmergenciaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     personaClub<T extends PersonaClubDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PersonaClubDefaultArgs<ExtArgs>>): Prisma__PersonaClubClient<$Result.GetResult<Prisma.$PersonaClubPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -6023,11 +6001,6 @@ export namespace Prisma {
      */
     include?: ContactosEmergenciaInclude<ExtArgs> | null
     where?: ContactosEmergenciaWhereInput
-    orderBy?: ContactosEmergenciaOrderByWithRelationInput | ContactosEmergenciaOrderByWithRelationInput[]
-    cursor?: ContactosEmergenciaWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ContactosEmergenciaScalarFieldEnum | ContactosEmergenciaScalarFieldEnum[]
   }
 
   /**
@@ -14959,6 +14932,7 @@ export namespace Prisma {
   export const ContactosEmergenciaScalarFieldEnum: {
     id: 'id',
     tipoDocumento: 'tipoDocumento',
+    numeroDocumento: 'numeroDocumento',
     idEntrenador: 'idEntrenador',
     nombres: 'nombres',
     apellidos: 'apellidos',
@@ -15120,6 +15094,7 @@ export namespace Prisma {
 
   export const ContactosEmergenciaOrderByRelevanceFieldEnum: {
     tipoDocumento: 'tipoDocumento',
+    numeroDocumento: 'numeroDocumento',
     nombres: 'nombres',
     apellidos: 'apellidos',
     correo: 'correo',
@@ -15423,6 +15398,7 @@ export namespace Prisma {
     NOT?: ContactosEmergenciaWhereInput | ContactosEmergenciaWhereInput[]
     id?: IntFilter<"ContactosEmergencia"> | number
     tipoDocumento?: StringFilter<"ContactosEmergencia"> | string
+    numeroDocumento?: StringNullableFilter<"ContactosEmergencia"> | string | null
     idEntrenador?: IntNullableFilter<"ContactosEmergencia"> | number | null
     nombres?: StringNullableFilter<"ContactosEmergencia"> | string | null
     apellidos?: StringNullableFilter<"ContactosEmergencia"> | string | null
@@ -15434,6 +15410,7 @@ export namespace Prisma {
   export type ContactosEmergenciaOrderByWithRelationInput = {
     id?: SortOrder
     tipoDocumento?: SortOrder
+    numeroDocumento?: SortOrderInput | SortOrder
     idEntrenador?: SortOrderInput | SortOrder
     nombres?: SortOrderInput | SortOrder
     apellidos?: SortOrderInput | SortOrder
@@ -15445,21 +15422,23 @@ export namespace Prisma {
 
   export type ContactosEmergenciaWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    idEntrenador?: number
     AND?: ContactosEmergenciaWhereInput | ContactosEmergenciaWhereInput[]
     OR?: ContactosEmergenciaWhereInput[]
     NOT?: ContactosEmergenciaWhereInput | ContactosEmergenciaWhereInput[]
     tipoDocumento?: StringFilter<"ContactosEmergencia"> | string
-    idEntrenador?: IntNullableFilter<"ContactosEmergencia"> | number | null
+    numeroDocumento?: StringNullableFilter<"ContactosEmergencia"> | string | null
     nombres?: StringNullableFilter<"ContactosEmergencia"> | string | null
     apellidos?: StringNullableFilter<"ContactosEmergencia"> | string | null
     correo?: StringNullableFilter<"ContactosEmergencia"> | string | null
     telefono?: StringNullableFilter<"ContactosEmergencia"> | string | null
     entrenador?: XOR<EntrenadorNullableScalarRelationFilter, EntrenadorWhereInput> | null
-  }, "id">
+  }, "id" | "idEntrenador">
 
   export type ContactosEmergenciaOrderByWithAggregationInput = {
     id?: SortOrder
     tipoDocumento?: SortOrder
+    numeroDocumento?: SortOrderInput | SortOrder
     idEntrenador?: SortOrderInput | SortOrder
     nombres?: SortOrderInput | SortOrder
     apellidos?: SortOrderInput | SortOrder
@@ -15478,6 +15457,7 @@ export namespace Prisma {
     NOT?: ContactosEmergenciaScalarWhereWithAggregatesInput | ContactosEmergenciaScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"ContactosEmergencia"> | number
     tipoDocumento?: StringWithAggregatesFilter<"ContactosEmergencia"> | string
+    numeroDocumento?: StringNullableWithAggregatesFilter<"ContactosEmergencia"> | string | null
     idEntrenador?: IntNullableWithAggregatesFilter<"ContactosEmergencia"> | number | null
     nombres?: StringNullableWithAggregatesFilter<"ContactosEmergencia"> | string | null
     apellidos?: StringNullableWithAggregatesFilter<"ContactosEmergencia"> | string | null
@@ -15494,7 +15474,7 @@ export namespace Prisma {
     fechaIngreso?: DateTimeNullableFilter<"Entrenador"> | Date | string | null
     activo?: BoolNullableFilter<"Entrenador"> | boolean | null
     contrato?: BytesNullableFilter<"Entrenador"> | Uint8Array | null
-    contactosEmergencia?: ContactosEmergenciaListRelationFilter
+    contactosEmergencia?: XOR<ContactosEmergenciaNullableScalarRelationFilter, ContactosEmergenciaWhereInput> | null
     personaClub?: XOR<PersonaClubScalarRelationFilter, PersonaClubWhereInput>
   }
 
@@ -15504,7 +15484,7 @@ export namespace Prisma {
     fechaIngreso?: SortOrderInput | SortOrder
     activo?: SortOrderInput | SortOrder
     contrato?: SortOrderInput | SortOrder
-    contactosEmergencia?: ContactosEmergenciaOrderByRelationAggregateInput
+    contactosEmergencia?: ContactosEmergenciaOrderByWithRelationInput
     personaClub?: PersonaClubOrderByWithRelationInput
   }
 
@@ -15517,7 +15497,7 @@ export namespace Prisma {
     fechaIngreso?: DateTimeNullableFilter<"Entrenador"> | Date | string | null
     activo?: BoolNullableFilter<"Entrenador"> | boolean | null
     contrato?: BytesNullableFilter<"Entrenador"> | Uint8Array | null
-    contactosEmergencia?: ContactosEmergenciaListRelationFilter
+    contactosEmergencia?: XOR<ContactosEmergenciaNullableScalarRelationFilter, ContactosEmergenciaWhereInput> | null
     personaClub?: XOR<PersonaClubScalarRelationFilter, PersonaClubWhereInput>
   }, "id" | "idPersonaClub">
 
@@ -16244,6 +16224,7 @@ export namespace Prisma {
 
   export type ContactosEmergenciaCreateInput = {
     tipoDocumento: string
+    numeroDocumento?: string | null
     nombres?: string | null
     apellidos?: string | null
     correo?: string | null
@@ -16254,6 +16235,7 @@ export namespace Prisma {
   export type ContactosEmergenciaUncheckedCreateInput = {
     id?: number
     tipoDocumento: string
+    numeroDocumento?: string | null
     idEntrenador?: number | null
     nombres?: string | null
     apellidos?: string | null
@@ -16263,6 +16245,7 @@ export namespace Prisma {
 
   export type ContactosEmergenciaUpdateInput = {
     tipoDocumento?: StringFieldUpdateOperationsInput | string
+    numeroDocumento?: NullableStringFieldUpdateOperationsInput | string | null
     nombres?: NullableStringFieldUpdateOperationsInput | string | null
     apellidos?: NullableStringFieldUpdateOperationsInput | string | null
     correo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -16273,6 +16256,7 @@ export namespace Prisma {
   export type ContactosEmergenciaUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     tipoDocumento?: StringFieldUpdateOperationsInput | string
+    numeroDocumento?: NullableStringFieldUpdateOperationsInput | string | null
     idEntrenador?: NullableIntFieldUpdateOperationsInput | number | null
     nombres?: NullableStringFieldUpdateOperationsInput | string | null
     apellidos?: NullableStringFieldUpdateOperationsInput | string | null
@@ -16283,6 +16267,7 @@ export namespace Prisma {
   export type ContactosEmergenciaCreateManyInput = {
     id?: number
     tipoDocumento: string
+    numeroDocumento?: string | null
     idEntrenador?: number | null
     nombres?: string | null
     apellidos?: string | null
@@ -16292,6 +16277,7 @@ export namespace Prisma {
 
   export type ContactosEmergenciaUpdateManyMutationInput = {
     tipoDocumento?: StringFieldUpdateOperationsInput | string
+    numeroDocumento?: NullableStringFieldUpdateOperationsInput | string | null
     nombres?: NullableStringFieldUpdateOperationsInput | string | null
     apellidos?: NullableStringFieldUpdateOperationsInput | string | null
     correo?: NullableStringFieldUpdateOperationsInput | string | null
@@ -16301,6 +16287,7 @@ export namespace Prisma {
   export type ContactosEmergenciaUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     tipoDocumento?: StringFieldUpdateOperationsInput | string
+    numeroDocumento?: NullableStringFieldUpdateOperationsInput | string | null
     idEntrenador?: NullableIntFieldUpdateOperationsInput | number | null
     nombres?: NullableStringFieldUpdateOperationsInput | string | null
     apellidos?: NullableStringFieldUpdateOperationsInput | string | null
@@ -16312,7 +16299,7 @@ export namespace Prisma {
     fechaIngreso?: Date | string | null
     activo?: boolean | null
     contrato?: Uint8Array | null
-    contactosEmergencia?: ContactosEmergenciaCreateNestedManyWithoutEntrenadorInput
+    contactosEmergencia?: ContactosEmergenciaCreateNestedOneWithoutEntrenadorInput
     personaClub: PersonaClubCreateNestedOneWithoutEntrenadorInput
   }
 
@@ -16322,14 +16309,14 @@ export namespace Prisma {
     fechaIngreso?: Date | string | null
     activo?: boolean | null
     contrato?: Uint8Array | null
-    contactosEmergencia?: ContactosEmergenciaUncheckedCreateNestedManyWithoutEntrenadorInput
+    contactosEmergencia?: ContactosEmergenciaUncheckedCreateNestedOneWithoutEntrenadorInput
   }
 
   export type EntrenadorUpdateInput = {
     fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
-    contactosEmergencia?: ContactosEmergenciaUpdateManyWithoutEntrenadorNestedInput
+    contactosEmergencia?: ContactosEmergenciaUpdateOneWithoutEntrenadorNestedInput
     personaClub?: PersonaClubUpdateOneRequiredWithoutEntrenadorNestedInput
   }
 
@@ -16339,7 +16326,7 @@ export namespace Prisma {
     fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
-    contactosEmergencia?: ContactosEmergenciaUncheckedUpdateManyWithoutEntrenadorNestedInput
+    contactosEmergencia?: ContactosEmergenciaUncheckedUpdateOneWithoutEntrenadorNestedInput
   }
 
   export type EntrenadorCreateManyInput = {
@@ -17140,6 +17127,7 @@ export namespace Prisma {
   export type ContactosEmergenciaCountOrderByAggregateInput = {
     id?: SortOrder
     tipoDocumento?: SortOrder
+    numeroDocumento?: SortOrder
     idEntrenador?: SortOrder
     nombres?: SortOrder
     apellidos?: SortOrder
@@ -17155,6 +17143,7 @@ export namespace Prisma {
   export type ContactosEmergenciaMaxOrderByAggregateInput = {
     id?: SortOrder
     tipoDocumento?: SortOrder
+    numeroDocumento?: SortOrder
     idEntrenador?: SortOrder
     nombres?: SortOrder
     apellidos?: SortOrder
@@ -17165,6 +17154,7 @@ export namespace Prisma {
   export type ContactosEmergenciaMinOrderByAggregateInput = {
     id?: SortOrder
     tipoDocumento?: SortOrder
+    numeroDocumento?: SortOrder
     idEntrenador?: SortOrder
     nombres?: SortOrder
     apellidos?: SortOrder
@@ -17205,19 +17195,14 @@ export namespace Prisma {
     not?: NestedBytesNullableFilter<$PrismaModel> | Uint8Array | null
   }
 
-  export type ContactosEmergenciaListRelationFilter = {
-    every?: ContactosEmergenciaWhereInput
-    some?: ContactosEmergenciaWhereInput
-    none?: ContactosEmergenciaWhereInput
+  export type ContactosEmergenciaNullableScalarRelationFilter = {
+    is?: ContactosEmergenciaWhereInput | null
+    isNot?: ContactosEmergenciaWhereInput | null
   }
 
   export type PersonaClubScalarRelationFilter = {
     is?: PersonaClubWhereInput
     isNot?: PersonaClubWhereInput
-  }
-
-  export type ContactosEmergenciaOrderByRelationAggregateInput = {
-    _count?: SortOrder
   }
 
   export type EntrenadorCountOrderByAggregateInput = {
@@ -17861,11 +17846,10 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type ContactosEmergenciaCreateNestedManyWithoutEntrenadorInput = {
-    create?: XOR<ContactosEmergenciaCreateWithoutEntrenadorInput, ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput> | ContactosEmergenciaCreateWithoutEntrenadorInput[] | ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput[]
-    connectOrCreate?: ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput | ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput[]
-    createMany?: ContactosEmergenciaCreateManyEntrenadorInputEnvelope
-    connect?: ContactosEmergenciaWhereUniqueInput | ContactosEmergenciaWhereUniqueInput[]
+  export type ContactosEmergenciaCreateNestedOneWithoutEntrenadorInput = {
+    create?: XOR<ContactosEmergenciaCreateWithoutEntrenadorInput, ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput>
+    connectOrCreate?: ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput
+    connect?: ContactosEmergenciaWhereUniqueInput
   }
 
   export type PersonaClubCreateNestedOneWithoutEntrenadorInput = {
@@ -17874,11 +17858,10 @@ export namespace Prisma {
     connect?: PersonaClubWhereUniqueInput
   }
 
-  export type ContactosEmergenciaUncheckedCreateNestedManyWithoutEntrenadorInput = {
-    create?: XOR<ContactosEmergenciaCreateWithoutEntrenadorInput, ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput> | ContactosEmergenciaCreateWithoutEntrenadorInput[] | ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput[]
-    connectOrCreate?: ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput | ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput[]
-    createMany?: ContactosEmergenciaCreateManyEntrenadorInputEnvelope
-    connect?: ContactosEmergenciaWhereUniqueInput | ContactosEmergenciaWhereUniqueInput[]
+  export type ContactosEmergenciaUncheckedCreateNestedOneWithoutEntrenadorInput = {
+    create?: XOR<ContactosEmergenciaCreateWithoutEntrenadorInput, ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput>
+    connectOrCreate?: ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput
+    connect?: ContactosEmergenciaWhereUniqueInput
   }
 
   export type NullableBoolFieldUpdateOperationsInput = {
@@ -17889,18 +17872,14 @@ export namespace Prisma {
     set?: Uint8Array | null
   }
 
-  export type ContactosEmergenciaUpdateManyWithoutEntrenadorNestedInput = {
-    create?: XOR<ContactosEmergenciaCreateWithoutEntrenadorInput, ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput> | ContactosEmergenciaCreateWithoutEntrenadorInput[] | ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput[]
-    connectOrCreate?: ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput | ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput[]
-    upsert?: ContactosEmergenciaUpsertWithWhereUniqueWithoutEntrenadorInput | ContactosEmergenciaUpsertWithWhereUniqueWithoutEntrenadorInput[]
-    createMany?: ContactosEmergenciaCreateManyEntrenadorInputEnvelope
-    set?: ContactosEmergenciaWhereUniqueInput | ContactosEmergenciaWhereUniqueInput[]
-    disconnect?: ContactosEmergenciaWhereUniqueInput | ContactosEmergenciaWhereUniqueInput[]
-    delete?: ContactosEmergenciaWhereUniqueInput | ContactosEmergenciaWhereUniqueInput[]
-    connect?: ContactosEmergenciaWhereUniqueInput | ContactosEmergenciaWhereUniqueInput[]
-    update?: ContactosEmergenciaUpdateWithWhereUniqueWithoutEntrenadorInput | ContactosEmergenciaUpdateWithWhereUniqueWithoutEntrenadorInput[]
-    updateMany?: ContactosEmergenciaUpdateManyWithWhereWithoutEntrenadorInput | ContactosEmergenciaUpdateManyWithWhereWithoutEntrenadorInput[]
-    deleteMany?: ContactosEmergenciaScalarWhereInput | ContactosEmergenciaScalarWhereInput[]
+  export type ContactosEmergenciaUpdateOneWithoutEntrenadorNestedInput = {
+    create?: XOR<ContactosEmergenciaCreateWithoutEntrenadorInput, ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput>
+    connectOrCreate?: ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput
+    upsert?: ContactosEmergenciaUpsertWithoutEntrenadorInput
+    disconnect?: ContactosEmergenciaWhereInput | boolean
+    delete?: ContactosEmergenciaWhereInput | boolean
+    connect?: ContactosEmergenciaWhereUniqueInput
+    update?: XOR<XOR<ContactosEmergenciaUpdateToOneWithWhereWithoutEntrenadorInput, ContactosEmergenciaUpdateWithoutEntrenadorInput>, ContactosEmergenciaUncheckedUpdateWithoutEntrenadorInput>
   }
 
   export type PersonaClubUpdateOneRequiredWithoutEntrenadorNestedInput = {
@@ -17911,18 +17890,14 @@ export namespace Prisma {
     update?: XOR<XOR<PersonaClubUpdateToOneWithWhereWithoutEntrenadorInput, PersonaClubUpdateWithoutEntrenadorInput>, PersonaClubUncheckedUpdateWithoutEntrenadorInput>
   }
 
-  export type ContactosEmergenciaUncheckedUpdateManyWithoutEntrenadorNestedInput = {
-    create?: XOR<ContactosEmergenciaCreateWithoutEntrenadorInput, ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput> | ContactosEmergenciaCreateWithoutEntrenadorInput[] | ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput[]
-    connectOrCreate?: ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput | ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput[]
-    upsert?: ContactosEmergenciaUpsertWithWhereUniqueWithoutEntrenadorInput | ContactosEmergenciaUpsertWithWhereUniqueWithoutEntrenadorInput[]
-    createMany?: ContactosEmergenciaCreateManyEntrenadorInputEnvelope
-    set?: ContactosEmergenciaWhereUniqueInput | ContactosEmergenciaWhereUniqueInput[]
-    disconnect?: ContactosEmergenciaWhereUniqueInput | ContactosEmergenciaWhereUniqueInput[]
-    delete?: ContactosEmergenciaWhereUniqueInput | ContactosEmergenciaWhereUniqueInput[]
-    connect?: ContactosEmergenciaWhereUniqueInput | ContactosEmergenciaWhereUniqueInput[]
-    update?: ContactosEmergenciaUpdateWithWhereUniqueWithoutEntrenadorInput | ContactosEmergenciaUpdateWithWhereUniqueWithoutEntrenadorInput[]
-    updateMany?: ContactosEmergenciaUpdateManyWithWhereWithoutEntrenadorInput | ContactosEmergenciaUpdateManyWithWhereWithoutEntrenadorInput[]
-    deleteMany?: ContactosEmergenciaScalarWhereInput | ContactosEmergenciaScalarWhereInput[]
+  export type ContactosEmergenciaUncheckedUpdateOneWithoutEntrenadorNestedInput = {
+    create?: XOR<ContactosEmergenciaCreateWithoutEntrenadorInput, ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput>
+    connectOrCreate?: ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput
+    upsert?: ContactosEmergenciaUpsertWithoutEntrenadorInput
+    disconnect?: ContactosEmergenciaWhereInput | boolean
+    delete?: ContactosEmergenciaWhereInput | boolean
+    connect?: ContactosEmergenciaWhereUniqueInput
+    update?: XOR<XOR<ContactosEmergenciaUpdateToOneWithWhereWithoutEntrenadorInput, ContactosEmergenciaUpdateWithoutEntrenadorInput>, ContactosEmergenciaUncheckedUpdateWithoutEntrenadorInput>
   }
 
   export type DeportistaCreateNestedOneWithoutTutorInput = {
@@ -18465,7 +18440,7 @@ export namespace Prisma {
     fechaIngreso?: Date | string | null
     activo?: boolean | null
     contrato?: Uint8Array | null
-    contactosEmergencia?: ContactosEmergenciaCreateNestedManyWithoutEntrenadorInput
+    contactosEmergencia?: ContactosEmergenciaCreateNestedOneWithoutEntrenadorInput
   }
 
   export type EntrenadorUncheckedCreateWithoutPersonaClubInput = {
@@ -18473,7 +18448,7 @@ export namespace Prisma {
     fechaIngreso?: Date | string | null
     activo?: boolean | null
     contrato?: Uint8Array | null
-    contactosEmergencia?: ContactosEmergenciaUncheckedCreateNestedManyWithoutEntrenadorInput
+    contactosEmergencia?: ContactosEmergenciaUncheckedCreateNestedOneWithoutEntrenadorInput
   }
 
   export type EntrenadorCreateOrConnectWithoutPersonaClubInput = {
@@ -18560,7 +18535,7 @@ export namespace Prisma {
     fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
-    contactosEmergencia?: ContactosEmergenciaUpdateManyWithoutEntrenadorNestedInput
+    contactosEmergencia?: ContactosEmergenciaUpdateOneWithoutEntrenadorNestedInput
   }
 
   export type EntrenadorUncheckedUpdateWithoutPersonaClubInput = {
@@ -18568,7 +18543,7 @@ export namespace Prisma {
     fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
     contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
-    contactosEmergencia?: ContactosEmergenciaUncheckedUpdateManyWithoutEntrenadorNestedInput
+    contactosEmergencia?: ContactosEmergenciaUncheckedUpdateOneWithoutEntrenadorNestedInput
   }
 
   export type DeportistaUpsertWithoutPersonaClubInput = {
@@ -18671,6 +18646,7 @@ export namespace Prisma {
 
   export type ContactosEmergenciaCreateWithoutEntrenadorInput = {
     tipoDocumento: string
+    numeroDocumento?: string | null
     nombres?: string | null
     apellidos?: string | null
     correo?: string | null
@@ -18680,6 +18656,7 @@ export namespace Prisma {
   export type ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput = {
     id?: number
     tipoDocumento: string
+    numeroDocumento?: string | null
     nombres?: string | null
     apellidos?: string | null
     correo?: string | null
@@ -18689,11 +18666,6 @@ export namespace Prisma {
   export type ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput = {
     where: ContactosEmergenciaWhereUniqueInput
     create: XOR<ContactosEmergenciaCreateWithoutEntrenadorInput, ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput>
-  }
-
-  export type ContactosEmergenciaCreateManyEntrenadorInputEnvelope = {
-    data: ContactosEmergenciaCreateManyEntrenadorInput | ContactosEmergenciaCreateManyEntrenadorInput[]
-    skipDuplicates?: boolean
   }
 
   export type PersonaClubCreateWithoutEntrenadorInput = {
@@ -18744,33 +18716,34 @@ export namespace Prisma {
     create: XOR<PersonaClubCreateWithoutEntrenadorInput, PersonaClubUncheckedCreateWithoutEntrenadorInput>
   }
 
-  export type ContactosEmergenciaUpsertWithWhereUniqueWithoutEntrenadorInput = {
-    where: ContactosEmergenciaWhereUniqueInput
+  export type ContactosEmergenciaUpsertWithoutEntrenadorInput = {
     update: XOR<ContactosEmergenciaUpdateWithoutEntrenadorInput, ContactosEmergenciaUncheckedUpdateWithoutEntrenadorInput>
     create: XOR<ContactosEmergenciaCreateWithoutEntrenadorInput, ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput>
+    where?: ContactosEmergenciaWhereInput
   }
 
-  export type ContactosEmergenciaUpdateWithWhereUniqueWithoutEntrenadorInput = {
-    where: ContactosEmergenciaWhereUniqueInput
+  export type ContactosEmergenciaUpdateToOneWithWhereWithoutEntrenadorInput = {
+    where?: ContactosEmergenciaWhereInput
     data: XOR<ContactosEmergenciaUpdateWithoutEntrenadorInput, ContactosEmergenciaUncheckedUpdateWithoutEntrenadorInput>
   }
 
-  export type ContactosEmergenciaUpdateManyWithWhereWithoutEntrenadorInput = {
-    where: ContactosEmergenciaScalarWhereInput
-    data: XOR<ContactosEmergenciaUpdateManyMutationInput, ContactosEmergenciaUncheckedUpdateManyWithoutEntrenadorInput>
+  export type ContactosEmergenciaUpdateWithoutEntrenadorInput = {
+    tipoDocumento?: StringFieldUpdateOperationsInput | string
+    numeroDocumento?: NullableStringFieldUpdateOperationsInput | string | null
+    nombres?: NullableStringFieldUpdateOperationsInput | string | null
+    apellidos?: NullableStringFieldUpdateOperationsInput | string | null
+    correo?: NullableStringFieldUpdateOperationsInput | string | null
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type ContactosEmergenciaScalarWhereInput = {
-    AND?: ContactosEmergenciaScalarWhereInput | ContactosEmergenciaScalarWhereInput[]
-    OR?: ContactosEmergenciaScalarWhereInput[]
-    NOT?: ContactosEmergenciaScalarWhereInput | ContactosEmergenciaScalarWhereInput[]
-    id?: IntFilter<"ContactosEmergencia"> | number
-    tipoDocumento?: StringFilter<"ContactosEmergencia"> | string
-    idEntrenador?: IntNullableFilter<"ContactosEmergencia"> | number | null
-    nombres?: StringNullableFilter<"ContactosEmergencia"> | string | null
-    apellidos?: StringNullableFilter<"ContactosEmergencia"> | string | null
-    correo?: StringNullableFilter<"ContactosEmergencia"> | string | null
-    telefono?: StringNullableFilter<"ContactosEmergencia"> | string | null
+  export type ContactosEmergenciaUncheckedUpdateWithoutEntrenadorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tipoDocumento?: StringFieldUpdateOperationsInput | string
+    numeroDocumento?: NullableStringFieldUpdateOperationsInput | string | null
+    nombres?: NullableStringFieldUpdateOperationsInput | string | null
+    apellidos?: NullableStringFieldUpdateOperationsInput | string | null
+    correo?: NullableStringFieldUpdateOperationsInput | string | null
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PersonaClubUpsertWithoutEntrenadorInput = {
@@ -19493,41 +19466,6 @@ export namespace Prisma {
   export type DepartamentoUncheckedUpdateWithoutMunicipioInput = {
     id?: IntFieldUpdateOperationsInput | number
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type ContactosEmergenciaCreateManyEntrenadorInput = {
-    id?: number
-    tipoDocumento: string
-    nombres?: string | null
-    apellidos?: string | null
-    correo?: string | null
-    telefono?: string | null
-  }
-
-  export type ContactosEmergenciaUpdateWithoutEntrenadorInput = {
-    tipoDocumento?: StringFieldUpdateOperationsInput | string
-    nombres?: NullableStringFieldUpdateOperationsInput | string | null
-    apellidos?: NullableStringFieldUpdateOperationsInput | string | null
-    correo?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type ContactosEmergenciaUncheckedUpdateWithoutEntrenadorInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    tipoDocumento?: StringFieldUpdateOperationsInput | string
-    nombres?: NullableStringFieldUpdateOperationsInput | string | null
-    apellidos?: NullableStringFieldUpdateOperationsInput | string | null
-    correo?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type ContactosEmergenciaUncheckedUpdateManyWithoutEntrenadorInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    tipoDocumento?: StringFieldUpdateOperationsInput | string
-    nombres?: NullableStringFieldUpdateOperationsInput | string | null
-    apellidos?: NullableStringFieldUpdateOperationsInput | string | null
-    correo?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PagoDeportistaCreateManyDeportistaInput = {

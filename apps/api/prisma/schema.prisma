@@ -44,26 +44,27 @@ model PersonaClub {
 }
 
 model ContactosEmergencia {
-    id            Int         @id @default(autoincrement())
-    tipoDocumento String      @map("tipo_documento") @db.VarChar(10)
-    idEntrenador  Int?        @map("id_entrenador")
-    nombres       String?     @db.VarChar(5000)
-    apellidos     String?     @db.VarChar(5000)
-    correo        String?     @db.Text
-    telefono      String?     @db.Text
-    entrenador    Entrenador? @relation(fields: [idEntrenador], references: [id])
+    id              Int         @id @default(autoincrement())
+    tipoDocumento   String      @map("tipo_documento") @db.VarChar(10)
+    numeroDocumento String?     @map("numero_documento") @db.VarChar(100)
+    idEntrenador    Int?        @unique @map("id_entrenador")
+    nombres         String?     @db.VarChar(5000)
+    apellidos       String?     @db.VarChar(5000)
+    correo          String?     @db.Text
+    telefono        String?     @db.Text
+    entrenador      Entrenador? @relation(fields: [idEntrenador], references: [id])
 
     @@map("tb_contactos_emergencia")
 }
 
 model Entrenador {
-    id                  Int                   @id @default(autoincrement())
-    idPersonaClub       Int                   @unique @map("id_persona_club")
-    fechaIngreso        DateTime?             @map("fecha_ingreso") @db.Date
+    id                  Int                  @id @default(autoincrement())
+    idPersonaClub       Int                  @unique @map("id_persona_club")
+    fechaIngreso        DateTime?            @map("fecha_ingreso") @db.Date
     activo              Boolean?
-    contrato            Bytes?                @db.Blob
-    contactosEmergencia ContactosEmergencia[]
-    personaClub         PersonaClub           @relation(fields: [idPersonaClub], references: [id])
+    contrato            Bytes?               @db.Blob
+    contactosEmergencia ContactosEmergencia?
+    personaClub         PersonaClub          @relation(fields: [idPersonaClub], references: [id])
 
     @@index([idPersonaClub], map: "fk_entrenadores_personas")
     @@map("tb_entrenadores")
