@@ -38,69 +38,95 @@ export class AthleteService {
   }
 
   public async createAthlete(athlete: AthleteDto): Promise<AthleteResponse> {
-    const [createdPersonClub, createdTutor] = await Promise.all([
-      this._db.personaClub.create({ data: { ...athlete.personaClub } }),
-      this._db.tutor.create({ data: { ...athlete.tutor } }),
-    ]);
+    try {
+      const [createdPersonClub, createdTutor] = await Promise.all([
+        this._db.personaClub.create({
+          data: {
+            ...athlete.personaClub,
+            fechaNacimento: new Date(athlete.personaClub.fechaNacimento),
+          },
+        }),
+        this._db.tutor.create({ data: { ...athlete.tutor } }),
+      ]);
 
-    const createdDeportista = await this._db.deportista.create({
-      data: {
-        idTutor: createdTutor.id,
-        idPersonaClub: createdPersonClub.id,
-        activo: true,
-        categoria: CategoriesGenerator.getCategory(
-          createdPersonClub.fechaNacimento
-        ),
-      },
-    });
+      const createdDeportista = await this._db.deportista.create({
+        data: {
+          idTutor: createdTutor.id,
+          idPersonaClub: createdPersonClub.id,
+          activo: true,
+          categoria: CategoriesGenerator.getCategory(
+            createdPersonClub.fechaNacimento
+          ),
+        },
+      });
 
-    const departamento =
-      await this._locationsService.getDepartamentoByMunicipio(
-        createdPersonClub.idMunicipio
-      );
+      const departamento =
+        await this._locationsService.getDepartamentoByMunicipio(
+          createdPersonClub.idMunicipio
+        );
 
-    return {
-      id: createdDeportista.id,
-      activo: createdDeportista.activo,
-      categoria: createdDeportista.categoria,
-      personaClub: { ...createdPersonClub, idDepartamento: departamento.id },
-      tutor: createdTutor,
-    };
+      return {
+        id: createdDeportista.id,
+        activo: createdDeportista.activo,
+        categoria: createdDeportista.categoria,
+        personaClub: { ...createdPersonClub, idDepartamento: departamento.id },
+        tutor: createdTutor,
+      };
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
   }
 
   public async updateAthlete(
     id: number,
     athlete: AthleteDto
   ): Promise<AthleteResponse> {
-    const athleteDb = await this._db.deportista.findUnique({
-      where: { id },
-    });
+    try {
+      const athleteDb = await this._db.deportista.findUnique({
+        where: { id },
+        include: { personaClub: true },
+      });
 
-    if (!athleteDb) throw new NotFoundException('Deportista no encontrado');
+      if (!athleteDb) throw new NotFoundException('Deportista no encontrado');
 
-    const [updatedPersonClub, updatedTutor] = await Promise.all([
-      this._db.personaClub.update({
-        where: { id: athleteDb.idPersonaClub },
-        data: { ...athlete.personaClub },
-      }),
-      this._db.tutor.update({
-        where: { id: athleteDb.idTutor },
-        data: { ...athlete.tutor },
-      }),
-    ]);
+      const [updatedPersonClub, updatedTutor, , departamento] =
+        await Promise.all([
+          this._db.personaClub.update({
+            where: { id: athleteDb.idPersonaClub },
+            data: {
+              ...athlete.personaClub,
+              fechaNacimento: new Date(athlete.personaClub.fechaNacimento),
+            },
+          }),
+          this._db.tutor.update({
+            where: { id: athleteDb.idTutor },
+            data: { ...athlete.tutor },
+          }),
+          this._db.deportista.update({
+            where: { id },
+            data: {
+              categoria: CategoriesGenerator.getCategory(
+                new Date(athlete.personaClub.fechaNacimento)
+              ),
+            },
+          }),
+          this._locationsService.getDepartamentoByMunicipio(
+            athleteDb.personaClub.idMunicipio
+          ),
+        ]);
 
-    const departamento =
-      await this._locationsService.getDepartamentoByMunicipio(
-        updatedPersonClub.idMunicipio
-      );
-
-    return {
-      id: athleteDb.id,
-      activo: athleteDb.activo,
-      categoria: athleteDb.categoria,
-      personaClub: { ...updatedPersonClub, idDepartamento: departamento.id },
-      tutor: updatedTutor,
-    };
+      return {
+        id: athleteDb.id,
+        activo: athleteDb.activo,
+        categoria: athleteDb.categoria,
+        personaClub: { ...updatedPersonClub, idDepartamento: departamento.id },
+        tutor: updatedTutor,
+      };
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
   }
 
   public async deleteAthlete(request: DeleteAthleteRequest): Promise<void> {

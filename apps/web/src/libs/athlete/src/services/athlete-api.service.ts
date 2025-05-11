@@ -28,6 +28,10 @@ export class AthleteApiService extends DataTableApi<AthleteResponse> {
     return this._http.get<AthleteResponse>(`${this._apiUrl}/${id}`);
   }
 
+  public update(id: string, athlete: AthleteRequest): Observable<AthleteResponse> {
+    return this._http.put<AthleteResponse>(`${this._apiUrl}/${id}`, athlete);
+  }
+
   public delete(request: DeleteAthleteRequest): Observable<void> {
     return this._http
       .delete<void>(`${this._apiUrl}`, { body: request })

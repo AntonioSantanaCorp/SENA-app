@@ -1,16 +1,17 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AthleteResponse } from '@sacd/core/http/responses';
+import { AppRoutes } from '../../../../core/constants/app-routes.constant';
+import {
+  mapAthleteResponseToForm,
+  mapFormToAthleteRequest,
+} from '../../../../core/utils/map-athletle.util';
 import { AthleteApiService } from '@web/libs/athlete/services';
 import {
-  AddressInfo,
   AddressInfoComponent,
-  TutorInfo,
   TutorInfoComponent,
   UserDetailsFormComponent,
-  UserGeneralInfo,
   UserGeneralInfoComponent,
 } from '@web/libs/shared/ui/forms-information';
 import {
@@ -18,7 +19,7 @@ import {
   HeaderTitleComponent,
 } from '@web/libs/shared/ui/titles';
 import { switchMap } from 'rxjs';
-import { AppRoutes } from '../../../../core/constants';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-athlete-edit',
@@ -37,6 +38,8 @@ import { AppRoutes } from '../../../../core/constants';
 })
 export default class AthleteEditComponent extends UserDetailsFormComponent {
   public readonly id = input.required<string>();
+  
+  protected readonly isLoading = signal(false);
 
   constructor(
     private readonly _athleteApi: AthleteApiService,
@@ -50,55 +53,41 @@ export default class AthleteEditComponent extends UserDetailsFormComponent {
         takeUntilDestroyed()
       )
       .subscribe((athlete) => {
-        this.form.patchValue(this.mapAthleteToForm(athlete));
+        this.form.patchValue(mapAthleteResponseToForm(athlete));
         this.form.markAllAsTouched();
+      });
+  }
+
+  public updateAthlete(): void {
+    this.form.markAllAsTouched();
+
+    if (this.form.invalid) return;
+
+    this._athleteApi
+      .update(this.id(), mapFormToAthleteRequest(this.form))
+      .subscribe({
+        next: () => {
+          this._router.navigate([AppRoutes.AthleteList]);
+          this.isLoading.set(false);
+          Swal.fire({
+            icon: 'success',
+            title: 'Deportista actualizado correctamente',
+            timer: 2000,
+            showCancelButton: false,
+          });
+        },
+        error: () => {
+          this.isLoading.set(false);
+          Swal.fire({
+            icon: 'error',
+            title: 'Error al actualizar el deportista, intente de nuevo',
+            showCancelButton: false,
+          });
+        },
       });
   }
 
   protected cancel(): void {
     this._router.navigate([AppRoutes.AthleteList]);
-  }
-
-  private mapAthleteToForm(athlete: AthleteResponse) {
-    const { personaClub, tutor } = athlete;
-
-
-    const generalInfo: UserGeneralInfo = {
-      nombres: personaClub.nombres,
-      apellidos: personaClub.apellidos,
-      tipoDocumento: personaClub.tipoDocumento,
-      numeroDocumento: personaClub.numeroDocumento,
-      fechaNacimiento: String(personaClub.fechaNacimento).split('T')[0],
-      tipoRH: personaClub.tipoRh ?? '',
-      genero: personaClub.genero ?? '',
-      peso: personaClub.peso ?? 0,
-      altura: personaClub.altura ?? 0,
-      correo: personaClub.correo ?? '',
-      telefono: String(personaClub.numeroTelefono ?? ''),
-      tallaCamisa: personaClub.tallaCamisa ?? '',
-      tallaCalzado: Number(personaClub.tallaCalzado ?? 0),
-      tallaPantalon: Number(personaClub.tallaPantaloneta ?? 0),
-    };
-
-    const tutorInfo: TutorInfo = {
-      nombres: tutor.nombres,
-      apellidos: tutor.apellidos,
-      tipoDocumento: tutor.tipoDocumento,
-      numeroDocumento: tutor.numeroDocumento,
-      correo: tutor.correo,
-      telefono: String(tutor.telefono ?? ''),
-    };
-
-    const addressInfo: AddressInfo = {
-      departamento: String(personaClub.idDepartamento ?? ''),
-      ciudad: String(personaClub.idMunicipio ?? ''),
-      direccion: personaClub.direccion ?? '',
-    };
-
-    return {
-      generalInfo,
-      tutorInfo,
-      addressInfo,
-    };
   }
 }

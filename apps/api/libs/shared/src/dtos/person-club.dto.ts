@@ -23,7 +23,7 @@ export class PersonClubDto implements PersonClubRequest {
 
   @IsNotEmpty()
   @IsDateString()
-  fechaNacimento: Date;
+  fechaNacimento: string;
 
   @IsNotEmpty()
   @IsString()
