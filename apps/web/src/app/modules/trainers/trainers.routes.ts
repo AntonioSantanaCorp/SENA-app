@@ -15,7 +15,7 @@ export default [
           import('./pages/trainer-create/trainer-create.component'),
       },
       {
-        path: 'edit',
+        path: 'edit/:id',
         loadComponent: () =>
           import('./pages/trainer-edit/trainer-edit.component'),
       },

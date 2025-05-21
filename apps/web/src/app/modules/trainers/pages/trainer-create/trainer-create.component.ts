@@ -1,13 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  signal,
-  viewChild,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ControlInputComponent } from '@web/libs/shared/ui/control-field';
 import {
   AddressInfoComponent,
   TutorInfoComponent,
@@ -21,7 +14,7 @@ import {
 import { TrainerApiService } from '@web/libs/trainer/services';
 import { AppRoutes } from '../../../../core/constants/app-routes.constant';
 import { mapFormToTrainerRequest } from '../../../../core/utils/map-trainer.util';
-import { contractControl } from '../../form-controls/trainer-info.form';
+import Swal from 'sweetalert2';
 
 @Component({
   host: { class: 'page' },
@@ -32,20 +25,13 @@ import { contractControl } from '../../form-controls/trainer-info.form';
     AddressInfoComponent,
     TutorInfoComponent,
     ReactiveFormsModule,
-    ControlInputComponent,
   ],
   templateUrl: './trainer-create.component.html',
   styleUrl: './trainer-create.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class TrainerCreateComponent extends UserDetailsFormComponent {
-  private readonly _uploadFile = viewChild('contratoRef', {
-    read: ElementRef<HTMLInputElement>,
-  });
-
   protected readonly isLoading = signal(false);
-
-  protected readonly contract = contractControl();
 
   constructor(
     private readonly _trainerApi: TrainerApiService,
@@ -54,30 +40,35 @@ export default class TrainerCreateComponent extends UserDetailsFormComponent {
     super();
   }
 
-  //TODO: create trainer
-  protected async create(): Promise<void> {
+  protected create(): void {
     this.form.markAllAsTouched();
-    this.contract.markAsTouched();
 
-    //if (this.form.invalid) return;
+    if (this.form.invalid) return;
 
-    console.log(this._uploadFile()?.nativeElement.files[0]);
-
-    console.log(await mapFormToTrainerRequest(this.form));
+    this.isLoading.set(true);
+    this._trainerApi.create(mapFormToTrainerRequest(this.form)).subscribe({
+      next: () => {
+        this._router.navigate([AppRoutes.TrainerList]);
+        this.isLoading.set(false);
+        Swal.fire({
+          icon: 'success',
+          title: 'Entrenador creado correctamente',
+          timer: 2000,
+          showCancelButton: false,
+        });
+      },
+      error: () => {
+        this.isLoading.set(false);
+        Swal.fire({
+          icon: 'error',
+          title: 'Error al crear el entrenador, intente de nuevo',
+          showCancelButton: false,
+        });
+      },
+    });
   }
 
   protected cancel(): void {
     this._router.navigate([AppRoutes.TrainerList]);
   }
-}
-
-function fileToBase64(file: File | null): Promise<string> {
-  if (!file) return Promise.resolve('');
-
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result as string);
-    reader.onerror = (error) => reject(error);
-  });
 }

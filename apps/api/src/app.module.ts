@@ -4,7 +4,6 @@ import { LocationsModule } from './locations/locations.module';
 import { TrainerModule } from './trainer/trainer.module';
 @Module({
   imports: [AthleteModule, LocationsModule, TrainerModule],
-  controllers: [],
   providers: [],
 })
 export class AppModule {}

@@ -1,7 +1,7 @@
-import { PersonClubDto } from '@api/shared';
 import { TrainerRequest } from '@sacd/core/http/requests';
 import { Type } from 'class-transformer';
-import { IsNotEmpty, IsOptional, ValidateNested } from 'class-validator';
+import { IsNotEmpty, ValidateNested } from 'class-validator';
+import { PersonClubDto } from '../../person-club/models/person-club.dto';
 import { EmergencyContactDto } from './emergency-contact.dto';
 
 export class TrainerDto implements TrainerRequest {
@@ -14,7 +14,4 @@ export class TrainerDto implements TrainerRequest {
   @ValidateNested()
   @Type(() => EmergencyContactDto)
   contactosEmergencia: EmergencyContactDto;
-
-  @IsOptional()
-  contrato: string;
 }

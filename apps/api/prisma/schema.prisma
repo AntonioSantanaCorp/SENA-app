@@ -62,7 +62,6 @@ model Entrenador {
     idContactoEmergencia Int?                 @unique @map("id_contacto_emergencia")
     fechaIngreso         DateTime?            @map("fecha_ingreso") @db.Date
     activo               Boolean?
-    contrato             Bytes?               @db.Blob
     contactosEmergencia  ContactosEmergencia? @relation(fields: [idContactoEmergencia], references: [id])
     personaClub          PersonaClub          @relation(fields: [idPersonaClub], references: [id])
 

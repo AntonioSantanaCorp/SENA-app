@@ -17,7 +17,6 @@ import {
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-athlete-create',
   host: { class: 'page' },
   imports: [
     HeaderTitleComponent,

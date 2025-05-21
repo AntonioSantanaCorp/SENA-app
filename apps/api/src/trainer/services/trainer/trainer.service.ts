@@ -2,13 +2,16 @@ import { DatabaseService } from '@api/database';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { TrainerResponse } from '@sacd/core/http/responses';
 import { LocationsService } from '../../../locations/service/locations.service';
+import { PersonClubService } from '../../../person-club/services/person-club/person-club.service';
 import { TrainerDto } from '../../models/trainer.dto';
 import { TrainerSchema } from '../../models/trainer.schema';
+
 @Injectable()
 export class TrainerService {
   constructor(
     private readonly _db: DatabaseService,
-    private readonly _locationsService: LocationsService
+    private readonly _locationsService: LocationsService,
+    private readonly _personClubService: PersonClubService
   ) {}
 
   public async getTrainers(): Promise<TrainerResponse[]> {
@@ -35,7 +38,7 @@ export class TrainerService {
   public async createTrainer(trainer: TrainerDto): Promise<TrainerResponse> {
     try {
       const [createdPersonClub, createdEmergencyContact] = await Promise.all([
-        this._db.personaClub.create({ data: { ...trainer.personaClub } }),
+        this._personClubService.create(trainer.personaClub),
         this._db.contactosEmergencia.create({
           data: { ...trainer.contactosEmergencia },
         }),
@@ -47,9 +50,6 @@ export class TrainerService {
           idContactoEmergencia: createdEmergencyContact.id,
           fechaIngreso: new Date(),
           activo: true,
-          contrato: trainer.contrato
-            ? Buffer.from(trainer.contrato)
-            : undefined,
         },
       });
 
@@ -76,21 +76,13 @@ export class TrainerService {
       if (!trainerDb) throw new NotFoundException('Entrenador no encontrado');
 
       const [updatedPersonClub, updatedEmergencyContact] = await Promise.all([
-        this._db.personaClub.update({
-          where: { id: trainerDb.idPersonaClub },
-          data: { ...trainer.personaClub },
-        }),
+        this._personClubService.update(
+          trainerDb.idPersonaClub,
+          trainer.personaClub
+        ),
         this._db.contactosEmergencia.update({
           where: { id: trainerDb.idContactoEmergencia },
           data: { ...trainer.contactosEmergencia },
-        }),
-        this._db.entrenador.update({
-          where: { id },
-          data: {
-            contrato: trainer.contrato
-              ? Buffer.from(trainer.contrato)
-              : undefined,
-          },
         }),
       ]);
 
@@ -98,7 +90,6 @@ export class TrainerService {
         ...trainerDb,
         personaClub: updatedPersonClub,
         contactosEmergencia: updatedEmergencyContact,
-        contrato: trainerDb.contrato,
         fechaIngreso: trainerDb.fechaIngreso,
       });
     } catch (error) {
@@ -114,17 +105,11 @@ export class TrainerService {
         trainer.personaClub.idMunicipio
       );
 
-    // Convertir el buffer a base64 si existe
-    const contratoBase64 = trainer.contrato
-      ? Buffer.from(trainer.contrato).toString('base64')
-      : null;
-
     return {
       id: trainer.id,
       personaClub: { ...trainer.personaClub, idDepartamento: departamento.id },
       emergencyContact: trainer.contactosEmergencia,
       activo: trainer.activo,
-      contrato: contratoBase64,
       fechaIngreso: trainer.fechaIngreso,
     };
   }

@@ -13,12 +13,15 @@
 <table class="table table-hover" cdk-table [dataSource]="trainerStore.data()">
   <ng-container cdkColumnDef="nombres">
     <th cdk-header-cell *cdkHeaderCellDef>Nombres y Apellidos</th>
-    <td cdk-cell *cdkCellDef="let element">{{ element.nombres }}</td>
+    <td cdk-cell *cdkCellDef="let element">
+      {{ element.personaClub.nombres }} {{ element.personaClub.apellidos }}
+    </td>
   </ng-container>
   <ng-container cdkColumnDef="documento">
     <th cdk-header-cell *cdkHeaderCellDef>Documento</th>
     <td cdk-cell *cdkCellDef="let element">
-      {{ element.tipoDocumento }} {{ element.numeroDocumento }}
+      {{ element.personaClub.tipoDocumento }}
+      {{ element.personaClub.numeroDocumento }}
     </td>
   </ng-container>
   <ng-container cdkColumnDef="fechaContratacion">
@@ -29,7 +32,9 @@
   >
   <ng-container cdkColumnDef="estado">
     <th cdk-header-cell *cdkHeaderCellDef>Estado</th>
-    <td cdk-cell *cdkCellDef="let element">{{ element.activo }}</td>
+    <td cdk-cell *cdkCellDef="let element">
+      {{ element.activo ? 'Activo' : 'Inactivo' }}
+    </td>
   </ng-container>
   <ng-container cdkColumnDef="opciones">
     <th cdk-header-cell *cdkHeaderCellDef>Opciones</th>
@@ -46,7 +51,7 @@
         <a
           ui-icon-button
           title="Editar entrenador"
-          [routerLink]="[appRoutes.TrainerEdit]"
+          [routerLink]="[appRoutes.TrainerEdit, element.id]"
         >
           edit
         </a>

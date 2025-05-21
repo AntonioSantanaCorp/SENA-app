@@ -1,18 +1,16 @@
 import { FormGroup } from '@angular/forms';
 import { TrainerRequest } from '@sacd/core/http/requests';
-import { UserDetailsFormModel } from '@web/libs/shared/ui/forms-information';
-import { fileToBase64 } from './file-converter.util';
+import { TrainerResponse } from '@sacd/core/http/responses';
+import { AddressInfo, TutorInfo, UserDetailsFormModel, UserGeneralInfo } from '@web/libs/shared/ui/forms-information';
 
-export async function mapFormToTrainerRequest(
+export function mapFormToTrainerRequest(
   form: FormGroup<UserDetailsFormModel>
-): Promise<TrainerRequest> {
+): TrainerRequest {
   const { addressInfo, generalInfo, tutorInfo } = form.getRawValue();
 
   if (!generalInfo || !addressInfo || !tutorInfo) {
     throw new Error('Missing required fields');
   }
-
-  const contrato = Reflect.get(generalInfo, 'contrato') as File | null;
 
   return {
     personaClub: {
@@ -41,6 +39,49 @@ export async function mapFormToTrainerRequest(
       tipoDocumento: tutorInfo.tipoDocumento,
       telefono: String(tutorInfo.telefono),
     },
-    contrato: await fileToBase64(contrato),
+  };
+}
+
+export function mapTrainerResponseToForm(
+  trainer: TrainerResponse
+): FormGroup<UserDetailsFormModel>['value'] {
+  const { personaClub, emergencyContact } = trainer;
+
+  const generalInfo: UserGeneralInfo = {
+    nombres: personaClub.nombres,
+    apellidos: personaClub.apellidos,
+    tipoDocumento: personaClub.tipoDocumento,
+    numeroDocumento: personaClub.numeroDocumento,
+    fechaNacimiento: String(personaClub.fechaNacimento).split('T')[0],
+    tipoRH: personaClub.tipoRh ?? '',
+    genero: personaClub.genero ?? '',
+    peso: personaClub.peso ?? 0,
+    altura: personaClub.altura ?? 0,
+    correo: personaClub.correo ?? '',
+    telefono: String(personaClub.numeroTelefono ?? ''),
+    tallaCamisa: personaClub.tallaCamisa ?? '',
+    tallaCalzado: Number(personaClub.tallaCalzado ?? 0),
+    tallaPantalon: Number(personaClub.tallaPantaloneta ?? 0),
+  };
+
+  const tutorInfo: TutorInfo = {
+    nombres: emergencyContact.nombres,
+    apellidos: emergencyContact.apellidos,
+    tipoDocumento: emergencyContact.tipoDocumento,
+    numeroDocumento: emergencyContact.numeroDocumento,
+    correo: emergencyContact.correo,
+    telefono: String(emergencyContact.telefono ?? ''),
+  };
+
+  const addressInfo: AddressInfo = {
+    departamento: String(personaClub.idDepartamento ?? ''),
+    ciudad: String(personaClub.idMunicipio ?? ''),
+    direccion: personaClub.direccion ?? '',
+  };
+
+  return {
+    generalInfo,
+    tutorInfo,
+    addressInfo,
   };
 }

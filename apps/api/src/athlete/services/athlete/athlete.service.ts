@@ -7,11 +7,14 @@ import { AthleteSchema } from '../../models/athlete.schema';
 import { DeleteAthleteRequest } from '@sacd/core/http/requests';
 import { CategoriesGenerator } from '@sacd/core/models';
 import { LocationsService } from '../../../locations/service/locations.service';
+import { PersonClubService } from '../../../person-club/services/person-club/person-club.service';
+
 @Injectable()
 export class AthleteService {
   constructor(
     private readonly _db: DatabaseService,
-    private readonly _locationsService: LocationsService
+    private readonly _locationsService: LocationsService,
+    private readonly _personClubService: PersonClubService
   ) {}
 
   public async getAthletes(): Promise<AthleteResponse[]> {
@@ -40,12 +43,7 @@ export class AthleteService {
   public async createAthlete(athlete: AthleteDto): Promise<AthleteResponse> {
     try {
       const [createdPersonClub, createdTutor] = await Promise.all([
-        this._db.personaClub.create({
-          data: {
-            ...athlete.personaClub,
-            fechaNacimento: new Date(athlete.personaClub.fechaNacimento),
-          },
-        }),
+        this._personClubService.create(athlete.personaClub),
         this._db.tutor.create({ data: { ...athlete.tutor } }),
       ]);
 
@@ -84,13 +82,10 @@ export class AthleteService {
       if (!athleteDb) throw new NotFoundException('Deportista no encontrado');
 
       const [updatedPersonClub, updatedTutor] = await Promise.all([
-        this._db.personaClub.update({
-          where: { id: athleteDb.idPersonaClub },
-          data: {
-            ...athlete.personaClub,
-            fechaNacimento: new Date(athlete.personaClub.fechaNacimento),
-          },
-        }),
+        this._personClubService.update(
+          athleteDb.idPersonaClub,
+          athlete.personaClub
+        ),
         this._db.tutor.update({
           where: { id: athleteDb.idTutor },
           data: { ...athlete.tutor },

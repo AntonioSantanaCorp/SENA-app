@@ -1,4 +1,3 @@
-import { DeleteAthleteDto } from '@api/shared';
 import {
   Body,
   Controller,
@@ -10,6 +9,7 @@ import {
   Put,
 } from '@nestjs/common';
 import { AthleteDto } from '../models/athlete.dto';
+import { DeleteAthleteDto } from '../models/delete-athlete.dto';
 import { AthleteService } from '../services/athlete/athlete.service';
 
 @Controller('athlete')

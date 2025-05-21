@@ -391,8 +391,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.7.0
-   * Query Engine version: 3cff47a7f5d65c3ea74883f1d736e41d68ce91ed
+   * Prisma Client JS version: 6.8.2
+   * Query Engine version: 2060c79ba17c6bb9f5823312b6f6b7f4a845738e
    */
   export type PrismaVersion = {
     client: string
@@ -5038,7 +5038,6 @@ export namespace Prisma {
     idContactoEmergencia: number | null
     fechaIngreso: Date | null
     activo: boolean | null
-    contrato: Uint8Array | null
   }
 
   export type EntrenadorMaxAggregateOutputType = {
@@ -5047,7 +5046,6 @@ export namespace Prisma {
     idContactoEmergencia: number | null
     fechaIngreso: Date | null
     activo: boolean | null
-    contrato: Uint8Array | null
   }
 
   export type EntrenadorCountAggregateOutputType = {
@@ -5056,7 +5054,6 @@ export namespace Prisma {
     idContactoEmergencia: number
     fechaIngreso: number
     activo: number
-    contrato: number
     _all: number
   }
 
@@ -5079,7 +5076,6 @@ export namespace Prisma {
     idContactoEmergencia?: true
     fechaIngreso?: true
     activo?: true
-    contrato?: true
   }
 
   export type EntrenadorMaxAggregateInputType = {
@@ -5088,7 +5084,6 @@ export namespace Prisma {
     idContactoEmergencia?: true
     fechaIngreso?: true
     activo?: true
-    contrato?: true
   }
 
   export type EntrenadorCountAggregateInputType = {
@@ -5097,7 +5092,6 @@ export namespace Prisma {
     idContactoEmergencia?: true
     fechaIngreso?: true
     activo?: true
-    contrato?: true
     _all?: true
   }
 
@@ -5193,7 +5187,6 @@ export namespace Prisma {
     idContactoEmergencia: number | null
     fechaIngreso: Date | null
     activo: boolean | null
-    contrato: Uint8Array | null
     _count: EntrenadorCountAggregateOutputType | null
     _avg: EntrenadorAvgAggregateOutputType | null
     _sum: EntrenadorSumAggregateOutputType | null
@@ -5221,7 +5214,6 @@ export namespace Prisma {
     idContactoEmergencia?: boolean
     fechaIngreso?: boolean
     activo?: boolean
-    contrato?: boolean
     contactosEmergencia?: boolean | Entrenador$contactosEmergenciaArgs<ExtArgs>
     personaClub?: boolean | PersonaClubDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["entrenador"]>
@@ -5234,10 +5226,9 @@ export namespace Prisma {
     idContactoEmergencia?: boolean
     fechaIngreso?: boolean
     activo?: boolean
-    contrato?: boolean
   }
 
-  export type EntrenadorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "idPersonaClub" | "idContactoEmergencia" | "fechaIngreso" | "activo" | "contrato", ExtArgs["result"]["entrenador"]>
+  export type EntrenadorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "idPersonaClub" | "idContactoEmergencia" | "fechaIngreso" | "activo", ExtArgs["result"]["entrenador"]>
   export type EntrenadorInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     contactosEmergencia?: boolean | Entrenador$contactosEmergenciaArgs<ExtArgs>
     personaClub?: boolean | PersonaClubDefaultArgs<ExtArgs>
@@ -5255,7 +5246,6 @@ export namespace Prisma {
       idContactoEmergencia: number | null
       fechaIngreso: Date | null
       activo: boolean | null
-      contrato: Uint8Array | null
     }, ExtArgs["result"]["entrenador"]>
     composites: {}
   }
@@ -5632,7 +5622,6 @@ export namespace Prisma {
     readonly idContactoEmergencia: FieldRef<"Entrenador", 'Int'>
     readonly fechaIngreso: FieldRef<"Entrenador", 'DateTime'>
     readonly activo: FieldRef<"Entrenador", 'Boolean'>
-    readonly contrato: FieldRef<"Entrenador", 'Bytes'>
   }
     
 
@@ -14947,8 +14936,7 @@ export namespace Prisma {
     idPersonaClub: 'idPersonaClub',
     idContactoEmergencia: 'idContactoEmergencia',
     fechaIngreso: 'fechaIngreso',
-    activo: 'activo',
-    contrato: 'contrato'
+    activo: 'activo'
   };
 
   export type EntrenadorScalarFieldEnum = (typeof EntrenadorScalarFieldEnum)[keyof typeof EntrenadorScalarFieldEnum]
@@ -15209,13 +15197,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Bytes'
-   */
-  export type BytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes'>
-    
-
-
-  /**
    * Reference to a field of type 'Decimal'
    */
   export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
@@ -15469,7 +15450,6 @@ export namespace Prisma {
     idContactoEmergencia?: IntNullableFilter<"Entrenador"> | number | null
     fechaIngreso?: DateTimeNullableFilter<"Entrenador"> | Date | string | null
     activo?: BoolNullableFilter<"Entrenador"> | boolean | null
-    contrato?: BytesNullableFilter<"Entrenador"> | Uint8Array | null
     contactosEmergencia?: XOR<ContactosEmergenciaNullableScalarRelationFilter, ContactosEmergenciaWhereInput> | null
     personaClub?: XOR<PersonaClubScalarRelationFilter, PersonaClubWhereInput>
   }
@@ -15480,7 +15460,6 @@ export namespace Prisma {
     idContactoEmergencia?: SortOrderInput | SortOrder
     fechaIngreso?: SortOrderInput | SortOrder
     activo?: SortOrderInput | SortOrder
-    contrato?: SortOrderInput | SortOrder
     contactosEmergencia?: ContactosEmergenciaOrderByWithRelationInput
     personaClub?: PersonaClubOrderByWithRelationInput
   }
@@ -15494,7 +15473,6 @@ export namespace Prisma {
     NOT?: EntrenadorWhereInput | EntrenadorWhereInput[]
     fechaIngreso?: DateTimeNullableFilter<"Entrenador"> | Date | string | null
     activo?: BoolNullableFilter<"Entrenador"> | boolean | null
-    contrato?: BytesNullableFilter<"Entrenador"> | Uint8Array | null
     contactosEmergencia?: XOR<ContactosEmergenciaNullableScalarRelationFilter, ContactosEmergenciaWhereInput> | null
     personaClub?: XOR<PersonaClubScalarRelationFilter, PersonaClubWhereInput>
   }, "id" | "idPersonaClub" | "idContactoEmergencia">
@@ -15505,7 +15483,6 @@ export namespace Prisma {
     idContactoEmergencia?: SortOrderInput | SortOrder
     fechaIngreso?: SortOrderInput | SortOrder
     activo?: SortOrderInput | SortOrder
-    contrato?: SortOrderInput | SortOrder
     _count?: EntrenadorCountOrderByAggregateInput
     _avg?: EntrenadorAvgOrderByAggregateInput
     _max?: EntrenadorMaxOrderByAggregateInput
@@ -15522,7 +15499,6 @@ export namespace Prisma {
     idContactoEmergencia?: IntNullableWithAggregatesFilter<"Entrenador"> | number | null
     fechaIngreso?: DateTimeNullableWithAggregatesFilter<"Entrenador"> | Date | string | null
     activo?: BoolNullableWithAggregatesFilter<"Entrenador"> | boolean | null
-    contrato?: BytesNullableWithAggregatesFilter<"Entrenador"> | Uint8Array | null
   }
 
   export type TutorWhereInput = {
@@ -16296,7 +16272,6 @@ export namespace Prisma {
   export type EntrenadorCreateInput = {
     fechaIngreso?: Date | string | null
     activo?: boolean | null
-    contrato?: Uint8Array | null
     contactosEmergencia?: ContactosEmergenciaCreateNestedOneWithoutEntrenadorInput
     personaClub: PersonaClubCreateNestedOneWithoutEntrenadorInput
   }
@@ -16307,13 +16282,11 @@ export namespace Prisma {
     idContactoEmergencia?: number | null
     fechaIngreso?: Date | string | null
     activo?: boolean | null
-    contrato?: Uint8Array | null
   }
 
   export type EntrenadorUpdateInput = {
     fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
     contactosEmergencia?: ContactosEmergenciaUpdateOneWithoutEntrenadorNestedInput
     personaClub?: PersonaClubUpdateOneRequiredWithoutEntrenadorNestedInput
   }
@@ -16324,7 +16297,6 @@ export namespace Prisma {
     idContactoEmergencia?: NullableIntFieldUpdateOperationsInput | number | null
     fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
   }
 
   export type EntrenadorCreateManyInput = {
@@ -16333,13 +16305,11 @@ export namespace Prisma {
     idContactoEmergencia?: number | null
     fechaIngreso?: Date | string | null
     activo?: boolean | null
-    contrato?: Uint8Array | null
   }
 
   export type EntrenadorUpdateManyMutationInput = {
     fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
   }
 
   export type EntrenadorUncheckedUpdateManyInput = {
@@ -16348,7 +16318,6 @@ export namespace Prisma {
     idContactoEmergencia?: NullableIntFieldUpdateOperationsInput | number | null
     fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
   }
 
   export type TutorCreateInput = {
@@ -17167,13 +17136,6 @@ export namespace Prisma {
     not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
   }
 
-  export type BytesNullableFilter<$PrismaModel = never> = {
-    equals?: Uint8Array | BytesFieldRefInput<$PrismaModel> | null
-    in?: Uint8Array[] | null
-    notIn?: Uint8Array[] | null
-    not?: NestedBytesNullableFilter<$PrismaModel> | Uint8Array | null
-  }
-
   export type ContactosEmergenciaNullableScalarRelationFilter = {
     is?: ContactosEmergenciaWhereInput | null
     isNot?: ContactosEmergenciaWhereInput | null
@@ -17190,7 +17152,6 @@ export namespace Prisma {
     idContactoEmergencia?: SortOrder
     fechaIngreso?: SortOrder
     activo?: SortOrder
-    contrato?: SortOrder
   }
 
   export type EntrenadorAvgOrderByAggregateInput = {
@@ -17205,7 +17166,6 @@ export namespace Prisma {
     idContactoEmergencia?: SortOrder
     fechaIngreso?: SortOrder
     activo?: SortOrder
-    contrato?: SortOrder
   }
 
   export type EntrenadorMinOrderByAggregateInput = {
@@ -17214,7 +17174,6 @@ export namespace Prisma {
     idContactoEmergencia?: SortOrder
     fechaIngreso?: SortOrder
     activo?: SortOrder
-    contrato?: SortOrder
   }
 
   export type EntrenadorSumOrderByAggregateInput = {
@@ -17245,16 +17204,6 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedBoolNullableFilter<$PrismaModel>
     _max?: NestedBoolNullableFilter<$PrismaModel>
-  }
-
-  export type BytesNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Uint8Array | BytesFieldRefInput<$PrismaModel> | null
-    in?: Uint8Array[] | null
-    notIn?: Uint8Array[] | null
-    not?: NestedBytesNullableWithAggregatesFilter<$PrismaModel> | Uint8Array | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedBytesNullableFilter<$PrismaModel>
-    _max?: NestedBytesNullableFilter<$PrismaModel>
   }
 
   export type TutorOrderByRelevanceInput = {
@@ -17870,10 +17819,6 @@ export namespace Prisma {
     set?: boolean | null
   }
 
-  export type NullableBytesFieldUpdateOperationsInput = {
-    set?: Uint8Array | null
-  }
-
   export type ContactosEmergenciaUpdateOneWithoutEntrenadorNestedInput = {
     create?: XOR<ContactosEmergenciaCreateWithoutEntrenadorInput, ContactosEmergenciaUncheckedCreateWithoutEntrenadorInput>
     connectOrCreate?: ContactosEmergenciaCreateOrConnectWithoutEntrenadorInput
@@ -18350,13 +18295,6 @@ export namespace Prisma {
     not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
   }
 
-  export type NestedBytesNullableFilter<$PrismaModel = never> = {
-    equals?: Uint8Array | BytesFieldRefInput<$PrismaModel> | null
-    in?: Uint8Array[] | null
-    notIn?: Uint8Array[] | null
-    not?: NestedBytesNullableFilter<$PrismaModel> | Uint8Array | null
-  }
-
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | null
@@ -18379,16 +18317,6 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedBoolNullableFilter<$PrismaModel>
     _max?: NestedBoolNullableFilter<$PrismaModel>
-  }
-
-  export type NestedBytesNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Uint8Array | BytesFieldRefInput<$PrismaModel> | null
-    in?: Uint8Array[] | null
-    notIn?: Uint8Array[] | null
-    not?: NestedBytesNullableWithAggregatesFilter<$PrismaModel> | Uint8Array | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedBytesNullableFilter<$PrismaModel>
-    _max?: NestedBytesNullableFilter<$PrismaModel>
   }
 
   export type NestedDecimalNullableFilter<$PrismaModel = never> = {
@@ -18439,7 +18367,6 @@ export namespace Prisma {
   export type EntrenadorCreateWithoutPersonaClubInput = {
     fechaIngreso?: Date | string | null
     activo?: boolean | null
-    contrato?: Uint8Array | null
     contactosEmergencia?: ContactosEmergenciaCreateNestedOneWithoutEntrenadorInput
   }
 
@@ -18448,7 +18375,6 @@ export namespace Prisma {
     idContactoEmergencia?: number | null
     fechaIngreso?: Date | string | null
     activo?: boolean | null
-    contrato?: Uint8Array | null
   }
 
   export type EntrenadorCreateOrConnectWithoutPersonaClubInput = {
@@ -18534,7 +18460,6 @@ export namespace Prisma {
   export type EntrenadorUpdateWithoutPersonaClubInput = {
     fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
     contactosEmergencia?: ContactosEmergenciaUpdateOneWithoutEntrenadorNestedInput
   }
 
@@ -18543,7 +18468,6 @@ export namespace Prisma {
     idContactoEmergencia?: NullableIntFieldUpdateOperationsInput | number | null
     fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
   }
 
   export type DeportistaUpsertWithoutPersonaClubInput = {
@@ -18601,7 +18525,6 @@ export namespace Prisma {
   export type EntrenadorCreateWithoutContactosEmergenciaInput = {
     fechaIngreso?: Date | string | null
     activo?: boolean | null
-    contrato?: Uint8Array | null
     personaClub: PersonaClubCreateNestedOneWithoutEntrenadorInput
   }
 
@@ -18610,7 +18533,6 @@ export namespace Prisma {
     idPersonaClub: number
     fechaIngreso?: Date | string | null
     activo?: boolean | null
-    contrato?: Uint8Array | null
   }
 
   export type EntrenadorCreateOrConnectWithoutContactosEmergenciaInput = {
@@ -18632,7 +18554,6 @@ export namespace Prisma {
   export type EntrenadorUpdateWithoutContactosEmergenciaInput = {
     fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
     personaClub?: PersonaClubUpdateOneRequiredWithoutEntrenadorNestedInput
   }
 
@@ -18641,7 +18562,6 @@ export namespace Prisma {
     idPersonaClub?: IntFieldUpdateOperationsInput | number
     fechaIngreso?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     activo?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    contrato?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
   }
 
   export type ContactosEmergenciaCreateWithoutEntrenadorInput = {
