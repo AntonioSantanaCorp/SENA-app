@@ -6,6 +6,5 @@ export interface TrainerResponse {
   personaClub: PersonClubResponse;
   emergencyContact: EmergencyContactResponse;
   activo: boolean;
-  contrato: string;
   fechaIngreso: Date;
 }

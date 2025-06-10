@@ -10,12 +10,7 @@
 
 <section>
   <ui-header-subtitle> Informacion general </ui-header-subtitle>
-  <ui-user-general-info>
-    <ui-control-input attrFor="contrato">
-      <label>Cargar contrato</label>
-      <input type="file" [formControl]="contract" accept="application/pdf" />
-    </ui-control-input>
-  </ui-user-general-info>
+  <ui-user-general-info> </ui-user-general-info>
 </section>
 
 <section>
@@ -24,11 +19,11 @@
 </section>
 
 <section>
-  <ui-header-subtitle>Informacion tutor </ui-header-subtitle>
+  <ui-header-subtitle>Informacion contacto emergencia </ui-header-subtitle>
   <ui-tutor-info></ui-tutor-info>
 </section>
 
 <footer class="d-flex gap-2 justify-content-end">
-  <button class="btn btn-outline-danger">Cancelar</button>
-  <button class="btn btn-primary">Contratar entrenador</button>
+  <button class="btn btn-outline-danger" (click)="cancel()">Cancelar</button>
+  <button class="btn btn-primary">Actualizar entrenador</button>
 </footer>

@@ -20,12 +20,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 6.7.0
- * Query Engine version: 3cff47a7f5d65c3ea74883f1d736e41d68ce91ed
+ * Prisma Client JS version: 6.8.2
+ * Query Engine version: 2060c79ba17c6bb9f5823312b6f6b7f4a845738e
  */
 Prisma.prismaVersion = {
-  client: "6.7.0",
-  engine: "3cff47a7f5d65c3ea74883f1d736e41d68ce91ed"
+  client: "6.8.2",
+  engine: "2060c79ba17c6bb9f5823312b6f6b7f4a845738e"
 }
 
 Prisma.PrismaClientKnownRequestError = () => {
@@ -130,11 +130,6 @@ exports.Prisma.RelationLoadStrategy = {
   join: 'join'
 };
 
-exports.Prisma.CategoriaScalarFieldEnum = {
-  id: 'id',
-  nombre: 'nombre'
-};
-
 exports.Prisma.PersonaClubScalarFieldEnum = {
   id: 'id',
   numeroDocumento: 'numeroDocumento',
@@ -158,7 +153,7 @@ exports.Prisma.PersonaClubScalarFieldEnum = {
 exports.Prisma.ContactosEmergenciaScalarFieldEnum = {
   id: 'id',
   tipoDocumento: 'tipoDocumento',
-  idEntrenador: 'idEntrenador',
+  numeroDocumento: 'numeroDocumento',
   nombres: 'nombres',
   apellidos: 'apellidos',
   correo: 'correo',
@@ -168,9 +163,9 @@ exports.Prisma.ContactosEmergenciaScalarFieldEnum = {
 exports.Prisma.EntrenadorScalarFieldEnum = {
   id: 'id',
   idPersonaClub: 'idPersonaClub',
+  idContactoEmergencia: 'idContactoEmergencia',
   fechaIngreso: 'fechaIngreso',
-  activo: 'activo',
-  contrato: 'contrato'
+  activo: 'activo'
 };
 
 exports.Prisma.TutorScalarFieldEnum = {
@@ -187,7 +182,7 @@ exports.Prisma.DeportistaScalarFieldEnum = {
   id: 'id',
   idTutor: 'idTutor',
   idPersonaClub: 'idPersonaClub',
-  idCategoria: 'idCategoria',
+  categoria: 'categoria',
   activo: 'activo'
 };
 
@@ -257,11 +252,6 @@ exports.Prisma.CargosAdminOrderByRelevanceFieldEnum = {
   nombre: 'nombre'
 };
 
-exports.Prisma.CategoriaOrderByRelevanceFieldEnum = {
-  id: 'id',
-  nombre: 'nombre'
-};
-
 exports.Prisma.PersonaClubOrderByRelevanceFieldEnum = {
   numeroDocumento: 'numeroDocumento',
   tipoDocumento: 'tipoDocumento',
@@ -279,6 +269,7 @@ exports.Prisma.PersonaClubOrderByRelevanceFieldEnum = {
 
 exports.Prisma.ContactosEmergenciaOrderByRelevanceFieldEnum = {
   tipoDocumento: 'tipoDocumento',
+  numeroDocumento: 'numeroDocumento',
   nombres: 'nombres',
   apellidos: 'apellidos',
   correo: 'correo',
@@ -295,7 +286,7 @@ exports.Prisma.TutorOrderByRelevanceFieldEnum = {
 };
 
 exports.Prisma.DeportistaOrderByRelevanceFieldEnum = {
-  idCategoria: 'idCategoria'
+  categoria: 'categoria'
 };
 
 exports.Prisma.DesercionDeportistaOrderByRelevanceFieldEnum = {
@@ -328,7 +319,6 @@ exports.Prisma.TipoDocumentoOrderByRelevanceFieldEnum = {
 
 exports.Prisma.ModelName = {
   CargosAdmin: 'CargosAdmin',
-  Categoria: 'Categoria',
   PersonaClub: 'PersonaClub',
   ContactosEmergencia: 'ContactosEmergencia',
   Entrenador: 'Entrenador',

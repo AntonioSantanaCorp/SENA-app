@@ -1,247 +1,41 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '@sacd/core/environments';
+import { TrainerRequest } from '@sacd/core/http/requests';
 import { TrainerResponse } from '@sacd/core/http/responses';
 import { DataTableApi } from '@web/libs/shared/ui/tables';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TrainerApiService extends DataTableApi<TrainerResponse> {
+  private readonly _apiUrl = `${environment.apiUrl}/trainer`;
+
+  constructor(private readonly _http: HttpClient) {
+    super();
+  }
+
   override getData(): Observable<TrainerResponse[]> {
-    return of([]);
+    return this._http.get<TrainerResponse[]>(this._apiUrl);
+  }
+
+  public create(trainer: TrainerRequest): Observable<TrainerResponse> {
+    return this._http.post<TrainerResponse>(this._apiUrl, trainer);
+  }
+
+  public getById(id: string): Observable<TrainerResponse> {
+    return this._http.get<TrainerResponse>(`${this._apiUrl}/${id}`);
+  }
+
+  public update(
+    id: string,
+    trainer: TrainerRequest
+  ): Observable<TrainerResponse> {
+    return this._http.put<TrainerResponse>(`${this._apiUrl}/${id}`, trainer);
+  }
+
+  public delete(id: string): Observable<void> {
+    return this._http.delete<void>(`${this._apiUrl}/${id}`);
   }
 }
-/**
- *     return of([
-      {
-        idTrainer: 1,
-        emergencyContact: {
-          id: 101,
-          tipoDocumento: 'CC',
-          idTrainer: 1,
-          nombres: 'Juan',
-          apellidos: 'Pérez',
-          correo: 'juan.perez@example.com',
-          telefono: '3001234567',
-        },
-        activo: true,
-        contrato: 'Indefinido',
-        fechaIngreso: new Date('2020-01-15'),
-        id: 1,
-        tipoDocumento: 1,
-        idMunicipio: 101,
-        idUsuario: 201,
-        nombres: 'Carlos',
-        apellidos: 'Gómez',
-        fechaNacimiento: new Date('1990-05-20'),
-        correo: 'carlos.gomez@example.com',
-      },
-      {
-        idTrainer: 2,
-        emergencyContact: {
-          id: 102,
-          tipoDocumento: 'TI',
-          idTrainer: 2,
-          nombres: 'María',
-          apellidos: 'López',
-          correo: 'maria.lopez@example.com',
-          telefono: '3109876543',
-        },
-        activo: false,
-        contrato: 'Temporal',
-        fechaIngreso: new Date('2021-06-10'),
-        id: 2,
-        tipoDocumento: 2,
-        idMunicipio: 102,
-        idUsuario: 202,
-        nombres: 'Ana',
-        apellidos: 'Martínez',
-        fechaNacimiento: new Date('1985-03-15'),
-        correo: 'ana.martinez@example.com',
-      },
-      {
-        idTrainer: 3,
-        emergencyContact: {
-          id: 103,
-          tipoDocumento: 'CC',
-          idTrainer: 3,
-          nombres: 'Luis',
-          apellidos: 'Ramírez',
-          correo: 'luis.ramirez@example.com',
-          telefono: '3204567890',
-        },
-        activo: true,
-        contrato: 'Indefinido',
-        fechaIngreso: new Date('2019-11-01'),
-        id: 3,
-        tipoDocumento: 1,
-        idMunicipio: 103,
-        idUsuario: 203,
-        nombres: 'Pedro',
-        apellidos: 'Sánchez',
-        fechaNacimiento: new Date('1992-07-10'),
-        correo: 'pedro.sanchez@example.com',
-      },
-      {
-        idTrainer: 4,
-        emergencyContact: {
-          id: 104,
-          tipoDocumento: 'CC',
-          idTrainer: 4,
-          nombres: 'Laura',
-          apellidos: 'Hernández',
-          correo: 'laura.hernandez@example.com',
-          telefono: '3006543210',
-        },
-        activo: true,
-        contrato: 'Indefinido',
-        fechaIngreso: new Date('2022-02-20'),
-        id: 4,
-        tipoDocumento: 1,
-        idMunicipio: 104,
-        idUsuario: 204,
-        nombres: 'Sofía',
-        apellidos: 'Torres',
-        fechaNacimiento: new Date('1995-12-25'),
-        correo: 'sofia.torres@example.com',
-      },
-      {
-        idTrainer: 5,
-        emergencyContact: {
-          id: 105,
-          tipoDocumento: 'TI',
-          idTrainer: 5,
-          nombres: 'Andrés',
-          apellidos: 'Morales',
-          correo: 'andres.morales@example.com',
-          telefono: '3101239876',
-        },
-        activo: false,
-        contrato: 'Temporal',
-        fechaIngreso: new Date('2023-05-05'),
-        id: 5,
-        tipoDocumento: 2,
-        idMunicipio: 105,
-        idUsuario: 205,
-        nombres: 'Diego',
-        apellidos: 'Vargas',
-        fechaNacimiento: new Date('1988-09-30'),
-        correo: 'diego.vargas@example.com',
-      },
-      {
-        idTrainer: 6,
-        emergencyContact: {
-          id: 106,
-          tipoDocumento: 'CC',
-          idTrainer: 6,
-          nombres: 'Paula',
-          apellidos: 'Castro',
-          correo: 'paula.castro@example.com',
-          telefono: '3207896541',
-        },
-        activo: true,
-        contrato: 'Indefinido',
-        fechaIngreso: new Date('2020-08-18'),
-        id: 6,
-        tipoDocumento: 1,
-        idMunicipio: 106,
-        idUsuario: 206,
-        nombres: 'Camila',
-        apellidos: 'Rojas',
-        fechaNacimiento: new Date('1993-04-12'),
-        correo: 'camila.rojas@example.com',
-      },
-      {
-        idTrainer: 7,
-        emergencyContact: {
-          id: 107,
-          tipoDocumento: 'CC',
-          idTrainer: 7,
-          nombres: 'Jorge',
-          apellidos: 'Mendoza',
-          correo: 'jorge.mendoza@example.com',
-          telefono: '3009871234',
-        },
-        activo: true,
-        contrato: 'Indefinido',
-        fechaIngreso: new Date('2018-03-22'),
-        id: 7,
-        tipoDocumento: 1,
-        idMunicipio: 107,
-        idUsuario: 207,
-        nombres: 'Esteban',
-        apellidos: 'López',
-        fechaNacimiento: new Date('1991-01-10'),
-        correo: 'esteban.lopez@example.com',
-      },
-      {
-        idTrainer: 8,
-        emergencyContact: {
-          id: 108,
-          tipoDocumento: 'TI',
-          idTrainer: 8,
-          nombres: 'Carolina',
-          apellidos: 'García',
-          correo: 'carolina.garcia@example.com',
-          telefono: '3106547890',
-        },
-        activo: false,
-        contrato: 'Temporal',
-        fechaIngreso: new Date('2021-09-15'),
-        id: 8,
-        tipoDocumento: 2,
-        idMunicipio: 108,
-        idUsuario: 208,
-        nombres: 'Valentina',
-        apellidos: 'Pérez',
-        fechaNacimiento: new Date('1987-06-05'),
-        correo: 'valentina.perez@example.com',
-      },
-      {
-        idTrainer: 9,
-        emergencyContact: {
-          id: 109,
-          tipoDocumento: 'CC',
-          idTrainer: 9,
-          nombres: 'Ricardo',
-          apellidos: 'Ortiz',
-          correo: 'ricardo.ortiz@example.com',
-          telefono: '3203216547',
-        },
-        activo: true,
-        contrato: 'Indefinido',
-        fechaIngreso: new Date('2017-12-01'),
-        id: 9,
-        tipoDocumento: 1,
-        idMunicipio: 109,
-        idUsuario: 209,
-        nombres: 'Sebastián',
-        apellidos: 'Ramírez',
-        fechaNacimiento: new Date('1994-11-20'),
-        correo: 'sebastian.ramirez@example.com',
-      },
-      {
-        idTrainer: 10,
-        emergencyContact: {
-          id: 110,
-          tipoDocumento: 'TI',
-          idTrainer: 10,
-          nombres: 'Natalia',
-          apellidos: 'Cruz',
-          correo: 'natalia.cruz@example.com',
-          telefono: '3109873210',
-        },
-        activo: false,
-        contrato: 'Temporal',
-        fechaIngreso: new Date('2023-01-10'),
-        id: 10,
-        tipoDocumento: 2,
-        idMunicipio: 110,
-        idUsuario: 210,
-        nombres: 'Daniela',
-        apellidos: 'Fernández',
-        fechaNacimiento: new Date('1989-02-14'),
-        correo: 'daniela.fernandez@example.com',
-      },
-    ]);
- */

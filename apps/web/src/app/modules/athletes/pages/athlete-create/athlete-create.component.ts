@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AthleteRequest } from '@sacd/core/http/requests';
+import { AppRoutes } from '../../../../core/constants/app-routes.constant';
+import { mapFormToAthleteRequest } from '../../../../core/utils/map-athletle.util';
 import { AthleteApiService } from '@web/libs/athlete/services';
 import {
   AddressInfoComponent,
@@ -13,11 +14,9 @@ import {
   HeaderSubtitleComponent,
   HeaderTitleComponent,
 } from '@web/libs/shared/ui/titles';
-import { AppRoutes } from '../../../../core/constants';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-athlete-create',
   host: { class: 'page' },
   imports: [
     HeaderTitleComponent,
@@ -47,7 +46,7 @@ export default class AthleteCreateComponent extends UserDetailsFormComponent {
     if (this.form.invalid) return;
 
     this.isLoading.set(true);
-    this._athleteApi.create(this.mapToAthleteRequest()).subscribe({
+    this._athleteApi.create(mapFormToAthleteRequest(this.form)).subscribe({
       next: () => {
         this._router.navigate([AppRoutes.AthleteList]);
         this.isLoading.set(false);
@@ -71,42 +70,5 @@ export default class AthleteCreateComponent extends UserDetailsFormComponent {
 
   protected cancel(): void {
     this._router.navigate([AppRoutes.AthleteList]);
-  }
-
-  private mapToAthleteRequest(): AthleteRequest {
-    const { addressInfo, generalInfo, tutorInfo } = this.form.getRawValue();
-
-    if (!generalInfo || !addressInfo || !tutorInfo) {
-      throw new Error('Missing required fields');
-    }
-
-    return {
-      personaClub: {
-        tipoDocumento: generalInfo.tipoDocumento,
-        numeroDocumento: String(generalInfo.numeroDocumento),
-        idMunicipio: Number(addressInfo.ciudad),
-        nombres: generalInfo.nombres,
-        apellidos: generalInfo.apellidos,
-        fechaNacimento: new Date(generalInfo.fechaNacimiento),
-        tipoRh: generalInfo.tipoRH,
-        peso: generalInfo.peso,
-        altura: generalInfo.altura,
-        correo: generalInfo.correo,
-        numeroTelefono: String(generalInfo.telefono),
-        tallaCamisa: generalInfo.tallaCamisa,
-        tallaCalzado: String(generalInfo.tallaCalzado),
-        tallaPantaloneta: String(generalInfo.tallaPantalon),
-        genero: generalInfo.genero,
-        direccion: addressInfo.direccion,
-      },
-      tutor: {
-        nombres: tutorInfo.nombres,
-        apellidos: tutorInfo.apellidos,
-        correo: tutorInfo.correo,
-        numeroDocumento: String(tutorInfo.numeroDocumento),
-        tipoDocumento: tutorInfo.tipoDocumento,
-        telefono: String(tutorInfo.telefono),
-      },
-    };
   }
 }

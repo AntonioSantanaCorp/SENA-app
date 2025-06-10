@@ -16,14 +16,6 @@ model CargosAdmin {
     @@map("tb_cargos_admin")
 }
 
-model Categoria {
-    id         String      @id
-    nombre     String?     @db.Text
-    Deportista Deportista?
-
-    @@map("tb_categorias")
-}
-
 model PersonaClub {
     id               Int         @id @default(autoincrement())
     numeroDocumento  String      @map("numero_documento") @db.VarChar(100)
@@ -52,26 +44,26 @@ model PersonaClub {
 }
 
 model ContactosEmergencia {
-    id            Int         @id @default(autoincrement())
-    tipoDocumento String      @map("tipo_documento") @db.VarChar(10)
-    idEntrenador  Int?        @map("id_entrenador")
-    nombres       String?     @db.VarChar(5000)
-    apellidos     String?     @db.VarChar(5000)
-    correo        String?     @db.Text
-    telefono      String?     @db.Text
-    entrenador    Entrenador? @relation(fields: [idEntrenador], references: [id])
+    id              Int         @id @default(autoincrement())
+    tipoDocumento   String      @map("tipo_documento") @db.VarChar(10)
+    numeroDocumento String?     @map("numero_documento") @db.VarChar(100)
+    nombres         String?     @db.VarChar(5000)
+    apellidos       String?     @db.VarChar(5000)
+    correo          String?     @db.Text
+    telefono        String?     @db.Text
+    entrenador      Entrenador?
 
     @@map("tb_contactos_emergencia")
 }
 
 model Entrenador {
-    id                  Int                   @id @default(autoincrement())
-    idPersonaClub       Int                   @unique @map("id_persona_club")
-    fechaIngreso        DateTime?             @map("fecha_ingreso") @db.Date
-    activo              Boolean?
-    contrato            Bytes?                @db.Blob
-    contactosEmergencia ContactosEmergencia[]
-    personaClub         PersonaClub           @relation(fields: [idPersonaClub], references: [id])
+    id                   Int                  @id @default(autoincrement())
+    idPersonaClub        Int                  @unique @map("id_persona_club")
+    idContactoEmergencia Int?                 @unique @map("id_contacto_emergencia")
+    fechaIngreso         DateTime?            @map("fecha_ingreso") @db.Date
+    activo               Boolean?
+    contactosEmergencia  ContactosEmergencia? @relation(fields: [idContactoEmergencia], references: [id])
+    personaClub          PersonaClub          @relation(fields: [idPersonaClub], references: [id])
 
     @@index([idPersonaClub], map: "fk_entrenadores_personas")
     @@map("tb_entrenadores")
@@ -94,15 +86,13 @@ model Deportista {
     id                  Int                  @id @default(autoincrement())
     idTutor             Int?                 @unique @map("id_tutor")
     idPersonaClub       Int                  @unique @map("id_persona_club")
-    idCategoria         String?              @unique @map("id_categoria")
+    categoria           String
     activo              Boolean?
     tutor               Tutor?               @relation(fields: [idTutor], references: [id])
     personaClub         PersonaClub          @relation(fields: [idPersonaClub], references: [id])
-    categoria           Categoria?           @relation(fields: [idCategoria], references: [id])
     desercionDeportista DesercionDeportista?
     pagosDeportista     PagoDeportista[]
 
-    @@index([idCategoria], map: "fk_deportistas_categoria")
     @@index([idPersonaClub], map: "fk_deportistas_personas")
     @@index([idTutor], map: "fk_deportistas_tutor")
     @@map("tb_deportistas")

@@ -4,18 +4,12 @@
 </ui-header-title>
 
 <span>
-  En este formulario podras <strong> contratar un entrenador</strong>, recuerda
-  subir el contrato firmado por el entrenador
+  En este formulario podras <strong> contratar un entrenador</strong>
 </span>
 
 <section>
   <ui-header-subtitle> Informacion general </ui-header-subtitle>
-  <ui-user-general-info>
-    <ui-control-input attrFor="contrato">
-      <label>Cargar contrato</label>
-      <input type="file" [formControl]="contract" accept="application/pdf" />
-    </ui-control-input>
-  </ui-user-general-info>
+  <ui-user-general-info> </ui-user-general-info>
 </section>
 
 <section>
@@ -27,10 +21,22 @@
   <ui-header-subtitle>Informacion tutor </ui-header-subtitle>
   <ui-tutor-info></ui-tutor-info>
 </section>
-
 <footer class="d-flex gap-2 justify-content-end">
-  <button class="btn btn-outline-danger">Cancelar</button>
-  <button class="btn btn-primary" (click)="create()">
-    Contratar entrenador
+  <button
+    class="btn btn-outline-danger"
+    [disabled]="isLoading()"
+    (click)="cancel()"
+  >
+    Cancelar
+  </button>
+  <button
+    class="btn btn-primary d-flex gap-2 align-items-center"
+    [disabled]="isLoading()"
+    (click)="create()"
+  >
+    @if (isLoading()) {
+    <div class="spinner"></div>
+    }
+    <span>Contratar entrenador</span>
   </button>
 </footer>

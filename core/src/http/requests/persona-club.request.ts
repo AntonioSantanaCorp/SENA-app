@@ -4,7 +4,7 @@ export interface PersonClubRequest {
   idMunicipio: number;
   nombres: string;
   apellidos: string;
-  fechaNacimento: Date;
+  fechaNacimento: string;
   tipoRh: string;
   peso: number;
   altura: number;

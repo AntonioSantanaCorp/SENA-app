@@ -1,6 +1,11 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  signal,
+} from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ControlInputComponent } from '@web/libs/shared/ui/control-field';
+import { Router } from '@angular/router';
 import {
   AddressInfoComponent,
   TutorInfoComponent,
@@ -11,7 +16,11 @@ import {
   HeaderSubtitleComponent,
   HeaderTitleComponent,
 } from '@web/libs/shared/ui/titles';
-import { contractControl } from '../../form-controls/trainer-info.form';
+import { TrainerApiService } from '@web/libs/trainer/services';
+import { AppRoutes } from '../../../../core/constants/app-routes.constant';
+import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
+import { switchMap } from 'rxjs';
+import { mapTrainerResponseToForm } from '../../../../core/utils/map-trainer.util';
 
 @Component({
   host: { class: 'page' },
@@ -22,12 +31,34 @@ import { contractControl } from '../../form-controls/trainer-info.form';
     AddressInfoComponent,
     TutorInfoComponent,
     ReactiveFormsModule,
-    ControlInputComponent,
   ],
   templateUrl: './trainer-edit.component.html',
   styleUrl: './trainer-edit.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class TrainerEditComponent extends UserDetailsFormComponent {
-  protected readonly contract = contractControl();
+  public readonly id = input.required<string>();
+
+  protected readonly isLoading = signal(false);
+
+  constructor(
+    private readonly _trainerApi: TrainerApiService,
+    private readonly _router: Router
+  ) {
+    super();
+
+    toObservable(this.id)
+      .pipe(
+        switchMap((id) => this._trainerApi.getById(id)),
+        takeUntilDestroyed()
+      )
+      .subscribe((trainer) => {
+        this.form.patchValue(mapTrainerResponseToForm(trainer));
+        this.form.markAllAsTouched();
+      });
+  }
+
+  protected cancel(): void {
+    this._router.navigate([AppRoutes.TrainerList]);
+  }
 }

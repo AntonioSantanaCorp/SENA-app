@@ -22,7 +22,8 @@
   <ng-container cdkColumnDef="documento">
     <th cdk-header-cell *cdkHeaderCellDef>Documento</th>
     <td cdk-cell *cdkCellDef="let element">
-      {{ element.tipoDocumento }} {{ element.personaClub.numeroDocumento }}
+      {{ element.personaClub.tipoDocumento }}
+      {{ element.personaClub.numeroDocumento }}
     </td>
   </ng-container>
   <ng-container cdkColumnDef="estado">
@@ -33,7 +34,7 @@
   </ng-container>
   <ng-container cdkColumnDef="categoria">
     <th cdk-header-cell *cdkHeaderCellDef>Categoria</th>
-    <td cdk-cell *cdkCellDef="let element">{{ element.categoria.nombre }}</td>
+    <td cdk-cell *cdkCellDef="let element">{{ element.categoria }}</td>
   </ng-container>
   <ng-container cdkColumnDef="opciones">
     <th cdk-header-cell *cdkHeaderCellDef>Opciones</th>

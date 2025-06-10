@@ -1,7 +1,8 @@
-import { PersonClubDto, TutorDto } from '@api/shared';
 import { AthleteRequest } from '@sacd/core/http/requests';
-import { IsNotEmpty, ValidateNested } from 'class-validator';
 import { Type } from 'class-transformer';
+import { IsNotEmpty, ValidateNested } from 'class-validator';
+import { PersonClubDto } from '../../person-club/models/person-club.dto';
+import { TutorDto } from './tutor.dto';
 
 export class AthleteDto implements AthleteRequest {
   @IsNotEmpty({ message: 'personaClub no debe estar vacío' })

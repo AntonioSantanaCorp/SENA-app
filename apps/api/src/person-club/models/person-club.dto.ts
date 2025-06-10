@@ -1,5 +1,11 @@
 import { PersonClubRequest } from '@sacd/core/http/requests';
-import { IsDate, IsDateString, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
+import {
+  IsDateString,
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsString,
+} from 'class-validator';
 
 export class PersonClubDto implements PersonClubRequest {
   @IsNotEmpty()
@@ -23,7 +29,7 @@ export class PersonClubDto implements PersonClubRequest {
 
   @IsNotEmpty()
   @IsDateString()
-  fechaNacimento: Date;
+  fechaNacimento: string;
 
   @IsNotEmpty()
   @IsString()
