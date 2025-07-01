@@ -1,1 +1,414 @@
+<!-- Toolbar/Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">
+      <i class="fas fa-table-tennis me-2"></i>
+      Club Tenis de Mesa
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#inicio">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#nosotros">Nosotros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#servicios">Servicios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#horarios">Horarios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contacto">Contacto</a>
+        </li>
+      </ul>
+
+      <div class="navbar-nav">
+        @if (!isLoggedIn) {
+        <button
+          class="nav-link btn btn-outline-light me-2"
+          (click)="onLoginClick()"
+          (keyup.enter)="onLoginClick()"
+          (keyup.space)="onLoginClick()"
+          tabindex="0"
+        >
+          <i class="fas fa-sign-in-alt me-1"></i>
+          Iniciar Sesión
+        </button>
+
+        } @else {
+        <div class="dropdown">
+          <button
+            class="btn btn-outline-light dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+          >
+            <i class="fas fa-user me-1"></i>
+            Mi Cuenta
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-user-cog me-2"></i>Perfil</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">
+                <i class="fas fa-calendar me-2"></i>Mis Clases</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <button
+                class="dropdown-item"
+                (click)="onLogoutClick()"
+                (keyup.enter)="onLogoutClick()"
+                (keyup.space)="onLogoutClick()"
+                tabindex="0"
+              >
+                <i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión
+              </button>
+            </li>
+          </ul>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Landing Page Content -->
+@if (!isLoggedIn) {
+<!-- Hero Section -->
+<section id="inicio" class="hero-section">
+  <div class="container">
+    <div class="row align-items-center min-vh-100">
+      <div class="col-lg-6">
+        <h1 class="display-4 fw-bold text-white mb-4">
+          ¡Descubre la Pasión del Tenis de Mesa!
+        </h1>
+        <p class="lead text-white-50 mb-4">
+          Únete a nuestro club y mejora tus habilidades con los mejores
+          entrenadores y instalaciones de primer nivel.
+        </p>
+        <div class="d-flex gap-3">
+          <a href="#contacto" class="btn btn-primary btn-lg">
+            <i class="fas fa-play me-2"></i>
+            Comenzar Ahora
+          </a>
+          <a href="#nosotros" class="btn btn-outline-light btn-lg">
+            <i class="fas fa-info-circle me-2"></i>
+            Conoce Más
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center">
+        <div class="hero-image">
+          <div class="display-1">
+            <i class="fas fa-table-tennis-paddle-ball text-white opacity-75">
+            </i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Nosotros Section -->
+<section id="nosotros" class="py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h2 class="display-5 fw-bold">Sobre Nosotros</h2>
+        <p class="lead text-muted">Más de 15 años formando campeones</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body text-center p-4">
+            <div class="feature-icon mb-3 display-4">
+              <i class="fas fa-trophy text-primary"></i>
+            </div>
+            <h5 class="card-title">Campeones Formados</h5>
+            <p class="card-text">
+              Hemos formado múltiples campeones regionales y nacionales en tenis
+              de mesa.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body text-center p-4">
+            <div class="feature-icon mb-3 display-4">
+              <i class="fas fa-users text-primary"></i>
+            </div>
+            <h5 class="card-title">Comunidad Activa</h5>
+            <p class="card-text">
+              Más de 200 miembros activos de todas las edades y niveles de
+              habilidad.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body text-center p-4">
+            <div class="feature-icon mb-3 display-4">
+              <i class="fas fa-medal text-primary"></i>
+            </div>
+            <h5 class="card-title">Instalaciones Premium</h5>
+            <p class="card-text">
+              Mesas profesionales, equipamiento de alta calidad y ambiente
+              acogedor.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Servicios Section -->
+<section id="servicios" class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h2 class="display-5 fw-bold">Nuestros Servicios</h2>
+        <p class="lead text-muted">
+          Todo lo que necesitas para mejorar tu juego
+        </p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="service-item d-flex align-items-start">
+          <div class="service-icon me-3">
+            <i class="fas fa-graduation-cap text-primary fs-2"></i>
+          </div>
+          <div>
+            <h5>Clases Particulares</h5>
+            <p class="text-muted">
+              Entrenamiento personalizado con instructores certificados para
+              todos los niveles.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="service-item d-flex align-items-start">
+          <div class="service-icon me-3">
+            <i class="fas fa-users text-primary fs-2"></i>
+          </div>
+          <div>
+            <h5>Clases Grupales</h5>
+            <p class="text-muted">
+              Aprende en grupo con otros jugadores de tu nivel y mejora juntos.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="service-item d-flex align-items-start">
+          <div class="service-icon me-3">
+            <i class="fas fa-trophy text-primary fs-2"></i>
+          </div>
+          <div>
+            <h5>Competiciones</h5>
+            <p class="text-muted">
+              Participa en torneos internos y representamos al club en
+              competencias externas.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="service-item d-flex align-items-start">
+          <div class="service-icon me-3">
+            <i class="fas fa-clock text-primary fs-2"></i>
+          </div>
+          <div>
+            <h5>Práctica Libre</h5>
+            <p class="text-muted">
+              Acceso libre a las instalaciones durante horarios establecidos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Horarios Section -->
+<section id="horarios" class="py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h2 class="display-5 fw-bold">Horarios de Clases</h2>
+        <p class="lead text-muted">Encuentra el horario perfecto para ti</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead class="table-primary">
+              <tr>
+                <th>Día</th>
+                <th>Horario</th>
+                <th>Nivel</th>
+                <th>Instructor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Lunes - Miércoles</td>
+                <td>6:00 PM - 8:00 PM</td>
+                <td>Principiantes</td>
+                <td>Carlos Rodríguez</td>
+              </tr>
+              <tr>
+                <td>Martes - Jueves</td>
+                <td>7:00 PM - 9:00 PM</td>
+                <td>Intermedio</td>
+                <td>María González</td>
+              </tr>
+              <tr>
+                <td>Viernes</td>
+                <td>6:00 PM - 9:00 PM</td>
+                <td>Avanzado</td>
+                <td>Luis Martínez</td>
+              </tr>
+              <tr>
+                <td>Sábado</td>
+                <td>9:00 AM - 12:00 PM</td>
+                <td>Todos los niveles</td>
+                <td>Equipo completo</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contacto Section -->
+<section id="contacto" class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h2 class="display-5 fw-bold">Contáctanos</h2>
+        <p class="lead text-muted">Estamos aquí para ayudarte</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="contact-info">
+          <h5 class="mb-4">Información de Contacto</h5>
+          <div class="d-flex align-items-center mb-3">
+            <i class="fas fa-map-marker-alt text-primary me-3"></i>
+            <div>
+              <strong>Dirección:</strong><br />
+              Calle Principal #123, Ciudad
+            </div>
+          </div>
+          <div class="d-flex align-items-center mb-3">
+            <i class="fas fa-phone text-primary me-3"></i>
+            <div>
+              <strong>Teléfono:</strong><br />
+              (123) 456-7890
+            </div>
+          </div>
+          <div class="d-flex align-items-center mb-3">
+            <i class="fas fa-envelope text-primary me-3"></i>
+            <div>
+              <strong>Email:</strong><br />
+              info&#64;clubtenisdemesa.com
+            </div>
+          </div>
+          <div class="d-flex align-items-center">
+            <i class="fas fa-clock text-primary me-3"></i>
+            <div>
+              <strong>Horario:</strong><br />
+              Lunes a Sábado: 6:00 AM - 10:00 PM
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <form class="contact-form">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre completo</label>
+            <input type="text" class="form-control" id="nombre" required />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" required />
+          </div>
+          <div class="mb-3">
+            <label for="mensaje" class="form-label">Mensaje</label>
+            <textarea
+              class="form-control"
+              id="mensaje"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-paper-plane me-2"></i>
+            Enviar Mensaje
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Club Tenis de Mesa</h5>
+        <p class="text-muted">Formando campeones desde 2008</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <div class="social-links">
+          <a href="#" class="text-white me-3"
+            ><i class="fab fa-facebook"></i
+          ></a>
+          <a href="#" class="text-white me-3"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-12 text-center">
+        <p class="mb-0 text-muted">
+          &copy; 2024 Club Tenis de Mesa. Todos los derechos reservados.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+} @else {
+<!-- Si está logueado, mostrar el contenido de la aplicación -->
 <router-outlet></router-outlet>
+}

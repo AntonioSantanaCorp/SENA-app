@@ -3,6 +3,7 @@ export const AppBaseRoutes = {
   Athlete: 'athlete',
   Trainer: 'trainer',
   AdminArea: 'area-admin',
+  Landing: 'landing',
 } as const;
 
 export const AppRoutes = {

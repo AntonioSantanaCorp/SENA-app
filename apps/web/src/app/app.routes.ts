@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
+import { AppBaseRoutes } from './core/constants';
 import { LayoutComponent } from './layout/layout.component';
-import { AppBaseRoutes, AppRoutes } from './core/constants';
 
 export const routes: Routes = [
   {
@@ -21,5 +21,5 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '**', redirectTo: AppRoutes.Login },
+  { path: '**', redirectTo: '' },
 ];
