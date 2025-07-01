@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrl: './landing-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LandingPageComponent {
+export default class LandingPageComponent {
   protected isLoggedIn = false;
 
   constructor(private router: Router) {

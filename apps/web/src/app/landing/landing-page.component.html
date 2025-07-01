@@ -35,7 +35,6 @@
       </ul>
 
       <div class="navbar-nav">
-        @if (!isLoggedIn) {
         <button
           class="nav-link btn btn-outline-light me-2"
           (click)="onLoginClick()"
@@ -46,43 +45,6 @@
           <i class="fas fa-sign-in-alt me-1"></i>
           Iniciar Sesión
         </button>
-
-        } @else {
-        <div class="dropdown">
-          <button
-            class="btn btn-outline-light dropdown-toggle"
-            type="button"
-            data-bs-toggle="dropdown"
-          >
-            <i class="fas fa-user me-1"></i>
-            Mi Cuenta
-          </button>
-          <ul class="dropdown-menu">
-            <li>
-              <a class="dropdown-item" href="#"
-                ><i class="fas fa-user-cog me-2"></i>Perfil</a
-              >
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">
-                <i class="fas fa-calendar me-2"></i>Mis Clases</a
-              >
-            </li>
-            <li><hr class="dropdown-divider" /></li>
-            <li>
-              <button
-                class="dropdown-item"
-                (click)="onLogoutClick()"
-                (keyup.enter)="onLogoutClick()"
-                (keyup.space)="onLogoutClick()"
-                tabindex="0"
-              >
-                <i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión
-              </button>
-            </li>
-          </ul>
-        </div>
-        }
       </div>
     </div>
   </div>
