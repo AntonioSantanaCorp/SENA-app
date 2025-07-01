@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { Routes } from '@angular/router';
-import { AuthService } from '@sacd/auth';
+import { AuthService } from '@web/libs/auth/services';
 import { AppBaseRoutes } from './core/constants';
 import { LayoutComponent } from './layout/layout.component';
 

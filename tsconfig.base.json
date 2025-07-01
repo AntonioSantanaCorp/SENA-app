@@ -21,7 +21,9 @@
       "@web/libs/athlete/*": ["apps/web/src/libs/athlete/src/*"],
       "@web/libs/locations": ["apps/web/src/libs/locations/src/index.ts"],
       "@web/libs/shared/*": ["apps/web/src/libs/shared/src/*"],
-      "@web/libs/trainer/*": ["apps/web/src/libs/trainer/src/*"]
+      "@web/libs/trainer/*": ["apps/web/src/libs/trainer/src/*"],
+      "@web/libs/auth/*": ["apps/web/src/libs/auth/src/*"]
+
     }
   },
   "exclude": ["node_modules", "tmp"]
