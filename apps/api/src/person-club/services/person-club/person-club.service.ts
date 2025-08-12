@@ -7,13 +7,13 @@ export class PersonClubService {
   constructor(private readonly _db: DatabaseService) {}
 
   public create(person: PersonClubRequest): Promise<PersonaClub> {
-    return this._db.personaClub.create({
+    return this._db.prisma.personaClub.create({
       data: { ...person, fechaNacimento: new Date(person.fechaNacimento) },
     });
   }
 
   public update(id: number, person: PersonClubRequest): Promise<PersonaClub> {
-    return this._db.personaClub.update({
+    return this._db.prisma.personaClub.update({
       where: { id },
       data: {
         ...person,
