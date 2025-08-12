@@ -15,7 +15,7 @@ export class TrainerService {
   ) {}
 
   public async getTrainers(): Promise<TrainerResponse[]> {
-    const trainers = await this._db.entrenador.findMany({
+    const trainers = await this._db.prisma.entrenador.findMany({
       include: { personaClub: true, contactosEmergencia: true },
     });
 
@@ -27,7 +27,7 @@ export class TrainerService {
   }
 
   public async getTrainerById(id: number): Promise<TrainerResponse> {
-    const trainer = await this._db.entrenador.findUnique({
+    const trainer = await this._db.prisma.entrenador.findUnique({
       where: { id },
       include: { personaClub: true, contactosEmergencia: true },
     });
@@ -39,12 +39,12 @@ export class TrainerService {
     try {
       const [createdPersonClub, createdEmergencyContact] = await Promise.all([
         this._personClubService.create(trainer.personaClub),
-        this._db.contactosEmergencia.create({
+        this._db.prisma.contactosEmergencia.create({
           data: { ...trainer.contactosEmergencia },
         }),
       ]);
 
-      const createdTrainer = await this._db.entrenador.create({
+      const createdTrainer = await this._db.prisma.entrenador.create({
         data: {
           idPersonaClub: createdPersonClub.id,
           idContactoEmergencia: createdEmergencyContact.id,
@@ -68,7 +68,7 @@ export class TrainerService {
     trainer: TrainerDto
   ): Promise<TrainerResponse> {
     try {
-      const trainerDb = await this._db.entrenador.findUnique({
+      const trainerDb = await this._db.prisma.entrenador.findUnique({
         where: { id },
         include: { personaClub: true },
       });
@@ -80,7 +80,7 @@ export class TrainerService {
           trainerDb.idPersonaClub,
           trainer.personaClub
         ),
-        this._db.contactosEmergencia.update({
+        this._db.prisma.contactosEmergencia.update({
           where: { id: trainerDb.idContactoEmergencia },
           data: { ...trainer.contactosEmergencia },
         }),

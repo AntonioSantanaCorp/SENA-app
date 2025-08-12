@@ -82,5 +82,6 @@
         "targetName": "eslint:lint"
       }
     }
-  ]
+  ],
+  "ignore": ["apps/api/database/generated/**"]
 }

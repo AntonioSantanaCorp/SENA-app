@@ -18,7 +18,7 @@ export class AthleteService {
   ) {}
 
   public async getAthletes(): Promise<AthleteResponse[]> {
-    const athletes = await this._db.deportista.findMany({
+    const athletes = await this._db.prisma.deportista.findMany({
       include: { personaClub: true, tutor: true },
     });
 
@@ -30,7 +30,7 @@ export class AthleteService {
   }
 
   public async getAthleteById(id: number): Promise<AthleteResponse> {
-    const athlete = await this._db.deportista.findUnique({
+    const athlete = await this._db.prisma.deportista.findUnique({
       where: { id },
       include: { personaClub: true, tutor: true },
     });
@@ -44,10 +44,10 @@ export class AthleteService {
     try {
       const [createdPersonClub, createdTutor] = await Promise.all([
         this._personClubService.create(athlete.personaClub),
-        this._db.tutor.create({ data: { ...athlete.tutor } }),
+        this._db.prisma.tutor.create({ data: { ...athlete.tutor } }),
       ]);
 
-      const createdDeportista = await this._db.deportista.create({
+      const createdDeportista = await this._db.prisma.deportista.create({
         data: {
           idTutor: createdTutor.id,
           idPersonaClub: createdPersonClub.id,
@@ -74,7 +74,7 @@ export class AthleteService {
     athlete: AthleteDto
   ): Promise<AthleteResponse> {
     try {
-      const athleteDb = await this._db.deportista.findUnique({
+      const athleteDb = await this._db.prisma.deportista.findUnique({
         where: { id },
         include: { personaClub: true },
       });
@@ -86,11 +86,11 @@ export class AthleteService {
           athleteDb.idPersonaClub,
           athlete.personaClub
         ),
-        this._db.tutor.update({
+        this._db.prisma.tutor.update({
           where: { id: athleteDb.idTutor },
           data: { ...athlete.tutor },
         }),
-        this._db.deportista.update({
+        this._db.prisma.deportista.update({
           where: { id },
           data: {
             categoria: CategoriesGenerator.getCategory(
@@ -117,8 +117,8 @@ export class AthleteService {
     const { id, reason, description } = request;
 
     await Promise.all([
-      this._db.deportista.update({ where: { id }, data: { activo: false } }),
-      this._db.desercionDeportista.create({
+      this._db.prisma.deportista.update({ where: { id }, data: { activo: false } }),
+      this._db.prisma.desercionDeportista.create({
         data: {
           idDeportista: id,
           fechaDesercion: new Date(),

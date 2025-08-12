@@ -1,10 +1,8 @@
-USE SENA;
-SET SQL_SAFE_UPDATES = 0;
-DELETE FROM tb_municipio;
-SET SQL_SAFE_UPDATES = 1;
--- ALTER TABLE tb_municipio ADD COLUMN estado TINYINT(1) NOT NULL DEFAULT 1;
-INSERT INTO tb_municipio (`id`, `nombre`, `estado`, `id_departamento`)
-VALUES
+-- PostgreSQL-compatible data load for tb_municipio
+TRUNCATE TABLE tb_municipio RESTART IDENTITY CASCADE;
+INSERT INTO tb_municipio (id, nombre, estado, id_departamento)
+SELECT id, nombre, (estado = 1) AS estado, id_departamento
+FROM (VALUES
 	(1,'Abriaquí',1,5),
 	(2,'Acacías',1,50),
 	(3,'Acandí',1,27),
@@ -1104,4 +1102,5 @@ VALUES
 	(1097,'Ábrego',1,54),
 	(1098,'Íquira',1,41),
 	(1099,'Úmbita',1,15),
-	(1100,'Útica',1,25);
+	(1100,'Útica',1,25)
+) AS t(id, nombre, estado, id_departamento);

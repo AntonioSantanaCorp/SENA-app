@@ -1,11 +1,9 @@
-USE SENA;
-SET SQL_SAFE_UPDATES = 0;
-DELETE FROM tb_departamento;
-SET SQL_SAFE_UPDATES = 1;
-INSERT INTO tb_departamento (`id`, `nombre`)
+-- PostgreSQL-compatible data load for tb_departamento
+truncate table tb_departamento restart identity cascade;
+INSERT INTO tb_departamento (id, nombre)
 VALUES
 	(5,'ANTIOQUIA'),
-	(8,'ATLÁNTICO'),
+    (8,'ATLANTICO'),
 	(11,'BOGOTÁ, D.C.'),
 	(13,'BOLÍVAR'),
 	(15,'BOYACÁ'),
@@ -22,7 +20,7 @@ VALUES
 	(50,'META'),
 	(52,'NARIÑO'),
 	(54,'NORTE DE SANTANDER'),
-	(63,'QUINDIO'),
+    (63,'QUINDIO'),
 	(66,'RISARALDA'),
 	(68,'SANTANDER'),
 	(70,'SUCRE'),
@@ -31,12 +29,12 @@ VALUES
 	(81,'ARAUCA'),
 	(85,'CASANARE'),
 	(86,'PUTUMAYO'),
-	(88,'ARCHIPIÉLAGO DE SAN ANDRÉS, PROVIDENCIA Y SANTA CATALINA'),
+    (88,'ARCHIPIELAGO DE SAN ANDRES, PROVIDENCIA Y SANTA CATALINA'),
 	(91,'AMAZONAS'),
 	(94,'GUAINÍA'),
 	(95,'GUAVIARE'),
 	(97,'VAUPÉS'),
 	(99,'VICHADA');
-SELECT * FROM tb_departamento;
+-- SELECT * FROM tb_departamento;
 
 

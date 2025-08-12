@@ -1,3 +1,3 @@
-insert into tb_categorias values(
-	'SUB-20',"Juvenil"
-)
+insert into tb_categorias values (
+  'SUB-20','Juvenil'
+);
