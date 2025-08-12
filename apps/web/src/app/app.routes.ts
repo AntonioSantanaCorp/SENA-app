@@ -22,6 +22,7 @@ export const routes: Routes = [
         path: AppBaseRoutes.Trainer,
         loadChildren: () => import('./modules/trainers/trainers.routes'),
       },
+      { path: '', redirectTo: AppBaseRoutes.Athlete, pathMatch: 'full' },
     ],
   },
   {

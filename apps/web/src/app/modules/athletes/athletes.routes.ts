@@ -19,6 +19,7 @@ export default [
         loadComponent: () =>
           import('./pages/athlete-create/athlete-create.component'),
       },
+      { path: '', redirectTo: 'list', pathMatch: 'full' },
     ],
   },
 ] satisfies Route[];

@@ -31,12 +31,14 @@ apps/
 ## Instalación
 
 1. Clona el repositorio:
+
    ```bash
    git clone https://github.com/AntonioSantanaCorp/SENA-app.git
    cd SENA-app
    ```
 
 2. Instala las dependencias:
+
    ```bash
    npm install
    ```
@@ -58,13 +60,6 @@ apps/
      ```bash
      npx prisma migrate dev --name init
      ```
-   - (Opcional) Cargar datos de departamentos, municipios y categorías mediante scripts SQL ya compatibles con Postgres:
-     ```bash
-     # Desde la raíz del repo
-     psql "$DIRECT_DATABASE_URL" -v "ON_ERROR_STOP=1" -f database-scripts/02-Create\ departamentos.sql
-     psql "$DIRECT_DATABASE_URL" -v "ON_ERROR_STOP=1" -f database-scripts/02-Create\ municipios.sql
-     psql "$DIRECT_DATABASE_URL" -v "ON_ERROR_STOP=1" -f database-scripts/03-Create\ categorias.sql
-     ```
 
 ## Levantar el proyecto
 
@@ -75,6 +70,7 @@ npm start
 ```
 
 Esto ejecutará ambos servicios:
+
 - **Frontend**: Angular (por defecto en `http://localhost:4200`)
 - **Backend**: NestJS API (por defecto en `http://localhost:3000`)
 

@@ -47,5 +47,4 @@ Thumbs.db
 .github\instructions\nx.instructions.md
 
 # Prisma Client generado
-apps/api/libs/database/generated/
-
+apps/api/database/generated/
