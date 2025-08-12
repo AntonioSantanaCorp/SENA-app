@@ -5,7 +5,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -20,13 +20,13 @@ model PersonaClub {
   id               Int         @id @default(autoincrement())
   numeroDocumento  String      @map("numero_documento") @db.VarChar(100)
   tipoDocumento    String      @map("tipo_documento") @db.VarChar(10)
-  idMunicipio      Int         @unique @map("id_municipio")
+  idMunicipio      Int         @map("id_municipio")
   nombres          String      @db.VarChar(500)
   apellidos        String      @db.VarChar(500)
   fechaNacimento   DateTime?   @map("fecha_nacimento") @db.Date
   tipoRh           String?     @map("tipo_rh") @db.VarChar(100)
-  peso             Float?      @db.Float
-  altura           Float?      @db.Float
+  peso             Float?      @db.DoublePrecision
+  altura           Float?      @db.DoublePrecision
   correo           String      @db.VarChar(500)
   numeroTelefono   String      @map("numero_telefono") @db.VarChar(100)
   tallaCamisa      String?     @map("talla_camisa") @db.VarChar(100)
@@ -150,16 +150,16 @@ model Usuario {
 }
 
 model Departamento {
-  id        Int        @id @default(autoincrement())
-  nombre    String?    @db.VarChar(800)
-  municipio Municipio?
+  id        Int         @id @default(autoincrement())
+  nombre    String?     @db.VarChar(800)
+  municipio Municipio[]
 
   @@map("tb_departamento")
 }
 
 model Municipio {
   id             Int           @id @default(autoincrement())
-  idDepartamento Int           @unique @map("id_departamento")
+  idDepartamento Int           @map("id_departamento")
   nombre         String?       @db.VarChar(800)
   estado         Boolean?
   personaClub    PersonaClub[]

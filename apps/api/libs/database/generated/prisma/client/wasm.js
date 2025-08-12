@@ -20,12 +20,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 6.8.2
- * Query Engine version: 2060c79ba17c6bb9f5823312b6f6b7f4a845738e
+ * Prisma Client JS version: 6.13.0
+ * Query Engine version: 361e86d0ea4987e9f53a565309b3eed797a6bcbd
  */
 Prisma.prismaVersion = {
-  client: "6.8.2",
-  engine: "2060c79ba17c6bb9f5823312b6f6b7f4a845738e"
+  client: "6.13.0",
+  engine: "361e86d0ea4987e9f53a565309b3eed797a6bcbd"
 }
 
 Prisma.PrismaClientKnownRequestError = () => {
@@ -243,77 +243,14 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
+exports.Prisma.QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+};
+
 exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
-};
-
-exports.Prisma.CargosAdminOrderByRelevanceFieldEnum = {
-  nombre: 'nombre'
-};
-
-exports.Prisma.PersonaClubOrderByRelevanceFieldEnum = {
-  numeroDocumento: 'numeroDocumento',
-  tipoDocumento: 'tipoDocumento',
-  nombres: 'nombres',
-  apellidos: 'apellidos',
-  tipoRh: 'tipoRh',
-  correo: 'correo',
-  numeroTelefono: 'numeroTelefono',
-  tallaCamisa: 'tallaCamisa',
-  tallaCalzado: 'tallaCalzado',
-  tallaPantaloneta: 'tallaPantaloneta',
-  genero: 'genero',
-  direccion: 'direccion'
-};
-
-exports.Prisma.ContactosEmergenciaOrderByRelevanceFieldEnum = {
-  tipoDocumento: 'tipoDocumento',
-  numeroDocumento: 'numeroDocumento',
-  nombres: 'nombres',
-  apellidos: 'apellidos',
-  correo: 'correo',
-  telefono: 'telefono'
-};
-
-exports.Prisma.TutorOrderByRelevanceFieldEnum = {
-  tipoDocumento: 'tipoDocumento',
-  numeroDocumento: 'numeroDocumento',
-  nombres: 'nombres',
-  apellidos: 'apellidos',
-  correo: 'correo',
-  telefono: 'telefono'
-};
-
-exports.Prisma.DeportistaOrderByRelevanceFieldEnum = {
-  categoria: 'categoria'
-};
-
-exports.Prisma.DesercionDeportistaOrderByRelevanceFieldEnum = {
-  razon: 'razon',
-  descripcion: 'descripcion'
-};
-
-exports.Prisma.PagoDeportistaOrderByRelevanceFieldEnum = {
-  tipoPago: 'tipoPago'
-};
-
-exports.Prisma.UsuarioOrderByRelevanceFieldEnum = {
-  usuario: 'usuario',
-  contrasenia: 'contrasenia'
-};
-
-exports.Prisma.DepartamentoOrderByRelevanceFieldEnum = {
-  nombre: 'nombre'
-};
-
-exports.Prisma.MunicipioOrderByRelevanceFieldEnum = {
-  nombre: 'nombre'
-};
-
-exports.Prisma.TipoDocumentoOrderByRelevanceFieldEnum = {
-  tipoDocumento: 'tipoDocumento',
-  descripcion: 'descripcion'
 };
 
 
