@@ -8,7 +8,6 @@ import {
 
 @Component({
   selector: 'app-menu-list',
-  imports: [],
   host: { class: 'dropdown-menu' },
   templateUrl: './menu-list.component.html',
   styleUrl: './menu-list.component.scss',
