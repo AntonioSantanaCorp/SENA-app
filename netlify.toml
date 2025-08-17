@@ -1,6 +1,9 @@
 [build]
-  command = "npm ci && npx nx build web"
+  command = "npx nx build web"
   publish = "dist/apps/web/browser"
+
+[build.environment]
+  NPM_FLAGS = "--legacy-peer-deps"
 
 # Proxy del API: cambia el dominio por el de tu servicio en Render
 [[redirects]]
