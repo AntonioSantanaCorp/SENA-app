@@ -1,0 +1,21 @@
+[build]
+  command = "npx nx build web"
+  publish = "dist/apps/web/browser"
+
+[build.environment]
+  NPM_FLAGS = "--legacy-peer-deps"
+
+# Proxy del API: cambia el dominio por el de tu servicio en Render
+[[redirects]]
+  from = "/api/*"
+  to = "https://YOUR-RENDER-API.onrender.com/api/:splat"
+  status = 200
+  force = true
+
+# SPA fallback para Angular
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+
