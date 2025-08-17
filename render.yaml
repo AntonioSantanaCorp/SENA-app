@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: sacd-api
+    env: node
+    plan: free
+    region: oregon
+    autoDeploy: true
+    buildCommand: |
+      npm ci
+      npx prisma generate --schema apps/api/prisma/schema.prisma
+      npx nx build api
+      npx prisma migrate deploy --schema apps/api/prisma/schema.prisma
+    startCommand: node dist/apps/api/main.js
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: NODE_ENV
+        value: production
+
+
