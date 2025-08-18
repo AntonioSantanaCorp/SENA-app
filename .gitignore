@@ -46,5 +46,6 @@ Thumbs.db
 .cursor\rules\nx-rules.mdc
 .github\instructions\nx.instructions.md
 
-# Prisma Client generado
+# Prisma Client
 apps/api/database/generated/
+apps/api/.env
