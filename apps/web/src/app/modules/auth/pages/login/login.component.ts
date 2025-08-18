@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '@sacd/auth';
 import { ControlInputComponent } from '@web/libs/shared/ui/control-field';
 import { createAuthForm } from '../../form-controls/auth.form';
 
@@ -11,9 +12,16 @@ import { createAuthForm } from '../../form-controls/auth.form';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class LoginComponent {
+  private readonly _authService = inject(AuthService);
   protected readonly form = createAuthForm();
 
   onSubmit() {
     this.form.markAllAsTouched();
+
+    if (this.form.invalid) return;
+
+    const { user, password } = this.form.value;
+
+    this._authService.login(user!, password!);
   }
 }
